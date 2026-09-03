@@ -99,10 +99,6 @@
     color:var(--accent-deep);
   }
   h1{font-size:36px;font-weight:700;color:var(--ink);letter-spacing:-0.01em;}
-  @media (max-width:640px){
-    header.hero{padding:22px 20px;}
-    h1{font-size:28px;}
-  }
 
   .section-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:14px;flex-wrap:wrap;}
   .section-head h2{font-size:19px;display:flex;align-items:center;gap:9px;}
@@ -236,7 +232,10 @@
   .tab-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
   .tab-content{flex:1;min-width:0;}
   @media (max-width:720px){
-    .tab-layout{flex-direction:column;}
+    /* 세로로 쌓일 땐 교차축이 가로가 되므로 stretch로 돌려놔야 한다.
+       flex-start로 두면 탭 내용이 컨테이너가 아니라 콘텐츠 폭을 갖고 화면 밖으로 나간다. */
+    .tab-layout{flex-direction:column;align-items:stretch;}
+    .tab-content{width:100%;}
     .tab-nav{flex-direction:row;width:100%;overflow-x:auto;position:static;gap:8px;padding-bottom:2px;}
     .tab-btn{flex:none;white-space:nowrap;border-left:1px solid var(--line);border-bottom:3px solid transparent;}
     .tab-btn.active{border-bottom-color:var(--accent);}
@@ -350,15 +349,13 @@
   a.final-pick{cursor:pointer;transition:border-color .15s,color .15s;}
   a.final-pick:hover{border-color:var(--accent);color:var(--accent-deep);}
   a.final-pick:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
-  .final-bar-total{display:flex;align-items:baseline;gap:12px;}
-  .final-bar-copy{display:flex;flex-direction:column;gap:1px;}
+  .final-bar-total{display:flex;align-items:baseline;gap:12px;min-width:0;}
+  /* min-width:0 이 없으면 내역 텍스트의 min-content 폭만큼 행이 벌어져 바가 화면을 넘는다 */
+  .final-bar-copy{display:flex;flex-direction:column;gap:1px;min-width:0;}
   .final-bar-label{font-size:12px;color:var(--ink-soft);}
   .final-bar-sub{font-size:10.5px;color:var(--ink-faint);}
+  .sub-compact{display:none;}   /* 모바일에서만 켜짐 */
   .final-bar-value{font-size:20px;font-weight:700;color:var(--accent-deep);white-space:nowrap;}
-  @media (max-width:640px){
-    .final-bar-inner{padding:10px 14px;}
-    .final-bar-value{font-size:17px;}
-  }
 
   /* ---------- Date / flight cards ---------- */
   .cards{display:flex;flex-direction:column;gap:12px;margin-top:14px;}
@@ -444,6 +441,93 @@
   .checklist b{color:var(--good);}
   .sources{font-size:11.5px;color:var(--ink-faint);}
   .sources a{color:var(--ink-faint);}
+
+  /* ---------- 모바일 최적화 ---------- */
+  @media (max-width:640px){
+    /* 하단 여백은 JS가 고정 바 실측 높이로 덮어씀 — 이 값은 로드 직후용 */
+    .wrap{padding:20px 14px 190px;}
+    header.hero{padding:18px 16px;margin-bottom:20px;border-radius:16px;}
+    h1{font-size:24px;}
+    .eyebrow{font-size:11px;letter-spacing:0.1em;}
+    .section-head{margin-bottom:12px;}
+    .section-head h2{font-size:17px;}
+
+    /* 본문 최소 가독 크기 확보 — 10.5px는 손에 들고 보기엔 너무 작다 */
+    .section-head .hint,.basis-item .k,.basis-item .s,.basis-warn,
+    .trust-col li,.rank-criteria,.stay-note,.stay-why,.card-nights,
+    .flight-row,.assume-block ul,.assume-block p,.why-best li,
+    .final-bar-sub,.sources{font-size:12px;}
+    .trust-col li{line-height:1.5;}
+    .stay-feature,.stay-meal{font-size:12.5px;}
+
+    .basis{padding:12px 14px;}
+    .basis-grid{gap:8px;}
+    .basis-item{padding:9px 11px;}
+    .basis-item .v{font-size:14px;}
+    .flight-info-panel{padding:12px 13px;}
+    .trust-col{padding:10px 12px;}
+    .card{padding:14px 15px;}
+    .stay-card{padding:14px 15px;gap:12px;}
+
+    /* 달력: 한 화면에 더 많이 들어오게 */
+    .cal-strip{grid-template-columns:repeat(9,minmax(64px,1fr));gap:5px;}
+    .cal-cell{min-width:64px;padding:8px 6px;}
+    .cal-cell .date{font-size:15px;}
+    .cal-tag{font-size:10px;padding:2px 6px;}
+
+    /* 손가락으로 누를 수 있는 크기로 */
+    .live{padding:8px 10px;gap:7px;}
+    .live a,.stay-links a{
+      font-size:12px;padding:7px 12px;min-height:34px;
+      display:inline-flex;align-items:center;
+    }
+    .tab-btn{padding:10px 14px;}
+  }
+
+  /* 하단 고정 바 — 모바일에서 화면을 덜 차지하도록 */
+  @media (max-width:640px){
+    .final-bar-inner{
+      padding:9px 14px calc(9px + env(safe-area-inset-bottom,0px));
+      flex-direction:column;align-items:stretch;flex-wrap:nowrap;gap:7px;
+    }
+    .final-bar-picks,.final-bar-total{max-width:100%;min-width:0;}
+    /* 좁은 화면에선 긴 내역 대신 만원 단위 압축 표기를 쓴다 (바가 화면 1/4을 먹지 않게) */
+    .sub-full{display:none;}
+    .sub-compact{display:block;}
+    /* 좁은 폭에선 라벨·금액·내역을 각각 한 줄씩 쌓는다.
+       금액을 라벨 옆에 두면 폭을 다 먹어 라벨이 말줄임되고 내역이 3줄로 쪼개진다. */
+    .final-bar-total{
+      display:grid;grid-template-columns:1fr;
+      grid-template-areas:"label" "value" "sub";
+      align-items:baseline;row-gap:1px;
+    }
+    .final-bar-copy{display:contents;}
+    .final-bar-label{grid-area:label;font-size:11.5px;}
+    .final-bar-value{grid-area:value;font-size:19px;line-height:1.25;}
+    .sub-compact{grid-area:sub;}
+    /* 예약 링크는 줄바꿈 대신 가로 스크롤 — 세로 높이를 아낀다 */
+    .final-bar-picks{
+      flex-wrap:nowrap;overflow-x:auto;gap:6px;
+      -webkit-overflow-scrolling:touch;scrollbar-width:none;
+    }
+    .final-bar-picks::-webkit-scrollbar{display:none;}
+    .final-pick{flex:none;font-size:12px;padding:6px 11px;}
+    .final-bar-total{justify-content:space-between;align-items:center;gap:10px;}
+    .final-bar-value{font-size:18px;}
+    .final-bar-note{display:none;}   /* 조사 기준 문구는 상단 배너에 이미 있음 */
+  }
+
+  @media (max-width:380px){
+    .wrap{padding-left:11px;padding-right:11px;}
+    h1{font-size:22px;}
+    .final-bar-value{font-size:16px;}
+    .cal-strip{grid-template-columns:repeat(9,minmax(58px,1fr));}
+    .cal-cell{min-width:58px;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:0.01ms!important;transition-duration:0.01ms!important;}
+  }
 </style>
 </head>
 <body>
@@ -949,6 +1033,9 @@
     }).join('') + '</div>';
   }
 
+  // 모바일 하단 바용 압축 표기 — 495,000원 → 50만원
+  function manStr(n){ return Math.round(n/10000) + "만"; }
+  function manRange(a,b){ return manStr(a) + "~" + manStr(b) + "원"; }
   function fmt(n){ return Math.round(n/1000)*1000; }
   function wonStr(n){ return fmt(n).toLocaleString("ko-KR") + "원"; }
   function rangeStr(a,b){ return wonStr(a) + " ~ " + wonStr(b); }
@@ -1345,14 +1432,34 @@
         '<div class="final-bar-total">' +
           '<div class="final-bar-copy">' +
             '<span class="final-bar-label">최종 예상 비용 · 2인</span>' +
-            '<span class="final-bar-sub">' + c.range + ' · 항공 ' + rangeStr(t.air[0],t.air[1]) +
+            '<span class="final-bar-sub sub-full">' + c.range + ' · 항공 ' + rangeStr(t.air[0],t.air[1]) +
               ' + 숙소 ' + rangeStr(t.fLo+t.yLo, t.fHi+t.yHi) + '</span>' +
-            '<span class="final-bar-sub">※ ' + SURVEY_DATE + ' 실측 기준 · 실시간 시세 아님</span>' +
+            '<span class="final-bar-sub sub-compact">' + c.range.replace(/\([^)]*\)/g,'') +
+              ' · 항공 ' + manRange(t.air[0],t.air[1]) +
+              ' + 숙소 ' + manRange(t.fLo+t.yLo, t.fHi+t.yHi) + '</span>' +
+            '<span class="final-bar-sub final-bar-note">※ ' + SURVEY_DATE + ' 실측 기준 · 실시간 시세 아님</span>' +
           '</div>' +
           '<span class="final-bar-value mono">' + rangeStr(t.lo,t.hi) + '</span>' +
         '</div>' +
       '</div>';
+
+    requestAnimationFrame(syncBottomPad);
   }
+
+  // 고정 바 높이는 화면 폭과 선택한 숙소 이름 길이에 따라 달라지므로,
+  // 여백을 CSS에 고정하지 않고 실제 높이를 재서 맞춘다.
+  function syncBottomPad(){
+    var bar = document.getElementById("finalBar");
+    var wrap = document.querySelector(".wrap");
+    if(!bar || !wrap) return;
+    wrap.style.paddingBottom = (bar.offsetHeight + 24) + "px";
+  }
+  var padTimer;
+  window.addEventListener("resize", function(){
+    clearTimeout(padTimer);
+    padTimer = setTimeout(syncBottomPad, 120);
+  });
+  window.addEventListener("orientationchange", function(){ setTimeout(syncBottomPad, 200); });
 
   // ---------------- 렌더: 날짜/항공 카드 ----------------
   function renderDateCards(){
