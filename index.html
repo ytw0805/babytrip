@@ -139,6 +139,29 @@
   }
   .basis-warn b{color:var(--warn);}
 
+  /* ---------- Trust panel (탭별 데이터 신뢰도) ---------- */
+  .trust{margin-bottom:16px;}
+  .trust-head{
+    font-size:12.5px;font-weight:700;color:var(--ink);
+    display:flex;align-items:center;gap:7px;margin-bottom:9px;
+  }
+  .trust-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:10px;align-items:start;}
+  .trust-col{border:1px solid var(--line);border-radius:11px;padding:11px 13px;background:var(--surface-2);}
+  .trust-col.ok{background:var(--good-soft);border-color:var(--good);}
+  .trust-col.no{background:var(--warn-soft);border-color:var(--warn);}
+  .trust-col h4{
+    font-family:inherit;margin:0 0 8px;font-size:11.5px;font-weight:700;letter-spacing:0.02em;
+    display:flex;align-items:center;gap:5px;
+  }
+  .trust-col.ok h4{color:var(--good);}
+  .trust-col.no h4{color:var(--warn);}
+  .trust-col.why h4{color:var(--ink-soft);}
+  .trust-col ul{margin:0;padding-left:15px;display:flex;flex-direction:column;gap:6px;}
+  .trust-col li{font-size:12px;line-height:1.45;color:var(--ink-soft);}
+  .trust-col li b{color:var(--ink);}
+  .trust-col.no li b{color:var(--warn);}
+  .num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;font-weight:700;}
+
   /* ---------- Live check links ---------- */
   .live{
     border:1px dashed var(--accent);border-radius:10px;background:var(--accent-soft);
@@ -220,11 +243,6 @@
   }
 
   /* ---------- Stay picker ---------- */
-  .stay-warn{
-    font-size:12.5px;color:var(--ink-soft);background:var(--warn-soft);border:1px solid var(--warn);
-    border-radius:10px;padding:9px 13px;margin-bottom:14px;
-  }
-  .stay-warn b{color:var(--warn);}
   .rank-criteria{
     font-size:12.5px;color:var(--ink-soft);background:var(--surface-2);border:1px solid var(--line);
     border-radius:10px;padding:9px 13px;margin-bottom:12px;
@@ -463,6 +481,7 @@
           <h2>항공권</h2>
           <span class="hint">인천(ICN) 출발 고정 · 날짜 카드를 고르면 하단 최종 비용에 반영됩니다</span>
         </div>
+        <div class="trust" id="trustFlight"></div>
         <div class="flight-info-panel" id="flightInfoPanel"></div>
         <div class="cards" id="dateCardList"></div>
       </section>
@@ -472,11 +491,9 @@
           <h2>유후인 료칸</h2>
           <span class="hint">클릭해서 고르면 하단 최종 비용에 반영됩니다</span>
         </div>
+        <div class="trust" id="trustYufuin"></div>
         <div class="rank-criteria">
           <b>추천순 정렬 기준</b> ① 금연 확인 여부 ② 개인·전객실 노천탕 여부(대욕장·가족탕 등 공용탕은 감점) ③ 실제 확인된 가격 유무 ④ 후기 평점·신뢰도 ⑤ 위치 편의성 — 이 순서로 우선순위를 매겨 정렬했습니다.
-        </div>
-        <div class="stay-warn">
-          <b>금연 확인 현황</b> — 조사한 유후인 료칸 11곳은 검색만으로 금연 객실 여부를 확정할 수 없었습니다 (예약 전 직접 문의 필수).
         </div>
         <div class="flight-info-panel" id="yufuinMarket"></div>
         <div class="stay-group">
@@ -494,11 +511,9 @@
           <h2>후쿠오카 숙소</h2>
           <span class="hint">식당 접근성 위주 가성비 · 클릭해서 고르면 하단 최종 비용에 반영됩니다</span>
         </div>
+        <div class="trust" id="trustFukuoka"></div>
         <div class="rank-criteria">
           <b>추천순 정렬 기준</b> ① 금연 확인 여부(전관 &gt; 객실 단위 &gt; 미확인) ② 식당가 접근성 ③ 실제 확인된 가격 유무 ④ 위치 편의성 — 이 순서로 우선순위를 매겨 정렬했습니다.
-        </div>
-        <div class="stay-warn">
-          <b>금연 확인 현황</b> — <b>&amp;호텔 하카타</b>, <b>더 브렉퍼스트 호텔 나카스</b>, <b>하카타 미야코 호텔</b>(이상 전관 금연), <b>WBF 그란데 하카타</b>(금연 객실 보유) 4곳만 명확히 확인됐고, 나머지는 예약 전 직접 문의가 필요합니다.
         </div>
         <div class="flight-info-panel" id="fukuokaMarket"></div>
         <div class="stay-grid" id="fukuokaGrid"></div>
@@ -1081,6 +1096,86 @@
       '</div>';
   }
 
+  // ---------------- 렌더: 탭별 데이터 신뢰도 패널 ----------------
+  // 개수는 전부 데이터에서 세므로, 매일 갱신돼도 문구가 실제와 어긋나지 않는다.
+  function trustPanel(elId, cols){
+    function col(cls, icon, title, items){
+      return '<div class="trust-col ' + cls + '"><h4>' + icon + ' ' + title + '</h4><ul>' +
+        items.map(function(t){ return '<li>' + t + '</li>'; }).join("") + '</ul></div>';
+    }
+    document.getElementById(elId).innerHTML =
+      '<div class="trust-head">🔍 이 탭의 숫자, 어디까지 확인된 값인가</div>' +
+      '<div class="trust-cols">' +
+        col("ok", "✓", "확인된 값", cols.ok) +
+        col("no", "!", "확인 못 한 값", cols.no) +
+        col("why", "?", "확인 못 한 이유", cols.why) +
+      '</div>';
+  }
+  function n(v){ return '<span class="num">' + v + '</span>'; }
+
+  function renderTrust(){
+    var f = FLIGHT_MARKET;
+    var noArr = flightSchedule.filter(function(s){ return s.arr === "—"; }).length;
+    var lowConf = flightSchedule.filter(function(s){ return /신뢰도 낮음/.test(s.note); }).length;
+
+    trustPanel("trustFlight", {
+      ok: [
+        "KAYAK 게재 통계 — 10월 왕복 <b>" + wonStr(f.octAvg) + "</b>, 인천 최저 <b>" + wonStr(f.icnLow) + "</b> (1인 왕복)",
+        "요일별 실측 — 화 <b>" + wonStr(f.tueLow) + "</b> / 금 <b>" + wonStr(f.friHigh) + "</b>",
+        "취항 항공사와 편명 " + n(flightSchedule.length) + "건"
+      ],
+      no: [
+        "<b>우리 날짜 4개 조합의 실제 판매가</b> — 카드 금액은 위 평균에서 계산한 값이지 조회한 값이 아닙니다",
+        "<b>항공사별 금액</b> — LCC는 싼 쪽, FSC는 비싼 쪽이라는 배분은 가정입니다",
+        "시각표 " + n(flightSchedule.length) + "편 중 " + n(noArr) + "편은 도착시각 미확인, " + n(lowConf) + "편은 특정일 실측 기록"
+      ],
+      why: [
+        "비교사이트 검색결과는 자바스크립트로 그려지고 봇 접근을 막아 자동 조회가 불가능합니다",
+        "KAYAK이 공개하는 건 <b>월·요일 평균</b>까지이고 특정 날짜 가격이 아닙니다",
+        "→ 각 날짜 카드의 <b>실시간가 버튼</b>으로 직접 확인하세요"
+      ]
+    });
+
+    function stayTrust(elId, opts, market, extraNo, extraWhy){
+      var total = opts.length;
+      var priced = opts.filter(function(o){ return o.priceKnown; }).length;
+      var smoke = opts.filter(function(o){ return o.nonSmoking === "ok"; }).length;
+      var meal = opts.filter(function(o){ return o.mealType === "unknown"; }).length;
+      var no = [];
+      if(smoke === 0){
+        no.push("<b>금연 객실 여부 — " + total + "곳 전부 미확인</b> (임신부에게 가장 중요한 조건)");
+      } else if(smoke < total){
+        no.push("<b>금연 여부 미확인 " + (total-smoke) + "곳</b> — 확인된 곳은 " + smoke + "곳뿐");
+      }
+      if(priced < total) no.push("가격 미확인 " + n(total-priced) + "곳 — 임의 추정 대신 <b>실매물 시세</b>를 대입했습니다");
+      if(meal > 0) no.push("조식·석식 포함 여부 미확인 " + n(meal) + "곳");
+      var ok = [
+        "부킹닷컴 " + market.label + " 실매물 " + n(market.list.length) + "곳 게재가 — <b>" +
+          wonStr(market.low) + "~" + wonStr(market.high) + "</b> + 평점 (아래 표)",
+        "추천 " + n(total) + "곳 중 <b>" + priced + "곳</b> 가격 확인"
+      ];
+      if(smoke > 0) ok.push("전관·객실 <b>금연 확인 " + smoke + "곳</b>");
+      ok.push("위 게재가 조사 시점 — <b>" + SURVEY_DATE + "</b>");
+      trustPanel(elId, {
+        ok: ok,
+        no: no.concat(extraNo || []),
+        why: [
+          "라쿠텐·아고다·Klook이 봇 접근을 차단합니다 (403)"
+        ].concat(extraWhy || []).concat([
+          "→ 각 카드의 <b>실시간가 버튼</b>으로 선택한 날짜의 현재가를 확인하세요"
+        ])
+      });
+    }
+
+    stayTrust("trustYufuin", yufuinOptions, STAY_MARKET.yufuin,
+      [],
+      ["소규모 료칸은 금연 여부를 웹에 표기하지 않습니다 — <b>예약 전 전화·메일 문의가 필수</b>입니다"]);
+
+    stayTrust("trustFukuoka", fukuokaOptions, STAY_MARKET.fukuoka,
+      ["<b>일부 확인가는 5월 평일 기준</b>입니다 — 10월 연휴엔 더 오릅니다. 아래 실매물 시세표와 반드시 대조하세요"],
+      []);
+  }
+
   // ---------------- 렌더: 지역별 실매물 시세표 (부킹닷컴 게재가 실측) ----------------
   function renderMarket(elId, place){
     var m = STAY_MARKET[place];
@@ -1354,6 +1449,7 @@
   });
 
   renderBasis();
+  renderTrust();
   renderFlightInfo();
   renderStay();
   renderDateCards();
