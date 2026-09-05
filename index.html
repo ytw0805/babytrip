@@ -394,15 +394,66 @@
   .dot.cheap{background:var(--good);}
   .dot.mid{background:var(--accent);}
   .dot.pricey{background:var(--warn);}
-  .airline-price{
-    font-size:12px;color:var(--ink-soft);
-    background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:9px 12px;
-    display:flex;flex-direction:column;gap:3px;
+  /* ---------- 항공편 선택 ---------- */
+  .fl-head{
+    display:flex;align-items:baseline;justify-content:space-between;gap:10px;
+    flex-wrap:wrap;margin:16px 0 8px;
   }
-  .airline-price .grp{display:flex;gap:6px;flex-wrap:wrap;align-items:baseline;}
-  .airline-price .grp-label{font-size:10.5px;font-weight:600;color:var(--ink-faint);letter-spacing:0.03em;min-width:32px;}
-  .airline-price .name{white-space:nowrap;}
-  .airline-price .name b{font-family:"IBM Plex Mono",monospace;font-weight:600;color:var(--ink);}
+  .fl-head h3{font-size:14px;}
+  .fl-head .d{font-size:12px;color:var(--ink-faint);}
+  .fl-list{display:flex;flex-direction:column;gap:6px;}
+  .fl{
+    display:grid;grid-template-columns:112px 1fr auto;gap:12px;align-items:center;
+    padding:10px 13px;border:1px solid var(--line);border-radius:10px;
+    background:var(--surface);cursor:pointer;text-align:left;width:100%;
+    font-family:inherit;color:var(--ink);
+    transition:border-color .15s,background .15s;
+  }
+  .fl:hover{border-color:var(--accent);}
+  .fl.sel{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent) inset;background:var(--surface-2);}
+  .fl:focus-visible{outline:2px solid var(--accent);outline-offset:2px;}
+  .fl-air{display:flex;flex-direction:column;gap:1px;min-width:0;}
+  .fl-air b{font-size:12.5px;font-weight:600;}
+  .fl-air span{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--ink-faint);}
+  .fl-when{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;min-width:0;}
+  .fl-time{font-family:"IBM Plex Mono",monospace;font-size:14.5px;font-weight:600;font-variant-numeric:tabular-nums;}
+  .fl-dur{font-size:11.5px;color:var(--ink-faint);}
+  .fl-meta{font-size:11px;color:var(--ink-faint);text-align:right;white-space:nowrap;}
+  .fl-warn{grid-column:1/-1;font-size:11.5px;color:var(--warn);}
+  .fl-fsc{background:var(--accent);}
+
+  /* 요금 직접 입력 */
+  .fare{
+    border:1px solid var(--accent);border-radius:12px;background:var(--accent-soft);
+    padding:13px 15px;margin-top:14px;display:flex;flex-direction:column;gap:9px;
+  }
+  .fare-top{font-size:12.5px;font-weight:700;color:var(--accent-deep);}
+  .fare-pick{font-size:12.5px;color:var(--ink);}
+  .fare-pick b{font-family:"IBM Plex Mono",monospace;}
+  .fare-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;}
+  .fare-row label{font-size:12px;color:var(--ink-soft);}
+  .fare-row input{
+    font-family:"IBM Plex Mono",monospace;font-size:15px;font-weight:600;
+    width:150px;padding:8px 11px;border-radius:9px;
+    border:1px solid var(--line);background:var(--surface);color:var(--ink);
+  }
+  .fare-row input:focus{outline:2px solid var(--accent);outline-offset:1px;}
+  .fare-clear{
+    font-family:inherit;font-size:11.5px;cursor:pointer;
+    background:none;border:1px solid var(--line);border-radius:100px;
+    padding:5px 11px;color:var(--ink-soft);
+  }
+  .fare-clear:hover{border-color:var(--warn);color:var(--warn);}
+  .fare-note{font-size:11.5px;color:var(--ink-soft);}
+
+  .stay-fare{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin-top:2px;}
+  .stay-fare input{
+    font-family:"IBM Plex Mono",monospace;font-size:13px;font-weight:600;
+    width:118px;padding:6px 9px;border-radius:8px;
+    border:1px solid var(--accent);background:var(--surface);color:var(--ink);
+  }
+  .stay-fare label{font-size:11.5px;color:var(--accent-deep);font-weight:600;}
+
 
   .why-best{
     margin-top:2px;padding-top:12px;border-top:1px dashed var(--line);
@@ -474,6 +525,14 @@
     .cal-cell{min-width:64px;padding:8px 6px;}
     .cal-cell .date{font-size:15px;}
     .cal-tag{font-size:10px;padding:2px 6px;}
+
+    /* 항공편 행 — 기종·운항빈도는 좁은 화면에서 버린다 */
+    .fl{grid-template-columns:88px 1fr;gap:10px;padding:11px;}
+    .fl-meta{display:none;}
+    .fl-time{font-size:13.5px;}
+    .fl-air b{font-size:12px;}
+    .fare-row input{width:100%;max-width:190px;}
+    .stay-fare input{width:120px;}
 
     /* 손가락으로 누를 수 있는 크기로 */
     .live{padding:8px 10px;gap:7px;}
@@ -723,57 +782,90 @@
 
   // ================= 실측 시세 조사 결과 =================
   // 2026-09-03 조사. 아래 숫자는 전부 실제 예약사이트에 게재된 값이며 추정치가 아님.
-  var SURVEY_DATE = "2026년 9월 3일";
+  var SURVEY_DATE = "2026년 9월 5일";
 
-  // KAYAK 한국 (대한민국 → 후쿠오카) 실측 왕복 요금, 1인 기준
-  var FLIGHT_MARKET = {
-    octAvg: 343704,      // 10월 왕복 평균 요금
-    sepAvg: 199923,      // 9월(최저 달) 왕복 평균
-    icnLow: 151996,      // 인천 출발 왕복 최저가 (최근)
-    tueLow: 214488,      // 가장 싼 요일(화) 평균
-    friHigh: 313692,     // 가장 비싼 요일(금) 평균
-    src: "https://www.kayak.co.kr/%ED%95%AD%EA%B3%B5%EA%B6%8C/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD-KR0/%ED%9B%84%EC%BF%A0%EC%98%A4%EC%B9%B4%EA%B3%B5%ED%95%AD-FUK"
-  };
-  // 위 실측값에서 유도한 1인 왕복 편도구간별 밴드 (출국·귀국 각각 적용 후 평균)
-  var FLIGHT_LEG_BAND = {
-    cheap:  [215000, 280000],   // 평일(화·수·목) — KAYAK 화요일 실측 214,488원이 하한
-    mid:    [280000, 345000],   // 주말·공휴일 — 10월 왕복 평균 343,704원이 상한
-    pricey: [314000, 420000]    // 연휴 절정 — KAYAK 금요일 실측 313,692원이 하한
-  };
+  // 인천(ICN) ↔ 후쿠오카(FUK) 실제 정기편 시각표 — 8개 항공사, 나무위키 노선 문서 기준.
+  // 한국·일본 시차가 없어 도착-출발이 곧 비행시간이다.
+  var FLIGHTS_OUT = [
+    {air:"제주항공",   code:"7C1401", dep:"06:30", arr:"07:55", ac:"B737-800",     freq:"매일"},
+    {air:"진에어",     code:"LJ261",  dep:"06:50", arr:"08:10", ac:"B737-8/800",  freq:"매일"},
+    {air:"에어부산",   code:"BX156",  dep:"07:25", arr:"08:55", ac:"A321-200/neo",freq:"매일"},
+    {air:"대한항공",   code:"KE787",  dep:"08:00", arr:"09:20", ac:"B787-10",     freq:"매일"},
+    {air:"에어서울",   code:"RS727",  dep:"08:25", arr:"09:45", ac:"A321-200",    freq:"매일"},
+    {air:"이스타항공", code:"ZE641",  dep:"09:35", arr:"10:55", ac:"B737-800/8",  freq:"매일"},
+    {air:"티웨이항공", code:"TW291",  dep:"10:10", arr:"11:35", ac:"A330-300",    freq:"매일"},
+    {air:"제주항공",   code:"7C1403", dep:"10:35", arr:"12:00", ac:"B737-8",      freq:"매일"},
+    {air:"대한항공",   code:"KE791",  dep:"10:50", arr:"12:30", ac:"A321neo",     freq:"매일"},
+    {air:"에어부산",   code:"BX158",  dep:"11:15", arr:"13:00", ac:"A321-200/neo",freq:"매일"},
+    {air:"진에어",     code:"LJ263",  dep:"12:00", arr:"13:20", ac:"B737-8/800",  freq:"매일"},
+    {air:"아시아나",   code:"OZ134",  dep:"12:40", arr:"14:00", ac:"A330-300",    freq:"매일"},
+    {air:"에어서울",   code:"RS723",  dep:"14:25", arr:"15:55", ac:"A321-200",    freq:"매일"},
+    {air:"티웨이항공", code:"TW293",  dep:"14:45", arr:"16:15", ac:"A330-300",    freq:"주 4회"},
+    {air:"제주항공",   code:"7C1405", dep:"15:20", arr:"16:55", ac:"B737-8",      freq:"매일"},
+    {air:"이스타항공", code:"ZE643",  dep:"15:35", arr:"17:05", ac:"B737-800/8",  freq:"매일"},
+    {air:"제주항공",   code:"7C1407", dep:"16:20", arr:"17:55", ac:"B737-800",    freq:"매일"},
+    {air:"대한항공",   code:"KE795",  dep:"16:25", arr:"17:55", ac:"B737-900",    freq:"매일"},
+    {air:"진에어",     code:"LJ265",  dep:"17:20", arr:"18:45", ac:"B777-200ER",  freq:"매일"},
+    {air:"티웨이항공", code:"TW295",  dep:"18:10", arr:"19:35", ac:"A330-200",    freq:"매일"},
+    {air:"대한항공",   code:"KE781",  dep:"18:40", arr:"20:05", ac:"B737-900",    freq:"매일"}
+  ];
+  var FLIGHTS_BACK = [
+    {air:"제주항공",   code:"7C1402", dep:"08:55", arr:"10:30", ac:"B737-800",     freq:"매일"},
+    {air:"진에어",     code:"LJ262",  dep:"09:30", arr:"11:00", ac:"B737-8/800",  freq:"매일"},
+    {air:"에어부산",   code:"BX155",  dep:"10:00", arr:"18:45", ac:"A321-200/neo",freq:"매일",
+      note:"도착 시각이 출발 8시간 뒤로 표기돼 있어 오류로 보입니다 — 예약 전 항공사 확인 필요"},
+    {air:"대한항공",   code:"KE788",  dep:"10:30", arr:"12:00", ac:"B787-10",     freq:"매일"},
+    {air:"에어서울",   code:"RS728",  dep:"10:45", arr:"12:20", ac:"A321-200",    freq:"매일"},
+    {air:"이스타항공", code:"ZE642",  dep:"12:00", arr:"13:30", ac:"B737-800/8",  freq:"매일"},
+    {air:"티웨이항공", code:"TW292",  dep:"12:45", arr:"14:15", ac:"A330-300",    freq:"매일"},
+    {air:"제주항공",   code:"7C1404", dep:"12:50", arr:"14:20", ac:"B737-8",      freq:"매일"},
+    {air:"에어부산",   code:"BX157",  dep:"13:55", arr:"15:30", ac:"A321-200/neo",freq:"매일"},
+    {air:"진에어",     code:"LJ264",  dep:"14:40", arr:"16:10", ac:"B737-8/800",  freq:"매일"},
+    {air:"아시아나",   code:"OZ133",  dep:"15:20", arr:"16:30", ac:"A330-300",    freq:"매일"},
+    {air:"대한항공",   code:"KE790",  dep:"15:50", arr:"17:20", ac:"B737-900",    freq:"매일"},
+    {air:"에어서울",   code:"RS724",  dep:"17:00", arr:"18:35", ac:"A321-200",    freq:"매일"},
+    {air:"티웨이항공", code:"TW294",  dep:"17:15", arr:"18:45", ac:"A330-300",    freq:"매일"},
+    {air:"제주항공",   code:"7C1406", dep:"17:50", arr:"19:20", ac:"B737-8",      freq:"매일"},
+    {air:"이스타항공", code:"ZE644",  dep:"18:05", arr:"19:50", ac:"B737-800/8",  freq:"매일"},
+    {air:"제주항공",   code:"7C1408", dep:"18:45", arr:"20:15", ac:"B737-800",    freq:"매일"},
+    {air:"진에어",     code:"LJ266",  dep:"20:05", arr:"21:35", ac:"B777-200ER",  freq:"매일"},
+    {air:"티웨이항공", code:"TW296",  dep:"20:50", arr:"22:25", ac:"A330-200",    freq:"매일"},
+    {air:"대한항공",   code:"KE782",  dep:"21:05", arr:"22:35", ac:"B737-900",    freq:"매일"}
+  ];
 
   // Booking.com 게재 최저가 실측 (2026-09-03 조사, 날짜 무관 기준가)
   var STAY_MARKET = {
     fukuoka: {
       label:"후쿠오카 하카타",
-      low:153776, mid:205000, high:395605, floor:58686,
+      low:159488, mid:207000, high:397099, floor:53355,
       list:[
-        ["HOTEL SO SUMIYOSHi", 153776, 9.3],
-        ["ALPHABED INN 하카타역앞", 164732, 9.1],
-        ["The358 SORA", 170680, 9.0],
-        ["Band Hotel Hakata", 252227, 9.0],
-        ["Hotel Il Palazzo (나카스)", 258606, 9.1],
-        ["Garden Terrace Fukuoka", 281363, 9.1],
-        ["The Gate Hotel Fukuoka", 326625, 9.1],
-        ["하카타 미야코 호텔", 395605, 9.2],
-        ["One Fukuoka Hotel", 737026, 9.6],
-        ["리츠칼튼 후쿠오카", 818918, 9.3]
+        ["HOTEL SO SUMIYOSHi", 159488, 9.3],
+        ["The358 SORA", 171325, 9.0],
+        ["ALPHABED INN 하카타역앞", 188976, 9.1],
+        ["Band Hotel Hakata", 253180, 9.0],
+        ["Hotel Il Palazzo (나카스)", 259583, 9.1],
+        ["Garden Terrace Fukuoka", 282426, 9.1],
+        ["The Gate Hotel Fukuoka", 327859, 9.1],
+        ["하카타 미야코 호텔", 397099, 9.2],
+        ["One Fukuoka Hotel", 739810, 9.6],
+        ["리츠칼튼 후쿠오카", 822011, 9.3]
       ],
       src:"https://www.booking.com/city/jp/fukuoka-hakata.ko.html"
     },
     yufuin: {
       label:"유후인",
-      low:137923, mid:265716, high:453422, floor:137923,
+      low:138444, mid:268326, high:470710, floor:138444,
       list:[
-        ["Yufuin Monday", 137923, 9.3],
-        ["유후인 오야도 하나노유", 139647, 9.5],
-        ["Resort Yufuin Grandpia", 140337, 9.0],
-        ["space-vessel 기지", 162922, 9.2],
-        ["GEMS YUFUIN Hotel & Spa", 192951, 9.0],
-        ["쇼케이 미도리 A동", 294810, 9.5],
-        ["Hotel MODA", 314206, 9.2],
-        ["료칸 타케야", 322740, 9.0],
-        ["Yufuin Hoteiya", 397994, 9.2],
-        ["벳소 콘자쿠안", 453422, 9.3]
+        ["Yufuin Monday", 138444, 9.3],
+        ["유후인 오야도 하나노유", 140175, 9.5],
+        ["Resort Yufuin Grandpia", 140867, 9.0],
+        ["space-vessel 기지", 163537, 9.2],
+        ["GEMS YUFUIN Hotel & Spa", 193680, 9.0],
+        ["쇼케이 미도리 A동", 295924, 9.5],
+        ["Hotel MODA", 315393, 9.3],
+        ["료칸 타케야", 323959, 9.0],
+        ["Yufuin Hoteiya", 399498, 9.2],
+        ["벳소 콘자쿠안", 470710, 9.3]
       ],
       src:"https://www.booking.com/city/jp/yufuin.ko.html"
     }
@@ -894,62 +986,20 @@
       why:"금연·가격·후기가 전부 미확인이라 최하위.",
       links:[] }
   ];
-
-  // ---------------- 항공사별 가격 위치 (인천 ICN 출발 고정) ----------------
-  // ratio: 날짜별 항공료 범위([lo,hi]) 안에서 이 항공사가 위치한다고 가정한 지점(0=최저가 쪽, 1=최고가 쪽)
-  var airlineList = [
-    { name:"티웨이항공",   type:"LCC", ratio:0.00 },
-    { name:"제주항공",     type:"LCC", ratio:0.20 },
-    { name:"진에어",       type:"LCC", ratio:0.35 },
-    { name:"아시아나항공", type:"FSC", ratio:0.75 },
-    { name:"대한항공",     type:"FSC", ratio:1.00 }
-  ];
-
-  // ---------------- 항공사별 확인된 시각표 (검색으로 찾은 예시 편들) ----------------
-  var flightSchedule = [
-    { airline:"아시아나항공", no:"OZ134", dir:"인천→후쿠오카", dep:"12:40", arr:"14:00", note:"" },
-    { airline:"아시아나항공", no:"OZ133", dir:"후쿠오카→인천", dep:"15:20", arr:"16:40", note:"2026.5.8부터 매일 2회 운항 — 2번째 편 시각 미확인" },
-    { airline:"티웨이항공",   no:"TW203", dir:"인천→후쿠오카", dep:"10:05", arr:"11:30", note:"다른 소스는 07:55 출발로도 기록 — 신뢰도 낮음" },
-    { airline:"티웨이항공",   no:"TW207", dir:"인천→후쿠오카", dep:"18:05", arr:"—", note:"도착 시각 미확인" },
-    { airline:"티웨이항공",   no:"TW204", dir:"후쿠오카→인천", dep:"10:55", arr:"—", note:"도착 시각 미확인" },
-    { airline:"티웨이항공",   no:"TW202", dir:"후쿠오카→인천", dep:"12:30", arr:"14:00", note:"특정일 결항 기록 있음 — 신뢰도 낮음" },
-    { airline:"티웨이항공",   no:"TW206", dir:"후쿠오카→인천", dep:"17:30", arr:"18:55", note:"" },
-    { airline:"제주항공",     no:"7C1405", dir:"인천→후쿠오카", dep:"15:30", arr:"16:45", note:"" },
-    { airline:"제주항공",     no:"7C1406", dir:"인천→후쿠오카", dep:"16:20", arr:"17:55", note:"" },
-    { airline:"제주항공",     no:"7C1407", dir:"인천→후쿠오카", dep:"17:20", arr:"19:00", note:"주 40회까지 증편 예정 — 귀국편 시각은 못 찾음" },
-    { airline:"진에어",       no:"LJ271", dir:"인천→후쿠오카", dep:"17:00", arr:"18:30", note:"" },
-    { airline:"진에어",       no:"LJ262", dir:"후쿠오카→인천", dep:"09:45", arr:"11:15", note:"" },
-    { airline:"대한항공",     no:"KE791", dir:"인천→후쿠오카", dep:"12:30", arr:"—", note:"특정일 실측 기록 기준 — 신뢰도 낮음" },
-    { airline:"대한항공",     no:"KE795", dir:"인천→후쿠오카", dep:"15:48", arr:"16:48", note:"특정일 실측 기록 기준 — 신뢰도 낮음" },
-    { airline:"대한항공",     no:"KE781 / KE787", dir:"—", dep:"—", arr:"—", note:"매일 4편 중 편명만 확인, 시각·귀국편 전부 미확인" }
-  ];
-  var routeMeta = {
-    airlines: "티웨이항공(최다 운항)·제주항공·진에어·아시아나항공·대한항공 등 6개 항공사 취항",
-    duration: "약 1시간 20~30분 (항공사별 상이)",
-    note: "위 시각은 검색으로 확인된 예시 편들이며, 실제로는 항공사별로 이보다 많은 편이 운항됩니다. 일부(티웨이 TW203/TW202, 대한항공 KE791/KE795)는 항공편 추적 사이트의 특정 하루 실측 기록이라 매일 반복되는 정식 시간표가 아닐 수 있습니다. 정확한 시각은 항공사 공식 사이트·네이버항공권에서 직접 확인하세요."
-  };
-
+  // ---------------- 선택한 항공편 ----------------
   var PAX = 2;
-  // 출국·귀국 각 구간의 실측 밴드를 평균내고 인원수를 곱한 왕복 총액 범위
-  function flightRange(c){
-    var o = FLIGHT_LEG_BAND[c.out.t], b = FLIGHT_LEG_BAND[c.back.t];
-    return [ (o[0]+b[0])/2*PAX, (o[1]+b[1])/2*PAX ];
+  function findFlight(list, code){
+    return list.filter(function(f){ return f.code===code; })[0] || null;
   }
-  function fmt10k(n){ return Math.round(n/10000)*10000; }
-  function airlinePrice(c, ratio){
-    var r = flightRange(c);
-    return fmt10k(r[0] + (r[1]-r[0])*ratio);
+  // 시차가 없으므로 도착-출발이 곧 비행시간
+  function durOf(f){
+    function m(t){ var p=t.split(":"); return +p[0]*60 + +p[1]; }
+    var d = m(f.arr) - m(f.dep);
+    if(d <= 0) return null;
+    return Math.floor(d/60) + "시간" + (d%60 ? " " + (d%60) + "분" : "");
   }
-  function airlineBreakdownHtml(c){
-    function grp(label, type){
-      var arr = airlineList.filter(function(a){ return a.type===type; });
-      if(!arr.length) return "";
-      var names = arr.map(function(a){
-        return '<span class="name">' + a.name + ' <b>' + wonStr(airlinePrice(c,a.ratio)) + '</b></span>';
-      }).join("");
-      return '<div class="grp"><span class="grp-label">' + label + '</span>' + names + '</div>';
-    }
-    return '<div class="airline-price">' + grp("LCC","LCC") + grp("FSC","FSC") + '</div>';
+  function flightLabel(f){
+    return f ? f.air + " " + f.code + " " + f.dep + "→" + f.arr : "미선택";
   }
 
   // ---------------- 날짜 조합 데이터 (5박6일: 후쿠오카2박-유후인2박-후쿠오카1박) ----------------
@@ -1040,7 +1090,34 @@
   function wonStr(n){ return fmt(n).toLocaleString("ko-KR") + "원"; }
   function rangeStr(a,b){ return wonStr(a) + " ~ " + wonStr(b); }
 
-  var state = { yufuinPick:"seikoen", fukuokaPick:"and-hakata", selectedCandidate:0 };
+  var state = {
+    yufuinPick:"seikoen", fukuokaPick:"and-hakata", selectedCandidate:0,
+    outFlight:"KE787", backFlight:"KE790",
+    airFare:null,      // 2인 왕복 총액 — 예약사이트에서 본 실제 금액을 직접 넣는다
+    stayFare:{}        // 숙소 id별 실제 1박 요금
+  };
+
+  // 입력한 금액은 이 브라우저에만 남는다 (서버로 가지 않음)
+  var STORE = "babytrip.v1";
+  function saveState(){
+    try{
+      localStorage.setItem(STORE, JSON.stringify({
+        outFlight:state.outFlight, backFlight:state.backFlight,
+        airFare:state.airFare, stayFare:state.stayFare,
+        yufuinPick:state.yufuinPick, fukuokaPick:state.fukuokaPick,
+        selectedCandidate:state.selectedCandidate
+      }));
+    }catch(e){/* 사생활 보호 모드 등 — 저장 실패는 무시 */}
+  }
+  function loadState(){
+    try{
+      var raw = localStorage.getItem(STORE);
+      if(!raw) return;
+      var s = JSON.parse(raw);
+      Object.keys(s).forEach(function(k){ if(s[k] !== undefined && s[k] !== null) state[k] = s[k]; });
+      if(!state.stayFare) state.stayFare = {};
+    }catch(e){/* 저장된 값이 깨졌으면 기본값으로 간다 */}
+  }
 
   // 가격 미확인 숙소는 임의 추정 대신 Booking.com 실측 시세를 대입한다
   var FALLBACK = {
@@ -1060,20 +1137,38 @@
     return FALLBACK.fukuoka;
   }
 
+  // 직접 입력한 1박 요금이 있으면 그 값을 쓰고, 없을 때만 조사 기준가를 쓴다
+  function yufuinNightly(){
+    var typed = state.stayFare[state.yufuinPick];
+    return { won: typed != null ? typed : yufuinBase(), typed: typed != null };
+  }
+  function fukuokaNightly(){
+    var typed = state.stayFare[state.fukuokaPick];
+    return { won: typed != null ? typed : fukuokaBase(), typed: typed != null };
+  }
+
   function totalsOf(c){
-    var yBase = yufuinBase();
-    var fBase = fukuokaBase();
+    var y = yufuinNightly(), f = fukuokaNightly();
     var yLo=0, yHi=0, fLo=0, fHi=0;
     c.nightsPlan.forEach(function(n){
       var band = TIER_BAND[DATE_TIER[n.date]];
-      if(n.place==="yufuin"){ yLo += yBase*band[0]; yHi += yBase*band[1]; }
-      else { fLo += fBase*band[0]; fHi += fBase*band[1]; }
+      // 실제 요금을 넣었으면 그 날짜의 확정가로 보고 할증 배율을 씌우지 않는다
+      if(n.place==="yufuin"){
+        yLo += y.typed ? y.won : y.won*band[0];
+        yHi += y.typed ? y.won : y.won*band[1];
+      } else {
+        fLo += f.typed ? f.won : f.won*band[0];
+        fHi += f.typed ? f.won : f.won*band[1];
+      }
     });
 
-    var fr = flightRange(c);
+    var air = state.airFare;   // null이면 아직 항공료를 넣지 않은 것
     return {
-      yLo:yLo, yHi:yHi, fLo:fLo, fHi:fHi, air:fr,
-      lo: fr[0]+fLo+yLo, hi: fr[1]+fHi+yHi
+      yLo:yLo, yHi:yHi, fLo:fLo, fHi:fHi,
+      air:air, airKnown: air != null,
+      stayLo: fLo+yLo, stayHi: fHi+yHi,
+      lo: (air||0)+fLo+yLo, hi: (air||0)+fHi+yHi,
+      exact: (air != null) && y.typed && f.typed
     };
   }
 
@@ -1099,6 +1194,16 @@
     if(o.priceKnown) return '<span class="verif stale">◔ 조사 확인가 · 재확인 권장</span>';
     return '<span class="verif none">✕ 가격 미확인 · 시세 대입</span>';
   }
+  // 고른 숙소에만 요금 입력칸을 붙인다 — 안 고른 곳까지 입력칸을 두면 화면만 복잡해진다
+  function stayFareRow(o){
+    var v = state.stayFare[o.id];
+    return '<div class="stay-fare">' +
+      '<label for="fare-' + o.id + '">실제 1박 요금</label>' +
+      '<input id="fare-' + o.id + '" data-stay="' + o.id + '" type="text" inputmode="numeric" ' +
+        'placeholder="조회 후 입력" value="' + (v != null ? v : '') + '">' +
+      '<span class="fare-note">원' + (v != null ? ' · 할증 없이 이 값으로 계산' : '') + '</span>' +
+    '</div>';
+  }
   function stayCard(o, groupName, rank){
     var selected = (groupName==="yufuin" ? state.yufuinPick : state.fukuokaPick) === o.id;
     var fallbackPrice = groupName==="yufuin"
@@ -1123,6 +1228,7 @@
         '<div class="stay-badges">' + stayBadges(o) + '</div>' +
         stayLinks(o) +
         stayLiveRow(o, groupName) +
+        (selected ? stayFareRow(o) : '') +
       '</div>' +
       '</div>';
   }
@@ -1156,30 +1262,54 @@
     bindPick(yMidGrid, "yufuinPick");
     bindPick(yPremGrid, "yufuinPick");
     bindPick(fGrid, "fukuokaPick");
+
+    // 요금 입력은 카드 선택과 별개로 동작해야 한다 (입력 중 재렌더되면 포커스를 잃는다)
+    document.querySelectorAll(".stay-fare input").forEach(function(inp){
+      inp.addEventListener("click", function(e){ e.stopPropagation(); });
+      inp.addEventListener("keydown", function(e){ e.stopPropagation(); });
+      inp.addEventListener("input", function(){
+        var digits = inp.value.replace(/[^0-9]/g, "");
+        var id = inp.getAttribute("data-stay");
+        if(digits) state.stayFare[id] = parseInt(digits, 10);
+        else delete state.stayFare[id];
+        saveState(); renderFinalBar();
+      });
+    });
   }
 
   // ---------------- 렌더: 가격 기준 배너 ----------------
   function renderBasis(){
-    var f = FLIGHT_MARKET, sf = STAY_MARKET.fukuoka, sy = STAY_MARKET.yufuin;
+    var sf = STAY_MARKET.fukuoka, sy = STAY_MARKET.yufuin;
+    var c = candidates[state.selectedCandidate] || candidates[0];
+    var out = findFlight(FLIGHTS_OUT, state.outFlight);
+    var back = findFlight(FLIGHTS_BACK, state.backFlight);
     function item(k, v, s){
       return '<div class="basis-item"><span class="k">' + k + '</span><span class="v">' + v + '</span><span class="s">' + s + '</span></div>';
     }
     document.getElementById("basisPanel").innerHTML =
       '<div class="basis-top">' +
-        '<span class="basis-title">📊 이 페이지의 가격은 어디서 온 숫자인가</span>' +
-        '<span class="basis-stamp">실측 조사 ' + SURVEY_DATE + '</span>' +
+        '<span class="basis-title">📊 지금 고른 조합</span>' +
+        '<span class="basis-stamp">숙소 시세 조사 ' + SURVEY_DATE + '</span>' +
       '</div>' +
       '<div class="basis-grid">' +
-        item("항공 왕복 · 1인 (10월 평균)", wonStr(f.octAvg), "KAYAK 실측 · 인천 최저 " + wonStr(f.icnLow)) +
-        item("항공 요일별 · 1인", wonStr(f.tueLow) + "~" + wonStr(f.friHigh), "화요일 최저 / 금요일 최고 (KAYAK)") +
-        item("후쿠오카 1박 실매물", wonStr(sf.low) + "~" + wonStr(sf.high), "부킹닷컴 하카타 게재가 · 최저 " + wonStr(sf.floor)) +
-        item("유후인 1박 실매물", wonStr(sy.low) + "~" + wonStr(sy.high), "부킹닷컴 게재가 · 평균 " + wonStr(sy.mid)) +
+        item("가는 편 · " + c.out.d,
+             out ? out.dep + " → " + out.arr : "미선택",
+             out ? out.air + " " + out.code : "항공권 탭에서 고르세요") +
+        item("오는 편 · " + c.back.d,
+             back ? back.dep + " → " + back.arr : "미선택",
+             back ? back.air + " " + back.code : "항공권 탭에서 고르세요") +
+        item("항공료 (2인 왕복)",
+             state.airFare != null ? wonStr(state.airFare) : "미입력",
+             state.airFare != null ? "직접 넣은 실제 금액" : "조회 후 직접 넣으면 총액에 반영") +
+        item("숙소 1박 실매물 시세",
+             wonStr(sy.low) + "~" + wonStr(sy.high),
+             "유후인 / 후쿠오카 " + wonStr(sf.low) + "~" + wonStr(sf.high) + " (부킹닷컴)") +
       '</div>' +
       '<div class="basis-warn">' +
-        '<b>실시간 시세가 아닙니다.</b> 위 숫자는 ' + SURVEY_DATE + ' 예약사이트에 실제 게재돼 있던 값이고, ' +
-        '항공료는 여기서 유도한 요일별 밴드입니다. 항공권·숙박은 하루 단위로 변하므로 ' +
-        '<b>각 카드의 「실시간가」 버튼</b>으로 선택한 날짜의 현재 가격을 반드시 직접 확인하세요. ' +
-        '가격이 확인되지 않은 숙소는 임의 추정 대신 위 실매물 시세를 대입했습니다.' +
+        '<b>항공료와 숙박비는 이 페이지가 자동으로 가져올 수 없습니다.</b> ' +
+        '비교사이트가 봇 접근을 막기 때문입니다. 그래서 고른 편·숙소마다 <b>날짜가 미리 입력된 조회 버튼</b>을 뒀습니다. ' +
+        '거기서 본 실제 금액을 넣으면 <b>그 값 그대로</b> 최종 비용이 계산됩니다. ' +
+        '넣지 않은 항목만 ' + SURVEY_DATE + ' 조사한 실매물 시세로 채워집니다.' +
       '</div>';
   }
 
@@ -1201,25 +1331,28 @@
   function n(v){ return '<span class="num">' + v + '</span>'; }
 
   function renderTrust(){
-    var f = FLIGHT_MARKET;
-    var noArr = flightSchedule.filter(function(s){ return s.arr === "—"; }).length;
-    var lowConf = flightSchedule.filter(function(s){ return /신뢰도 낮음/.test(s.note); }).length;
+    var totalFlights = FLIGHTS_OUT.length + FLIGHTS_BACK.length;
+    var airlines = {};
+    FLIGHTS_OUT.concat(FLIGHTS_BACK).forEach(function(f){ airlines[f.air] = 1; });
+    var flagged = FLIGHTS_OUT.concat(FLIGHTS_BACK).filter(function(f){ return f.note; }).length;
 
     trustPanel("trustFlight", {
       ok: [
-        "KAYAK 게재 통계 — 10월 왕복 <b>" + wonStr(f.octAvg) + "</b>, 인천 최저 <b>" + wonStr(f.icnLow) + "</b> (1인 왕복)",
-        "요일별 실측 — 화 <b>" + wonStr(f.tueLow) + "</b> / 금 <b>" + wonStr(f.friHigh) + "</b>",
-        "취항 항공사와 편명 " + n(flightSchedule.length) + "건"
+        "<b>정기편 시각표 " + n(totalFlights) + "편</b> — " + n(Object.keys(airlines).length) +
+          "개 항공사의 편명·출발·도착·기종 (출국 " + FLIGHTS_OUT.length + " / 귀국 " + FLIGHTS_BACK.length + ")",
+        "한국·일본은 시차가 없어 <b>도착 − 출발이 곧 비행시간</b>입니다",
+        "직접 넣은 요금은 그대로 최종 비용에 반영됩니다 (계산·보정 없음)"
       ],
       no: [
-        "<b>우리 날짜 4개 조합의 실제 판매가</b> — 카드 금액은 위 평균에서 계산한 값이지 조회한 값이 아닙니다",
-        "<b>항공사별 금액</b> — LCC는 싼 쪽, FSC는 비싼 쪽이라는 배분은 가정입니다",
-        "시각표 " + n(flightSchedule.length) + "편 중 " + n(noArr) + "편은 도착시각 미확인, " + n(lowConf) + "편은 특정일 실측 기록"
+        "<b>편별 요금</b> — 어떤 항공사도 편명 단위 가격을 공개하지 않아 이 페이지가 가져올 수 없습니다",
+        "<b>특정 날짜의 좌석 유무</b> — 만석·결항 여부는 조회해야 알 수 있습니다",
+        flagged ? n(flagged) + "편은 원본 시각표 자체에 오류로 보이는 값이 있어 표시해뒀습니다"
+                : "시각은 통상 시각표이며 계절·요일에 따라 바뀔 수 있습니다"
       ],
       why: [
         "비교사이트 검색결과는 자바스크립트로 그려지고 봇 접근을 막아 자동 조회가 불가능합니다",
-        "KAYAK이 공개하는 건 <b>월·요일 평균</b>까지이고 특정 날짜 가격이 아닙니다",
-        "→ 각 날짜 카드의 <b>실시간가 버튼</b>으로 직접 확인하세요"
+        "→ 편을 고르고 <b>요금 조회</b> 버튼을 눌러 실제 금액을 확인한 뒤, " +
+          "<b>그 값을 입력</b>하면 총액이 그 값으로 계산됩니다"
       ]
     });
 
@@ -1289,47 +1422,86 @@
       linkRows;
   }
 
-  // ---------------- 렌더: 항공편 안내 (인천 출발 고정, 항공사별 확인된 시각표) ----------------
-  function renderFlightInfo(){
-    var rows = flightSchedule.map(function(f, i){
-      var groupStart = i===0 || flightSchedule[i-1].airline !== f.airline;
-      return '<tr class="' + (groupStart ? 'grp-start' : '') + '">' +
-        '<td class="col-airline">' + (groupStart ? f.airline : '') + '</td>' +
-        '<td class="mono">' + f.no + '</td>' +
-        '<td>' + f.dir + '</td>' +
-        '<td class="mono">' + f.dep + '</td>' +
-        '<td class="mono">' + f.arr + '</td>' +
-        '<td class="col-note">' + (f.note || '') + '</td>' +
-      '</tr>';
-    }).join("");
-    var f = FLIGHT_MARKET;
-    document.getElementById("flightInfoPanel").innerHTML =
-      '<div class="stay-name">실측 항공료 시세 — KAYAK 한국 (' + SURVEY_DATE + ' 조사)</div>' +
-      '<div class="schedule-wrap"><table class="schedule">' +
-        '<thead><tr><th>구분</th><th>왕복 요금 (1인)</th><th>비고</th></tr></thead>' +
-        '<tbody>' +
-          '<tr class="grp-start"><td class="col-airline">10월 평균</td><td class="mono">' + wonStr(f.octAvg) + '</td><td class="col-note">1년 중 가장 비싼 시기 — 이 여행이 해당</td></tr>' +
-          '<tr><td class="col-airline">9월 평균</td><td class="mono">' + wonStr(f.sepAvg) + '</td><td class="col-note">연중 최저 달 (비교용)</td></tr>' +
-          '<tr><td class="col-airline">인천 최저</td><td class="mono">' + wonStr(f.icnLow) + '</td><td class="col-note">최근 인천 출발 왕복 최저 실측가</td></tr>' +
-          '<tr><td class="col-airline">화요일</td><td class="mono">' + wonStr(f.tueLow) + '</td><td class="col-note">가장 싼 요일</td></tr>' +
-          '<tr><td class="col-airline">금요일</td><td class="mono">' + wonStr(f.friHigh) + '</td><td class="col-note">가장 비싼 요일</td></tr>' +
-        '</tbody>' +
-      '</table></div>' +
-      '<div class="stay-note">각 날짜 카드의 항공사별 예상가는 <b>위 실측값에서 유도한 요일 밴드</b>(평일 ' +
-        wonStr(FLIGHT_LEG_BAND.cheap[0]) + '~' + wonStr(FLIGHT_LEG_BAND.cheap[1]) + ' · 주말/공휴일 ' +
-        wonStr(FLIGHT_LEG_BAND.mid[0]) + '~' + wonStr(FLIGHT_LEG_BAND.mid[1]) + ' · 연휴절정 ' +
-        wonStr(FLIGHT_LEG_BAND.pricey[0]) + '~' + wonStr(FLIGHT_LEG_BAND.pricey[1]) +
-        ', 1인 왕복 기준)를 출국·귀국 요일에 각각 적용해 평균낸 뒤 2인으로 곱한 값입니다. ' +
-        '<a href="' + f.src + '" target="_blank" rel="noopener">KAYAK 원본 ↗</a></div>' +
-      '<div class="stay-note"><b>참고</b> — 7주 전 예약 시 막바지 예약보다 약 18% 저렴하다는 것이 KAYAK 통계입니다. ' +
-        '트립닷컴에서는 10/6 출발 에어부산 편도가 최저 $18(약 2.5만원)로 게재된 사례도 확인됐습니다(특가·좌석 극소수).</div>' +
-      '<div class="stay-name" style="margin-top:14px;">인천국제공항(ICN) 출발 — 항공사별 확인된 시각표</div>' +
-      '<div class="schedule-wrap"><table class="schedule">' +
-        '<thead><tr><th>항공사</th><th>편명</th><th>구간</th><th>출발</th><th>도착</th><th>비고</th></tr></thead>' +
-        '<tbody>' + rows + '</tbody>' +
-      '</table></div>' +
-      '<div class="stay-note">취항: ' + routeMeta.airlines + ' · 평균 비행시간 ' + routeMeta.duration + '</div>' +
-      '<div class="stay-note">' + routeMeta.note + '</div>';
+  // ---------------- 렌더: 항공편 선택 (실제 정기편 목록에서 고른다) ----------------
+  function flightRow(f, dir, selected){
+    var d = durOf(f);
+    return '<div role="button" tabindex="0" class="fl' + (selected?' sel':'') + '" data-dir="' + dir + '" data-code="' + f.code + '">' +
+        '<span class="fl-air"><b>' + f.air + '</b><span>' + f.code + '</span></span>' +
+        '<span class="fl-when">' +
+          '<span class="fl-time">' + f.dep + ' → ' + f.arr + '</span>' +
+          '<span class="fl-dur">' + (d ? d : '시각 확인 필요') + '</span>' +
+        '</span>' +
+        '<span class="fl-meta">' + f.ac + '<br>' + f.freq + '</span>' +
+        (f.note ? '<span class="fl-warn">⚠ ' + f.note + '</span>' : '') +
+      '</div>';
+  }
+
+  function renderFlights(){
+    var c = candidates[state.selectedCandidate] || candidates[0];
+    var out = findFlight(FLIGHTS_OUT, state.outFlight);
+    var back = findFlight(FLIGHTS_BACK, state.backFlight);
+
+    var html =
+      '<div class="fl-head"><h3>출국편 — 인천 → 후쿠오카</h3><span class="d">' + c.out.d + '</span></div>' +
+      '<div class="fl-list" id="flOut">' +
+        FLIGHTS_OUT.map(function(f){ return flightRow(f, "out", f.code===state.outFlight); }).join("") +
+      '</div>' +
+      '<div class="fl-head"><h3>귀국편 — 후쿠오카 → 인천</h3><span class="d">' + c.back.d + '</span></div>' +
+      '<div class="fl-list" id="flBack">' +
+        FLIGHTS_BACK.map(function(f){ return flightRow(f, "back", f.code===state.backFlight); }).join("") +
+      '</div>';
+
+    // 고른 두 편에 대한 실제 요금 조회 + 입력
+    var fareVal = state.airFare != null ? state.airFare : "";
+    html +=
+      '<div class="fare">' +
+        '<div class="fare-top">✈ 고른 항공편의 실제 요금 넣기</div>' +
+        '<div class="fare-pick">가는 편 <b>' + flightLabel(out) + '</b> (' + c.out.d + ')<br>' +
+          '오는 편 <b>' + flightLabel(back) + '</b> (' + c.back.d + ')</div>' +
+        liveRow("이 날짜 요금 조회", [
+          ["스카이스캐너", skyscannerLink(c)],
+          ["네이버항공권", naverFlightLink(c)],
+          ["카약", kayakLink(c)],
+          ["구글 항공권", googleFlightsLink(c)]
+        ]) +
+        '<div class="fare-row">' +
+          '<label for="airFare">2인 왕복 총액</label>' +
+          '<input id="airFare" type="text" inputmode="numeric" placeholder="예: 640000" value="' + fareVal + '">' +
+          '<span class="fare-note">원</span>' +
+          (state.airFare != null ? '<button type="button" class="fare-clear" id="airClear">지우기</button>' : '') +
+        '</div>' +
+        '<div class="fare-note">조회 링크에서 <b>' + (out?out.code:'') + ' / ' + (back?back.code:'') +
+          '</b> 편의 실제 가격을 확인해 넣으면 하단 최종 비용에 그대로 반영됩니다. ' +
+          '입력값은 이 브라우저에만 저장되고 어디로도 전송되지 않습니다.</div>' +
+      '</div>';
+
+    var panel = document.getElementById("flightInfoPanel");
+    panel.innerHTML = html;
+
+    panel.querySelectorAll(".fl").forEach(function(el){
+      function choose(){
+        var dir = el.getAttribute("data-dir");
+        if(dir==="out") state.outFlight = el.getAttribute("data-code");
+        else state.backFlight = el.getAttribute("data-code");
+        saveState(); renderFlights(); renderFinalBar();
+      }
+      el.addEventListener("click", function(e){ if(e.target.closest("a")) return; choose(); });
+      el.addEventListener("keydown", function(e){
+        if(e.target.closest("a")) return;
+        if(e.key==="Enter" || e.key===" "){ e.preventDefault(); choose(); }
+      });
+    });
+
+    var input = document.getElementById("airFare");
+    input.addEventListener("input", function(){
+      var digits = input.value.replace(/[^0-9]/g, "");
+      state.airFare = digits ? parseInt(digits, 10) : null;
+      saveState(); renderFinalBar();
+    });
+    var clear = document.getElementById("airClear");
+    if(clear) clear.addEventListener("click", function(){
+      state.airFare = null; saveState(); renderFlights(); renderFinalBar();
+    });
   }
 
   // ---------------- 링크 헬퍼 ----------------
@@ -1359,6 +1531,11 @@
   function skyscannerLink(c){
     return "https://www.skyscanner.co.kr/transport/flights/icn/fuk/" + toYYMMDD(c.out.d) + "/" + toYYMMDD(c.back.d) + "/?adults=2";
   }
+  function naverFlightLink(c){
+    return "https://flight.naver.com/flights/international/ICN-FUK-" + toYYMMDD8(c.out.d) +
+           "/FUK-ICN-" + toYYMMDD8(c.back.d) + "?adult=2";
+  }
+  function toYYMMDD8(dStr){ return toISO(dStr).replace(/-/g, ""); }
   function kayakLink(c){
     return "https://www.kayak.co.kr/flights/ICN-FUK/" + toISO(c.out.d) + "/" + toISO(c.back.d) + "/2adults";
   }
@@ -1422,24 +1599,39 @@
       return '<a class="final-pick" href="' + link.url + '" target="_blank" rel="noopener" title="' + title + '">' + emoji + ' ' + label + (link.direct ? ' · ' + link.source : ' 🔍') + '</a>';
     }
 
+    var out = findFlight(FLIGHTS_OUT, state.outFlight);
+    var back = findFlight(FLIGHTS_BACK, state.backFlight);
+    var flightPill = out && back
+      ? out.code + ' ' + out.dep + ' / ' + back.code + ' ' + back.dep
+      : '항공편 미선택';
+
+    // 항공료를 넣기 전엔 총액을 확정처럼 보여주지 않는다
+    var airTxt  = t.airKnown ? wonStr(t.air) : '미입력';
+    var airTxtM = t.airKnown ? manStr(t.air) + '원' : '미입력';
+    var label = t.exact ? '최종 비용 · 2인 (전부 실제 금액)'
+              : t.airKnown ? '최종 비용 · 2인' : '숙소만 합계 · 2인';
+    var value = t.airKnown ? rangeStr(t.lo, t.hi) : rangeStr(t.stayLo, t.stayHi);
+
     document.getElementById("finalBar").innerHTML =
       '<div class="final-bar-inner">' +
         '<div class="final-bar-picks">' +
-          '<a class="final-pick" href="' + skyscannerLink(c) + '" target="_blank" rel="noopener" title="스카이스캐너에서 이 날짜 항공권 검색">✈ 인천 출발 (' + c.out.d + '→' + c.back.d + ')</a>' +
+          '<a class="final-pick" href="' + skyscannerLink(c) + '" target="_blank" rel="noopener" title="스카이스캐너에서 이 날짜 항공권 검색">✈ ' + flightPill + '</a>' +
           pick('🏯', yName, yLink) +
           pick('🏨', fName, fLink) +
         '</div>' +
         '<div class="final-bar-total">' +
           '<div class="final-bar-copy">' +
-            '<span class="final-bar-label">최종 예상 비용 · 2인</span>' +
-            '<span class="final-bar-sub sub-full">' + c.range + ' · 항공 ' + rangeStr(t.air[0],t.air[1]) +
-              ' + 숙소 ' + rangeStr(t.fLo+t.yLo, t.fHi+t.yHi) + '</span>' +
+            '<span class="final-bar-label">' + label + '</span>' +
+            '<span class="final-bar-sub sub-full">' + c.range + ' · 항공 ' + airTxt +
+              ' + 숙소 ' + rangeStr(t.stayLo, t.stayHi) + '</span>' +
             '<span class="final-bar-sub sub-compact">' + c.range.replace(/\([^)]*\)/g,'') +
-              ' · 항공 ' + manRange(t.air[0],t.air[1]) +
-              ' + 숙소 ' + manRange(t.fLo+t.yLo, t.fHi+t.yHi) + '</span>' +
-            '<span class="final-bar-sub final-bar-note">※ ' + SURVEY_DATE + ' 실측 기준 · 실시간 시세 아님</span>' +
+              ' · 항공 ' + airTxtM +
+              ' + 숙소 ' + manRange(t.stayLo, t.stayHi) + '</span>' +
+            '<span class="final-bar-sub final-bar-note">※ ' +
+              (t.airKnown ? '넣지 않은 항목은 ' + SURVEY_DATE + ' 조사 시세' : '항공료를 넣으면 총액이 나옵니다') +
+            '</span>' +
           '</div>' +
-          '<span class="final-bar-value mono">' + rangeStr(t.lo,t.hi) + '</span>' +
+          '<span class="final-bar-value mono">' + value + '</span>' +
         '</div>' +
       '</div>';
 
@@ -1503,7 +1695,7 @@
           '<span class="leg"><span class="dot ' + LEG[c.out.t].dot + '"></span>출국 ' + c.out.d + '</span>' +
           '<span class="leg"><span class="dot ' + LEG[c.back.t].dot + '"></span>귀국 ' + c.back.d + '</span>' +
         '</div>' +
-        airlineBreakdownHtml(c) +
+
         liveRow("이 날짜 실시간 항공가", [
           ["스카이스캐너", skyscannerLink(c)],
           ["카약", kayakLink(c)],
@@ -1555,9 +1747,10 @@
     });
   });
 
+  loadState();
   renderBasis();
   renderTrust();
-  renderFlightInfo();
+  renderFlights();
   renderStay();
   renderDateCards();
   renderFinalBar();
