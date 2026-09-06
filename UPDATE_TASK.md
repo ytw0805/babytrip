@@ -28,6 +28,7 @@
 | 항공 B | https://www.kayak.co.kr/%ED%95%AD%EA%B3%B5%EA%B6%8C/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD-KR0/%ED%9B%84%EC%BF%A0%EC%98%A4%EC%B9%B4%EA%B3%B5%ED%95%AD-FUK |
 | 후쿠오카 | https://www.booking.com/city/jp/fukuoka-hakata.ko.html |
 | 유후인 | https://www.booking.com/city/jp/yufuin.ko.html |
+| 히타 | https://www.booking.com/city/jp/hita.ko.html |
 
 - **항공**: 1인 왕복 원화 기준 — 10월 평균, 9월 평균, 인천 출발 최저, 가장 싼 요일,
   가장 비싼 요일.
@@ -40,7 +41,7 @@
 
 - `SURVEY_DATE` → 오늘 날짜, `"2026년 9월 4일"` 형식
 - `FLIGHT_MARKET` → `octAvg`, `sepAvg`, `icnLow`, `tueLow`, `friHigh`
-- `STAY_MARKET.fukuoka` / `STAY_MARKET.yufuin` →
+- `STAY_MARKET.fukuoka` / `STAY_MARKET.yufuin` / `STAY_MARKET.hita` →
   - `low` 게재 최저가, `high` 게재 최고가, `mid` 게재가들의 평균
   - `floor` 페이지에 표시된 "최저 ○○원부터" 값
   - `list` 항목은 `["표시이름", 가격정수, 평점]`
@@ -86,6 +87,7 @@
 - `KAYAK 후쿠오카 항공권 왕복 평균 요금 10월`
 - `부킹닷컴 하카타 호텔 1박 요금 원`
 - `부킹닷컴 유후인 료칸 1박 요금 원`
+- `부킹닷컴 히타 료칸 1박 요금 원`
 
 검색 스니펫에 있는 숫자도 **실제 게재된 값이므로 사용해도 됩니다.** 단, 어느 질의의
 어느 결과에서 가져왔는지 커밋 메시지에 남기세요. 추론·환산·반올림으로 만들어낸

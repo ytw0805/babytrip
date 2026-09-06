@@ -247,11 +247,6 @@
     border-radius:10px;padding:9px 13px;margin-bottom:12px;
   }
   .rank-criteria b{color:var(--ink);}
-  .stay-group{margin-bottom:18px;}
-  .stay-group-title{
-    font-size:13px;font-weight:600;color:var(--ink-soft);margin-bottom:10px;
-    display:flex;align-items:center;gap:8px;
-  }
   .stay-grid{
     display:flex;flex-direction:column;gap:12px;
   }
@@ -388,6 +383,7 @@
   }
   .route-seg.fukuoka{background:var(--accent-soft);color:var(--accent-deep);}
   .route-seg.yufuin{background:var(--good-soft);color:var(--good);}
+  .route-seg.hita{background:var(--warn-soft);color:var(--warn);}
   .flight-row{display:flex;gap:14px;font-size:12.5px;color:var(--ink-soft);margin-top:2px;align-items:center;flex-wrap:wrap;}
   .flight-row .leg{display:flex;align-items:center;gap:5px;}
   .dot{width:7px;height:7px;border-radius:50%;flex:none;}
@@ -614,6 +610,7 @@
     <nav class="tab-nav" id="tabNav">
       <button type="button" class="tab-btn active" data-tab="flight"><span class="tab-icon">✈</span>항공권</button>
       <button type="button" class="tab-btn" data-tab="yufuin"><span class="tab-icon">♨</span>유후인 료칸</button>
+      <button type="button" class="tab-btn" data-tab="hita"><span class="tab-icon">♨</span>히타 료칸</button>
       <button type="button" class="tab-btn" data-tab="fukuoka"><span class="tab-icon">🏨</span>후쿠오카 숙소</button>
       <button type="button" class="tab-btn" data-tab="info"><span class="tab-icon">📋</span>안내</button>
     </nav>
@@ -639,14 +636,20 @@
           <b>추천순 정렬 기준</b> ① 금연 확인 여부 ② 개인·전객실 노천탕 여부(대욕장·가족탕 등 공용탕은 감점) ③ 실제 확인된 가격 유무 ④ 후기 평점·신뢰도 ⑤ 위치 편의성 — 이 순서로 우선순위를 매겨 정렬했습니다.
         </div>
         <div class="flight-info-panel" id="yufuinMarket"></div>
-        <div class="stay-group">
-          <div class="stay-group-title">중급 (30~45만원대)</div>
-          <div class="stay-grid" id="yufuinMidGrid"></div>
+        <div class="stay-grid" id="yufuinGrid"></div>
+      </section>
+
+      <section class="tab-pane" id="pane-hita" hidden>
+        <div class="section-head">
+          <h2>히타 료칸</h2>
+          <span class="hint">클릭해서 고르면 하단 최종 비용에 반영됩니다</span>
         </div>
-        <div class="stay-group">
-          <div class="stay-group-title">프리미엄 (50만원 이상)</div>
-          <div class="stay-grid" id="yufuinPremiumGrid"></div>
+        <div class="trust" id="trustHita"></div>
+        <div class="rank-criteria">
+          <b>추천순 정렬 기준</b> ① 금연 확인 여부 ② 개인·전객실 노천탕 여부(대욕장·가족탕 등 공용탕은 감점) ③ 실제 확인된 가격 유무 ④ 후기 평점·신뢰도 ⑤ 위치 편의성 — 이 순서로 우선순위를 매겨 정렬했습니다.
         </div>
+        <div class="flight-info-panel" id="hitaMarket"></div>
+        <div class="stay-grid" id="hitaGrid"></div>
       </section>
 
       <section class="tab-pane" id="pane-fukuoka" hidden>
@@ -670,7 +673,7 @@
         <div class="notes">
     <div class="checklist">
       <b>임신 21주차 확인 체크리스트</b> — 료칸·호텔·식당 예약 시 금연 객실/금연석 여부, 개인 노천탕 유무(대욕장 온천은 사실상 이용 제한),
-      후쿠오카↔유후인 이동수단(유후인노모리/유후인역버스, 좌석 여유), 입덧·컨디션 고려한 여유 일정을 함께 확인하세요.
+      후쿠오카↔유후인↔히타 이동수단(유후인노모리/유후인역버스, 히타 구간 열차·버스 환승), 입덧·컨디션 고려한 여유 일정을 함께 확인하세요.
     </div>
 
     <div>
@@ -680,7 +683,7 @@
           <h4>전제 조건</h4>
           <ul>
             <li><b>인원</b> — 2인, 아내 임신 21주차</li>
-            <li><b>일정</b> — 5박6일 (후쿠오카 2박 → 유후인 2박 → 후쿠오카 1박), 10/3~10/11 구간 안에서 이 순서로 가능한 날짜 창은 4가지뿐</li>
+            <li><b>일정</b> — 5박6일 (유후인 2박 → 히타 1박 → 후쿠오카 2박), 10/3~10/11 구간 안에서 이 순서로 가능한 날짜 창은 4가지뿐</li>
             <li><b>금연</b> — 전 일정 금연 객실·금연석 필수 확인</li>
             <li><b>가격 표기</b> — 전부 추정 · 조사 시점 기준이며 실시간 시세가 아님</li>
           </ul>
@@ -693,8 +696,8 @@
         </div>
         <div class="assume-block">
           <h4>숙소 요금 산정</h4>
-          <p>가격이 확인된 숙소는 그 확인가를, <b>확인되지 않은 숙소는 임의 추정치 대신 부킹닷컴 실매물 시세</b>(유후인 중급 265,716원 · 유후인 프리미엄 400,000원 · 후쿠오카 205,000원)를 대입합니다. 각 카드의 배지가 <b>게재가 실측 / 조사 확인가 / 가격 미확인</b> 중 어느 쪽인지 표시합니다.</p>
-          <p>여기에 머무는 각 밤의 체크인 날짜에 따라 <b>3단계 배율</b>(평일 -10%~+5% · 주말/공휴일 +10%~+25% · 한글날 등 연휴 절정일 +20%~+40%)을 밤마다 따로 적용합니다. 이 배율은 실측이 아니라 <b>수요 패턴 모델</b>입니다. 같은 항공권 조합을 골라도 후쿠오카 2박·1박이 걸리는 날짜에 따라 숙소비가 달라집니다.</p>
+          <p>료칸은 프리미엄·중급 구분 없이 한 목록으로 합쳤고, 가격이 확인된 곳은 그 확인가를, <b>확인되지 않은 곳은 임의 추정치 대신 부킹닷컴 실매물 시세</b>(유후인 268,326원 · 히타 275,929원 · 후쿠오카 207,000원 — 각 지역 실매물 평균가)를 대입합니다. 각 카드의 배지가 <b>게재가 실측 / 조사 확인가 / 가격 미확인</b> 중 어느 쪽인지 표시합니다.</p>
+          <p>여기에 머무는 각 밤의 체크인 날짜에 따라 <b>3단계 배율</b>(평일 -10%~+5% · 주말/공휴일 +10%~+25% · 한글날 등 연휴 절정일 +20%~+40%)을 밤마다 따로 적용합니다. 이 배율은 실측이 아니라 <b>수요 패턴 모델</b>입니다. 같은 항공권 조합을 골라도 유후인 2박·히타 1박·후쿠오카 2박이 걸리는 날짜에 따라 숙소비가 달라집니다.</p>
         </div>
         <div class="assume-block">
           <h4>항공료 산정</h4>
@@ -707,7 +710,7 @@
         </div>
         <div class="assume-block">
           <h4>숙소 순위 · 조식/석식</h4>
-          <p>유후인 료칸·후쿠오카 호텔 모두 <b>금연 확인 여부 → 개인/전객실 노천탕(공용탕은 감점) → 실가격 확인 → 후기 신뢰도 → 위치</b> 순으로 추천순 정렬했고(후쿠오카는 노천탕 대신 식당가 접근성 기준), 각 카드에 순위와 이유를 달았습니다. 조식·석식(가이세키) 포함 여부도 함께 표시했으나, 검색으로 확인되지 않은 곳은 "확인 필요"로 남겨뒀습니다.</p>
+          <p>유후인·히타 료칸, 후쿠오카 호텔 모두 <b>금연 확인 여부 → 개인/전객실 노천탕(공용탕은 감점) → 실가격 확인 → 후기 신뢰도 → 위치</b> 순으로 추천순 정렬했고(후쿠오카는 노천탕 대신 식당가 접근성 기준), 각 카드에 순위와 이유를 달았습니다. 조식·석식(가이세키) 포함 여부도 함께 표시했으나, 검색으로 확인되지 않은 곳은 "확인 필요"로 남겨뒀습니다.</p>
         </div>
         <div class="assume-block">
           <h4>예약 가능 여부 · 예약 링크</h4>
@@ -721,6 +724,7 @@
       <a href="https://www.kayak.co.kr/%ED%95%AD%EA%B3%B5%EA%B6%8C/%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD-KR0/%ED%9B%84%EC%BF%A0%EC%98%A4%EC%B9%B4%EA%B3%B5%ED%95%AD-FUK" target="_blank" rel="noopener">KAYAK 후쿠오카 항공권 시세</a> ·
       <a href="https://www.booking.com/city/jp/fukuoka-hakata.ko.html" target="_blank" rel="noopener">부킹닷컴 하카타 숙소 시세</a> ·
       <a href="https://www.booking.com/city/jp/yufuin.ko.html" target="_blank" rel="noopener">부킹닷컴 유후인 숙소 시세</a> ·
+      <a href="https://www.booking.com/city/jp/hita.ko.html" target="_blank" rel="noopener">부킹닷컴 히타 숙소 시세</a> ·
       <a href="https://us.trip.com/flights/airport-icn-fuk/" target="_blank" rel="noopener">트립닷컴 ICN-FUK</a>
       <br>일정 출처: <a href="https://v.daum.net/v/20251201045638495" target="_blank" rel="noopener">2026년 휴일 일정 (Daum)</a> ·
       <a href="https://www.wegive.co.kr/wezine/detail/1368" target="_blank" rel="noopener">2026년 공휴일 달력 (wegive)</a> ·
@@ -868,78 +872,124 @@
         ["벳소 콘자쿠안", 470710, 9.3]
       ],
       src:"https://www.booking.com/city/jp/yufuin.ko.html"
+    },
+    hita: {
+      label:"히타",
+      low:108095, mid:275929, high:690628, floor:108095,
+      list:[
+        ["호텔 소시아", 108095, 8.1],
+        ["Hotel Route-Inn Hita Ekimae", 113351, 8.3],
+        ["플라자 호텔 후지노이", 118024, 6.7],
+        ["PLAZA HOTEL FUJINOI - Vacation STAY", 136921, 7.8],
+        ["東のおうち", 152288, 9.4],
+        ["세이텐카쿠 (아마가세 온천)", 169222, 7.8],
+        ["료칸 텐류", 192956, 9.1],
+        ["Auberge Licht", 437829, 9.1],
+        ["산소 텐스이", 640304, 9.8],
+        ["오쿠히타 온천 우메히비키", 690628, 9.2]
+      ],
+      src:"https://www.booking.com/city/jp/hita.ko.html"
     }
   };
 
   // ---------------- 숙소 데이터 (조사 결과, 실제 매물) ----------------
   // 추천순 정렬 기준: ① 금연 확인 여부 ② 개인/전객실 노천탕 여부(대욕장 공용탕은 감점) ③ 실가격 확인 여부 ④ 후기 평점·신뢰도 ⑤ 위치 편의성
+  // 프리미엄/중급 구분 없이 한 목록으로 합침 — 정렬 기준은 위 rank-criteria와 동일(금연→개인노천탕→가격확인→후기→위치)
   var yufuinOptions = [
-    { id:"baien", tier:"mid", name:"유후인 바이엔 가든 리조트", price:286000, priceKnown:true,
-      priceNote:"라쿠텐 확인가(세금·봉사료 포함)", nonSmoking:"check",
-      feature:"일본·서양 퓨전 객실 26실 · 후기 4.7 (185건)",
-      mealType:"included", mealNote:"1박2식 포함 · 석식 가이세키(오리지널, 와규 등 2~3인용) · 조식 일본식 정식",
-      why:"조사 대상 중 가장 저렴한 확인가이면서 리뷰 수·평점(4.7/185건)까지 가장 신뢰할 만해 1순위.",
-      links:[["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456869004/"]] },
-    { id:"hinoharu", tier:"mid", name:"히노하루 료칸", price:400000, priceKnown:true,
-      priceNote:"플랜별 편차 큼 (30만원대~51만원)", nonSmoking:"check",
-      feature:"오이타 와규 가이세키, 100% 카케나가시 노천탕 보유",
-      mealType:"included", mealNote:"석식 가이세키(오이타 와규) 확인 · 조식 포함 여부는 플랜별 확인 필요",
-      why:"실제 온천(노천탕)과 미식 가이세키가 강점이지만, 플랜별 가격 편차가 커서 1위보다 예측 가능성이 낮음.",
-      links:[["부킹닷컴","https://www.booking.com/hotel/jp/yufuin-onsen-hinoharu-ryokan.html"],["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456876297"],["아고다","https://www.agoda.com/ko-kr/hinoharu-ryokan/hotel/yufu-jp.html"]] },
-    { id:"seikoen", tier:"mid", name:"세이코엔 (야도 세이코엔)", price:347000, priceKnown:true,
-      priceNote:"투어비스 확인가", nonSmoking:"check",
-      feature:"대욕장 · 가족탕 · 노천탕, 유후인역 인근",
-      mealType:"included", mealNote:"1박2식 포함 · 석식 가이세키(오이타 와규) · 조식 일본식 정식",
-      why:"가격 투명성과 역 접근성은 좋으나, 노천탕이 개인전용이 아닌 가족탕/공용 형태라 3위.",
-      links:[["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/10123456863553"],["투어비스","https://tourvis.com/hotel/hotels/126724"]] },
-    { id:"nogiku", tier:"mid", name:"유후인 료칸 노기쿠", price:null, priceKnown:false,
-      priceNote:"가격 미확인 — 아고다·라쿠텐에서 날짜별 확인", nonSmoking:"check",
-      feature:"객실 개인노천탕 · 유카타·자전거 무료 대여 · 이온몰 도보권",
-      mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
-      why:"개인노천탕을 갖춘 몇 안 되는 중급 옵션이지만 정확한 가격을 확인하지 못해 4위.",
-      links:[["아고다","https://www.agoda.com/ko-kr/yufuin-ryokan-nogiku/hotel/yufu-jp.html"],["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456873213"]] },
-    { id:"nurukawa", tier:"mid", name:"누루카와 료칸", price:null, priceKnown:false,
-      priceNote:"27만원 선 (블로그 시세, 실시간가 미확인)", nonSmoking:"check",
-      feature:"가족탕 · 대욕탕, \"가격 대비 만족도 높다\"는 후기",
-      mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
-      why:"가성비 후기는 좋지만 개인탕이 아니고 예약처 직링크도 확인되지 않아 5위.",
-      links:[] },
-    { id:"fuppoan", tier:"mid", name:"풋포안", price:null, priceKnown:false,
-      priceNote:"30만원대 (블로그 시세, 실시간가 미확인)", nonSmoking:"check",
-      feature:"대욕장 · 가족탕 · 노천탕, 유후인역 차로 5분",
-      mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
-      why:"가격도 시설도 확인된 정보가 가장 적어 중급 중 최하위.",
-      links:[] },
-    { id:"rakuyu", tier:"premium", name:"유후인 라쿠유", price:760000, priceKnown:true,
+    { id:"rakuyu", name:"유후인 라쿠유", price:760000, priceKnown:true,
       priceNote:"라쿠텐 확인가(15% 할인 적용가)", nonSmoking:"check",
       feature:"전객실 노천탕 완비 · 일본식 모던 · 후기 4.7 (22건)",
       mealType:"included", mealNote:"1박2식 포함 · 석식 계절 일본요리(사찰음식 변경 가능) · 조식 유후인쌀 정식 — 가이세키 명시 확인은 안 됨",
-      why:"\"전객실\" 노천탕이 실제 가격·후기와 함께 모두 확인된 유일한 프리미엄 옵션이라 1순위.",
+      why:"\"전객실\" 노천탕이 실제 가격·후기와 함께 모두 확인된 유일한 옵션이라 1순위.",
       links:[["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123457000964"]] },
-    { id:"yasuha", tier:"premium", name:"유후인 야스하 (모리노유 유후인 야스하)", price:null, priceKnown:false,
+    { id:"yasuha", name:"유후인 야스하 (모리노유 유후인 야스하)", price:null, priceKnown:false,
       priceNote:"조식·석식 옵션별 별도 과금 — 공식가 변동", nonSmoking:"check",
       feature:"전19실 중 11실 객실전용 노천탕 · 희귀 코발트블루 온천 · 배리어프리",
       mealType:"optional", mealNote:"조식·석식(가이세키 포함 플랜 있음) 전부 옵션별 별도 과금 — 기본 요금엔 미포함",
       why:"희귀한 온천 수질과 배리어프리(이동 편의)가 강점이지만, 전객실은 아니고 가격이 옵션별로 변동해 2위.",
       links:[["공식사이트","https://www.yasuha.co.jp/ko/room/"],["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456872482"]] },
-    { id:"seian", tier:"premium", name:"유후인 세이안 (星降る宿 星庵)", price:null, priceKnown:false,
+    { id:"seian", name:"유후인 세이안 (星降る宿 星庵)", price:null, priceKnown:false,
       priceNote:"가격 미확인", nonSmoking:"check",
       feature:"전4객실 별채형 개인노천탕 · 소규모 프라이빗 료칸",
       mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
       why:"전객실 개인노천탕은 강점이나 가격·후기 정보를 확인하지 못해 3위.",
       links:[] },
-    { id:"ichizen", tier:"premium", name:"오야도 이치젠", price:null, priceKnown:false,
+    { id:"ichizen", name:"오야도 이치젠", price:null, priceKnown:false,
       priceNote:"가격 미확인", nonSmoking:"check",
       feature:"스키야즈쿠리 양식 · 전객실 독립구조+전용온천탕",
       mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
       why:"구조적 프라이버시는 좋지만 가격·후기가 전부 미확인이라 4위.",
       links:[["공식사이트","https://www.oyado-ichizen.com/ko/room/"]] },
-    { id:"yufunosho", tier:"premium", name:"오야도 유후노쇼", price:null, priceKnown:false,
+    { id:"nogiku", name:"유후인 료칸 노기쿠", price:null, priceKnown:false,
+      priceNote:"가격 미확인 — 아고다·라쿠텐에서 날짜별 확인", nonSmoking:"check",
+      feature:"객실 개인노천탕 · 유카타·자전거 무료 대여 · 이온몰 도보권",
+      mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
+      why:"개인노천탕을 갖춘 몇 안 되는 옵션이지만 정확한 가격을 확인하지 못해 5위.",
+      links:[["아고다","https://www.agoda.com/ko-kr/yufuin-ryokan-nogiku/hotel/yufu-jp.html"],["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456873213"]] },
+    { id:"yufunosho", name:"오야도 유후노쇼", price:null, priceKnown:false,
       priceNote:"가격 미확인", nonSmoking:"check",
       feature:"라쿠텐 등재 매물 · 상세 미확인",
       mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
-      why:"조사된 정보가 가장 적어 프리미엄 중 최하위.",
-      links:[["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456861985/"]] }
+      why:"노천탕 여부가 확인되지 않고 조사된 정보도 가장 적어 6위.",
+      links:[["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456861985/"]] },
+    { id:"baien", name:"유후인 바이엔 가든 리조트", price:286000, priceKnown:true,
+      priceNote:"라쿠텐 확인가(세금·봉사료 포함)", nonSmoking:"check",
+      feature:"일본·서양 퓨전 객실 26실 · 후기 4.7 (185건)",
+      mealType:"included", mealNote:"1박2식 포함 · 석식 가이세키(오리지널, 와규 등 2~3인용) · 조식 일본식 정식",
+      why:"확인된 가격·후기 신뢰도(4.7/185건)는 가장 좋지만 개인노천탕이 없어, 노천탕을 갖춘 곳들보다는 순위가 밀려 7위.",
+      links:[["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456869004/"]] },
+    { id:"hinoharu", name:"히노하루 료칸", price:400000, priceKnown:true,
+      priceNote:"플랜별 편차 큼 (30만원대~51만원)", nonSmoking:"check",
+      feature:"오이타 와규 가이세키, 100% 카케나가시 노천탕 보유",
+      mealType:"included", mealNote:"석식 가이세키(오이타 와규) 확인 · 조식 포함 여부는 플랜별 확인 필요",
+      why:"실제 온천(노천탕)과 미식 가이세키가 강점이지만 노천탕이 개인전용인지 확인되지 않고 플랜별 가격 편차도 커 8위.",
+      links:[["부킹닷컴","https://www.booking.com/hotel/jp/yufuin-onsen-hinoharu-ryokan.html"],["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_yufu_city/10123456876297"],["아고다","https://www.agoda.com/ko-kr/hinoharu-ryokan/hotel/yufu-jp.html"]] },
+    { id:"seikoen", name:"세이코엔 (야도 세이코엔)", price:347000, priceKnown:true,
+      priceNote:"투어비스 확인가", nonSmoking:"check",
+      feature:"대욕장 · 가족탕 · 노천탕, 유후인역 인근",
+      mealType:"included", mealNote:"1박2식 포함 · 석식 가이세키(오이타 와규) · 조식 일본식 정식",
+      why:"가격 투명성과 역 접근성은 좋으나, 노천탕이 개인전용이 아닌 가족탕/공용 형태라 9위.",
+      links:[["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/10123456863553"],["투어비스","https://tourvis.com/hotel/hotels/126724"]] },
+    { id:"nurukawa", name:"누루카와 료칸", price:null, priceKnown:false,
+      priceNote:"27만원 선 (블로그 시세, 실시간가 미확인)", nonSmoking:"check",
+      feature:"가족탕 · 대욕탕, \"가격 대비 만족도 높다\"는 후기",
+      mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
+      why:"가성비 후기는 좋지만 개인탕이 아니고 예약처 직링크도 확인되지 않아 10위.",
+      links:[] },
+    { id:"fuppoan", name:"풋포안", price:null, priceKnown:false,
+      priceNote:"30만원대 (블로그 시세, 실시간가 미확인)", nonSmoking:"check",
+      feature:"대욕장 · 가족탕 · 노천탕, 유후인역 차로 5분",
+      mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
+      why:"가격도 시설도 확인된 정보가 가장 적어 최하위.",
+      links:[] }
+  ];
+
+  // 히타 료칸 — 2026-09-06 조사(부킹닷컴 게재가). 유후인과 동일한 기준으로 정렬.
+  var hitaOptions = [
+    { id:"umehibiki", name:"오쿠히타 온천 우메히비키", price:690628, priceKnown:true, verified:"real",
+      priceNote:"부킹닷컴 게재가 690,628원 (평점 9.2)", nonSmoking:"ok",
+      feature:"전관 금연 확인 · 響渓谷(교케이) 계곡 전망 · 일부 객실 노천탕 플랜",
+      mealType:"included", mealNote:"1박2식 포함 · 계절 특선 가이세키 확인(이큐 플랜 기준) — 전객실 노천탕은 아니고 해당 플랜 선택 시",
+      why:"전관 금연이 확인된 유일한 옵션인 데다 일부 객실엔 노천탕까지 갖춰 1순위.",
+      links:[["부킹닷컴","https://www.booking.com/hotel/jp/ao-ri-tian-wen-quan-umehibiki.html"],["공식사이트","https://www.umehibiki.jp/rooms/"]] },
+    { id:"tensui", name:"산소 텐스이 (산장 천수)", price:640304, priceKnown:true, verified:"real",
+      priceNote:"부킹닷컴 게재가 640,304원 (평점 9.8)", nonSmoking:"check",
+      feature:"무료 대절 노천탕 5개소 · 일부 객실 전용탕 · 폭포 전망 19실",
+      mealType:"included", mealNote:"가이세키(분고규·제철 생선) 확인",
+      why:"금연 확인은 안 됐지만 무료 대절 노천탕 5개소와 조사 대상 중 가장 높은 평점(9.8)을 갖춰 2위.",
+      links:[["부킹닷컴","https://www.booking.com/hotel/jp/sanso-tensui.html"],["공식사이트","https://www.tensui.net/"]] },
+    { id:"tenryu", name:"료칸 텐류", price:192956, priceKnown:true, verified:"real",
+      priceNote:"부킹닷컴 게재가 192,956원 (평점 9.1)", nonSmoking:"check",
+      feature:"전11실 중 3실 원천 흐름 노천탕 · 배리어프리 객실 있음 · 전객실 강변 전망",
+      mealType:"included", mealNote:"분고(오이타) 식재 가이세키 확인",
+      why:"11실 중 3실만 노천탕이 있고 나머지는 대욕장을 써야 해 위 두 곳보다는 밀리지만, 배리어프리 객실과 가이세키가 강점이라 3위.",
+      links:[["부킹닷컴","https://www.booking.com/hotel/jp/tenryuso.html"],["공식사이트","https://r-tenryu.com/"]] },
+    { id:"seitenkaku", name:"세이텐카쿠 (아마가세 온천)", price:169222, priceKnown:true, verified:"real",
+      priceNote:"부킹닷컴 게재가 169,222원 (평점 7.8)", nonSmoking:"check",
+      feature:"대욕장 2곳(노천탕 포함, 공용) · 유황온천",
+      mealType:"unknown", mealNote:"조식·석식(가이세키 여부) 확인 필요",
+      why:"노천탕은 대욕장(공용)뿐이고 평점(7.8)도 조사 대상 중 가장 낮아 4위.",
+      links:[["라쿠텐","https://travel.rakuten.com/kor/ko-kr/hotel_info_item/cnt_japan/sub_oita_prefecture/cty_hita_city/10123456871242"],["아고다","https://www.agoda.com/amagase-onsen-seitenkaku-h78433317/hotel/hita-jp.html"],["공식사이트","https://amagase.com/"]] }
   ];
 
   var fukuokaOptions = [
@@ -1002,23 +1052,23 @@
     return f ? f.air + " " + f.code + " " + f.dep + "→" + f.arr : "미선택";
   }
 
-  // ---------------- 날짜 조합 데이터 (5박6일: 후쿠오카2박-유후인2박-후쿠오카1박) ----------------
+  // ---------------- 날짜 조합 데이터 (5박6일: 유후인2박-히타1박-후쿠오카2박) ----------------
   // 10/3~10/11(9일) 안에서 6일짜리 여행 창은 4개뿐이고, 전부 화수목(10/6·7·8) 3일 연차가 필요함
   var candidates = [
     {
       leave:3, range:"10/3(토) – 10/8(목)", nights:"5박6일",
       out:{d:"10/3(토)",t:"mid"}, back:{d:"10/8(목)",t:"cheap"},
       nightsPlan:[
-        {date:"10/3", place:"fukuoka"},
-        {date:"10/4", place:"fukuoka"},
-        {date:"10/5", place:"yufuin"},
-        {date:"10/6", place:"yufuin"},
+        {date:"10/3", place:"yufuin"},
+        {date:"10/4", place:"yufuin"},
+        {date:"10/5", place:"hita"},
+        {date:"10/6", place:"fukuoka"},
         {date:"10/7", place:"fukuoka"}
       ],
       tag:"best",
       why:[
-        "가능한 4가지 날짜 조합 중 숙소 할증과 항공료가 겹치는 날이 가장 적은 조합입니다.",
-        "유후인 2박(10/5 대체공휴일·10/6 평일)은 하루만 할증이 붙고, 후쿠오카 마지막 1박(10/7 수요일)은 완전 평일가입니다.",
+        "가능한 4가지 날짜 조합 중 항공료와 숙소 할증이 겹치는 총량이 가장 적은 조합입니다.",
+        "유후인 2박(10/3 개천절·10/4 일요일)과 히타 1박(10/5 대체공휴일)은 전부 할증이 붙지만, 후쿠오카 마지막 2박(10/6·10/7 평일)은 완전 평일가로 묶입니다.",
         "귀국(10/8 목요일)이 완전 평일 최저가 구간이라, 한글날(10/9)에 귀국하는 조합보다 항공료 부담이 낮습니다.",
         "가장 비싼 5박6일 조합(10/4→10/9, 한글날 귀국) 대비 <span class=\"why-diff\"></span> 절감됩니다."
       ]
@@ -1027,10 +1077,10 @@
       leave:3, range:"10/4(일) – 10/9(금)", nights:"5박6일",
       out:{d:"10/4(일)",t:"mid"}, back:{d:"10/9(금)",t:"pricey"},
       nightsPlan:[
-        {date:"10/4", place:"fukuoka"},
-        {date:"10/5", place:"fukuoka"},
-        {date:"10/6", place:"yufuin"},
-        {date:"10/7", place:"yufuin"},
+        {date:"10/4", place:"yufuin"},
+        {date:"10/5", place:"yufuin"},
+        {date:"10/6", place:"hita"},
+        {date:"10/7", place:"fukuoka"},
         {date:"10/8", place:"fukuoka"}
       ],
       tag:"worst"
@@ -1039,10 +1089,10 @@
       leave:3, range:"10/5(월) – 10/10(토)", nights:"5박6일",
       out:{d:"10/5(월)",t:"mid"}, back:{d:"10/10(토)",t:"mid"},
       nightsPlan:[
-        {date:"10/5", place:"fukuoka"},
-        {date:"10/6", place:"fukuoka"},
-        {date:"10/7", place:"yufuin"},
-        {date:"10/8", place:"yufuin"},
+        {date:"10/5", place:"yufuin"},
+        {date:"10/6", place:"yufuin"},
+        {date:"10/7", place:"hita"},
+        {date:"10/8", place:"fukuoka"},
         {date:"10/9", place:"fukuoka"}
       ],
       tag:null
@@ -1051,17 +1101,17 @@
       leave:3, range:"10/6(화) – 10/11(일)", nights:"5박6일",
       out:{d:"10/6(화)",t:"cheap"}, back:{d:"10/11(일)",t:"pricey"},
       nightsPlan:[
-        {date:"10/6", place:"fukuoka"},
-        {date:"10/7", place:"fukuoka"},
-        {date:"10/8", place:"yufuin"},
-        {date:"10/9", place:"yufuin"},
+        {date:"10/6", place:"yufuin"},
+        {date:"10/7", place:"yufuin"},
+        {date:"10/8", place:"hita"},
+        {date:"10/9", place:"fukuoka"},
         {date:"10/10", place:"fukuoka"}
       ],
       tag:null
     }
   ];
 
-  var PLACE_LABEL = {fukuoka:"후쿠오카", yufuin:"유후인"};
+  var PLACE_LABEL = {fukuoka:"후쿠오카", yufuin:"유후인", hita:"히타"};
   function groupNights(c){
     var groups = [];
     c.nightsPlan.forEach(function(n){
@@ -1091,7 +1141,7 @@
   function rangeStr(a,b){ return wonStr(a) + " ~ " + wonStr(b); }
 
   var state = {
-    yufuinPick:"seikoen", fukuokaPick:"and-hakata", selectedCandidate:0,
+    yufuinPick:"seikoen", hitaPick:"umehibiki", fukuokaPick:"and-hakata", selectedCandidate:0,
     outFlight:"KE787", backFlight:"KE790",
     airFare:null,      // 2인 왕복 총액 — 예약사이트에서 본 실제 금액을 직접 넣는다
     stayFare:{}        // 숙소 id별 실제 1박 요금
@@ -1104,7 +1154,7 @@
       localStorage.setItem(STORE, JSON.stringify({
         outFlight:state.outFlight, backFlight:state.backFlight,
         airFare:state.airFare, stayFare:state.stayFare,
-        yufuinPick:state.yufuinPick, fukuokaPick:state.fukuokaPick,
+        yufuinPick:state.yufuinPick, hitaPick:state.hitaPick, fukuokaPick:state.fukuokaPick,
         selectedCandidate:state.selectedCandidate
       }));
     }catch(e){/* 사생활 보호 모드 등 — 저장 실패는 무시 */}
@@ -1119,56 +1169,44 @@
     }catch(e){/* 저장된 값이 깨졌으면 기본값으로 간다 */}
   }
 
-  // 가격 미확인 숙소는 임의 추정 대신 Booking.com 실측 시세를 대입한다
+  // 가격 미확인 숙소는 임의 추정 대신 Booking.com 실매물 평균가를 대입한다 — 프리미엄/중급 구분 없이 지역당 하나
   var FALLBACK = {
-    yufuinMid: STAY_MARKET.yufuin.mid,       // 유후인 실매물 평균 265,716원
-    yufuinPremium: 400000,                   // 유후인 상위대 실측(397,994~453,422)의 하단
-    fukuoka: STAY_MARKET.fukuoka.mid         // 하카타 실매물 중간대 205,000원
+    yufuin: STAY_MARKET.yufuin.mid,     // 유후인 실매물 평균 268,326원
+    hita: STAY_MARKET.hita.mid,         // 히타 실매물 평균 275,929원
+    fukuoka: STAY_MARKET.fukuoka.mid    // 하카타 실매물 평균 207,000원
   };
-  function yufuinBase(){
-    var opt = yufuinOptions.filter(function(o){ return o.id===state.yufuinPick; })[0];
-    if(opt && opt.priceKnown) return opt.price;
-    if(opt) return opt.tier==="mid" ? FALLBACK.yufuinMid : FALLBACK.yufuinPremium;
-    return FALLBACK.yufuinMid;
-  }
-  function fukuokaBase(){
-    var opt = fukuokaOptions.filter(function(o){ return o.id===state.fukuokaPick; })[0];
-    if(opt && opt.priceKnown) return opt.price;
-    return FALLBACK.fukuoka;
-  }
+  var STAY_OPTIONS = { yufuin: yufuinOptions, hita: hitaOptions, fukuoka: fukuokaOptions };
+  var PICK_KEY = { yufuin:"yufuinPick", hita:"hitaPick", fukuoka:"fukuokaPick" };
 
-  // 직접 입력한 1박 요금이 있으면 그 값을 쓰고, 없을 때만 조사 기준가를 쓴다
-  function yufuinNightly(){
-    var typed = state.stayFare[state.yufuinPick];
-    return { won: typed != null ? typed : yufuinBase(), typed: typed != null };
+  function stayBase(place){
+    var opt = STAY_OPTIONS[place].filter(function(o){ return o.id===state[PICK_KEY[place]]; })[0];
+    return (opt && opt.priceKnown) ? opt.price : FALLBACK[place];
   }
-  function fukuokaNightly(){
-    var typed = state.stayFare[state.fukuokaPick];
-    return { won: typed != null ? typed : fukuokaBase(), typed: typed != null };
+  // 직접 입력한 1박 요금이 있으면 그 값을 쓰고, 없을 때만 조사 기준가를 쓴다
+  function stayNightly(place){
+    var typed = state.stayFare[state[PICK_KEY[place]]];
+    return { won: typed != null ? typed : stayBase(place), typed: typed != null };
   }
 
   function totalsOf(c){
-    var y = yufuinNightly(), f = fukuokaNightly();
-    var yLo=0, yHi=0, fLo=0, fHi=0;
+    var nightly = { yufuin: stayNightly("yufuin"), hita: stayNightly("hita"), fukuoka: stayNightly("fukuoka") };
+    var lo = { yufuin:0, hita:0, fukuoka:0 }, hi = { yufuin:0, hita:0, fukuoka:0 };
     c.nightsPlan.forEach(function(n){
       var band = TIER_BAND[DATE_TIER[n.date]];
+      var ny = nightly[n.place];
       // 실제 요금을 넣었으면 그 날짜의 확정가로 보고 할증 배율을 씌우지 않는다
-      if(n.place==="yufuin"){
-        yLo += y.typed ? y.won : y.won*band[0];
-        yHi += y.typed ? y.won : y.won*band[1];
-      } else {
-        fLo += f.typed ? f.won : f.won*band[0];
-        fHi += f.typed ? f.won : f.won*band[1];
-      }
+      lo[n.place] += ny.typed ? ny.won : ny.won*band[0];
+      hi[n.place] += ny.typed ? ny.won : ny.won*band[1];
     });
 
     var air = state.airFare;   // null이면 아직 항공료를 넣지 않은 것
+    var stayLo = lo.yufuin+lo.hita+lo.fukuoka, stayHi = hi.yufuin+hi.hita+hi.fukuoka;
     return {
-      yLo:yLo, yHi:yHi, fLo:fLo, fHi:fHi,
+      yLo:lo.yufuin, yHi:hi.yufuin, hLo:lo.hita, hHi:hi.hita, fLo:lo.fukuoka, fHi:hi.fukuoka,
       air:air, airKnown: air != null,
-      stayLo: fLo+yLo, stayHi: fHi+yHi,
-      lo: (air||0)+fLo+yLo, hi: (air||0)+fHi+yHi,
-      exact: (air != null) && y.typed && f.typed
+      stayLo: stayLo, stayHi: stayHi,
+      lo: (air||0)+stayLo, hi: (air||0)+stayHi,
+      exact: (air != null) && nightly.yufuin.typed && nightly.hita.typed && nightly.fukuoka.typed
     };
   }
 
@@ -1205,10 +1243,8 @@
     '</div>';
   }
   function stayCard(o, groupName, rank){
-    var selected = (groupName==="yufuin" ? state.yufuinPick : state.fukuokaPick) === o.id;
-    var fallbackPrice = groupName==="yufuin"
-      ? (o.tier==="mid" ? FALLBACK.yufuinMid : FALLBACK.yufuinPremium)
-      : FALLBACK.fukuoka;
+    var selected = state[PICK_KEY[groupName]] === o.id;
+    var fallbackPrice = FALLBACK[groupName];
     var priceHtml = o.priceKnown
       ? '<span class="stay-price">' + wonStr(o.price) + '<span style="font-weight:400;color:var(--ink-faint);font-size:11px;"> / 1박</span></span>'
       : '<span class="stay-price unknown">' + wonStr(fallbackPrice) + ' <span style="font-weight:400;font-size:11px;">/ 1박 (시세 대입)</span></span>';
@@ -1235,11 +1271,12 @@
 
   function renderStay(){
     renderMarket("yufuinMarket", "yufuin");
+    renderMarket("hitaMarket", "hita");
     renderMarket("fukuokaMarket", "fukuoka");
-    var yMidGrid = document.getElementById("yufuinMidGrid");
-    yMidGrid.innerHTML = yufuinOptions.filter(function(o){ return o.tier==="mid"; }).map(function(o,i){ return stayCard(o,"yufuin",i+1); }).join("");
-    var yPremGrid = document.getElementById("yufuinPremiumGrid");
-    yPremGrid.innerHTML = yufuinOptions.filter(function(o){ return o.tier==="premium"; }).map(function(o,i){ return stayCard(o,"yufuin",i+1); }).join("");
+    var yGrid = document.getElementById("yufuinGrid");
+    yGrid.innerHTML = yufuinOptions.map(function(o,i){ return stayCard(o,"yufuin",i+1); }).join("");
+    var hGrid = document.getElementById("hitaGrid");
+    hGrid.innerHTML = hitaOptions.map(function(o,i){ return stayCard(o,"hita",i+1); }).join("");
     var fGrid = document.getElementById("fukuokaGrid");
     fGrid.innerHTML = fukuokaOptions.map(function(o,i){ return stayCard(o,"fukuoka",i+1); }).join("");
 
@@ -1259,8 +1296,8 @@
         });
       });
     }
-    bindPick(yMidGrid, "yufuinPick");
-    bindPick(yPremGrid, "yufuinPick");
+    bindPick(yGrid, "yufuinPick");
+    bindPick(hGrid, "hitaPick");
     bindPick(fGrid, "fukuokaPick");
 
     // 요금 입력은 카드 선택과 별개로 동작해야 한다 (입력 중 재렌더되면 포커스를 잃는다)
@@ -1279,7 +1316,7 @@
 
   // ---------------- 렌더: 가격 기준 배너 ----------------
   function renderBasis(){
-    var sf = STAY_MARKET.fukuoka, sy = STAY_MARKET.yufuin;
+    var sf = STAY_MARKET.fukuoka, sy = STAY_MARKET.yufuin, sh = STAY_MARKET.hita;
     var c = candidates[state.selectedCandidate] || candidates[0];
     var out = findFlight(FLIGHTS_OUT, state.outFlight);
     var back = findFlight(FLIGHTS_BACK, state.backFlight);
@@ -1301,9 +1338,9 @@
         item("항공료 (2인 왕복)",
              state.airFare != null ? wonStr(state.airFare) : "미입력",
              state.airFare != null ? "직접 넣은 실제 금액" : "조회 후 직접 넣으면 총액에 반영") +
-        item("숙소 1박 실매물 시세",
+        item("숙소 1박 실매물 시세 (유후인)",
              wonStr(sy.low) + "~" + wonStr(sy.high),
-             "유후인 / 후쿠오카 " + wonStr(sf.low) + "~" + wonStr(sf.high) + " (부킹닷컴)") +
+             "히타 " + wonStr(sh.low) + "~" + wonStr(sh.high) + " / 후쿠오카 " + wonStr(sf.low) + "~" + wonStr(sf.high) + " (부킹닷컴)") +
       '</div>' +
       '<div class="basis-warn">' +
         '<b>항공료와 숙박비는 이 페이지가 자동으로 가져올 수 없습니다.</b> ' +
@@ -1388,6 +1425,10 @@
     }
 
     stayTrust("trustYufuin", yufuinOptions, STAY_MARKET.yufuin,
+      [],
+      ["소규모 료칸은 금연 여부를 웹에 표기하지 않습니다 — <b>예약 전 전화·메일 문의가 필수</b>입니다"]);
+
+    stayTrust("trustHita", hitaOptions, STAY_MARKET.hita,
       [],
       ["소규모 료칸은 금연 여부를 웹에 표기하지 않습니다 — <b>예약 전 전화·메일 문의가 필수</b>입니다"]);
 
@@ -1587,10 +1628,13 @@
     var c = candidates[state.selectedCandidate] || candidates[0];
     var t = totalsOf(c);
     var yOpt = yufuinOptions.filter(function(o){return o.id===state.yufuinPick;})[0];
+    var hOpt = hitaOptions.filter(function(o){return o.id===state.hitaPick;})[0];
     var fOpt = fukuokaOptions.filter(function(o){return o.id===state.fukuokaPick;})[0];
     var yName = yOpt ? yOpt.name : "미선택";
+    var hName = hOpt ? hOpt.name : "미선택";
     var fName = fOpt ? fOpt.name : "미선택";
     var yLink = yOpt ? bookingLinkFor(yOpt) : null;
+    var hLink = hOpt ? bookingLinkFor(hOpt) : null;
     var fLink = fOpt ? bookingLinkFor(fOpt) : null;
 
     function pick(emoji, label, link){
@@ -1617,6 +1661,7 @@
         '<div class="final-bar-picks">' +
           '<a class="final-pick" href="' + skyscannerLink(c) + '" target="_blank" rel="noopener" title="스카이스캐너에서 이 날짜 항공권 검색">✈ ' + flightPill + '</a>' +
           pick('🏯', yName, yLink) +
+          pick('♨', hName, hLink) +
           pick('🏨', fName, fLink) +
         '</div>' +
         '<div class="final-bar-total">' +
