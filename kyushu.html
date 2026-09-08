@@ -15,6 +15,8 @@
 <title>해탈이 큐슈 수첩</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;600;700;900&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <style>
   :root{
     --paper:#FBF3E0; --surface:#FFFDF7; --surface-2:#F3E8CE;
@@ -128,6 +130,13 @@
     padding:10px 14px;margin-bottom:22px;font-size:12.5px;color:var(--ink);
   }
   .info-strip b{color:var(--rc-ink);}
+
+  .region-map{height:340px;border:3px solid var(--line);border-radius:14px;margin-bottom:8px;box-shadow:var(--shadow);overflow:hidden;background:var(--surface-2);}
+  .map-caption{font-size:11px;color:var(--ink-faint);margin:0 0 22px;}
+  .leaflet-popup-content-wrapper{background:var(--surface);color:var(--ink);border-radius:8px;}
+  .leaflet-popup-tip{background:var(--surface);}
+  .map-pop b{display:block;font-size:13px;margin-bottom:2px;}
+  .map-pop a{color:var(--rc);font-size:11.5px;font-weight:700;}
 
   .section-label{
     display:flex;align-items:center;gap:10px;font-size:22px;margin:26px 0 12px;color:var(--rc);
@@ -249,6 +258,9 @@
       <span><b>공항→하카타역</b> 지하철 공항선 약 5분</span>
     </div>
 
+    <div id="map-hakata" class="region-map"></div>
+    <p class="map-caption">핀을 탭하면 이름과 구글맵 길찾기 링크가 뜹니다. 어두운 핀=명소, 색깔 핀=맛집. 자동 검색이라 일부는 안 뜰 수 있어요 — 그럴 땐 카드를 눌러 구글맵으로 확인하세요.</p>
+
     <h3 class="section-label">명소</h3>
     <div class="card-grid">
       <div class="card"><h4>츠바메노모리 히로바 <span class="jp">つばめの杜ひろば</span></h4><p>JR하카타시티 옥상, 지상 60m 무료 전망정원. 엘리베이터·에스컬레이터로만 이동해 계단이 없습니다.</p><div class="meta"><span class="chip rc">계단 없음</span><span class="chip">무료</span></div></div>
@@ -297,6 +309,9 @@
       <span><b>10/11 숙소</b> 온야도 나카야(御宿なか屋)</span>
       <span><b>이동</b> 하카타→유후인 고속버스 유후린호, 약 2~2.5h(하카타 버스터미널 3F 34번, 예약 권장)</span>
     </div>
+
+    <div id="map-yufuin" class="region-map"></div>
+    <p class="map-caption">핀을 탭하면 이름과 구글맵 길찾기 링크가 뜹니다. 어두운 핀=명소, 색깔 핀=맛집. 자동 검색이라 일부는 안 뜰 수 있어요 — 그럴 땐 카드를 눌러 구글맵으로 확인하세요.</p>
 
     <h3 class="section-label">명소</h3>
     <div class="subcat">호수 · 거리</div>
@@ -381,6 +396,9 @@
       <span><b>동선</b> 유후인→아마가세(체크인) → 다음날 히타역·마메다마치 → 텐진행 버스</span>
     </div>
 
+    <div id="map-hita" class="region-map"></div>
+    <p class="map-caption">핀을 탭하면 이름과 구글맵 길찾기 링크가 뜹니다. 어두운 핀=명소, 색깔 핀=맛집. 아마가세온천과 마메다마치는 약 20km 떨어져 있어 지도가 두 무리로 나뉘어 보입니다.</p>
+
     <h3 class="section-label">명소</h3>
     <div class="subcat">아마가세 온천</div>
     <div class="card-grid">
@@ -437,6 +455,9 @@
       <span><b>이동</b> 히타 버스센터→니시테츠 텐진 고속버스터미널, 히타고 약 1.5h(30분 간격, 예약 불필요)</span>
       <span><b>귀국</b> 13:40 FUK → 15:25 ICN (7C1472), 늦어도 오전 11시엔 출발</span>
     </div>
+
+    <div id="map-tenjin" class="region-map"></div>
+    <p class="map-caption">핀을 탭하면 이름과 구글맵 길찾기 링크가 뜹니다. 어두운 핀=명소, 색깔 핀=맛집. 자동 검색이라 일부는 안 뜰 수 있어요 — 그럴 땐 카드를 눌러 구글맵으로 확인하세요.</p>
 
     <h3 class="section-label">명소</h3>
     <div class="card-grid">
@@ -545,6 +566,55 @@
 
 <script>
 (function(){
+  var REGION_Q = {
+    hakata: '福岡市博多区',
+    yufuin: '大分県由布市湯布院町',
+    hita: '大分県日田市',
+    tenjin: '福岡市中央区天神'
+  };
+  var REGION_SEED = {
+    hakata: {center:[33.5895,130.4207], zoom:14},
+    yufuin: {center:[33.2645,131.3597], zoom:14},
+    hita:   {center:[33.3060,130.9750], zoom:11},
+    tenjin: {center:[33.5903,130.3990], zoom:15}
+  };
+  var REGION_COLOR = { hakata:'#E24A2B', yufuin:'#20744E', hita:'#C98A16', tenjin:'#245C86' };
+
+  // ---------- 지도 초기화 ----------
+  var maps = {}, layers = {}, bounds = {};
+  Object.keys(REGION_SEED).forEach(function(r){
+    var seed = REGION_SEED[r];
+    var el = document.getElementById('map-' + r);
+    if(!el || typeof L === 'undefined') return;
+    var map = L.map(el, {scrollWheelZoom:false}).setView(seed.center, seed.zoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:19, attribution:'&copy; OpenStreetMap'
+    }).addTo(map);
+    maps[r] = map;
+    layers[r] = L.layerGroup().addTo(map);
+  });
+
+  function extendBounds(region, latlng){
+    if(!bounds[region]) bounds[region] = L.latLngBounds([latlng, latlng]);
+    else bounds[region].extend(latlng);
+    if(maps[region]) maps[region].fitBounds(bounds[region], {padding:[26,26], maxZoom:15});
+  }
+  function escapeHtml(s){ var d = document.createElement('div'); d.textContent = s || ''; return d.innerHTML; }
+  function placeMarker(item, loc){
+    var layer = layers[item.region];
+    if(!layer) return;
+    var color = item.category === 'food' ? (REGION_COLOR[item.region] || '#333') : '#241C12';
+    var marker = L.circleMarker([loc.lat, loc.lon], {radius:7, color:'#fff', weight:1.5, fillColor:color, fillOpacity:0.95});
+    marker.bindPopup(
+      '<div class="map-pop"><b>' + escapeHtml(item.name) + '</b>' +
+      (item.jp ? '<span style="color:#8F7F62;font-size:11px;">' + escapeHtml(item.jp) + '</span>' : '') +
+      '<br><a href="' + item.url + '" target="_blank" rel="noopener">구글맵에서 길찾기 ↗</a></div>'
+    );
+    marker.addTo(layer);
+    extendBounds(item.region, [loc.lat, loc.lon]);
+  }
+
+  // ---------- 탭 전환 (지도 크기 재계산 포함) ----------
   var btns = document.querySelectorAll('.tabbtn');
   var panels = document.querySelectorAll('.region-panel');
   btns.forEach(function(btn){
@@ -552,48 +622,81 @@
       var r = btn.getAttribute('data-r');
       btns.forEach(function(b){ b.classList.toggle('active', b===btn); });
       panels.forEach(function(p){ p.hidden = (p.getAttribute('data-region') !== r); });
+      if(maps[r]) setTimeout(function(){ maps[r].invalidateSize(); }, 50);
       window.scrollTo({top:0, behavior:'smooth'});
     });
   });
-})();
 
-(function(){
-  // 카드마다 구글맵 검색 링크를 붙인다 — 좌표를 지어내지 않고 실제 구글 검색에 위임
-  var REGION_Q = {
-    hakata: '福岡市博多区',
-    yufuin: '大分県由布市湯布院町',
-    hita: '大分県日田市',
-    tenjin: '福岡市中央区天神'
-  };
-  document.querySelectorAll('.region-panel').forEach(function(panel){
-    var q = REGION_Q[panel.getAttribute('data-region')] || '福岡県';
-    panel.querySelectorAll('.card').forEach(function(card){
-      var h4 = card.querySelector('h4');
-      if(!h4) return;
-      var jpEl = h4.querySelector('.jp');
-      var jpText = jpEl ? jpEl.textContent.trim() : '';
-      var primaryParts = [];
-      h4.childNodes.forEach(function(n){ if(n.nodeType === 3) primaryParts.push(n.textContent); });
-      var primary = primaryParts.join(' ').replace(/\s+/g, ' ').trim();
-      var url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((primary + ' ' + jpText).trim() + ' ' + q);
+  // ---------- 카드 처리: 핀 아이콘·구글맵 링크 부착 + 지도 마커용 큐 구성 ----------
+  var GEOCODE_CACHE_KEY = 'kyushuGeocodeCache.v1';
+  var cache = {};
+  try{ cache = JSON.parse(localStorage.getItem(GEOCODE_CACHE_KEY) || '{}'); }catch(e){}
+  function saveCache(){ try{ localStorage.setItem(GEOCODE_CACHE_KEY, JSON.stringify(cache)); }catch(e){} }
 
-      h4.insertAdjacentHTML('afterbegin', '<span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>');
+  var queue = [];
+  panels.forEach(function(panel){
+    var region = panel.getAttribute('data-region');
+    var q = REGION_Q[region] || '福岡県';
+    var currentCat = 'attraction';
+    Array.prototype.forEach.call(panel.children, function(child){
+      if(child.classList && child.classList.contains('section-label')){
+        currentCat = (child.textContent.indexOf('맛집') !== -1) ? 'food' : 'attraction';
+      }
+      if(!(child.classList && child.classList.contains('card-grid'))) return;
+      child.querySelectorAll('.card').forEach(function(card){
+        var h4 = card.querySelector('h4');
+        if(!h4) return;
+        var jpEl = h4.querySelector('.jp');
+        var jpText = jpEl ? jpEl.textContent.trim() : '';
+        var primaryParts = [];
+        h4.childNodes.forEach(function(n){ if(n.nodeType === 3) primaryParts.push(n.textContent); });
+        var primary = primaryParts.join(' ').replace(/\s+/g, ' ').trim();
+        var url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((primary + ' ' + jpText).trim() + ' ' + q);
 
-      var meta = card.querySelector('.meta');
-      if(!meta){ meta = document.createElement('div'); meta.className = 'meta'; card.appendChild(meta); }
-      var mapChip = document.createElement('span');
-      mapChip.className = 'chip map';
-      mapChip.textContent = '지도 ↗';
-      meta.appendChild(mapChip);
+        h4.insertAdjacentHTML('afterbegin', '<span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>');
 
-      card.setAttribute('role', 'link');
-      card.setAttribute('tabindex', '0');
-      card.addEventListener('click', function(){ window.open(url, '_blank', 'noopener'); });
-      card.addEventListener('keydown', function(e){
-        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); window.open(url, '_blank', 'noopener'); }
+        var meta = card.querySelector('.meta');
+        if(!meta){ meta = document.createElement('div'); meta.className = 'meta'; card.appendChild(meta); }
+        var mapChip = document.createElement('span');
+        mapChip.className = 'chip map';
+        mapChip.textContent = '지도 ↗';
+        meta.appendChild(mapChip);
+
+        card.setAttribute('role', 'link');
+        card.setAttribute('tabindex', '0');
+        card.addEventListener('click', function(){ window.open(url, '_blank', 'noopener'); });
+        card.addEventListener('keydown', function(e){
+          if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); window.open(url, '_blank', 'noopener'); }
+        });
+
+        queue.push({ region:region, category:currentCat, name:primary, jp:jpText, url:url,
+          query:(primary + ' ' + jpText).trim() + ' ' + q });
       });
     });
   });
+
+  // ---------- 지오코딩 큐 처리 (Nominatim, 초당 1건으로 제한 + 로컬 캐시) ----------
+  var qi = 0;
+  function processNext(){
+    if(qi >= queue.length) return;
+    var item = queue[qi++];
+    if(Object.prototype.hasOwnProperty.call(cache, item.query)){
+      if(cache[item.query]) placeMarker(item, cache[item.query]);
+      processNext();
+      return;
+    }
+    fetch('https://nominatim.openstreetmap.org/search?format=json&limit=1&countrycodes=jp&q=' + encodeURIComponent(item.query))
+      .then(function(r){ return r.json(); })
+      .then(function(results){
+        var loc = (results && results[0]) ? { lat:parseFloat(results[0].lat), lon:parseFloat(results[0].lon) } : null;
+        cache[item.query] = loc;
+        saveCache();
+        if(loc) placeMarker(item, loc);
+      })
+      .catch(function(){ /* 검색 실패 — 카드의 구글맵 링크로 대체 확인 */ })
+      .finally(function(){ setTimeout(processNext, 1100); });
+  }
+  processNext();
 })();
 </script>
 </body>
