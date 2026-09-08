@@ -159,6 +159,7 @@
     display:flex;align-items:center;justify-content:center;box-shadow:0 1px 3px rgba(0,0,0,.35);z-index:2;
   }
   .card:hover,.card:focus-visible{border-color:var(--rc);transform:translateY(-1px);outline:none;}
+  .card .kind{font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:700;letter-spacing:0.03em;color:var(--rc);}
   .card h4{font-size:14px;font-family:"Noto Sans KR";font-weight:700;line-height:1.3;display:flex;align-items:flex-start;gap:5px;}
   .card h4 .jp{font-weight:400;color:var(--ink-faint);font-size:11.5px;display:block;margin-top:1px;}
   .card h4 .pin{flex:none;color:var(--rc);margin-top:2px;}
@@ -394,36 +395,36 @@
 
     <h3 class="section-label">명소</h3>
     <div class="card-grid">
-      <div class="card"><h4>츠바메노모리 히로바 <span class="jp">つばめの杜ひろば</span></h4><p>JR하카타시티 옥상, 지상 60m 무료 전망정원. 엘리베이터·에스컬레이터로만 이동해 계단이 없습니다.</p><div class="meta"><span class="chip rc">계단 없음</span><span class="chip">무료</span></div></div>
-      <div class="card"><h4>도초지(하카타 대불) <span class="jp">東長寺</span></h4><p>806년경 창건, 높이 16.1m 일본 최대급 목조좌상. 실내·평지.</p><div class="meta"><span class="chip rc">실내·평지</span></div></div>
-      <div class="card"><h4>구시다신사 <span class="jp">櫛田神社</span></h4><p>하카타 기온 야마카사 축제의 본거지. 경내는 평지, 입구에 약간의 계단.</p><div class="meta"><span class="chip">나카스카와바타역 도보 5~7분</span></div></div>
-      <div class="card"><h4>하카타 마치야 후루사토칸 <span class="jp">博多町家ふるさと館</span></h4><p>하카타 옛 생활문화를 보여주는 실내 소규모 박물관, 구시다신사 바로 옆.</p><div class="meta"><span class="chip rc">실내·평지</span></div></div>
-      <div class="card"><h4>가와바타 상점가 <span class="jp">川端商店街</span></h4><p>약 400m 아케이드 지붕형 상점가, 캐널시티와 연결. 날씨 걱정 없이 평지 산책.</p><div class="meta"><span class="chip rc">전천후·평지</span></div></div>
-      <div class="card"><h4>캐널시티 하카타 <span class="jp">キャナルシティ博多</span></h4><p>실내몰+분수쇼, 에스컬레이터·엘리베이터 완비. 하카타역 도보 10~15분.</p></div>
-      <div class="card"><h4>후쿠오카 아시아미술관 <span class="jp">福岡アジア美術館</span></h4><p>하카타 리버레인 내 아시아 근현대미술관, 엘리베이터 완비.</p></div>
-      <div class="card"><h4>스미요시 신사 <span class="jp">住吉神社</span></h4><p>일본 3대 스미요시 신사 중 하나, 중요문화재. 하카타역 도보 약 10분, 평지.</p></div>
-      <div class="card"><h4>레이센 공원 <span class="jp">冷泉公園</span></h4><p>구시다신사 인근 소규모 도심공원, 벤치 많아 쉬어가기 좋음.</p></div>
+      <div class="card"><div class="kind">전망대</div><h4>츠바메노모리 히로바 <span class="jp">つばめの杜ひろば</span></h4><p>JR하카타시티 옥상, 지상 60m 무료 전망정원. 엘리베이터·에스컬레이터로만 이동해 계단이 없습니다.</p><div class="meta"><span class="chip rc">계단 없음</span><span class="chip">무료</span></div></div>
+      <div class="card"><div class="kind">사찰·대불</div><h4>도초지(하카타 대불) <span class="jp">東長寺</span></h4><p>806년경 창건, 높이 16.1m 일본 최대급 목조좌상. 실내·평지.</p><div class="meta"><span class="chip rc">실내·평지</span></div></div>
+      <div class="card"><div class="kind">신사</div><h4>구시다신사 <span class="jp">櫛田神社</span></h4><p>하카타 기온 야마카사 축제의 본거지. 경내는 평지, 입구에 약간의 계단.</p><div class="meta"><span class="chip">나카스카와바타역 도보 5~7분</span></div></div>
+      <div class="card"><div class="kind">박물관</div><h4>하카타 마치야 후루사토칸 <span class="jp">博多町家ふるさと館</span></h4><p>하카타 옛 생활문화를 보여주는 실내 소규모 박물관, 구시다신사 바로 옆.</p><div class="meta"><span class="chip rc">실내·평지</span></div></div>
+      <div class="card"><div class="kind">상점가</div><h4>가와바타 상점가 <span class="jp">川端商店街</span></h4><p>약 400m 아케이드 지붕형 상점가, 캐널시티와 연결. 날씨 걱정 없이 평지 산책.</p><div class="meta"><span class="chip rc">전천후·평지</span></div></div>
+      <div class="card"><div class="kind">쇼핑몰</div><h4>캐널시티 하카타 <span class="jp">キャナルシティ博多</span></h4><p>실내몰+분수쇼, 에스컬레이터·엘리베이터 완비. 하카타역 도보 10~15분.</p></div>
+      <div class="card"><div class="kind">미술관</div><h4>후쿠오카 아시아미술관 <span class="jp">福岡アジア美術館</span></h4><p>하카타 리버레인 내 아시아 근현대미술관, 엘리베이터 완비.</p></div>
+      <div class="card"><div class="kind">신사</div><h4>스미요시 신사 <span class="jp">住吉神社</span></h4><p>일본 3대 스미요시 신사 중 하나, 중요문화재. 하카타역 도보 약 10분, 평지.</p></div>
+      <div class="card"><div class="kind">공원</div><h4>레이센 공원 <span class="jp">冷泉公園</span></h4><p>구시다신사 인근 소규모 도심공원, 벤치 많아 쉬어가기 좋음.</p></div>
     </div>
 
     <h3 class="section-label">맛집</h3>
     <div class="subcat">한 그릇 든든하게</div>
     <div class="card-grid">
-      <div class="card"><h4>마키노우동 하카타 버스터미널점 <span class="jp">牧のうどん</span></h4><p>아주 부드럽게 삶은 우동, 장시간 이동 후 위 부담 적은 선택. 버스터미널 지하1층.</p></div>
-      <div class="card"><h4>하카타 모츠도코로 하마야 <span class="jp">博多もつ処 浜や</span></h4><p>흰된장 국물 모츠나베, 좌식 1인 냄비석. 숙소서 도보 약 4분.</p><div class="meta"><span class="chip caution">곁들이 멘타이코 비가열</span></div></div>
-      <div class="card"><h4>잇푸도 하카타에키점 <span class="jp">一風堂 博多駅店</span></h4><p>아뮤플라자 10층, 엘리베이터로 바로 접근돼 계단 없음.</p></div>
-      <div class="card"><h4>하카타 잇코샤 총본점 <span class="jp">博多一幸舎 総本店</span></h4><p>진한 "거품계" 돈코츠 육수로 유명, 하카타역 도보 3~6분.</p></div>
-      <div class="card"><h4>간소 하카타 다루마 데이토스점 <span class="jp">元祖博多だるま</span></h4><p>1963년 창업, 극세면 돈코츠. 하카타역 에키나카 상가 2층.</p></div>
-      <div class="card"><h4>시나소바 츠키야 하카타멘카이도점 <span class="jp">支那そば 月や</span></h4><p>역 구내 라멘 골목, 담백한 쇼유·모츠라멘.</p></div>
-      <div class="card"><h4>이카토모츠나베 교자샤603 <span class="jp">イカともつ鍋 博多餃子舎603</span></h4><p>하카타식 한입교자+오징어·모츠나베. 치쿠시구치 도보 3분.</p></div>
-      <div class="card"><h4>호운테이 나카스본점 <span class="jp">宝雲亭</span></h4><p>1949년 창업, 한입교자 원조 격, 마늘 미사용.</p></div>
+      <div class="card"><div class="kind">우동</div><h4>마키노우동 하카타 버스터미널점 <span class="jp">牧のうどん</span></h4><p>아주 부드럽게 삶은 우동, 장시간 이동 후 위 부담 적은 선택. 버스터미널 지하1층.</p></div>
+      <div class="card"><div class="kind">모츠나베</div><h4>하카타 모츠도코로 하마야 <span class="jp">博多もつ処 浜や</span></h4><p>흰된장 국물 모츠나베, 좌식 1인 냄비석. 숙소서 도보 약 4분.</p><div class="meta"><span class="chip caution">곁들이 멘타이코 비가열</span></div></div>
+      <div class="card"><div class="kind">라멘</div><h4>잇푸도 하카타에키점 <span class="jp">一風堂 博多駅店</span></h4><p>아뮤플라자 10층, 엘리베이터로 바로 접근돼 계단 없음.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>하카타 잇코샤 총본점 <span class="jp">博多一幸舎 総本店</span></h4><p>진한 "거품계" 돈코츠 육수로 유명, 하카타역 도보 3~6분.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>간소 하카타 다루마 데이토스점 <span class="jp">元祖博多だるま</span></h4><p>1963년 창업, 극세면 돈코츠. 하카타역 에키나카 상가 2층.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>시나소바 츠키야 하카타멘카이도점 <span class="jp">支那そば 月や</span></h4><p>역 구내 라멘 골목, 담백한 쇼유·모츠라멘.</p></div>
+      <div class="card"><div class="kind">교자·모츠나베</div><h4>이카토모츠나베 교자샤603 <span class="jp">イカともつ鍋 博多餃子舎603</span></h4><p>하카타식 한입교자+오징어·모츠나베. 치쿠시구치 도보 3분.</p></div>
+      <div class="card"><div class="kind">교자</div><h4>호운테이 나카스본점 <span class="jp">宝雲亭</span></h4><p>1949년 창업, 한입교자 원조 격, 마늘 미사용.</p></div>
     </div>
     <div class="subcat">명란·화과자·쇼핑푸드</div>
     <div class="card-grid">
-      <div class="card"><h4>간소 하카타 멘타이쥬 <span class="jp">元祖博多めんたい重</span></h4><p>명란 덮밥 전문점, JR하카타시티 1층. 1,680엔~.</p><div class="meta"><span class="chip caution">멘타이코(명란) 요리</span></div></div>
-      <div class="card"><h4>아지노멘타이코 후쿠야 <span class="jp">味の明太子ふくや</span></h4><p>멘타이코 원조 제조사 직영, 시식·구매 위주.</p><div class="meta"><span class="chip caution">멘타이코</span></div></div>
-      <div class="card"><h4>이시무라만세이도 본점 <span class="jp">石村萬盛堂</span></h4><p>1905년 창업 화과자 노포, 화이트데이 발상지. 명물 "츠루노코".</p></div>
-      <div class="card"><h4>하카타 한큐 지하식품관</h4><p>백화점 데파치카+규슈 명물 푸드코트 100석.</p></div>
-      <div class="card"><h4>JR하카타시티 하카타 멘카이도 <span class="jp">博多めん街道</span></h4><p>라멘·모츠나베·미즈타키 등 후쿠오카 명물이 모인 식당가.</p></div>
+      <div class="card"><div class="kind">명란덮밥</div><h4>간소 하카타 멘타이쥬 <span class="jp">元祖博多めんたい重</span></h4><p>명란 덮밥 전문점, JR하카타시티 1층. 1,680엔~.</p><div class="meta"><span class="chip caution">멘타이코(명란) 요리</span></div></div>
+      <div class="card"><div class="kind">멘타이코</div><h4>아지노멘타이코 후쿠야 <span class="jp">味の明太子ふくや</span></h4><p>멘타이코 원조 제조사 직영, 시식·구매 위주.</p><div class="meta"><span class="chip caution">멘타이코</span></div></div>
+      <div class="card"><div class="kind">화과자</div><h4>이시무라만세이도 본점 <span class="jp">石村萬盛堂</span></h4><p>1905년 창업 화과자 노포, 화이트데이 발상지. 명물 "츠루노코".</p></div>
+      <div class="card"><div class="kind">데파치카</div><h4>하카타 한큐 지하식품관</h4><p>백화점 데파치카+규슈 명물 푸드코트 100석.</p></div>
+      <div class="card"><div class="kind">식당가</div><h4>JR하카타시티 하카타 멘카이도 <span class="jp">博多めん街道</span></h4><p>라멘·모츠나베·미즈타키 등 후쿠오카 명물이 모인 식당가.</p></div>
     </div>
   </section>
 
@@ -606,69 +607,69 @@
     <h3 class="section-label">명소</h3>
     <div class="subcat">호수 · 거리</div>
     <div class="card-grid">
-      <div class="card"><h4>긴린코 <span class="jp">金鱗湖</span></h4><p>둘레 약 400m 호숫가 평지길, 벤치 많음. 일부 비포장·자갈 구간.</p><div class="meta"><span class="chip rc">평지</span></div></div>
-      <div class="card"><h4>유노쓰보 카이도 <span class="jp">湯の坪街道</span></h4><p>역~긴린코 약 800m 전 구간 포장도로 상점가. 주말 인파 많아 이른 시간 추천.</p></div>
-      <div class="card"><h4>유후인 플로럴 빌리지 <span class="jp">フローラルヴィレッジ</span></h4><p>영국 코츠월드풍 미니 마을, 역에서 도보 15분, 전 구간 평지.</p></div>
-      <div class="card"><h4>유후인역 아트홀 <span class="jp">由布院駅アートホール</span></h4><p>건축가 이소자키 아라타 설계 역사 내 갤러리, 별도 이동 불필요.</p></div>
+      <div class="card"><div class="kind">호수</div><h4>긴린코 <span class="jp">金鱗湖</span></h4><p>둘레 약 400m 호숫가 평지길, 벤치 많음. 일부 비포장·자갈 구간.</p><div class="meta"><span class="chip rc">평지</span></div></div>
+      <div class="card"><div class="kind">상점가</div><h4>유노쓰보 카이도 <span class="jp">湯の坪街道</span></h4><p>역~긴린코 약 800m 전 구간 포장도로 상점가. 주말 인파 많아 이른 시간 추천.</p></div>
+      <div class="card"><div class="kind">테마마을</div><h4>유후인 플로럴 빌리지 <span class="jp">フローラルヴィレッジ</span></h4><p>영국 코츠월드풍 미니 마을, 역에서 도보 15분, 전 구간 평지.</p></div>
+      <div class="card"><div class="kind">갤러리</div><h4>유후인역 아트홀 <span class="jp">由布院駅アートホール</span></h4><p>건축가 이소자키 아라타 설계 역사 내 갤러리, 별도 이동 불필요.</p></div>
     </div>
     <div class="subcat">미술관 · 박물관 (유후인은 소규모 미술관 밀집지역)</div>
     <div class="card-grid">
-      <div class="card"><h4>유후인 쇼와칸 <span class="jp">湯布院昭和館</span></h4><p>1950~60년대 일본 거리를 재현한 레트로 박물관. 연중무휴 09:00-17:00.</p></div>
-      <div class="card"><h4>트릭3D아트 유후인</h4><p>착시 그림 체험형 미술관, 자유 촬영 가능. 가족 단위 인기.</p></div>
-      <div class="card"><h4>규슈 자동차 역사관</h4><p>다이쇼시대 이후 클래식카 전시, 긴린코 바로 근처. 성인 800엔.</p></div>
-      <div class="card"><h4>COMICO ART MUSEUM YUFUIN</h4><p>건축가 구마 겐고 설계 현대미술관, 09:30-17:30.</p></div>
-      <div class="card"><h4>유후인 스테인드글라스 미술관</h4><p>교회 건물 형태 전문 미술관. 체험 프로그램은 2026년 7월까지 중단, 관람은 정상.</p><div class="meta"><span class="chip caution">체험프로그램 중단중</span></div></div>
-      <div class="card"><h4>由布院空想の森 아르테지오</h4><p>료칸 산소무라타 부지 내 음악 테마 미술관. 역서 택시 약 7분.</p></div>
-      <div class="card"><h4>노먼 록웰 유후인 미술관</h4><p>일본 유일 노먼 록웰 전문관, 대표작 약 130점.</p><div class="meta"><span class="chip caution">임시휴관 여부 확인 필요</span></div></div>
-      <div class="card"><h4>이와시타 컬렉션</h4><p>모터사이클·쇼와레트로·골동품 등을 아우르는 복합 사설박물관.</p><div class="meta"><span class="chip caution">요금·시간 확인 필요</span></div></div>
+      <div class="card"><div class="kind">레트로박물관</div><h4>유후인 쇼와칸 <span class="jp">湯布院昭和館</span></h4><p>1950~60년대 일본 거리를 재현한 레트로 박물관. 연중무휴 09:00-17:00.</p></div>
+      <div class="card"><div class="kind">체험미술관</div><h4>트릭3D아트 유후인</h4><p>착시 그림 체험형 미술관, 자유 촬영 가능. 가족 단위 인기.</p></div>
+      <div class="card"><div class="kind">자동차박물관</div><h4>규슈 자동차 역사관</h4><p>다이쇼시대 이후 클래식카 전시, 긴린코 바로 근처. 성인 800엔.</p></div>
+      <div class="card"><div class="kind">현대미술관</div><h4>COMICO ART MUSEUM YUFUIN</h4><p>건축가 구마 겐고 설계 현대미술관, 09:30-17:30.</p></div>
+      <div class="card"><div class="kind">미술관</div><h4>유후인 스테인드글라스 미술관</h4><p>교회 건물 형태 전문 미술관. 체험 프로그램은 2026년 7월까지 중단, 관람은 정상.</p><div class="meta"><span class="chip caution">체험프로그램 중단중</span></div></div>
+      <div class="card"><div class="kind">음악미술관</div><h4>由布院空想の森 아르테지오</h4><p>료칸 산소무라타 부지 내 음악 테마 미술관. 역서 택시 약 7분.</p></div>
+      <div class="card"><div class="kind">미술관</div><h4>노먼 록웰 유후인 미술관</h4><p>일본 유일 노먼 록웰 전문관, 대표작 약 130점.</p><div class="meta"><span class="chip caution">임시휴관 여부 확인 필요</span></div></div>
+      <div class="card"><div class="kind">복합박물관</div><h4>이와시타 컬렉션</h4><p>모터사이클·쇼와레트로·골동품 등을 아우르는 복합 사설박물관.</p><div class="meta"><span class="chip caution">요금·시간 확인 필요</span></div></div>
     </div>
     <div class="subcat">신사 · 사찰 · 자연</div>
     <div class="card-grid">
-      <div class="card"><h4>덴소 신사 <span class="jp">天祖神社</span></h4><p>긴린코 호수 위에 뜬 듯한 도리이, 사진 명소이자 파워스팟.</p></div>
-      <div class="card"><h4>붓산지 <span class="jp">佛山寺</span></h4><p>삼나무 숲에 둘러싸인 임제종 사찰, 초가지붕 산문이 단풍 명소.</p></div>
-      <div class="card"><h4>우나기히메 신사 <span class="jp">宇奈岐日女神社</span></h4><p>역에서 도보 약 20분, 큰 도리이부터 참배로.</p><div class="meta"><span class="chip caution">계단 유무 확인 필요</span></div></div>
-      <div class="card"><h4>다이기샤 <span class="jp">大杵社</span></h4><p>수령 1,000년 넘는 국가 천연기념물 거목이 있는 신사.</p></div>
-      <div class="card"><h4>사기리다이 전망대 <span class="jp">狭霧台</span></h4><p>유후인 분지 전경, 가을 아침 운해 명소.</p><div class="meta"><span class="chip caution">차량 필요, 도보 접근 어려움</span></div></div>
-      <div class="card"><h4>스누피 빌리지 유후인</h4><p>유노쓰보 카이도 내 PEANUTS 테마 매장 3곳(찻집·초콜릿·굿즈).</p></div>
+      <div class="card"><div class="kind">신사</div><h4>덴소 신사 <span class="jp">天祖神社</span></h4><p>긴린코 호수 위에 뜬 듯한 도리이, 사진 명소이자 파워스팟.</p></div>
+      <div class="card"><div class="kind">사찰</div><h4>붓산지 <span class="jp">佛山寺</span></h4><p>삼나무 숲에 둘러싸인 임제종 사찰, 초가지붕 산문이 단풍 명소.</p></div>
+      <div class="card"><div class="kind">신사</div><h4>우나기히메 신사 <span class="jp">宇奈岐日女神社</span></h4><p>역에서 도보 약 20분, 큰 도리이부터 참배로.</p><div class="meta"><span class="chip caution">계단 유무 확인 필요</span></div></div>
+      <div class="card"><div class="kind">신사</div><h4>다이기샤 <span class="jp">大杵社</span></h4><p>수령 1,000년 넘는 국가 천연기념물 거목이 있는 신사.</p></div>
+      <div class="card"><div class="kind">전망대</div><h4>사기리다이 전망대 <span class="jp">狭霧台</span></h4><p>유후인 분지 전경, 가을 아침 운해 명소.</p><div class="meta"><span class="chip caution">차량 필요, 도보 접근 어려움</span></div></div>
+      <div class="card"><div class="kind">테마숍</div><h4>스누피 빌리지 유후인</h4><p>유노쓰보 카이도 내 PEANUTS 테마 매장 3곳(찻집·초콜릿·굿즈).</p></div>
     </div>
 
     <h3 class="section-label">맛집</h3>
     <div class="subcat">식사</div>
     <div class="card-grid">
-      <div class="card"><h4>유후인 산쇼로 <span class="jp">ゆふいん山椒郎</span></h4><p>채소 25종+분고규·지도리 "아와세바코" 정식. 예약 권장.</p></div>
-      <div class="card"><h4>타베루사이노</h4><p>오이타 와규 규카츠, 역 도보 5분.</p></div>
-      <div class="card"><h4>고식수타소바 이즈미 <span class="jp">古式手打そば 泉</span></h4><p>유후인 대표 수타소바 전문점.</p></div>
-      <div class="card"><h4>유부 마부시 신 <span class="jp">由布まぶし心</span></h4><p>분고규·장어·지역닭 중 택1 "마부시" 덮밥, 긴린코 본점. 3,200엔.</p></div>
-      <div class="card"><h4>레스토랑 란푸샤 <span class="jp">洋灯舎</span></h4><p>긴린코 호숫가 숨은 레스토랑, 분고규 함박스테이크가 간판 메뉴.</p></div>
-      <div class="card"><h4>우나이치 소혼텐 <span class="jp">鰻一 総本店</span></h4><p>유후인 대표 장어집, 국산 장어. 10:30-17:30(LO 17:00).</p></div>
-      <div class="card"><h4>우나기노 나루세 <span class="jp">鰻の成瀬</span></h4><p>합리적 가격의 우나쥬(松·竹·梅) 전문.</p></div>
-      <div class="card"><h4>유후인 이로리야키 요모야마 <span class="jp">四方山</span></h4><p>유노쓰보 요코초 내 군계 이로리야키 정식. 2,380엔.</p><div class="meta"><span class="chip caution">저녁엔 이자카야풍</span></div></div>
-      <div class="card"><h4>원조 붕고 니쿠지루 우동</h4><p>분고규 덮밥·우동, 역 근처.</p></div>
+      <div class="card"><div class="kind">가이세키정식</div><h4>유후인 산쇼로 <span class="jp">ゆふいん山椒郎</span></h4><p>채소 25종+분고규·지도리 "아와세바코" 정식. 예약 권장.</p></div>
+      <div class="card"><div class="kind">규카츠</div><h4>타베루사이노</h4><p>오이타 와규 규카츠, 역 도보 5분.</p></div>
+      <div class="card"><div class="kind">소바</div><h4>고식수타소바 이즈미 <span class="jp">古式手打そば 泉</span></h4><p>유후인 대표 수타소바 전문점.</p></div>
+      <div class="card"><div class="kind">마부시덮밥</div><h4>유부 마부시 신 <span class="jp">由布まぶし心</span></h4><p>분고규·장어·지역닭 중 택1 "마부시" 덮밥, 긴린코 본점. 3,200엔.</p></div>
+      <div class="card"><div class="kind">함박스테이크</div><h4>레스토랑 란푸샤 <span class="jp">洋灯舎</span></h4><p>긴린코 호숫가 숨은 레스토랑, 분고규 함박스테이크가 간판 메뉴.</p></div>
+      <div class="card"><div class="kind">장어</div><h4>우나이치 소혼텐 <span class="jp">鰻一 総本店</span></h4><p>유후인 대표 장어집, 국산 장어. 10:30-17:30(LO 17:00).</p></div>
+      <div class="card"><div class="kind">장어</div><h4>우나기노 나루세 <span class="jp">鰻の成瀬</span></h4><p>합리적 가격의 우나쥬(松·竹·梅) 전문.</p></div>
+      <div class="card"><div class="kind">이로리야키</div><h4>유후인 이로리야키 요모야마 <span class="jp">四方山</span></h4><p>유노쓰보 요코초 내 군계 이로리야키 정식. 2,380엔.</p><div class="meta"><span class="chip caution">저녁엔 이자카야풍</span></div></div>
+      <div class="card"><div class="kind">우동</div><h4>원조 붕고 니쿠지루 우동</h4><p>분고규 덮밥·우동, 역 근처.</p></div>
     </div>
     <div class="subcat">카페</div>
     <div class="card-grid">
-      <div class="card"><h4>카페 라 뤼슈 <span class="jp">CAFE LA RUCHE</span></h4><p>긴린코 바로 앞 테라스, 천연효모 크루아상.</p></div>
-      <div class="card"><h4>카페 센케 <span class="jp">千家</span></h4><p>"마을에서 경치 가장 좋은 곳", 유후다케 정면 통유리 뷰.</p></div>
-      <div class="card"><h4>카페 에덴 <span class="jp">cafe e-denn</span></h4><p>번화가에서 차로 5분, 료칸들 사이 조용한 숨은 카페.</p></div>
-      <div class="card"><h4>모리노코차텐 <span class="jp">森の交茶点</span></h4><p>커피+가벼운 식사 전 메뉴 500엔 균일가.</p></div>
-      <div class="card"><h4>the theo (아르테지오 내)</h4><p>진한 쇼콜라·계절 파르페, 미술관 부속 카페.</p></div>
-      <div class="card"><h4>텐조사지키 <span class="jp">天井棧敷</span></h4><p>가메노이벳소 내, 에도시대 양조장 다락 개조 찻집.</p><div class="meta"><span class="chip caution">밤엔 바로 전환, 낮 시간 추천</span></div></div>
-      <div class="card"><h4>니콜즈 <span class="jp">Nicoll's</span> (다마노유)</h4><p>료칸 다마노유 내 찻집 겸 라운지.</p><div class="meta"><span class="chip caution">칵테일·와인 취급</span></div></div>
-      <div class="card"><h4>SNOOPY 차야</h4><p>스누피 빌리지 내 일본풍 테마 찻집, 온천 모티프 굿즈.</p></div>
+      <div class="card"><div class="kind">카페</div><h4>카페 라 뤼슈 <span class="jp">CAFE LA RUCHE</span></h4><p>긴린코 바로 앞 테라스, 천연효모 크루아상.</p></div>
+      <div class="card"><div class="kind">카페</div><h4>카페 센케 <span class="jp">千家</span></h4><p>"마을에서 경치 가장 좋은 곳", 유후다케 정면 통유리 뷰.</p></div>
+      <div class="card"><div class="kind">카페</div><h4>카페 에덴 <span class="jp">cafe e-denn</span></h4><p>번화가에서 차로 5분, 료칸들 사이 조용한 숨은 카페.</p></div>
+      <div class="card"><div class="kind">카페</div><h4>모리노코차텐 <span class="jp">森の交茶点</span></h4><p>커피+가벼운 식사 전 메뉴 500엔 균일가.</p></div>
+      <div class="card"><div class="kind">쇼콜라카페</div><h4>the theo (아르테지오 내)</h4><p>진한 쇼콜라·계절 파르페, 미술관 부속 카페.</p></div>
+      <div class="card"><div class="kind">찻집</div><h4>텐조사지키 <span class="jp">天井棧敷</span></h4><p>가메노이벳소 내, 에도시대 양조장 다락 개조 찻집.</p><div class="meta"><span class="chip caution">밤엔 바로 전환, 낮 시간 추천</span></div></div>
+      <div class="card"><div class="kind">라운지</div><h4>니콜즈 <span class="jp">Nicoll's</span> (다마노유)</h4><p>료칸 다마노유 내 찻집 겸 라운지.</p><div class="meta"><span class="chip caution">칵테일·와인 취급</span></div></div>
+      <div class="card"><div class="kind">테마찻집</div><h4>SNOOPY 차야</h4><p>스누피 빌리지 내 일본풍 테마 찻집, 온천 모티프 굿즈.</p></div>
     </div>
     <div class="subcat">디저트 · 길거리 간식</div>
     <div class="card-grid">
-      <div class="card"><h4>비스피크 <span class="jp">B-speak</span></h4><p>유후인 대표 "P롤" 케이크, 조기 매진 잦아 오전 방문 추천.</p></div>
-      <div class="card"><h4>유후후 <span class="jp">ゆふふ</span></h4><p>역 도보 1분, 롤케이크·푸딩 등 약 30종.</p></div>
-      <div class="card"><h4>유후인 하나코지 기쿠야</h4><p>"메이플 푸딩롤" 등 푸딩+롤케이크 결합 디저트.</p></div>
-      <div class="card"><h4>스위츠 유라리 <span class="jp">ユラリ</span></h4><p>푸딩 전문점, 2층 이트인 공간.</p></div>
-      <div class="card"><h4>유노쓰보 쇼유혼텐</h4><p>독특한 "쇼유(간장) 푸딩"으로 유명.</p></div>
-      <div class="card"><h4>카란도넬 <span class="jp">CARANDONEL</span></h4><p>유후인발 카늘레 전문점, 예술품 같은 비주얼. 목요일 휴무.</p></div>
-      <div class="card"><h4>금상 고로케 + 유노쓰보 사이다</h4><p>지역 명수 사이다+즉석 튀김 고로케 200엔, 대표 길거리 간식.</p></div>
-      <div class="card"><h4>카쇼 하나요리</h4><p>말차 당고 세트로 유명.</p></div>
-      <div class="card"><h4>유후인 밀히 <span class="jp">ミルヒ</span></h4><p>"케제쿠헨(치즈케이크류)"이 대표 길거리 디저트.</p></div>
-      <div class="card"><h4>이마이즈미도</h4><p>긴린코 근처 화과자점, "몽블랑 소프트아이스크림" 명물.</p></div>
-      <div class="card"><h4>유후인 와이너리</h4><p>유후인산 재료 와인·지자케 시음.</p><div class="meta"><span class="chip caution">시음은 비임신 동행자만</span></div></div>
+      <div class="card"><div class="kind">롤케이크</div><h4>비스피크 <span class="jp">B-speak</span></h4><p>유후인 대표 "P롤" 케이크, 조기 매진 잦아 오전 방문 추천.</p></div>
+      <div class="card"><div class="kind">롤케이크·푸딩</div><h4>유후후 <span class="jp">ゆふふ</span></h4><p>역 도보 1분, 롤케이크·푸딩 등 약 30종.</p></div>
+      <div class="card"><div class="kind">푸딩롤</div><h4>유후인 하나코지 기쿠야</h4><p>"메이플 푸딩롤" 등 푸딩+롤케이크 결합 디저트.</p></div>
+      <div class="card"><div class="kind">푸딩</div><h4>스위츠 유라리 <span class="jp">ユラリ</span></h4><p>푸딩 전문점, 2층 이트인 공간.</p></div>
+      <div class="card"><div class="kind">간장푸딩</div><h4>유노쓰보 쇼유혼텐</h4><p>독특한 "쇼유(간장) 푸딩"으로 유명.</p></div>
+      <div class="card"><div class="kind">카늘레</div><h4>카란도넬 <span class="jp">CARANDONEL</span></h4><p>유후인발 카늘레 전문점, 예술품 같은 비주얼. 목요일 휴무.</p></div>
+      <div class="card"><div class="kind">고로케</div><h4>금상 고로케 + 유노쓰보 사이다</h4><p>지역 명수 사이다+즉석 튀김 고로케 200엔, 대표 길거리 간식.</p></div>
+      <div class="card"><div class="kind">당고</div><h4>카쇼 하나요리</h4><p>말차 당고 세트로 유명.</p></div>
+      <div class="card"><div class="kind">치즈케이크</div><h4>유후인 밀히 <span class="jp">ミルヒ</span></h4><p>"케제쿠헨(치즈케이크류)"이 대표 길거리 디저트.</p></div>
+      <div class="card"><div class="kind">화과자</div><h4>이마이즈미도</h4><p>긴린코 근처 화과자점, "몽블랑 소프트아이스크림" 명물.</p></div>
+      <div class="card"><div class="kind">와이너리</div><h4>유후인 와이너리</h4><p>유후인산 재료 와인·지자케 시음.</p><div class="meta"><span class="chip caution">시음은 비임신 동행자만</span></div></div>
     </div>
   </section>
 
@@ -815,43 +816,43 @@
     <h3 class="section-label">명소</h3>
     <div class="subcat">아마가세 온천</div>
     <div class="card-grid">
-      <div class="card"><h4>아마가세온천 강변 산책로</h4><p>료칸 앞 대체로 평탄한 강변길. 공동노천탕은 바위지형이라 산책만 추천.</p><div class="meta"><span class="chip caution">공동노천탕 입욕 비추천</span></div></div>
+      <div class="card"><div class="kind">산책로</div><h4>아마가세온천 강변 산책로</h4><p>료칸 앞 대체로 평탄한 강변길. 공동노천탕은 바위지형이라 산책만 추천.</p><div class="meta"><span class="chip caution">공동노천탕 입욕 비추천</span></div></div>
     </div>
     <div class="subcat">마메다마치 · 중심 히타 (평지, 도보 여행 적합)</div>
     <div class="card-grid">
-      <div class="card"><h4>마메다마치 <span class="jp">豆田町</span></h4><p>에도시대 상가거리, 국가 중요전통건조물군보존지구. 전 구간 평지.</p><div class="meta"><span class="chip rc">평지·계단 없음</span></div></div>
-      <div class="card"><h4>간기엔 <span class="jp">咸宜園</span></h4><p>에도시대 사설학당 유적, 마메다마치 도보권.</p></div>
-      <div class="card"><h4>히타 기온 야마보코 카이칸</h4><p>유네스코 무형유산 축제 수레 전시, 실내·좌석 관람 가능.</p></div>
-      <div class="card"><h4>미쿠마가와 강변 <span class="jp">三隈川</span></h4><p>히타역 인근 평지 산책로, 유람선 야카타부네 운항.</p></div>
-      <div class="card"><h4>히로세 자료관</h4><p>에도시대 거상·유학자 히로세 탄소 생가 자료관. 09:00-17:00, 월요일 휴무.</p><div class="meta"><span class="chip caution">관내 계단 확인 필요</span></div></div>
-      <div class="card"><h4>니혼마루칸</h4><p>1855년 개업 옛 만능약방, 국가등록유형문화재. 봄·가을 한정 공개(9월 방문시 개관 시즌).</p><div class="meta"><span class="chip caution">전망누각 계단 많음, 저층 위주 관람</span></div></div>
-      <div class="card"><h4>구사노혼케 <span class="jp">草野本家</span></h4><p>국가중요문화재 상가 건물.</p><div class="meta"><span class="chip caution">연 4회 특별공개일만 개방, 9월엔 휴관 가능성 높음</span></div></div>
+      <div class="card"><div class="kind">전통거리</div><h4>마메다마치 <span class="jp">豆田町</span></h4><p>에도시대 상가거리, 국가 중요전통건조물군보존지구. 전 구간 평지.</p><div class="meta"><span class="chip rc">평지·계단 없음</span></div></div>
+      <div class="card"><div class="kind">학당유적</div><h4>간기엔 <span class="jp">咸宜園</span></h4><p>에도시대 사설학당 유적, 마메다마치 도보권.</p></div>
+      <div class="card"><div class="kind">축제전시관</div><h4>히타 기온 야마보코 카이칸</h4><p>유네스코 무형유산 축제 수레 전시, 실내·좌석 관람 가능.</p></div>
+      <div class="card"><div class="kind">강변산책로</div><h4>미쿠마가와 강변 <span class="jp">三隈川</span></h4><p>히타역 인근 평지 산책로, 유람선 야카타부네 운항.</p></div>
+      <div class="card"><div class="kind">자료관</div><h4>히로세 자료관</h4><p>에도시대 거상·유학자 히로세 탄소 생가 자료관. 09:00-17:00, 월요일 휴무.</p><div class="meta"><span class="chip caution">관내 계단 확인 필요</span></div></div>
+      <div class="card"><div class="kind">옛약방</div><h4>니혼마루칸</h4><p>1855년 개업 옛 만능약방, 국가등록유형문화재. 봄·가을 한정 공개(9월 방문시 개관 시즌).</p><div class="meta"><span class="chip caution">전망누각 계단 많음, 저층 위주 관람</span></div></div>
+      <div class="card"><div class="kind">전통가옥</div><h4>구사노혼케 <span class="jp">草野本家</span></h4><p>국가중요문화재 상가 건물.</p><div class="meta"><span class="chip caution">연 4회 특별공개일만 개방, 9월엔 휴관 가능성 높음</span></div></div>
     </div>
 
     <h3 class="section-label">맛집</h3>
     <div class="subcat">히타 야키소바 (현지 명물)</div>
     <div class="card-grid">
-      <div class="card"><h4>소부렌 본점 <span class="jp">想夫恋 総本店</span></h4><p>철판에 바삭하게 굽는 히타 야키소바 원조집. 역 도보 12분.</p></div>
-      <div class="card"><h4>텐류 <span class="jp">天龍</span></h4><p>마메다마치 내 야키소바.</p></div>
-      <div class="card"><h4>미쿠마한텐 <span class="jp">みくま飯店</span></h4><p>1970년 창업, 담백한 소스. 역 도보 10분, 수요 휴무.</p></div>
-      <div class="card"><h4>산큐 <span class="jp">三久</span></h4><p>창업 55년, 골목 안 작은 라멘집. 재료 소진시 조기마감.</p></div>
+      <div class="card"><div class="kind">야키소바</div><h4>소부렌 본점 <span class="jp">想夫恋 総本店</span></h4><p>철판에 바삭하게 굽는 히타 야키소바 원조집. 역 도보 12분.</p></div>
+      <div class="card"><div class="kind">야키소바</div><h4>텐류 <span class="jp">天龍</span></h4><p>마메다마치 내 야키소바.</p></div>
+      <div class="card"><div class="kind">야키소바</div><h4>미쿠마한텐 <span class="jp">みくま飯店</span></h4><p>1970년 창업, 담백한 소스. 역 도보 10분, 수요 휴무.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>산큐 <span class="jp">三久</span></h4><p>창업 55년, 골목 안 작은 라멘집. 재료 소진시 조기마감.</p></div>
     </div>
     <div class="subcat">장어 · 향토식</div>
     <div class="card-grid">
-      <div class="card"><h4>미즈타키 토리이치 <span class="jp">水炊き鳥市</span></h4><p>닭 미즈타키 전골, 마메다마치 인근.</p></div>
-      <div class="card"><h4>샤모야 린 <span class="jp">しゃも屋 凛</span></h4><p>지역 토종닭(붕고 샤모) 숯불구이 전문.</p></div>
-      <div class="card"><h4>우나기노 구로다야 마메다점</h4><p>마메다마치 안 평지 위치, 10:30-19:00.</p></div>
-      <div class="card"><h4>히타마부시 센야</h4><p>"히타마부시"를 4가지 방식으로 즐기는 명물집.</p></div>
-      <div class="card"><h4>우나기 사기테이 로티르</h4><p>1943년 목조건물, 미쿠마강 뷰 좌석. 역 도보 11~12분.</p><div class="meta"><span class="chip caution">곁들이 청주는 비음주 안내</span></div></div>
-      <div class="card"><h4>골든 누들스 사무라이</h4><p>수상 경력 라멘.</p></div>
+      <div class="card"><div class="kind">미즈타키</div><h4>미즈타키 토리이치 <span class="jp">水炊き鳥市</span></h4><p>닭 미즈타키 전골, 마메다마치 인근.</p></div>
+      <div class="card"><div class="kind">샤모구이</div><h4>샤모야 린 <span class="jp">しゃも屋 凛</span></h4><p>지역 토종닭(붕고 샤모) 숯불구이 전문.</p></div>
+      <div class="card"><div class="kind">장어</div><h4>우나기노 구로다야 마메다점</h4><p>마메다마치 안 평지 위치, 10:30-19:00.</p></div>
+      <div class="card"><div class="kind">마부시덮밥</div><h4>히타마부시 센야</h4><p>"히타마부시"를 4가지 방식으로 즐기는 명물집.</p></div>
+      <div class="card"><div class="kind">장어</div><h4>우나기 사기테이 로티르</h4><p>1943년 목조건물, 미쿠마강 뷰 좌석. 역 도보 11~12분.</p><div class="meta"><span class="chip caution">곁들이 청주는 비음주 안내</span></div></div>
+      <div class="card"><div class="kind">라멘</div><h4>골든 누들스 사무라이</h4><p>수상 경력 라멘.</p></div>
     </div>
     <div class="subcat">카페 · 화과자</div>
     <div class="card-grid">
-      <div class="card"><h4>무기야 카페 <span class="jp">MUGIYA CAFE</span></h4><p>마메다마치 내, 카레빵 등 가벼운 식사.</p></div>
-      <div class="card"><h4>핫코샤 코구라 <span class="jp">発酵舎KOGURA</span></h4><p>쿤초 주조 운영 카페, 누룩·술지게미 디저트.</p><div class="meta"><span class="chip caution">일부 메뉴 알코올 성분</span></div></div>
-      <div class="card"><h4>아사히만주 <span class="jp">旭饅頭</span></h4><p>1865년 창업 노포, "元祖栗そば饅頭" 첨가물 무사용. 09:30-18:00.</p></div>
-      <div class="card"><h4>아즈키 카페</h4><p>아마가세역 앞, 멧돼지고기 지비에 카레 등 가벼운 식사.</p></div>
-      <div class="card"><h4>하쿠라쿠텐 <span class="jp">白楽天</span></h4><p>산소 텐스이 내 찻집 라운지, 파스타·카레 경식 가능.</p></div>
+      <div class="card"><div class="kind">카페</div><h4>무기야 카페 <span class="jp">MUGIYA CAFE</span></h4><p>마메다마치 내, 카레빵 등 가벼운 식사.</p></div>
+      <div class="card"><div class="kind">발효카페</div><h4>핫코샤 코구라 <span class="jp">発酵舎KOGURA</span></h4><p>쿤초 주조 운영 카페, 누룩·술지게미 디저트.</p><div class="meta"><span class="chip caution">일부 메뉴 알코올 성분</span></div></div>
+      <div class="card"><div class="kind">만주</div><h4>아사히만주 <span class="jp">旭饅頭</span></h4><p>1865년 창업 노포, "元祖栗そば饅頭" 첨가물 무사용. 09:30-18:00.</p></div>
+      <div class="card"><div class="kind">카페</div><h4>아즈키 카페</h4><p>아마가세역 앞, 멧돼지고기 지비에 카레 등 가벼운 식사.</p></div>
+      <div class="card"><div class="kind">라운지</div><h4>하쿠라쿠텐 <span class="jp">白楽天</span></h4><p>산소 텐스이 내 찻집 라운지, 파스타·카레 경식 가능.</p></div>
     </div>
   </section>
 
@@ -1004,44 +1005,44 @@
 
     <h3 class="section-label">명소</h3>
     <div class="card-grid">
-      <div class="card"><h4>오호리공원 <span class="jp">大濠公園</span></h4><p>둘레 약 2km 완전 평지 호수공원, 유모차·휠체어 무료 대여.</p><div class="meta"><span class="chip rc">완전 평지</span></div></div>
-      <div class="card"><h4>후쿠오카성터·마이즈루공원</h4><p>오호리공원 바로 옆 옛 성터 석벽, 넓은 평지형 공원.</p></div>
-      <div class="card"><h4>텐진 지하상가 <span class="jp">天神地下街</span></h4><p>텐진역 직결 전 구간 실내 평지, 유모차 대여·수유실. 8번가 엘리베이터 이용 권장.</p></div>
-      <div class="card"><h4>케고신사 <span class="jp">警固神社</span></h4><p>니시테츠 텐진역 도보 1분, 도심 한복판 소규모 신사.</p></div>
-      <div class="card"><h4>아크로스 후쿠오카 스텝가든</h4><p>계단식 옥상정원(120종 5만 그루), 무료. 엘리베이터로 상층 이동 후 하강 관람 권장.</p><div class="meta"><span class="chip caution">계단형, 엘리베이터 이용 권장</span></div></div>
-      <div class="card"><h4>소후쿠지 <span class="jp">崇福寺</span></h4><p>구로다 가문 보리사, 임제종 고찰.</p><div class="meta"><span class="chip caution">도보시간 확인 필요</span></div></div>
-      <div class="card"><h4>후쿠오카타워</h4><p>해변타워, 234m, 배리어프리 완비.</p><div class="meta"><span class="chip caution">모모치 지역, 버스·택시 이동 필요</span></div></div>
-      <div class="card"><h4>나카스 야타이 거리</h4><p>강변 포장마차. 짧게 야경만 즐기는 정도 추천.</p><div class="meta"><span class="chip caution">좁은 좌석·간접흡연·화장실 없음</span></div></div>
+      <div class="card"><div class="kind">호수공원</div><h4>오호리공원 <span class="jp">大濠公園</span></h4><p>둘레 약 2km 완전 평지 호수공원, 유모차·휠체어 무료 대여.</p><div class="meta"><span class="chip rc">완전 평지</span></div></div>
+      <div class="card"><div class="kind">성터공원</div><h4>후쿠오카성터·마이즈루공원</h4><p>오호리공원 바로 옆 옛 성터 석벽, 넓은 평지형 공원.</p></div>
+      <div class="card"><div class="kind">지하상가</div><h4>텐진 지하상가 <span class="jp">天神地下街</span></h4><p>텐진역 직결 전 구간 실내 평지, 유모차 대여·수유실. 8번가 엘리베이터 이용 권장.</p></div>
+      <div class="card"><div class="kind">신사</div><h4>케고신사 <span class="jp">警固神社</span></h4><p>니시테츠 텐진역 도보 1분, 도심 한복판 소규모 신사.</p></div>
+      <div class="card"><div class="kind">옥상정원</div><h4>아크로스 후쿠오카 스텝가든</h4><p>계단식 옥상정원(120종 5만 그루), 무료. 엘리베이터로 상층 이동 후 하강 관람 권장.</p><div class="meta"><span class="chip caution">계단형, 엘리베이터 이용 권장</span></div></div>
+      <div class="card"><div class="kind">사찰</div><h4>소후쿠지 <span class="jp">崇福寺</span></h4><p>구로다 가문 보리사, 임제종 고찰.</p><div class="meta"><span class="chip caution">도보시간 확인 필요</span></div></div>
+      <div class="card"><div class="kind">전망타워</div><h4>후쿠오카타워</h4><p>해변타워, 234m, 배리어프리 완비.</p><div class="meta"><span class="chip caution">모모치 지역, 버스·택시 이동 필요</span></div></div>
+      <div class="card"><div class="kind">야타이거리</div><h4>나카스 야타이 거리</h4><p>강변 포장마차. 짧게 야경만 즐기는 정도 추천.</p><div class="meta"><span class="chip caution">좁은 좌석·간접흡연·화장실 없음</span></div></div>
     </div>
 
     <h3 class="section-label">맛집</h3>
     <div class="subcat">라멘 · 든든한 한끼</div>
     <div class="card-grid">
-      <div class="card"><h4>하카타 하나미도리 텐진점 <span class="jp">博多華味鳥</span></h4><p>미즈타키 전문 요정, 개인실·날것 없음. 평일 17:00-23:00.</p></div>
-      <div class="card"><h4>신미우라 텐진점 <span class="jp">新三浦</span></h4><p>1910년 창업 미즈타키 노포, 완전개실. 특별한 날 추천, 코스 4,700~8,800엔.</p></div>
-      <div class="card"><h4>잇푸도 다이묘본점</h4><p>아카사카역 도보 5분, 텐진 도보권.</p></div>
-      <div class="card"><h4>이치란 텐진니시도리점</h4><p>개인 칸막이석으로 유명한 돈코츠 라멘 체인.</p></div>
-      <div class="card"><h4>하카타라멘 신신 텐진본점</h4><p>극세면+담백한 돈코츠, 냄새 적어 접근성 좋음.</p></div>
-      <div class="card"><h4>하카타 잇소 텐진점</h4><p>"돈코츠 카푸치노"로 불리는 크리미한 육수.</p></div>
-      <div class="card"><h4>호린 <span class="jp">鳳凛</span></h4><p>매운 미소 돈코츠 원조 격.</p><div class="meta"><span class="chip caution">매운맛, 순한맛 주문 권장</span></div></div>
-      <div class="card"><h4>모츠나베 오오야마 텐진 벳테이</h4><p>여성 고객도 편한 청결한 분위기의 모츠나베.</p></div>
+      <div class="card"><div class="kind">미즈타키</div><h4>하카타 하나미도리 텐진점 <span class="jp">博多華味鳥</span></h4><p>미즈타키 전문 요정, 개인실·날것 없음. 평일 17:00-23:00.</p></div>
+      <div class="card"><div class="kind">미즈타키</div><h4>신미우라 텐진점 <span class="jp">新三浦</span></h4><p>1910년 창업 미즈타키 노포, 완전개실. 특별한 날 추천, 코스 4,700~8,800엔.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>잇푸도 다이묘본점</h4><p>아카사카역 도보 5분, 텐진 도보권.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>이치란 텐진니시도리점</h4><p>개인 칸막이석으로 유명한 돈코츠 라멘 체인.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>하카타라멘 신신 텐진본점</h4><p>극세면+담백한 돈코츠, 냄새 적어 접근성 좋음.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>하카타 잇소 텐진점</h4><p>"돈코츠 카푸치노"로 불리는 크리미한 육수.</p></div>
+      <div class="card"><div class="kind">라멘</div><h4>호린 <span class="jp">鳳凛</span></h4><p>매운 미소 돈코츠 원조 격.</p><div class="meta"><span class="chip caution">매운맛, 순한맛 주문 권장</span></div></div>
+      <div class="card"><div class="kind">모츠나베</div><h4>모츠나베 오오야마 텐진 벳테이</h4><p>여성 고객도 편한 청결한 분위기의 모츠나베.</p></div>
     </div>
     <div class="subcat">카페 · 브런치</div>
     <div class="card-grid">
-      <div class="card"><h4>키스이마루 솔라리아스테이지점</h4><p>텐진역 도보 2분, 아침정식 11:00까지.</p></div>
-      <div class="card"><h4>아페티토 카페 메트로</h4><p>지하상가 내, 모닝 07:00-11:00, 팬케이크·오믈렛.</p></div>
-      <div class="card"><h4>킬페봉 후쿠오카</h4><p>계절 과일 듬뿍 타르트 전문점, 역 도보 4분.</p></div>
-      <div class="card"><h4>카페&북스 비블리오테크 텐진</h4><p>책과 함께하는 힐링 카페, 팬케이크·홍차.</p></div>
-      <div class="card"><h4>코듀로이 카페</h4><p>건강식 중심 브런치 카페.</p></div>
-      <div class="card"><h4>24/7 카페 아파트먼트 후쿠오카</h4><p>스타일리시한 건강식 브런치.</p></div>
-      <div class="card"><h4>미노리 카페</h4><p>후쿠오카현산 재료(과일·채소·고기) 사용.</p></div>
-      <div class="card"><h4>워터사이트 오토</h4><p>나카가와 강변 오픈 로케이션, 경치 좋은 산책 겸 카페.</p></div>
+      <div class="card"><div class="kind">모닝카페</div><h4>키스이마루 솔라리아스테이지점</h4><p>텐진역 도보 2분, 아침정식 11:00까지.</p></div>
+      <div class="card"><div class="kind">모닝카페</div><h4>아페티토 카페 메트로</h4><p>지하상가 내, 모닝 07:00-11:00, 팬케이크·오믈렛.</p></div>
+      <div class="card"><div class="kind">타르트</div><h4>킬페봉 후쿠오카</h4><p>계절 과일 듬뿍 타르트 전문점, 역 도보 4분.</p></div>
+      <div class="card"><div class="kind">북카페</div><h4>카페&북스 비블리오테크 텐진</h4><p>책과 함께하는 힐링 카페, 팬케이크·홍차.</p></div>
+      <div class="card"><div class="kind">브런치카페</div><h4>코듀로이 카페</h4><p>건강식 중심 브런치 카페.</p></div>
+      <div class="card"><div class="kind">브런치카페</div><h4>24/7 카페 아파트먼트 후쿠오카</h4><p>스타일리시한 건강식 브런치.</p></div>
+      <div class="card"><div class="kind">카페</div><h4>미노리 카페</h4><p>후쿠오카현산 재료(과일·채소·고기) 사용.</p></div>
+      <div class="card"><div class="kind">리버뷰카페</div><h4>워터사이트 오토</h4><p>나카가와 강변 오픈 로케이션, 경치 좋은 산책 겸 카페.</p></div>
     </div>
     <div class="subcat">디저트 · 쇼핑푸드</div>
     <div class="card-grid">
-      <div class="card"><h4>킷쇼카 <span class="jp">吉祥果</span></h4><p>청과시장 운영 과일 파르페 전문점, 역 도보 3분.</p></div>
-      <div class="card"><h4>시폰케이크 마리 텐진점</h4><p>소금누룩 시폰케이크로 유명.</p></div>
-      <div class="card"><h4>이와타야·다이마루·소라리아플라자</h4><p>백화점 지하 식품관, 디저트·베이커리 다수.</p></div>
+      <div class="card"><div class="kind">과일파르페</div><h4>킷쇼카 <span class="jp">吉祥果</span></h4><p>청과시장 운영 과일 파르페 전문점, 역 도보 3분.</p></div>
+      <div class="card"><div class="kind">시폰케이크</div><h4>시폰케이크 마리 텐진점</h4><p>소금누룩 시폰케이크로 유명.</p></div>
+      <div class="card"><div class="kind">데파치카</div><h4>이와타야·다이마루·소라리아플라자</h4><p>백화점 지하 식품관, 디저트·베이커리 다수.</p></div>
     </div>
   </section>
 
