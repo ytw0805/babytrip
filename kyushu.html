@@ -259,36 +259,60 @@
     </div>
 
     <figure class="approx-map-fig">
-      <svg viewBox="0 0 480 300" role="img" aria-label="하카타역을 중심으로 한 대략적인 위치 관계도 — 실제 축척과 다릅니다">
-        <line x1="55" y1="170" x2="415" y2="170" stroke="var(--ink-faint)" stroke-width="7" stroke-linecap="round"/>
-        <line x1="215" y1="100" x2="215" y2="163" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
-        <line x1="215" y1="177" x2="215" y2="240" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
+      <svg viewBox="0 0 680 440" role="img" aria-label="하카타역을 중심으로 한 대략적인 위치 관계도 — 실제 축척과 다릅니다">
+        <defs>
+          <g id="ic-house"><path d="M-7,3 L0,-7 L7,3 L7,9 L-7,9 Z"/></g>
+          <g id="ic-star"><polygon points="0,-8 2.2,-2.4 8,-2.4 3.4,1.2 5.2,7 0,3.4 -5.2,7 -3.4,1.2 -8,-2.4 -2.2,-2.4"/></g>
+          <g id="ic-torii" fill="none"><path d="M-8,-7 L8,-7 M-8,-4 L8,-4 M-5.5,-7 L-5.5,9 M5.5,-7 L5.5,9" stroke-linecap="round"/></g>
+          <g id="ic-fork" fill="none"><path d="M-4,-7 L-4,-1 M-1,-7 L-1,-1 M2,-7 L2,-1 M-4,-1 Q-1,3 2,-1 M-1,3 L-1,9" stroke-linecap="round"/></g>
+          <g id="ic-cup" fill="none"><path d="M-6,-4 L6,-4 L5,7 L-5,7 Z M6,-3 Q10,-3 10,0.5 Q10,4 6,3.5" stroke-linecap="round"/></g>
+        </defs>
 
-        <circle cx="70" cy="170" r="12" fill="var(--rc)" stroke="var(--surface)" stroke-width="2.5"/>
-        <text x="70" y="144" text-anchor="middle" class="am-label" font-weight="700" font-size="13" fill="var(--ink)">하카타역</text>
-        <text x="70" y="197" text-anchor="middle" class="am-sub" font-size="9.5" fill="var(--ink-faint)">숙소 · 비아인</text>
+        <rect x="8" y="8" width="664" height="424" rx="16" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+        <text x="340" y="42" text-anchor="middle" class="am-label" font-weight="700" font-size="19" fill="var(--rc)">하카타 약도</text>
 
-        <circle cx="215" cy="92" r="8" fill="var(--rc)" stroke="var(--surface)" stroke-width="2"/>
-        <text x="215" y="68" text-anchor="middle" class="am-label" font-weight="700" font-size="11.5" fill="var(--ink)">모츠나베·교자</text>
-        <text x="215" y="113" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">하마야·603·호운테이</text>
-        <text x="240" y="130" text-anchor="start" class="am-sub" font-size="8.5" fill="var(--ink-faint)">도보 4~7분</text>
+        <line x1="70" y1="240" x2="610" y2="240" stroke="var(--ink-faint)" stroke-width="7" stroke-linecap="round"/>
+        <line x1="340" y1="110" x2="340" y2="370" stroke="var(--ink-faint)" stroke-width="7" stroke-linecap="round"/>
+        <line x1="220" y1="152" x2="220" y2="231" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <line x1="220" y1="249" x2="220" y2="338" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <line x1="460" y1="152" x2="460" y2="231" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <line x1="460" y1="249" x2="460" y2="338" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
 
-        <circle cx="215" cy="248" r="8" fill="var(--rc)" stroke="var(--surface)" stroke-width="2"/>
-        <text x="215" y="224" text-anchor="middle" class="am-label" font-weight="700" font-size="11.5" fill="var(--ink)">에키나카 라멘거리</text>
-        <text x="215" y="269" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">잇코샤·다루마·멘타이쥬</text>
+        <use href="#ic-house" transform="translate(100,240) scale(1.5)" fill="var(--rc)"/>
+        <text x="100" y="200" text-anchor="middle" class="am-label" font-weight="700" font-size="13.5" fill="var(--ink)">하카타역</text>
+        <text x="100" y="270" text-anchor="middle" class="am-sub" font-size="9.5" fill="var(--ink-faint)">숙소 · 비아인</text>
 
-        <circle cx="400" cy="170" r="11" fill="var(--ink)" stroke="var(--surface)" stroke-width="2.5"/>
-        <text x="400" y="144" text-anchor="middle" class="am-label" font-weight="700" font-size="12.5" fill="var(--ink)">캐널시티·나카스</text>
-        <text x="400" y="197" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">구시다신사·가와바타상점가</text>
-        <text x="300" y="160" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">도보 10~20분</text>
+        <use href="#ic-fork" transform="translate(220,140)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="220" y="112" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">하마야(모츠나베)</text>
 
-        <g transform="translate(440,40)">
+        <use href="#ic-fork" transform="translate(220,340)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="220" y="374" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">교자샤603</text>
+
+        <use href="#ic-star" transform="translate(340,130)" fill="var(--ink)"/>
+        <text x="340" y="104" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">캐널시티</text>
+
+        <use href="#ic-fork" transform="translate(340,240)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="340" y="272" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">에키나카 라멘</text>
+
+        <use href="#ic-torii" transform="translate(340,350)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="340" y="380" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">구시다신사</text>
+
+        <use href="#ic-cup" transform="translate(460,140)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="460" y="112" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">이시무라만세이도</text>
+
+        <use href="#ic-fork" transform="translate(460,340)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="460" y="374" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">나카스·호운테이</text>
+
+        <use href="#ic-star" transform="translate(580,240)" fill="var(--ink)"/>
+        <text x="580" y="206" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">가와바타상점가</text>
+
+        <g transform="translate(630,55)">
           <line x1="0" y1="14" x2="0" y2="-10" stroke="var(--ink-faint)" stroke-width="2"/>
           <polygon points="0,-16 -5,-6 5,-6" fill="var(--ink-faint)"/>
           <text x="0" y="28" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">N</text>
         </g>
       </svg>
-      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 색깔 점=맛집, 어두운 점=명소. 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
+      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 집=숙소, ★=명소, 도리이=신사, 포크=식사, 컵=디저트/카페. 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
     <h3 class="section-label">명소</h3>
@@ -341,39 +365,71 @@
     </div>
 
     <figure class="approx-map-fig">
-      <svg viewBox="0 0 480 340" role="img" aria-label="유후인역에서 긴린코 호수까지 이어지는 대략적인 위치 관계도 — 실제 축척과 다릅니다">
-        <line x1="85" y1="278" x2="335" y2="108" stroke="var(--ink-faint)" stroke-width="7" stroke-linecap="round"/>
-        <line x1="100" y1="290" x2="255" y2="290" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
-        <line x1="70" y1="265" x2="88" y2="90" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 5" stroke-linecap="round"/>
+      <svg viewBox="0 0 680 480" role="img" aria-label="유후인역에서 긴린코 호수까지 이어지는 유노쓰보 카이도 중심의 대략적인 위치 관계도 — 실제 축척과 다릅니다">
+        <defs>
+          <g id="ic-house"><path d="M-7,3 L0,-7 L7,3 L7,9 L-7,9 Z"/></g>
+          <g id="ic-star"><polygon points="0,-8 2.2,-2.4 8,-2.4 3.4,1.2 5.2,7 0,3.4 -5.2,7 -3.4,1.2 -8,-2.4 -2.2,-2.4"/></g>
+          <g id="ic-torii" fill="none"><path d="M-8,-7 L8,-7 M-8,-4 L8,-4 M-5.5,-7 L-5.5,9 M5.5,-7 L5.5,9" stroke-linecap="round"/></g>
+          <g id="ic-fork" fill="none"><path d="M-4,-7 L-4,-1 M-1,-7 L-1,-1 M2,-7 L2,-1 M-4,-1 Q-1,3 2,-1 M-1,3 L-1,9" stroke-linecap="round"/></g>
+          <g id="ic-cup" fill="none"><path d="M-6,-4 L6,-4 L5,7 L-5,7 Z M6,-3 Q10,-3 10,0.5 Q10,4 6,3.5" stroke-linecap="round"/></g>
+        </defs>
 
-        <ellipse cx="368" cy="88" rx="46" ry="30" fill="#4C86A8" opacity="0.32"/>
+        <rect x="8" y="8" width="664" height="464" rx="16" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+        <text x="340" y="42" text-anchor="middle" class="am-label" font-weight="700" font-size="19" fill="var(--rc)">유후인 약도</text>
 
-        <circle cx="70" cy="290" r="12" fill="var(--rc)" stroke="var(--surface)" stroke-width="2.5"/>
-        <text x="70" y="316" text-anchor="middle" class="am-label" font-weight="700" font-size="13" fill="var(--ink)">유후인역</text>
-        <text x="70" y="264" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">료칸 체크인·아트홀</text>
+        <line x1="70" y1="250" x2="610" y2="250" stroke="var(--ink-faint)" stroke-width="7" stroke-linecap="round"/>
+        <text x="340" y="270" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">유노쓰보 카이도</text>
 
-        <circle cx="205" cy="200" r="8" fill="var(--rc)" stroke="var(--surface)" stroke-width="2"/>
-        <text x="230" y="185" text-anchor="start" class="am-label" font-weight="700" font-size="11.5" fill="var(--ink)">유노쓰보 카이도</text>
-        <text x="230" y="202" text-anchor="start" class="am-sub" font-size="9" fill="var(--ink-faint)">비스피크·산쇼로 등</text>
+        <g stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round">
+          <line x1="210" y1="162" x2="210" y2="241"/>
+          <line x1="210" y1="259" x2="210" y2="338"/>
+          <line x1="330" y1="162" x2="330" y2="241"/>
+          <line x1="330" y1="259" x2="330" y2="338"/>
+          <line x1="450" y1="162" x2="450" y2="241"/>
+          <line x1="450" y1="259" x2="450" y2="338"/>
+          <line x1="580" y1="162" x2="580" y2="241"/>
+          <line x1="580" y1="259" x2="580" y2="338"/>
+        </g>
 
-        <text x="368" y="52" text-anchor="middle" class="am-label" font-weight="700" font-size="12.5" fill="var(--ink)">긴린코 호수</text>
-        <text x="368" y="130" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">라뤼슈·덴소신사</text>
+        <use href="#ic-house" transform="translate(100,250) scale(1.5)" fill="var(--rc)"/>
+        <text x="100" y="210" text-anchor="middle" class="am-label" font-weight="700" font-size="13.5" fill="var(--ink)">유후인역</text>
+        <text x="100" y="280" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">료칸 체크인·아트홀</text>
 
-        <circle cx="280" cy="290" r="8" fill="var(--ink)" stroke="var(--surface)" stroke-width="2"/>
-        <text x="280" y="316" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">플로럴빌리지</text>
-        <text x="175" y="303" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">역 반대편 도보 15분</text>
+        <use href="#ic-star" transform="translate(210,150)" fill="var(--ink)"/>
+        <text x="210" y="122" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">미술관·사기리다이</text>
+        <text x="210" y="136" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">차량·택시 필요</text>
 
-        <circle cx="85" cy="72" r="8" fill="var(--ink)" stroke="var(--surface)" stroke-width="2"/>
-        <text x="85" y="52" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">미술관·사기리다이</text>
-        <text x="50" y="185" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">차량·택시</text>
+        <use href="#ic-star" transform="translate(210,350)" fill="var(--ink)"/>
+        <text x="210" y="380" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">플로럴빌리지</text>
 
-        <g transform="translate(440,40)">
+        <use href="#ic-cup" transform="translate(330,150)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="330" y="122" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">비스피크(P롤)</text>
+
+        <use href="#ic-fork" transform="translate(330,350)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="330" y="380" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">유후인 산쇼로</text>
+
+        <use href="#ic-cup" transform="translate(450,150)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="450" y="122" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">카페 라뤼슈</text>
+
+        <use href="#ic-torii" transform="translate(450,350)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="450" y="380" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">덴소신사</text>
+
+        <ellipse cx="580" cy="250" rx="34" ry="22" fill="#4C86A8" opacity="0.32"/>
+        <text x="580" y="216" text-anchor="middle" class="am-label" font-weight="700" font-size="12.5" fill="var(--ink)">긴린코 호수</text>
+
+        <use href="#ic-torii" transform="translate(580,150)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="580" y="122" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">우나기히메신사</text>
+
+        <use href="#ic-torii" transform="translate(580,350)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="580" y="380" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">붓산지</text>
+
+        <g transform="translate(630,55)">
           <line x1="0" y1="14" x2="0" y2="-10" stroke="var(--ink-faint)" stroke-width="2"/>
           <polygon points="0,-16 -5,-6 5,-6" fill="var(--ink-faint)"/>
           <text x="0" y="28" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">N</text>
         </g>
       </svg>
-      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 색깔 점=맛집, 어두운 점=명소. 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
+      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 집=숙소, ★=명소, 도리이=신사, 포크=식사, 컵=디저트/카페. 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
     <h3 class="section-label">명소</h3>
@@ -460,29 +516,61 @@
     </div>
 
     <figure class="approx-map-fig">
-      <svg viewBox="0 0 480 200" role="img" aria-label="아마가세온천과 마메다마치, 두 지역 사이의 대략적인 관계도 — 실제로는 약 20km 떨어져 있습니다">
-        <line x1="130" y1="100" x2="350" y2="100" stroke="var(--ink-faint)" stroke-width="4" stroke-dasharray="1 8" stroke-linecap="round"/>
+      <svg viewBox="0 0 760 340" role="img" aria-label="아마가세온천과 마메다마치, 두 지역 사이의 대략적인 관계도 — 실제로는 약 20km 떨어져 있습니다">
+        <defs>
+          <g id="ic-house"><path d="M-7,3 L0,-7 L7,3 L7,9 L-7,9 Z"/></g>
+          <g id="ic-star"><polygon points="0,-8 2.2,-2.4 8,-2.4 3.4,1.2 5.2,7 0,3.4 -5.2,7 -3.4,1.2 -8,-2.4 -2.2,-2.4"/></g>
+          <g id="ic-torii" fill="none"><path d="M-8,-7 L8,-7 M-8,-4 L8,-4 M-5.5,-7 L-5.5,9 M5.5,-7 L5.5,9" stroke-linecap="round"/></g>
+          <g id="ic-fork" fill="none"><path d="M-4,-7 L-4,-1 M-1,-7 L-1,-1 M2,-7 L2,-1 M-4,-1 Q-1,3 2,-1 M-1,3 L-1,9" stroke-linecap="round"/></g>
+          <g id="ic-cup" fill="none"><path d="M-6,-4 L6,-4 L5,7 L-5,7 Z M6,-3 Q10,-3 10,0.5 Q10,4 6,3.5" stroke-linecap="round"/></g>
+        </defs>
+
+        <rect x="8" y="8" width="744" height="324" rx="16" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+        <text x="380" y="42" text-anchor="middle" class="am-label" font-weight="700" font-size="19" fill="var(--rc)">히타 약도</text>
+
+        <line x1="140" y1="142" x2="140" y2="211" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <line x1="460" y1="220" x2="700" y2="220" stroke="var(--ink-faint)" stroke-width="7" stroke-linecap="round"/>
+        <line x1="460" y1="142" x2="460" y2="211" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <line x1="700" y1="142" x2="700" y2="211" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <line x1="460" y1="229" x2="460" y2="298" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+        <line x1="700" y1="229" x2="700" y2="298" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round"/>
+
+        <line x1="200" y1="220" x2="420" y2="220" stroke="var(--ink-faint)" stroke-width="4" stroke-dasharray="1 9" stroke-linecap="round"/>
         <g stroke="var(--ink-faint)" stroke-width="3">
-          <line x1="228" y1="90" x2="216" y2="110"/>
-          <line x1="252" y1="90" x2="240" y2="110"/>
+          <line x1="298" y1="210" x2="286" y2="230"/>
+          <line x1="322" y1="210" x2="310" y2="230"/>
         </g>
-        <text x="240" y="76" text-anchor="middle" class="am-sub" font-size="9.5" fill="var(--ink-faint)">JR 약 40분 (약 20km)</text>
+        <text x="310" y="196" text-anchor="middle" class="am-sub" font-size="9.5" fill="var(--ink-faint)">JR 약 40분 (약 20km)</text>
 
-        <circle cx="100" cy="100" r="13" fill="var(--rc)" stroke="var(--surface)" stroke-width="2.5"/>
-        <text x="100" y="70" text-anchor="middle" class="am-label" font-weight="700" font-size="12.5" fill="var(--ink)">아마가세역</text>
-        <text x="100" y="128" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">산소텐스이(숙소)</text>
+        <use href="#ic-house" transform="translate(140,220) scale(1.5)" fill="var(--rc)"/>
+        <text x="140" y="180" text-anchor="middle" class="am-label" font-weight="700" font-size="13" fill="var(--ink)">아마가세역</text>
+        <text x="140" y="250" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">산소텐스이(숙소)</text>
 
-        <circle cx="380" cy="100" r="13" fill="var(--ink)" stroke="var(--surface)" stroke-width="2.5"/>
-        <text x="380" y="70" text-anchor="middle" class="am-label" font-weight="700" font-size="12.5" fill="var(--ink)">히타역·마메다마치</text>
-        <text x="380" y="128" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">간기엔·야마보코카이칸</text>
+        <use href="#ic-star" transform="translate(140,130)" fill="var(--ink)"/>
+        <text x="140" y="104" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">아마가세온천 강변</text>
 
-        <g transform="translate(440,30)">
+        <use href="#ic-star" transform="translate(580,220) scale(1.4)" fill="var(--rc)"/>
+        <text x="580" y="180" text-anchor="middle" class="am-label" font-weight="700" font-size="13" fill="var(--ink)">히타역·마메다마치</text>
+
+        <use href="#ic-star" transform="translate(460,130)" fill="var(--ink)"/>
+        <text x="460" y="104" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">간기엔</text>
+
+        <use href="#ic-star" transform="translate(700,130)" fill="var(--ink)"/>
+        <text x="700" y="104" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">야마보코카이칸</text>
+
+        <use href="#ic-star" transform="translate(460,310)" fill="var(--ink)"/>
+        <text x="460" y="332" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">미쿠마가와 강변</text>
+
+        <use href="#ic-fork" transform="translate(700,310)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="700" y="332" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">소부렌(야키소바)</text>
+
+        <g transform="translate(60,55)">
           <line x1="0" y1="14" x2="0" y2="-10" stroke="var(--ink-faint)" stroke-width="2"/>
           <polygon points="0,-16 -5,-6 5,-6" fill="var(--ink-faint)"/>
           <text x="0" y="28" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">N</text>
         </g>
       </svg>
-      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 두 지역은 실제로 멀리 떨어져 있어 하루에 나눠 다녀요. 정확한 위치는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
+      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 두 지역은 실제로 멀리 떨어져 있어 하루에 나눠 다녀요. 집=숙소, ★=명소, 포크=식사. 정확한 위치는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
     <h3 class="section-label">명소</h3>
@@ -543,44 +631,72 @@
     </div>
 
     <figure class="approx-map-fig">
-      <svg viewBox="0 0 480 300" role="img" aria-label="니시테츠 텐진역을 중심으로 한 대략적인 위치 관계도 — 실제 축척과 다릅니다">
-        <line x1="150" y1="160" x2="150" y2="120" stroke="var(--ink-faint)" stroke-width="5" stroke-linecap="round"/>
-        <line x1="160" y1="175" x2="270" y2="120" stroke="var(--ink-faint)" stroke-width="5" stroke-linecap="round"/>
-        <line x1="165" y1="185" x2="300" y2="215" stroke="var(--ink-faint)" stroke-width="5" stroke-linecap="round"/>
-        <line x1="175" y1="180" x2="375" y2="252" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
+      <svg viewBox="0 0 720 460" role="img" aria-label="니시테츠 텐진역을 중심으로 한 대략적인 위치 관계도 — 실제 축척과 다릅니다">
+        <defs>
+          <g id="ic-house"><path d="M-7,3 L0,-7 L7,3 L7,9 L-7,9 Z"/></g>
+          <g id="ic-star"><polygon points="0,-8 2.2,-2.4 8,-2.4 3.4,1.2 5.2,7 0,3.4 -5.2,7 -3.4,1.2 -8,-2.4 -2.2,-2.4"/></g>
+          <g id="ic-torii" fill="none"><path d="M-8,-7 L8,-7 M-8,-4 L8,-4 M-5.5,-7 L-5.5,9 M5.5,-7 L5.5,9" stroke-linecap="round"/></g>
+          <g id="ic-fork" fill="none"><path d="M-4,-7 L-4,-1 M-1,-7 L-1,-1 M2,-7 L2,-1 M-4,-1 Q-1,3 2,-1 M-1,3 L-1,9" stroke-linecap="round"/></g>
+          <g id="ic-cup" fill="none"><path d="M-6,-4 L6,-4 L5,7 L-5,7 Z M6,-3 Q10,-3 10,0.5 Q10,4 6,3.5" stroke-linecap="round"/></g>
+        </defs>
+
+        <rect x="8" y="8" width="704" height="444" rx="16" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+        <text x="360" y="42" text-anchor="middle" class="am-label" font-weight="700" font-size="19" fill="var(--rc)">텐진 약도</text>
+
+        <line x1="100" y1="280" x2="610" y2="280" stroke="var(--ink-faint)" stroke-width="7" stroke-linecap="round"/>
+        <g stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="2 6" stroke-linecap="round">
+          <line x1="100" y1="172" x2="100" y2="271"/>
+          <line x1="260" y1="172" x2="260" y2="271"/>
+          <line x1="260" y1="289" x2="260" y2="388"/>
+          <line x1="380" y1="172" x2="380" y2="271"/>
+          <line x1="380" y1="289" x2="380" y2="388"/>
+          <line x1="520" y1="172" x2="520" y2="254"/>
+        </g>
+        <line x1="555" y1="298" x2="615" y2="378" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
         <g stroke="var(--ink-faint)" stroke-width="3">
-          <line x1="292" y1="205" x2="280" y2="222"/>
-          <line x1="312" y1="212" x2="300" y2="229"/>
+          <line x1="577" y1="322" x2="565" y2="340"/>
+          <line x1="597" y1="330" x2="585" y2="348"/>
         </g>
 
-        <ellipse cx="345" cy="235" rx="42" ry="26" fill="#4C86A8" opacity="0.32"/>
+        <ellipse cx="520" cy="280" rx="34" ry="24" fill="#4C86A8" opacity="0.32"/>
 
-        <circle cx="150" cy="170" r="13" fill="var(--rc)" stroke="var(--surface)" stroke-width="2.5"/>
-        <text x="150" y="144" text-anchor="middle" class="am-label" font-weight="700" font-size="13" fill="var(--ink)">니시테츠 텐진역</text>
-        <text x="150" y="197" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">숙소 마이스테이·지하상가</text>
+        <use href="#ic-house" transform="translate(100,280) scale(1.5)" fill="var(--rc)"/>
+        <text x="100" y="236" text-anchor="middle" class="am-label" font-weight="700" font-size="13.5" fill="var(--ink)">니시테츠 텐진역</text>
+        <text x="100" y="306" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">숙소 마이스테이·지하상가</text>
 
-        <circle cx="150" cy="108" r="7" fill="var(--ink)" stroke="var(--surface)" stroke-width="2"/>
-        <text x="150" y="88" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">케고신사</text>
-        <text x="175" y="140" text-anchor="start" class="am-sub" font-size="8.5" fill="var(--ink-faint)">도보 1분</text>
+        <use href="#ic-torii" transform="translate(100,160)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="100" y="132" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">케고신사</text>
+        <text x="100" y="196" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">도보 1분</text>
 
-        <circle cx="280" cy="112" r="8" fill="var(--ink)" stroke="var(--surface)" stroke-width="2"/>
-        <text x="280" y="92" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">아크로스 후쿠오카</text>
-        <text x="280" y="132" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">도보권</text>
+        <use href="#ic-fork" transform="translate(260,160)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="260" y="132" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">하카타 하나미도리</text>
 
-        <text x="345" y="198" text-anchor="middle" class="am-label" font-weight="700" font-size="12" fill="var(--ink)">오호리공원</text>
-        <text x="345" y="277" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">지하철 3~4분, 완전 평지</text>
+        <use href="#ic-fork" transform="translate(260,400)" stroke="var(--rc)" stroke-width="2"/>
+        <text x="260" y="428" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">신미우라</text>
 
-        <circle cx="390" cy="255" r="8" fill="var(--ink)" stroke="var(--surface)" stroke-width="2"/>
-        <text x="400" y="240" text-anchor="start" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">후쿠오카타워</text>
-        <text x="400" y="256" text-anchor="start" class="am-sub" font-size="8.5" fill="var(--ink-faint)">버스·택시 필요</text>
+        <use href="#ic-star" transform="translate(380,160)" fill="var(--ink)"/>
+        <text x="380" y="132" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">아크로스 후쿠오카</text>
 
-        <g transform="translate(60,40)">
+        <use href="#ic-torii" transform="translate(380,400)" stroke="var(--ink)" stroke-width="2"/>
+        <text x="380" y="428" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">소후쿠지</text>
+
+        <use href="#ic-star" transform="translate(520,160)" fill="var(--ink)"/>
+        <text x="520" y="132" text-anchor="middle" class="am-label" font-weight="700" font-size="10" fill="var(--ink)">마이즈루공원·성터</text>
+
+        <text x="520" y="246" text-anchor="middle" class="am-label" font-weight="700" font-size="12" fill="var(--ink)">오호리공원</text>
+        <text x="520" y="322" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">지하철 3~4분, 완전 평지</text>
+
+        <use href="#ic-star" transform="translate(625,390)" fill="var(--ink)"/>
+        <text x="625" y="416" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">후쿠오카타워</text>
+        <text x="625" y="360" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">버스·택시 필요</text>
+
+        <g transform="translate(60,55)">
           <line x1="0" y1="14" x2="0" y2="-10" stroke="var(--ink-faint)" stroke-width="2"/>
           <polygon points="0,-16 -5,-6 5,-6" fill="var(--ink-faint)"/>
           <text x="0" y="28" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">N</text>
         </g>
       </svg>
-      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 색깔 점=맛집, 어두운 점=명소. 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
+      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 집=숙소, ★=명소, 도리이=신사, 포크=식사. 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
     <h3 class="section-label">명소</h3>
