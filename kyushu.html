@@ -63,25 +63,33 @@
   /* ---------- Masthead ---------- */
   .masthead{position:relative;padding:18px 20px 22px;margin-bottom:20px;border:3px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);overflow:hidden;}
   .eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--hakata);margin-bottom:8px;}
-  h1{font-size:34px;color:var(--ink);margin-bottom:8px;line-height:1.15;}
-  .masthead p{font-size:14px;color:var(--ink-soft);max-width:56ch;margin:0;position:relative;}
+  h1{font-size:34px;color:var(--ink);margin-bottom:0;line-height:1.15;}
   .masthead .stamp{
     position:absolute;top:14px;right:16px;width:74px;height:74px;border-radius:50%;
     border:3px solid var(--hakata);color:var(--hakata);display:flex;align-items:center;justify-content:center;
     font-family:"Black Han Sans";font-size:12px;text-align:center;line-height:1.25;transform:rotate(9deg);
   }
 
-  /* ---------- Route figure ---------- */
-  figure.route{margin:0 0 20px;padding:14px 16px 8px;border:3px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);}
-  figure.route svg{width:100%;height:auto;display:block;}
-  figcaption{font-size:11px;color:var(--ink-faint);margin-top:6px;padding:0 2px;}
-
-  /* ---------- Overview strip ---------- */
-  .overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:24px;}
-  .ov-item{background:var(--surface);border:2px solid var(--line);border-radius:10px;padding:10px 13px;display:flex;flex-direction:column;gap:2px;}
-  .ov-item .k{font-size:10px;color:var(--ink-faint);letter-spacing:0.04em;font-weight:600;}
-  .ov-item .v{font-family:"IBM Plex Mono",monospace;font-size:14.5px;font-weight:700;color:var(--ink);}
-  .ov-item .s{font-size:10.5px;color:var(--ink-faint);}
+  /* ---------- Schedule matrix ---------- */
+  .schedule-card{margin:0 0 22px;padding:14px 16px;border:3px solid var(--line);border-radius:14px;background:var(--surface);box-shadow:var(--shadow);}
+  .sched-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:4px 5px;}
+  .sched-day{grid-row:1;display:flex;flex-direction:column;align-items:center;gap:1px;padding-bottom:6px;}
+  .sched-day .dd{font-family:"IBM Plex Mono";font-size:9.5px;font-weight:700;color:var(--ink-faint);letter-spacing:0.03em;}
+  .sched-day .dt{font-size:15px;font-weight:700;color:var(--ink);}
+  .sched-day .dw{font-size:10px;color:var(--ink-faint);}
+  .sched-bar{
+    grid-row:2;text-align:center;font-family:"Black Han Sans";font-size:13px;padding:7px 2px;border-radius:8px;
+    color:var(--surface);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .sched-bar[data-region="hakata"]{background:var(--hakata);}
+  .sched-bar[data-region="yufuin"]{background:var(--yufuin);}
+  .sched-bar[data-region="hita"]{background:var(--hita);}
+  .sched-bar[data-region="tenjin"]{background:var(--tenjin);}
+  .sched-stay{grid-row:3;text-align:center;font-size:10.5px;color:var(--ink-soft);padding-top:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .sched-foot{
+    display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:space-between;margin-top:12px;padding-top:10px;
+    border-top:2px dashed var(--line-soft);font-size:11.5px;color:var(--ink-soft);
+  }
 
   /* ---------- Region tabs ---------- */
   .tabbar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px;position:sticky;top:10px;z-index:30;}
@@ -101,6 +109,10 @@
 
   /* ---------- Region panel ---------- */
   .region-panel[hidden]{display:none;}
+  .region-panel[data-region="hakata"]{--rc:var(--hakata);--rc-soft:var(--hakata-soft);--rc-ink:var(--hakata-ink);}
+  .region-panel[data-region="yufuin"]{--rc:var(--yufuin);--rc-soft:var(--yufuin-soft);--rc-ink:var(--yufuin-ink);}
+  .region-panel[data-region="hita"]{--rc:var(--hita);--rc-soft:var(--hita-soft);--rc-ink:var(--hita-ink);}
+  .region-panel[data-region="tenjin"]{--rc:var(--tenjin);--rc-soft:var(--tenjin-soft);--rc-ink:var(--tenjin-ink);}
   .region-hero{
     position:relative;overflow:hidden;border:3px solid var(--line);border-radius:16px;
     background:var(--rc);color:var(--surface);padding:22px 22px 20px;margin-bottom:16px;box-shadow:var(--shadow);
@@ -128,14 +140,19 @@
   .card{
     border:2px solid var(--line);border-radius:11px;background:var(--surface);padding:11px 13px;
     display:flex;flex-direction:column;gap:4px;box-shadow:3px 3px 0 var(--line-soft);
+    cursor:pointer;transition:border-color .12s,transform .12s;
   }
-  .card h4{font-size:14px;font-family:"Noto Sans KR";font-weight:700;line-height:1.3;}
+  .card:hover,.card:focus-visible{border-color:var(--rc);transform:translateY(-1px);outline:none;}
+  .card h4{font-size:14px;font-family:"Noto Sans KR";font-weight:700;line-height:1.3;display:flex;align-items:flex-start;gap:5px;}
   .card h4 .jp{font-weight:400;color:var(--ink-faint);font-size:11.5px;display:block;margin-top:1px;}
+  .card h4 .pin{flex:none;color:var(--rc);margin-top:2px;}
+  .card h4 .name{flex:1;}
   .card p{font-size:12.5px;color:var(--ink-soft);margin:0;}
   .card .meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px;}
   .chip{font-size:10px;font-weight:700;padding:2px 8px;border-radius:100px;background:var(--surface-2);color:var(--ink-soft);white-space:nowrap;}
   .chip.rc{background:var(--rc-soft);color:var(--rc-ink);}
   .chip.caution{background:var(--caution-soft);color:var(--caution);}
+  .chip.map{background:var(--rc-soft);color:var(--rc-ink);}
   .card .note{font-size:11px;color:var(--caution);margin-top:2px;}
 
   /* ---------- Footer ---------- */
@@ -161,6 +178,13 @@
     h1{font-size:26px;}
     .masthead .stamp{width:58px;height:58px;font-size:10px;top:10px;right:10px;}
     .region-hero h2{font-size:30px;}
+    .sched-grid{gap:3px;}
+    .sched-day .dd{font-size:8px;}
+    .sched-day .dt{font-size:12px;}
+    .sched-day .dw{font-size:8.5px;}
+    .sched-bar{font-size:10.5px;padding:6px 1px;}
+    .sched-stay{font-size:9px;}
+    .sched-foot{font-size:10.5px;}
     .tabbar{grid-template-columns:repeat(2,1fr);position:static;}
     .card-grid{grid-template-columns:1fr;}
   }
@@ -174,50 +198,34 @@
   <header class="masthead">
     <div class="eyebrow">TAEGYO NOTEBOOK · 2026.10.9 — 10.14</div>
     <h1>해탈이와 떠나는 가을 큐슈</h1>
-    <p>하카타 1박 · 유후인 2박(료칸 2곳) · 히타 1박 · 텐진 1박, 5박6일. 지역별 탭에 맛집·명소를 가득 채웠어요. 임신 21주차 컨디션 고려해 도보량 적은 순으로 우선 소개합니다.</p>
     <div class="stamp">5박6일<br>KYUSHU</div>
   </header>
 
-  <figure class="route">
-    <svg viewBox="0 0 860 118" role="img" aria-label="인천에서 출발해 하카타, 유후인, 히타를 거쳐 텐진에서 인천으로 돌아오는 5박6일 이동 경로">
-      <line x1="40" y1="34" x2="820" y2="34" stroke="var(--ink)" stroke-width="2"/>
-      <circle cx="40" cy="34" r="7" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
-      <circle cx="230" cy="34" r="8" fill="var(--hakata)" stroke="var(--ink)" stroke-width="2"/>
-      <circle cx="420" cy="34" r="8" fill="var(--yufuin)" stroke="var(--ink)" stroke-width="2"/>
-      <circle cx="610" cy="34" r="8" fill="var(--hita)" stroke="var(--ink)" stroke-width="2"/>
-      <circle cx="780" cy="34" r="8" fill="var(--tenjin)" stroke="var(--ink)" stroke-width="2"/>
-      <circle cx="820" cy="34" r="7" fill="var(--surface)" stroke="var(--ink)" stroke-width="2"/>
-      <g font-family="IBM Plex Mono" font-size="12" font-weight="700" fill="var(--ink)" text-anchor="middle">
-        <text x="40" y="18">인천</text>
-        <text x="230" y="18">하카타</text>
-        <text x="420" y="18">유후인</text>
-        <text x="610" y="18">히타</text>
-        <text x="780" y="18">텐진</text>
-        <text x="820" y="18">인천</text>
-      </g>
-      <g font-family="Noto Sans KR" font-size="10" fill="var(--ink-soft)" text-anchor="middle">
-        <text x="135" y="58">비행 1h30m · 10/9</text>
-        <text x="325" y="58">고속버스 약 2.5h · 10/10</text>
-        <text x="515" y="58">JR 약 40분 · 10/12</text>
-        <text x="695" y="58">고속버스 약 1.5h · 10/13</text>
-        <text x="800" y="58">비행 1h45m</text>
-      </g>
-      <g font-family="IBM Plex Mono" font-size="9.5" font-weight="700" fill="var(--ink-faint)" text-anchor="middle">
-        <text x="135" y="72">DAY 1</text>
-        <text x="325" y="72">DAY 2</text>
-        <text x="515" y="72">DAY 4</text>
-        <text x="695" y="72">DAY 5</text>
-        <text x="800" y="72">DAY 6 · 10/14</text>
-      </g>
-    </svg>
-    <figcaption>유후인에서는 료칸을 2박2곳(토쇼안→나카야)으로 나눠 묵어 하루 종일 마을을 즐길 여유를 만들었습니다.</figcaption>
-  </figure>
+  <div class="schedule-card">
+    <div class="sched-grid">
+      <div class="sched-day" style="grid-column:1"><span class="dd">DAY 1</span><span class="dt mono">10/9</span><span class="dw">금·한글날</span></div>
+      <div class="sched-day" style="grid-column:2"><span class="dd">DAY 2</span><span class="dt mono">10/10</span><span class="dw">토</span></div>
+      <div class="sched-day" style="grid-column:3"><span class="dd">DAY 3</span><span class="dt mono">10/11</span><span class="dw">일</span></div>
+      <div class="sched-day" style="grid-column:4"><span class="dd">DAY 4</span><span class="dt mono">10/12</span><span class="dw">월·연차</span></div>
+      <div class="sched-day" style="grid-column:5"><span class="dd">DAY 5</span><span class="dt mono">10/13</span><span class="dw">화·연차</span></div>
+      <div class="sched-day" style="grid-column:6"><span class="dd">DAY 6</span><span class="dt mono">10/14</span><span class="dw">수·연차</span></div>
 
-  <div class="overview">
-    <div class="ov-item"><span class="k">출국</span><span class="v">10/9(금) 17:20</span><span class="s">ICN → FUK · 7C1407</span></div>
-    <div class="ov-item"><span class="k">귀국</span><span class="v">10/14(수) 13:40</span><span class="s">FUK → ICN · 7C1472</span></div>
-    <div class="ov-item"><span class="k">숙소</span><span class="v">5곳 · 5박</span><span class="s">하카타·유후인×2·히타·텐진</span></div>
-    <div class="ov-item"><span class="k">항공+숙박</span><span class="v">약 248만원</span><span class="s">2인 기준, 확정 예약가</span></div>
+      <div class="sched-bar" data-region="hakata" style="grid-column:1/2">하카타</div>
+      <div class="sched-bar" data-region="yufuin" style="grid-column:2/4">유후인</div>
+      <div class="sched-bar" data-region="hita" style="grid-column:4/5">히타</div>
+      <div class="sched-bar" data-region="tenjin" style="grid-column:5/7">텐진</div>
+
+      <div class="sched-stay" style="grid-column:1">비아 인</div>
+      <div class="sched-stay" style="grid-column:2">토쇼안</div>
+      <div class="sched-stay" style="grid-column:3">나카야</div>
+      <div class="sched-stay" style="grid-column:4">텐스이</div>
+      <div class="sched-stay" style="grid-column:5">마이스테이</div>
+      <div class="sched-stay" style="grid-column:6">귀국</div>
+    </div>
+    <div class="sched-foot">
+      <span>✈ 10/9 17:20 ICN→FUK · 10/14 13:40 FUK→ICN (7C1407 / 7C1472)</span>
+      <span>숙소 5곳·5박 · 항공+숙박 약 248만원(2인)</span>
+    </div>
   </div>
 
   <nav class="tabbar" id="tabbar">
@@ -282,7 +290,7 @@
       <svg class="sun" viewBox="0 0 200 200"><g fill="none" stroke="currentColor" stroke-width="6"><circle cx="150" cy="50" r="40"/><circle cx="150" cy="50" r="65"/><circle cx="150" cy="50" r="90"/></g></svg>
       <div class="region-eyebrow">DAY 2–3 · 10월 10~11일 (토·일)</div>
       <h2>유후인</h2>
-      <p class="region-tagline">온천 마을 2박 — 료칸 두 곳(토쇼안→나카야), 미술관·카페가 유난히 많은 동네</p>
+      <p class="region-tagline">미술관과 카페가 유난히 많은 온천 마을</p>
     </div>
     <div class="info-strip">
       <span><b>10/10 숙소</b> 온센 토쇼안(東匠庵 추정)</span>
@@ -365,7 +373,7 @@
       <svg class="sun" viewBox="0 0 200 200"><g fill="none" stroke="currentColor" stroke-width="6"><circle cx="150" cy="50" r="40"/><circle cx="150" cy="50" r="65"/><circle cx="150" cy="50" r="90"/></g></svg>
       <div class="region-eyebrow">DAY 4 · 10월 12일 (월, 연차)</div>
       <h2>히타</h2>
-      <p class="region-tagline">아마가세 온천 1박 + 이튿날 아침 마메다마치 옛거리</p>
+      <p class="region-tagline">조용한 온천가와 에도시대 상가거리, 두 얼굴의 도시</p>
     </div>
     <div class="info-strip">
       <span><b>숙소</b> 산소 텐스이(山荘天水), 무료 셔틀로 아마가세역과 연결</span>
@@ -545,6 +553,45 @@
       btns.forEach(function(b){ b.classList.toggle('active', b===btn); });
       panels.forEach(function(p){ p.hidden = (p.getAttribute('data-region') !== r); });
       window.scrollTo({top:0, behavior:'smooth'});
+    });
+  });
+})();
+
+(function(){
+  // 카드마다 구글맵 검색 링크를 붙인다 — 좌표를 지어내지 않고 실제 구글 검색에 위임
+  var REGION_Q = {
+    hakata: '福岡市博多区',
+    yufuin: '大分県由布市湯布院町',
+    hita: '大分県日田市',
+    tenjin: '福岡市中央区天神'
+  };
+  document.querySelectorAll('.region-panel').forEach(function(panel){
+    var q = REGION_Q[panel.getAttribute('data-region')] || '福岡県';
+    panel.querySelectorAll('.card').forEach(function(card){
+      var h4 = card.querySelector('h4');
+      if(!h4) return;
+      var jpEl = h4.querySelector('.jp');
+      var jpText = jpEl ? jpEl.textContent.trim() : '';
+      var primaryParts = [];
+      h4.childNodes.forEach(function(n){ if(n.nodeType === 3) primaryParts.push(n.textContent); });
+      var primary = primaryParts.join(' ').replace(/\s+/g, ' ').trim();
+      var url = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent((primary + ' ' + jpText).trim() + ' ' + q);
+
+      h4.insertAdjacentHTML('afterbegin', '<span class="pin" aria-hidden="true"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.2 7 13 7 13s7-7.8 7-13c0-3.9-3.1-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg></span>');
+
+      var meta = card.querySelector('.meta');
+      if(!meta){ meta = document.createElement('div'); meta.className = 'meta'; card.appendChild(meta); }
+      var mapChip = document.createElement('span');
+      mapChip.className = 'chip map';
+      mapChip.textContent = '지도 ↗';
+      meta.appendChild(mapChip);
+
+      card.setAttribute('role', 'link');
+      card.setAttribute('tabindex', '0');
+      card.addEventListener('click', function(){ window.open(url, '_blank', 'noopener'); });
+      card.addEventListener('keydown', function(e){
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); window.open(url, '_blank', 'noopener'); }
+      });
     });
   });
 })();
