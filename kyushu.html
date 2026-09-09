@@ -216,6 +216,13 @@
   .chip.rating.lo{background:var(--surface-2);color:var(--ink-faint);}
   .chip.closed{background:var(--caution);color:var(--surface);}
   .chip.chain{background:var(--surface);color:var(--ink-faint);border:1.5px dashed var(--line-soft);}
+  /* 무알콜 맥주 — 임신 중엔 이게 있는지가 가게 고르는 기준이 되므로 눈에 띄게 */
+  .chip.nonalc{background:#1F6F4A;color:#FFFDF7;}
+  .chip.nonalc-maybe{background:var(--surface);color:#1F6F4A;border:1.5px solid #1F6F4A;}
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]) .chip.nonalc{background:#5FCB93;color:#10281C;}
+    :root:not([data-theme="light"]) .chip.nonalc-maybe{color:#5FCB93;border-color:#5FCB93;}
+  }
   /* ---------- 하루 흐름 ---------- */
   .day{border:3px solid var(--line);border-radius:14px;background:var(--surface);
     box-shadow:var(--shadow);margin:0 0 16px;overflow:hidden;}
@@ -2954,6 +2961,20 @@
       <div class="say-jp">お酒は飲めないので、ノンアルコールでお願いします。</div>
       <div class="say-yomi">오사케와 노메나이노데, 논아루코-루데 오네가이시마스</div>
       <div class="say-ko">술은 못 마셔서 무알콜로 부탁드려요.</div>
+    </div>
+
+    <div class="say" style="border-color:#1F6F4A;">
+      <div class="say-when" style="color:#1F6F4A;">🍺 무알콜 맥주가 있는지 물어볼 때</div>
+      <div class="say-jp">ノンアルコールビールはありますか。</div>
+      <div class="say-yomi">논아루코-루 비-루와 아리마스카</div>
+      <div class="say-ko">무알콜 맥주 있나요?</div>
+    </div>
+
+    <div class="say" style="border-color:#1F6F4A;">
+      <div class="say-when" style="color:#1F6F4A;">🍺 도수가 0.00%인지 확인할 때 (0.5%짜리도 "논아루"라고 불러요)</div>
+      <div class="say-jp">アルコール0.00%のものはどれですか。</div>
+      <div class="say-yomi">아루코-루 제로텐제로제로 파-센토노 모노와 도레데스카</div>
+      <div class="say-ko">알코올 0.00%인 건 어느 거예요?</div>
     </div>
 
     <div class="say">
