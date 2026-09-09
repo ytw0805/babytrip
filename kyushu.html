@@ -241,6 +241,22 @@
   .day-foot{font-size:11.5px;color:var(--ink-faint);padding:9px 16px;background:var(--surface-2);
     border-top:1px dashed var(--line-soft);word-break:keep-all;}
   .day-foot b{color:var(--caution);}
+  /* ---------- 일본어 한마디 ---------- */
+  .say{border:2px solid var(--line);border-radius:12px;background:var(--surface);
+    box-shadow:3px 3px 0 var(--line-soft);padding:11px 14px;margin:0 0 9px;}
+  .say-when{font-size:11px;font-weight:700;color:var(--caution);letter-spacing:0.02em;
+    word-break:keep-all;}
+  .say-jp{font-size:17px;font-weight:700;color:var(--ink);margin:5px 0 2px;line-height:1.45;
+    word-break:break-all;}
+  .say-yomi{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--rc-ink);
+    background:var(--rc-soft);border-radius:6px;padding:2px 7px;display:inline-block;}
+  .say-ko{font-size:12px;color:var(--ink-soft);margin-top:5px;word-break:keep-all;}
+  /* ---------- 비 오는 날 ---------- */
+  .rain{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:9px;margin:10px 0 0;}
+  .rain div{border:2px solid var(--line-soft);border-radius:10px;padding:9px 12px;
+    background:var(--surface);font-size:12.5px;word-break:keep-all;}
+  .rain b{display:block;font-size:12.5px;color:var(--ink);margin-bottom:3px;}
+  .rain span{font-size:11.5px;color:var(--ink-faint);}
   .card .note{font-size:11px;color:var(--caution);margin-top:2px;}
 
   /* ---------- Footer ---------- */
@@ -2644,6 +2660,94 @@
         <li>다만 이번 여행(10/9~14) 시점엔 <b>면세품을 특수포장으로 밀봉해 일본 안에서 뜯을 수 없는</b> 방식이 적용돼요. (밀봉이 없어지는 새 제도는 2026년 11월 1일부터라 3주 차이로 해당 없음)</li>
         <li>→ <b>여행 중에 먹을 약은 면세로 사지 말고 일반 구매</b>하세요. 면세는 귀국 후 쓸 것만.</li>
         <li>후쿠오카 약국: <b>오가약국(大賀薬局)</b> — 하카타역 앞에 본사가 있는 지역 체인으로 영문 안내가 있고, <b>드러그일레븐</b>은 한국어 면세 안내를 제공합니다.</li>
+      </ul>
+    </div>
+
+    <h3 class="section-label">식당에서 이 말만 하면 돼요</h3>
+    <p class="section-sub">화면째로 보여줘도 됩니다 — 밑줄이 읽는 법이에요</p>
+
+    <div class="say">
+      <div class="say-when">가게에 들어가서 먼저 (이 한마디면 대부분 알아서 배려해줘요)</div>
+      <div class="say-jp">妊娠中なので、生ものとお酒は控えています。</div>
+      <div class="say-yomi">닌신츄- 나노데, 나마모노토 오사케와 히카에테 이마스</div>
+      <div class="say-ko">임신 중이라 날것과 술은 삼가고 있어요.</div>
+    </div>
+
+    <div class="say">
+      <div class="say-when">스키야키·규카츠 — 날달걀이 기본으로 나올 때 (타지마야·교토가츠규)</div>
+      <div class="say-jp">生卵は抜いてください。</div>
+      <div class="say-yomi">나마타마고와 누이테 쿠다사이</div>
+      <div class="say-ko">날달걀은 빼주세요.</div>
+    </div>
+
+    <div class="say">
+      <div class="say-when">고기가 레어로 나오는 집에서 (교토가츠규는 기본이 레어예요)</div>
+      <div class="say-jp">中までしっかり焼いてください。</div>
+      <div class="say-yomi">나카마데 싯카리 야이테 쿠다사이</div>
+      <div class="say-ko">속까지 완전히 익혀주세요.</div>
+    </div>
+
+    <div class="say">
+      <div class="say-when">초밥집·해산물집에서 (효탄스시·우오키치·BOWL)</div>
+      <div class="say-jp">生魚を使わないものはどれですか。</div>
+      <div class="say-yomi">나마자카나오 츠카와나이 모노와 도레데스카</div>
+      <div class="say-ko">날생선을 쓰지 않은 건 어느 거예요?</div>
+    </div>
+
+    <div class="say">
+      <div class="say-when">료칸 가이세키·코스 요리 예약할 때 미리</div>
+      <div class="say-jp">お刺身と生ものを、火の通ったものに変えていただけますか。</div>
+      <div class="say-yomi">오사시미토 나마모노오, 히노 토옷타 모노니 카에테 이타다케마스카</div>
+      <div class="say-ko">회와 날것을 익힌 것으로 바꿔주실 수 있나요?</div>
+    </div>
+
+    <div class="say">
+      <div class="say-when">술이 딸려 나올 때 (사기테이 로티르의 곁들이 청주 등)</div>
+      <div class="say-jp">お酒は飲めないので、ノンアルコールでお願いします。</div>
+      <div class="say-yomi">오사케와 노메나이노데, 논아루코-루데 오네가이시마스</div>
+      <div class="say-ko">술은 못 마셔서 무알콜로 부탁드려요.</div>
+    </div>
+
+    <div class="say">
+      <div class="say-when">몸이 힘들 때 · 앉을 자리가 필요할 때</div>
+      <div class="say-jp">妊娠中です。少し休ませていただけますか。</div>
+      <div class="say-yomi">닌신츄-데스. 스코시 야스마세테 이타다케마스카</div>
+      <div class="say-ko">임신 중이에요. 잠깐 쉬어도 될까요?</div>
+    </div>
+
+    <div class="say" style="border-color:var(--caution);">
+      <div class="say-when">응급 상황 — 119에 전화해서</div>
+      <div class="say-jp">韓国人です。妊娠21週です。救急車をお願いします。</div>
+      <div class="say-yomi">칸코쿠진데스. 닌신 니쥬-잇슈-데스. 큐-큐-샤오 오네가이시마스</div>
+      <div class="say-ko">한국인이에요. 임신 21주예요. 구급차를 불러주세요. <b>119는 통역을 연결해주니 한국어로 말해도 됩니다</b> — 이건 연결 전에 상황을 빨리 전할 때만 쓰세요.</div>
+    </div>
+
+    <h3 class="section-label">비 오는 날 대안</h3>
+    <p class="section-sub">유후인은 10월 강수량이 후쿠오카보다 많아요(117mm vs 94mm) — 야외 일정이 많은 날이라 대비가 필요합니다</p>
+
+    <div class="unclear">
+      <b>☔ 유후인이 문제예요 — 일정이 거의 다 야외거든요</b>
+      <ul>
+        <li>기본 동선인 <b>유노쓰보 카이도 걷기 + 긴린코</b>가 통째로 야외예요. 왕복 2.8km를 우산 쓰고 걷는 건 임신 중에 꽤 부담됩니다.</li>
+        <li>다행히 <b>유후인은 소규모 미술관이 밀집한 동네</b>라 실내 대안이 오히려 많아요. 아침에 비가 오면 이쪽으로 갈아타세요.</li>
+      </ul>
+    </div>
+    <div class="rain">
+      <div><b>유후인 쇼와칸</b><span>1950~60년대 거리 재현, 실내 전체. 09:00-17:00 연중무휴</span></div>
+      <div><b>COMICO ART MUSEUM</b><span>구마 겐고 설계 현대미술관, 09:30-17:30</span></div>
+      <div><b>트릭3D아트 유후인</b><span>착시 체험형, 실내</span></div>
+      <div><b>규슈 자동차 역사관</b><span>클래식카 전시, 긴린코 근처라 겸사겸사</span></div>
+      <div><b>이와시타 컬렉션</b><span>복합 사설박물관 <em>(요금·시간 확인 필요)</em></span></div>
+      <div><b>유후인 스테인드글라스 미술관</b><span>교회 건물형, 관람은 정상 운영</span></div>
+    </div>
+
+    <div class="checklist" style="margin-top:12px;">
+      <b>다른 지역은 비가 와도 괜찮은 편이에요</b>
+      <ul>
+        <li><b>하카타</b> — <b>가와바타 상점가</b>가 약 400m 아케이드 지붕형이라 비를 안 맞고, 그대로 <b>캐널시티</b>(실내몰)와 이어져요. 하카타역 자체도 지하상가·데파치카·식당가가 다 실내입니다.</li>
+        <li><b>텐진</b> — <b>텐진 지하상가</b>가 역과 직결이고 백화점(이와타야·다이마루·솔라리아)까지 실내로 연결돼요. 비 오는 날 가장 편한 동네입니다.</li>
+        <li><b>히타</b> — 마메다마치는 야외 거리지만 <b>야마보코 카이칸</b>(축제 수레 전시, 실내·좌석 관람)과 <b>히로세 자료관</b>이 대안이에요.</li>
+        <li><b>아마가세</b> — 어차피 온천 중심이라 비의 영향이 가장 적어요. 강변 산책만 접으면 됩니다.</li>
       </ul>
     </div>
 
