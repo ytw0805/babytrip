@@ -241,6 +241,28 @@
   .day-foot{font-size:11.5px;color:var(--ink-faint);padding:9px 16px;background:var(--surface-2);
     border-top:1px dashed var(--line-soft);word-break:keep-all;}
   .day-foot b{color:var(--caution);}
+  /* ---------- 숙소 카드 (택시에서 보여주는 용도) ---------- */
+  .stays{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:10px;margin:10px 0 0;}
+  .stay{border:2px solid var(--line);border-radius:12px;background:var(--surface);
+    box-shadow:3px 3px 0 var(--line-soft);padding:11px 13px;}
+  .stay .n{font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:700;
+    color:var(--surface);background:var(--ink);border-radius:100px;padding:2px 8px;}
+  .stay h4{font-size:14px;margin:6px 0 1px;font-family:"Noto Sans KR";font-weight:700;
+    color:var(--ink);word-break:keep-all;}
+  .stay .jp{font-size:12px;color:var(--ink-faint);}
+  .stay .addr{font-size:13px;color:var(--ink);background:var(--surface-2);border-radius:8px;
+    padding:7px 9px;margin:7px 0 0;line-height:1.5;word-break:break-all;
+    border:1.5px dashed var(--line-soft);}
+  .stay .tel{font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:700;
+    color:var(--caution);margin-top:5px;display:block;}
+  .stay .how{font-size:11.5px;color:var(--ink-soft);margin-top:5px;word-break:keep-all;}
+  /* ---------- 탭 안 목차 ---------- */
+  .toc{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 16px;}
+  .toc a{font-size:11.5px;font-weight:700;color:var(--ink-soft);background:var(--surface);
+    border:2px solid var(--line-soft);border-radius:100px;padding:5px 11px;text-decoration:none;
+    word-break:keep-all;}
+  .toc a:hover{border-color:var(--rc);color:var(--rc-ink);}
+  .section-label{scroll-margin-top:14px;}
   /* ---------- 일본어 한마디 ---------- */
   .say{border:2px solid var(--line);border-radius:12px;background:var(--surface);
     box-shadow:3px 3px 0 var(--line-soft);padding:11px 14px;margin:0 0 9px;}
@@ -414,6 +436,47 @@
       <h2>6일, 하루씩 뜯어보기</h2>
       <p class="region-tagline">못 바꾸는 일정(<b>고정</b>)을 먼저 깔고, 그 사이에 남는 시간이 얼마인지 보여줘요. 여기서 "이 시간에 뭘 넣을까"를 같이 정하면 됩니다.</p>
     </div>
+
+    <h3 class="section-label" id="s-stay">오늘 밤 어디서 자나요</h3>
+    <p class="section-sub">택시에서는 주소를 보여주는 게 제일 빨라요 — 아래 일본어 주소를 그대로 보여주세요</p>
+    <div class="stays">
+      <div class="stay">
+        <span class="n">10/9 (금)</span>
+        <h4>비아 인 하카타구치 에키마에</h4><div class="jp">ヴィアイン博多口駅前</div>
+        <div class="addr">〒812-0011<br>福岡市博多区博多駅前2丁目17番11号</div>
+        <span class="tel">092-452-5489</span>
+        <div class="how">하카타역 하카타구치에서 <b>서북서 약 385m</b>. 걸어서 갑니다.</div>
+      </div>
+      <div class="stay">
+        <span class="n">10/10 (토)</span>
+        <h4>도쇼안</h4><div class="jp">東匠庵</div>
+        <div class="addr">〒879-5103<br>大分県由布市湯布院町川南1044-1</div>
+        <span class="tel">0977-28-8077</span>
+        <div class="how">유후인역 <b>남남서 약 1.15km</b>. 택시 약 10분이고 <b>무료 셔틀은 15:00~17:00</b>예요. 이 시간을 놓치면 택시를 타야 하니 주소를 보여주세요.</div>
+      </div>
+      <div class="stay">
+        <span class="n">10/11 (일)</span>
+        <h4>온야도 나카야</h4><div class="jp">御宿なか屋</div>
+        <div class="addr">〒879-5102<br>大分県由布市湯布院町川上1530-2</div>
+        <span class="tel">0977-84-3835</span>
+        <div class="how">유후인역 <b>동북동 약 940m</b>, 도보 17분. 유노쓰보 카이도 방향이라 걸어가며 구경해도 돼요.</div>
+      </div>
+      <div class="stay">
+        <span class="n">10/12 (월)</span>
+        <h4>산소 텐스이</h4><div class="jp">山荘天水</div>
+        <div class="addr">〒879-4201<br>大分県日田市天瀬町桜竹601</div>
+        <span class="tel">0973-57-2424</span>
+        <div class="how"><b>아마가세역은 무인역</b>이에요. 직선으로는 남남서 350m지만 다리를 돌아가야 해서, <b>송영을 미리 예약</b>하고 못 만나면 이 번호로 전화하세요.</div>
+      </div>
+      <div class="stay">
+        <span class="n">10/13 (화)</span>
+        <h4>호텔 마이스테이 후쿠오카 텐진</h4><div class="jp">ホテルマイステイズ福岡天神</div>
+        <div class="addr">〒810-0001<br>福岡市中央区長浜1丁目 (親不孝通り)</div>
+        <span class="tel" style="color:var(--ink-faint);font-size:12px;">전화번호 미확인 — 예약 확인서 참고</span>
+        <div class="how">니시테츠 텐진역 <b>북서 약 480m</b>, 도보 6분. 버스터미널에서도 같은 거리예요.</div>
+      </div>
+    </div>
+    <p style="font-size:11px;color:var(--ink-faint);margin:8px 0 16px;">주소는 각 숙소가 공개한 것을 기준으로 했어요. <b>번지 단위까지는 예약 확인서와 한 번 대조해보세요</b> — 마이스테이는 우편번호·거리명까지만 확인됐습니다.</p>
 
     <div class="day">
       <div class="day-head"><span class="d-n">DAY 1</span><h3>10/9 (금)</h3><span class="d-where">인천 → 하카타</span></div>
@@ -2304,7 +2367,7 @@
     </ol>
     <p class="leg-pick">✓ 임신 중이라면: 국제선·국내선 터미널 모두 안내데스크에서 <b>유모차·휠체어 무료 대여</b>가 가능하고, 여러 층에 <b>수유실</b>이 있어요. 짐이 많으면 CARGO PASS로 숙소까지 당일·익일 배송을 맡기고 몸만 가볍게 이동하는 것도 방법입니다.</p>
 
-    <h3 class="section-label">구간별 교통 비교</h3>
+    <h3 class="section-label" id="t-all">전체 구간 한눈에</h3>
     <div class="table-wrap">
       <table class="transit-table">
         <thead><tr><th>구간</th><th>수단</th><th>소요</th><th>비고</th></tr></thead>
@@ -2513,7 +2576,49 @@
       <p class="region-tagline">여행 내내 챙길 것과, 출발 전 다시 확인해야 할 것들.</p>
     </div>
 
-    <h3 class="section-label">무슨 일이 생기면</h3>
+    <nav class="toc"><a href="#c0">지금부터 출발까지, 순서대로</a><a href="#c00">현금은 얼마나 챙길까</a><a href="#c1">무슨 일이 생기면</a><a href="#c2">비행기 타기 전</a><a href="#c3">가방에 넣을 것</a><a href="#c4">10월 날씨 · 옷차림</a><a href="#c5">언제 뭘 확인하면 되는지</a><a href="#c6">먹는 것 — 일본 공식 기준으로</a><a href="#c7">온천 — 일본의 현재 공식 입장</a><a href="#c8">약 챙기기 · 일본에서 약 사기</a><a href="#c9">화장실 · 앉아서 쉴 곳</a><a href="#c10">짐 — 6일에 숙소를 5번 옮겨요</a><a href="#c11">식당에서 이 말만 하면 돼요</a><a href="#c12">비 오는 날 대안</a><a href="#c13">이 일정에서 걸리는 곳만 모았어요</a></nav>
+
+    <h3 class="section-label" id="c0">지금부터 출발까지, 순서대로</h3>
+    <p class="section-sub">마감이 있는 것부터 — 오늘이 9월 10일 기준이에요</p>
+    <div class="table-wrap">
+      <table class="transit-table">
+        <thead><tr><th>언제까지</th><th>할 일</th><th>왜 그때까지</th></tr></thead>
+        <tbody>
+          <tr><td data-label="언제까지"><b>지금 바로</b></td><td data-label="할 일"><b>유후인고 버스 예약</b> (10/10 하카타 → 유후인)</td><td data-label="왜 그때까지">전월 같은 날 08:00에 열려서 <b>이미 예약 가능</b>해요. 좌석지정제라 예약 없으면 못 탈 수 있습니다</td></tr>
+          <tr><td data-label="언제까지"><b>지금 바로</b></td><td data-label="할 일"><b>산소 텐스이 송영 예약</b> (10/12 아마가세역)</td><td data-label="왜 그때까지">무인역 + 계단이라 픽업이 가장 확실해요</td></tr>
+          <tr><td data-label="언제까지">9월 중</td><td data-label="할 일"><b>료칸 3곳에 저녁 메뉴 요청</b> — 생식·술 페어링 제외</td><td data-label="왜 그때까지">가이세키는 미리 재료를 준비해서, 당일에 말하면 바꾸기 어려워요</td></tr>
+          <tr><td data-label="언제까지">9월 중</td><td data-label="할 일">주치의와 <b>상비약·소견서</b> 상의</td><td data-label="왜 그때까지">소견서가 필요한 경우 <b>탑승 7일 이내 발급</b>이라 미리 상의만 해두면 됩니다</td></tr>
+          <tr><td data-label="언제까지">9월 중</td><td data-label="할 일"><b>여행자보험</b> 가입 (임신 관련 보장 확인)</td><td data-label="왜 그때까지">일본 의료비는 수백만 엔 단위예요</td></tr>
+          <tr><td data-label="언제까지">출발 2주 전</td><td data-label="할 일"><b>유후인 → 아마가세 열차 시각 확정</b></td><td data-label="왜 그때까지">낮에 9시간 공백이 있어서, 이 시각이 10/12 하루를 결정해요</td></tr>
+          <tr><td data-label="언제까지">출발 1주 전</td><td data-label="할 일"><b>Visit Japan Web</b> 등록 (입국+세관 QR)</td><td data-label="왜 그때까지">공항에서 종이 서류를 쓰지 않아도 돼요</td></tr>
+          <tr><td data-label="언제까지"><b>10/7 (수)</b></td><td data-label="할 일"><b>날씨 확인하고 유후인 날 결정</b></td><td data-label="왜 그때까지">이 날 처음으로 여행 전 일정의 강수확률이 다 나와요</td></tr>
+          <tr><td data-label="언제까지">전날</td><td data-label="할 일">니혼마루칸 공사 재개 여부 확인 <span class="mono">0973-23-6101</span></td><td data-label="왜 그때까지">가서 헛걸음하지 않으려고요</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 class="section-label" id="c00">현금은 얼마나 챙길까</h3>
+    <p class="section-sub">일본은 아직 현금만 받는 곳이 있어요 — 이 일정에서 걸리는 곳들입니다</p>
+    <div class="unclear">
+      <b>💴 카드가 안 되는 곳</b>
+      <ul>
+        <li><b>히타고 고속버스</b>(10/13, 1인 약 1,980엔) — 현금·교통IC만 되고 <b>신용카드 불가</b>. 게다가 차내 요금함이 <b>2천·5천·1만엔권을 거슬러주지 못해요.</b> 천엔권과 동전을 미리 준비하세요.</li>
+        <li><b>JR 큐다이선</b>(유후인↔아마가세↔히타) — <b>IC카드 사용 지역이 아니에요.</b> 창구에서 종이표를 현금으로 사는 게 확실합니다.</li>
+        <li><b>코인로커</b> — IC 결제가 되는 곳도 있지만 동전만 받는 것도 있어요. <b>100엔 동전</b>을 좀 갖고 다니세요.</li>
+        <li><b>작은 가게·노포</b> — 마메다마치나 유노쓰보 카이도의 오래된 가게는 현금만인 경우가 많아요.</li>
+      </ul>
+    </div>
+    <div class="checklist" style="margin-top:10px;">
+      <b>대략 이 정도면 됩니다 (2인 기준)</b>
+      <ul>
+        <li><b>버스·열차 교통비</b>: 유후인고 6,500 + JR 약 2,700 + 히타고 약 3,960 + 공항버스 1,000 ≈ <b>14,000엔</b></li>
+        <li><b>코인로커·족욕·입장료 등 잔돈</b>: <b>5,000엔</b> 정도</li>
+        <li>식사·쇼핑은 카드가 되는 곳이 많지만, <b>현금만 받는 집을 만나도 되게</b> 여유를 두세요.</li>
+        <li>ATM은 <b>세븐일레븐·우체국</b>이 해외카드가 가장 잘 돼요. 공항 도착로비에도 있습니다.</li>
+      </ul>
+    </div>
+
+    <h3 class="section-label" id="c1">무슨 일이 생기면</h3>
     <p class="section-sub">이 번호들만 저장해두면 돼요 — 한국어 지원이 되는 곳 위주입니다</p>
     <div class="emg">
       <div><b>구급차 · 소방</b><span class="num">119</span><span>전국 소방본부 대부분이 통역센터를 연결하는 <b>3자 동시통역</b>을 24시간 운영해요. 한국어로 말해도 됩니다.</span></div>
@@ -2526,7 +2631,7 @@
     <p class="leg-pick" style="background:var(--caution-soft);color:var(--caution);">⚠ <b>여행자보험은 꼭 드세요.</b> JNTO가 공개한 실제 사례로 수술+19일 입원+의료이송에 <b>750만 엔</b>, 심근경색 치료에 <b>1,000만 엔</b>이 청구된 적이 있어요. 게다가 <b>의료비를 내지 않으면 이후 일본 입국이 거부될 수 있다</b>고 JNTO가 명시하고 있습니다. 가입할 때 <b>임신 관련 사유가 보장 대상인지</b> 약관을 꼭 확인하세요.</p>
     <p style="font-size:11.5px;color:var(--ink-faint);margin:8px 0 0;">유후인·히타(오이타현)는 <b>외국인 대응 병원 목록이나 의료통역 창구를 찾지 못했어요.</b> 이 지역에선 119 + 재팬 비지터 핫라인(한국어 24시간) 조합이 가장 현실적입니다. 산과 응급 전용 번호는 일본에 따로 없고, 산과 응급도 119로 갑니다.</p>
 
-    <h3 class="section-label">비행기 타기 전</h3>
+    <h3 class="section-label" id="c2">비행기 타기 전</h3>
     <div class="checklist">
       <b>21주차라면 서류 없이 탑승할 수 있어요</b>
       <ul>
@@ -2537,7 +2642,7 @@
       </ul>
     </div>
 
-    <h3 class="section-label">가방에 넣을 것</h3>
+    <h3 class="section-label" id="c3">가방에 넣을 것</h3>
     <p class="section-sub">체크한 상태는 이 기기에 저장돼요 — 나눠서 싸도 괜찮습니다</p>
 
     <div class="chk-grid">
@@ -2568,7 +2673,7 @@
       <label class="chk-item"><input type="checkbox" data-k="r6"><span class="chk-t"><b>객실 전용탕/가족탕 여부 확인</b><span class="chk-note">대욕장보다 전용탕이 편해요</span></span></label>
     </div>
 
-    <h3 class="section-label">10월 날씨 · 옷차림</h3>
+    <h3 class="section-label" id="c4">10월 날씨 · 옷차림</h3>
     <p class="section-sub">유후인 아침이 후쿠오카보다 6℃ 낮아요 — 이게 이번 여행 옷차림의 핵심</p>
     <div class="table-wrap">
       <table class="transit-table">
@@ -2605,7 +2710,7 @@
     </div>
     <p style="font-size:11px;color:var(--ink-faint);margin:6px 0 0;">위 날짜별 강수량은 <b>평활 처리된 값</b>이라 "그날 이만큼 온다"가 아니라 달 안에서의 추세만 보여줘요(9~14일은 10월 중 비가 적은 편에 속합니다). 아마가세에는 관측소가 없어 <b>같은 강 유역·비슷한 고도의 히타 값</b>으로 대신했습니다. 기준: 일본 기상청 평년값 1991~2020.</p>
 
-    <h3 class="section-label">언제 뭘 확인하면 되는지</h3>
+    <h3 class="section-label" id="c5">언제 뭘 확인하면 되는지</h3>
     <p class="section-sub">날짜별 강수확률(%)은 <b>7일 전부터</b> 나와요 — 그 전까지는 아래 순서대로 좁혀집니다</p>
 
     <div class="checklist">
@@ -2637,7 +2742,7 @@
     <p class="leg-pick">✓ 정리: <b>낮은 반팔에 얇은 겉옷</b>이면 충분하지만, <b>유후인 아침·저녁(10~11℃)</b>에는 경량 패딩이나 두꺼운 가디건이 있어야 해요. 히타는 <b>일교차가 가장 커서</b>(낮 25℃ / 아침 13℃) 겹쳐 입고 벗기 좋은 옷이 좋습니다. 비는 10월 한 달 기준 후쿠오카 94.5mm, 유후인 117.3mm로 <b>유후인이 더 자주 와요</b> — 접이식 우산 필수.</p>
     <p style="font-size:11px;color:var(--ink-faint);margin:6px 0 0;">일본 기상청 평년값(1991~2020) 기준이에요. 그해 실제 날씨는 다를 수 있으니 출발 전 예보를 확인하세요.</p>
 
-    <h3 class="section-label">먹는 것 — 일본 공식 기준으로</h3>
+    <h3 class="section-label" id="c6">먹는 것 — 일본 공식 기준으로</h3>
     <p class="section-sub">일본 후생노동성이 임신부에게 실제로 안내하는 내용이에요</p>
 
     <div class="unclear">
@@ -2686,7 +2791,7 @@
       </ul>
     </div>
 
-    <h3 class="section-label">온천 — 일본의 현재 공식 입장</h3>
+    <h3 class="section-label" id="c7">온천 — 일본의 현재 공식 입장</h3>
     <p class="section-sub">"임신 중 금지"는 2014년에 공식 기준에서 빠졌어요</p>
     <div class="checklist">
       <b>사실관계</b>
@@ -2706,7 +2811,7 @@
       </ul>
     </div>
 
-    <h3 class="section-label">약 챙기기 · 일본에서 약 사기</h3>
+    <h3 class="section-label" id="c8">약 챙기기 · 일본에서 약 사기</h3>
     <p class="section-sub">먹어도 되는 약인지는 반드시 주치의에게 먼저 확인하세요 — 아래는 규정과 성분 정보예요</p>
 
     <div class="checklist">
@@ -2739,7 +2844,7 @@
       </ul>
     </div>
 
-    <h3 class="section-label">화장실 · 앉아서 쉴 곳</h3>
+    <h3 class="section-label" id="c9">화장실 · 앉아서 쉴 곳</h3>
     <p class="section-sub">걷는 구간마다 어디서 들를 수 있는지 — 걷기 전에 한 번 훑어두면 마음이 편해요</p>
 
     <div class="risk-box">
@@ -2770,7 +2875,7 @@
       <div class="risk-row"><span class="risk-no" data-r="tenjin">쉴 곳</span><span>지하상가 광장 5곳(1·3·8·10·12번가)에 앉을 자리가 있고, <b>8번가 이시즈미 광장</b>에 휴게 스페이스가 있어요. 지하상가는 05:30~25:00 개방(점포는 10:00~20:00).</span></div>
     </div>
 
-    <h3 class="section-label">짐 — 6일에 숙소를 5번 옮겨요</h3>
+    <h3 class="section-label" id="c10">짐 — 6일에 숙소를 5번 옮겨요</h3>
     <p class="section-sub">캐리어를 끌고 관광하는 상황을 피하는 게 목표예요</p>
 
     <div class="table-wrap">
@@ -2806,7 +2911,7 @@
       </ul>
     </div>
 
-    <h3 class="section-label">식당에서 이 말만 하면 돼요</h3>
+    <h3 class="section-label" id="c11">식당에서 이 말만 하면 돼요</h3>
     <p class="section-sub">화면째로 보여줘도 됩니다 — 밑줄이 읽는 법이에요</p>
 
     <div class="say">
@@ -2865,7 +2970,7 @@
       <div class="say-ko">한국인이에요. 임신 21주예요. 구급차를 불러주세요. <b>119는 통역을 연결해주니 한국어로 말해도 됩니다</b> — 이건 연결 전에 상황을 빨리 전할 때만 쓰세요.</div>
     </div>
 
-    <h3 class="section-label">비 오는 날 대안</h3>
+    <h3 class="section-label" id="c12">비 오는 날 대안</h3>
     <p class="section-sub">유후인은 10월 강수량이 후쿠오카보다 많아요(117mm vs 94mm) — 야외 일정이 많은 날이라 대비가 필요합니다</p>
 
     <div class="unclear">
@@ -2894,7 +2999,7 @@
       </ul>
     </div>
 
-    <h3 class="section-label">이 일정에서 걸리는 곳만 모았어요</h3>
+    <h3 class="section-label" id="c13">이 일정에서 걸리는 곳만 모았어요</h3>
     <p class="section-sub">카드에 붙어 있는 주의 표시를 한자리에 모은 것 — 번호는 각 탭의 카드 번호예요</p>
 
     <div class="risk-box">
