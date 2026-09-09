@@ -232,6 +232,18 @@
     color:var(--surface);background:var(--ink);border-radius:100px;padding:2px 9px;}
   .day-head h3{font-family:"Black Han Sans";font-weight:400;font-size:19px;margin:0;color:var(--ink);}
   .day-head .d-where{font-size:12px;font-weight:700;color:var(--ink-faint);word-break:keep-all;}
+  .day-head .d-hol{font-size:10px;font-weight:700;color:var(--surface);background:var(--caution);
+    border-radius:100px;padding:2px 8px;letter-spacing:.02em;}
+  /* ---------- 3연휴 경고 (스포츠의 날) ---------- */
+  .holiday{border:3px solid var(--caution);border-radius:14px;background:var(--caution-soft);
+    padding:14px 16px;margin:12px 0 4px;word-break:keep-all;}
+  .holiday h4{margin:0 0 7px;font-size:14px;color:var(--caution);
+    font-family:"Black Han Sans";font-weight:400;}
+  .holiday p{margin:0 0 7px;font-size:12.5px;line-height:1.6;color:var(--ink);}
+  .holiday p:last-child{margin-bottom:0;}
+  .holiday ul{margin:7px 0 0;padding-left:17px;font-size:12.5px;line-height:1.6;color:var(--ink);}
+  .holiday li{margin-bottom:4px;}
+  .holiday b{color:var(--caution);}
   .day-body{padding:4px 16px 12px;}
   .tl{display:flex;gap:11px;padding:9px 0;border-bottom:1px dashed var(--line-soft);}
   .tl:last-child{border-bottom:none;}
@@ -474,6 +486,18 @@
       <p class="region-tagline">못 바꾸는 일정(<b>고정</b>)을 먼저 깔고, 그 사이에 남는 시간이 얼마인지 보여줘요. 여기서 "이 시간에 뭘 넣을까"를 같이 정하면 됩니다.</p>
     </div>
 
+    <div class="holiday">
+      <h4>⚠ 10/10~10/12는 일본 3연휴예요 — 그게 전부 유후인 일정입니다</h4>
+      <p>10월 12일(월)이 <b>스포츠의 날(スポーツの日)</b>, 일본 공휴일이에요. 일본 국민의 축일에 관한 법률상 <b>10월 둘째 주 월요일</b>이고, 2026년 10월의 둘째 주 월요일이 12일입니다. 그래서 <b>토·일·월이 통째로 연휴</b>가 돼요.</p>
+      <p>하필 그 사흘이 <b>DAY 2~4, 우리 유후인 일정과 정확히 겹칩니다.</b> 유후인은 평소 주말에도 붐비는 곳이라 3연휴엔 체감이 또 달라요. 준비할 게 세 가지예요.</p>
+      <ul>
+        <li><b>유후인고 버스는 빨리 예약하세요.</b> 10/10(토)은 연휴 첫날이라 후쿠오카→유후인 방향이 제일 몰리는 날이에요. 이 버스는 좌석이 지정돼서 <b>예약이 곧 자리</b>입니다.</li>
+        <li><b>유노쓰보 카이도는 아침에 걸으세요.</b> 역~긴린코 800m 구간에 사람이 가장 많이 몰리는 곳이라, 연휴 낮엔 인파 속에서 밀리며 걷게 됩니다. <b>임신 21주차엔 이게 거리보다 더 힘들어요.</b> 아침 일찍이면 같은 길이 전혀 다릅니다.</li>
+        <li><b>10/12(월)은 공휴일 시간표일 수 있어요.</b> 유후인→아마가세 열차가 이 날 제일 빡빡한데, 평일이 아니라 공휴일로 움직이면 시각이 달라질 수 있습니다. <b>출발 전에 그 날짜로 다시 검색해보세요.</b></li>
+      </ul>
+      <p>반대로 좋은 점도 있어요 — 우리가 히타·텐진에 있는 <b>10/13(화)·10/14(수)는 연휴가 끝난 뒤</b>라 오히려 한산한 편입니다.</p>
+    </div>
+
     <div class="chosen" id="chosen-box"></div>
 
     <h3 class="section-label" id="s-stay">오늘 밤 어디서 자나요</h3>
@@ -531,7 +555,7 @@
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 2</span><h3>10/10 (토)</h3><span class="d-where">하카타 → 유후인</span></div>
+      <div class="day-head"><span class="d-n">DAY 2</span><h3>10/10 (토)</h3><span class="d-where">하카타 → 유후인</span><span class="d-hol">연휴 1일차</span></div>
       <div class="day-body">
         <div class="tl free"><span class="tl-t">오전</span><span class="tl-c"><b>하카타에서 2~3시간</b><span class="tl-note">버스 시간에서 거꾸로 계산한 값이에요. 구시다신사·캐널시티·가와바타 상점가가 서로 붙어 있어 이 셋이 한 덩어리로 좋아요.</span></span></div>
         <div class="tl fixed"><span class="tl-t">~12:00</span><span class="tl-c">하카타 버스터미널 3층 34번 승강장 → 유후인고<span class="tl-note">예약한 시간에 맞춰서. 소요 2시간 10분</span></span></div>
@@ -540,22 +564,22 @@
         <div class="tl free"><span class="tl-t">17:00~</span><span class="tl-c"><b>저녁은 료칸 안에서 보내게 돼요</b><span class="tl-note">도쇼안이 역에서 1.15km 떨어져 있어서, 체크인하고 나면 시내로 다시 나오려면 또 택시예요. 유후인 시내 저녁을 원하면 <b>체크인 전에</b> 들르는 게 나아요. 가이세키의 생식·술 페어링 제외는 예약 때 미리 말해두세요.</span></span></div>
       </div>
       <button class="goto" data-go="hakata">하카타 카드 →</button><button class="goto" data-go="yufuin">유후인 카드 →</button>
-      <div class="day-foot">버스 출발 시각이 이 날 전체를 결정해요. <b>예약할 때 오전을 얼마나 쓸지 먼저 정하세요.</b></div>
+      <div class="day-foot">버스 출발 시각이 이 날 전체를 결정해요. <b>예약할 때 오전을 얼마나 쓸지 먼저 정하세요.</b> 그리고 이 날이 <b>3연휴 첫날</b>이라 후쿠오카→유후인 방향이 가장 몰립니다 — 버스 예약을 제일 먼저 잡으세요.</div>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 3</span><h3>10/11 (일)</h3><span class="d-where">유후인 종일 · 숙소 이동</span></div>
+      <div class="day-head"><span class="d-n">DAY 3</span><h3>10/11 (일)</h3><span class="d-where">유후인 종일 · 숙소 이동</span><span class="d-hol">연휴 2일차</span></div>
       <div class="day-body">
         <div class="tl fixed"><span class="tl-t">오전</span><span class="tl-c">도쇼안 체크아웃<span class="tl-note">체크아웃은 보통 오전, 나카야 체크인은 보통 오후예요(정확한 시간은 예약 확인서 확인). <b>그 사이 몇 시간은 짐을 든 채로 다녀야 하는 시간</b>입니다.</span></span></div><div class="tl fixed"><span class="tl-t">→ 먼저</span><span class="tl-c"><b>짐부터 해결하고 시작하세요</b><span class="tl-note">관광안내소의 <b>유후인 치키</b>가 숙소→숙소 배송을 해줘요(접수 09:00~15:00, 크기별 300~1,200엔). 아침에 맡기면 <b>몸만 유노쓰보 카이도를 걸을 수 있어요.</b> 유후인 안에서만 되는 서비스라 이 날이 딱 쓸 타이밍입니다.</span></span></div>
         <div class="tl free"><span class="tl-t">낮</span><span class="tl-c"><b>유일하게 통으로 비는 하루</b><span class="tl-note">유노쓰보 카이도(역→긴린코 약 800m)를 따라 걷는 게 기본 축이에요. 카드 대부분이 이 길 위에 있습니다.</span></span></div>
         <div class="tl free"><span class="tl-t">—</span><span class="tl-c">긴린코까지 갈지 결정<span class="tl-note">역에서 편도 약 1.4km(도보 20분). 왕복이면 2.8km라 이것만으로 하루 걸음 수가 꽤 됩니다.</span></span></div><div class="tl fixed"><span class="tl-t">오후</span><span class="tl-c">나카야 체크인<span class="tl-note">역에서 동북동 940m(도보 17분). 유노쓰보 카이도 방향이라 걸어가며 구경해도 돼요.</span></span></div><div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">나카야 저녁<span class="tl-note">여기도 가이세키면 생식·술 제외를 미리 요청해두세요.</span></span></div>
       </div>
       <button class="goto" data-go="yufuin">유후인 카드 보기 →</button>
-      <div class="day-foot">6일 중 <b>이동이 없는 유일한 날</b>이라, 무리한 일정은 여기 말고 다른 날에서 덜어내세요. 다만 유후인은 <b>10월에 나흘 중 하루꼴로 비(약 26%)</b>가 오고 이 날 일정이 거의 야외예요 — 아침에 비면 미술관 쪽으로 갈아탈 준비를 해두세요.</div>
+      <div class="day-foot">6일 중 <b>이동이 없는 유일한 날</b>이라, 무리한 일정은 여기 말고 다른 날에서 덜어내세요. 다만 유후인은 <b>10월에 나흘 중 하루꼴로 비(약 26%)</b>가 오고 이 날 일정이 거의 야외예요 — 아침에 비면 미술관 쪽으로 갈아탈 준비를 해두세요. 또 <b>연휴 한가운데(일요일)</b>라 유노쓰보 카이도가 가장 붐비는 날이에요 — <b>걷는 건 오전에 몰아두세요.</b></div>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 4</span><h3>10/12 (월)</h3><span class="d-where">유후인 → 아마가세온천</span></div>
+      <div class="day-head"><span class="d-n">DAY 4</span><h3>10/12 (월)</h3><span class="d-where">유후인 → 아마가세온천</span><span class="d-hol">스포츠의 날 · 공휴일</span></div>
       <div class="day-body">
         <div class="tl fixed"><span class="tl-t">열차</span><span class="tl-c"><b>이 날 시간표가 가장 빡빡해요</b><span class="tl-note">보통열차는 07:32 다음이 16:23. 낮에 움직이려면 특급(09:08 · 12:01 · 14:15 · 17:17)을 타야 하고, <b>13:42 열차는 아마가세에 안 갑니다.</b></span></span></div>
         <div class="tl free"><span class="tl-t">오전</span><span class="tl-c">탈 열차를 먼저 고르고, 남는 시간만큼 유후인<span class="tl-note">12:01 특급이면 오전이 통째로 남고, 09:08이면 아침만 있어요</span></span></div>
@@ -564,7 +588,7 @@
         <div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">온천 · 료칸 저녁<span class="tl-note">강변 공동노천탕은 바위 지형이라 입욕 말고 산책만</span></span></div>
       </div>
       <button class="goto" data-go="yufuin">유후인 카드 →</button><button class="goto" data-go="hita">히타·아마가세 카드 →</button>
-      <div class="day-foot">열차를 놓치면 <b>다음 차까지 몇 시간</b>입니다. 이 날만큼은 시각표를 미리 확정해두세요.</div>
+      <div class="day-foot">열차를 놓치면 <b>다음 차까지 몇 시간</b>입니다. 이 날만큼은 시각표를 미리 확정해두세요 — 특히 <b>이 날은 스포츠의 날 공휴일</b>이라, 여기 적힌 시각이 평일 기준이면 달라질 수 있어요. <b>출발 전에 10/12 날짜로 다시 검색해 확인하세요.</b></div>
     </div>
 
     <div class="day">
@@ -1143,7 +1167,7 @@
     <h3 class="section-label">맛집</h3>
     <div class="subcat">한 그릇 든든하게</div>
     <div class="card-grid">
-      <div class="card pick"><div class="kind">교자</div><h4>호운테이 나카스본점 <span class="jp">宝雲亭</span></h4><p>1949년 창업, 한입교자 원조 격, 마늘 미사용.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">숙소 도보 약 17분</span><span class="chip rating hi">타베로그 3.58 (754) · 백명점 2024</span><span class="chip chain">지역 체인 · 여기가 본점</span></div></div>
+      <div class="card pick"><div class="kind">교자</div><h4>호운테이 나카스본점 <span class="jp">宝雲亭</span></h4><p>1949년 창업, 한입교자 원조 격, 마늘 미사용. 정기휴무 없이 <b>저녁 장사만</b> 해요 — 금·토는 18:00~24:00, 그 외 요일은 18:00~23:00. 우리가 하카타에서 저녁을 보내는 <b>10/9(금)에 맞습니다.</b></p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">숙소 도보 약 17분</span><span class="chip">연중무휴 · 저녁(18:00~)만</span><span class="chip rating hi">타베로그 3.58 (754) · 백명점 2024</span><span class="chip chain">지역 체인 · 여기가 본점</span></div></div>
       <div class="card"><div class="kind">라멘</div><h4>하카타 잇소우 <span class="jp">博多一双</span></h4><p>"라멘계 카푸치노"로 불리는 거품 표면의 크리미한 돈코츠 육수, 극세면.</p><div class="meta"><span class="chip">숙소 도보 약 6분</span><span class="chip rating hi">타베로그 3.71 (5,630) · 라멘 WEST 100선 2025</span><span class="chip chain">지역 체인 약 5곳</span></div></div>
       <div class="card"><div class="kind">우동</div><h4>우동 타이라 <span class="jp">うどん平</span></h4><p>고기·고보텐(우엉튀김) 우동, 개점 전부터 줄 서는 인기점.</p><div class="meta"><span class="chip">숙소 도보 약 6분</span><span class="chip rating hi">타베로그 3.66 (811) · 우동 WEST 100선 2024</span></div></div>
       <div class="card"><div class="kind">우동</div><h4>다이치노 우동 하카타역 지하점</h4><p>하카타역 앞 지하2층, 카키아게 부카케우동. 미니덮밥 세트 가능.</p><div class="meta"><span class="chip">숙소 도보 약 2분(추정)</span><span class="chip rating hi">타베로그 3.57 (2,156)</span><span class="chip chain">지역 체인 8곳</span></div></div>
@@ -1447,7 +1471,7 @@
     <div class="subcat">호수 · 거리</div>
     <div class="card-grid sights">
       <div class="card pick"><div class="kind">호수</div><h4>긴린코 <span class="jp">金鱗湖</span></h4><p>둘레 약 400m 호숫가 평지길, 벤치 많음. 일부 비포장·자갈 구간.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">유후인역 도보 약 20분</span><span class="chip rc">평지</span></div></div>
-      <div class="card"><div class="kind">상점가</div><h4>유노쓰보 카이도 <span class="jp">湯の坪街道</span></h4><p>역~긴린코 약 800m 전 구간 포장도로 상점가. 주말 인파 많아 이른 시간 추천.</p><div class="meta"><span class="chip">유후인역 도보 약 5~11분(입구 기준)</span></div></div>
+      <div class="card"><div class="kind">상점가</div><h4>유노쓰보 카이도 <span class="jp">湯の坪街道</span></h4><p>역~긴린코 약 800m 전 구간 포장도로 상점가. 주말 인파 많아 이른 시간 추천 — 특히 <b>우리가 가는 10/10~12는 일본 3연휴</b>라 유후인에서 사람이 가장 몰리는 길이 여기예요. 오전에 걷는 걸 강력히 권합니다.</p><div class="meta"><span class="chip">유후인역 도보 약 5~11분(입구 기준)</span></div></div>
       <div class="card"><div class="kind">테마마을</div><h4>유후인 플로럴 빌리지 <span class="jp">フローラルヴィレッジ</span></h4><p>영국 코츠월드풍 미니 마을, 역에서 도보 15분, 전 구간 평지.</p><div class="meta"><span class="chip">유후인역 도보 약 15분</span></div></div>
       <div class="card"><div class="kind">갤러리</div><h4>유후인역 아트홀 <span class="jp">由布院駅アートホール</span></h4><p>건축가 이소자키 아라타 설계 역사 내 갤러리. 다만 <b>유후인역이 2026년 3월 26일부터 임시역사로 운영 중</b>이라, 대합실(아트홀)은 <b>지금 이용할 수 없어요</b>(공사 완료 예정 2026년도 겨울).</p><div class="meta"><span class="chip closed">임시역사 기간 중 이용 불가</span><span class="chip caution">재개 여부는 유후인역 0977-84-2021로 확인</span></div></div>
       <div class="card"><div class="kind">족욕</div><h4>유후인역 족욕 <span class="jp">由布院駅 足湯</span></h4><p>유후인역 승강장 안 유료 족욕탕이었지만, <b>2026년 3월 14일부터 폐쇄</b>됐어요. 역이 임시역사로 바뀌면서 함께 닫혔습니다.</p><div class="meta"><span class="chip closed">2026/3/14부터 폐쇄</span><span class="chip caution">재개 여부는 유후인역 0977-84-2021로 확인</span></div></div>
@@ -1456,11 +1480,11 @@
     <div class="card-grid sights">
       <div class="card pick"><div class="kind">레트로박물관</div><h4>유후인 쇼와칸 <span class="jp">湯布院昭和館</span></h4><p>1950~60년대 일본 거리를 재현한 레트로 박물관. 연중무휴 09:00-17:00.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">유후인역 도보 약 15분</span></div></div>
       <div class="card"><div class="kind">현대미술관</div><h4>COMICO ART MUSEUM YUFUIN</h4><p>건축가 구마 겐고 설계 현대미술관, 09:30-17:30.</p></div>
-      <div class="card"><div class="kind">복합박물관</div><h4>이와시타 컬렉션</h4><p>모터사이클·쇼와레트로·골동품 등을 아우르는 복합 사설박물관.</p><div class="meta"><span class="chip caution">요금·시간 확인 필요</span></div></div>
-      <div class="card"><div class="kind">체험미술관</div><h4>트릭3D아트 유후인</h4><p>착시 그림 체험형 미술관, 자유 촬영 가능. 가족 단위 인기.</p></div>
-      <div class="card"><div class="kind">자동차박물관</div><h4>규슈 자동차 역사관</h4><p>다이쇼시대 이후 클래식카 전시, 긴린코 바로 근처. 성인 800엔.</p></div>
+      <div class="card"><div class="kind">복합박물관</div><h4>이와시타 컬렉션</h4><p>모터사이클·쇼와레트로·골동품 등을 아우르는 복합 사설박물관. 09:00~17:00, 연중무휴.</p><div class="meta"><span class="chip">09:00~17:00 · 연중무휴</span><span class="chip caution">요금 확인 필요</span></div></div>
+      <div class="card"><div class="kind">체험미술관</div><h4>트릭3D아트 유후인</h4><p>착시 그림 체험형 미술관, 자유 촬영 가능. 가족 단위 인기. 10:00~17:00(입장 16:30까지).</p><div class="meta"><span class="chip">10:00~17:00 (입장 16:30까지)</span><span class="chip caution">부정기 휴무 — 가기 전 확인 필요</span></div></div>
+      <div class="card"><div class="kind">자동차박물관</div><h4>규슈 자동차 역사관</h4><p>다이쇼시대 이후 클래식카 전시, 긴린코 바로 근처. 성인 800엔. 목요일 휴무인데 <b>우리가 가는 일·월요일은 열어요.</b></p><div class="meta"><span class="chip">평일 09:30~16:30 · 토·일·공휴일 09:30~17:00</span><span class="chip">목요일 휴무 — 우리 날짜엔 영향 없음</span></div></div>
       <div class="card"><div class="kind">음악미술관</div><h4>由布院空想の森 아르테지오</h4><p>료칸 산소무라타 부지 내 음악 테마 미술관. 역서 택시 약 7분.</p><div class="meta"><span class="chip">유후인역 택시 약 7분(도보권 아님)</span></div></div>
-      <div class="card"><div class="kind">미술관</div><h4>유후인 스테인드글라스 미술관</h4><p>교회 건물 형태 전문 미술관. 체험 프로그램은 2026년 7월까지 중단, 관람은 정상.</p><div class="meta"><span class="chip caution">체험프로그램 중단중</span></div></div>
+      <div class="card"><div class="kind">미술관</div><h4>유후인 스테인드글라스 미술관</h4><p>교회 건물 형태 전문 미술관. 09:00~17:00(입장 16:30까지). 체험 프로그램은 2026년 7월까지 중단, 관람은 정상.</p><div class="meta"><span class="chip">09:00~17:00 (입장 16:30까지)</span><span class="chip caution">고정 휴무일 없이 매달 공지 — 10월 휴관일 확인 필요</span><span class="chip caution">체험프로그램 중단중</span></div></div>
       <div class="card"><div class="kind">미술관</div><h4>노먼 록웰 유후인 미술관</h4><p>일본 유일 노먼 록웰 전문관, 대표작 약 130점.</p><div class="meta"><span class="chip caution">임시휴관 여부 확인 필요</span></div></div>
     </div>
     <div class="subcat">신사 · 사찰 · 자연</div>
@@ -2037,8 +2061,8 @@
       <div class="card"><div class="kind">옛약방</div><h4>니혼마루칸</h4><p>1855년 개업 옛 만능약방, 국가등록유형문화재. 원래 가을 시즌(9/1~11/30)이라 10월은 개관 기간이지만, <b>현재 공사로 견학이 중단</b>돼 있어요.</p><div class="meta"><span class="chip">히타역 도보 약 10분</span><span class="chip closed">공사로 견학 중단 · 재개일 미정</span><span class="chip caution">가기 전 0973-23-6101로 확인 필수</span><span class="chip">입장 400엔 · 10:00~16:00</span><span class="chip caution">재개 시에도 전망누각은 계단 많음 · 저층 위주 관람</span></div></div>
       <div class="card"><div class="kind">학당유적</div><h4>간기엔 <span class="jp">咸宜園</span></h4><p>에도시대 사설학당 유적, 마메다마치 도보권.</p><div class="meta"><span class="chip">히타역 도보 약 11분</span></div></div>
       <div class="card"><div class="kind">강변산책로</div><h4>미쿠마가와 강변 <span class="jp">三隈川</span></h4><p>히타역 인근 평지 산책로, 유람선 야카타부네 운항.</p></div>
-      <div class="card"><div class="kind">축제전시관</div><h4>히타 기온 야마보코 카이칸</h4><p>유네스코 무형유산 축제 수레 전시, 실내·좌석 관람 가능.</p></div>
-      <div class="card"><div class="kind">자료관</div><h4>히로세 자료관</h4><p>에도시대 거상·유학자 히로세 탄소 생가 자료관. 09:00-17:00, 월요일 휴무.</p><div class="meta"><span class="chip caution">관내 계단 확인 필요</span></div></div>
+      <div class="card"><div class="kind">축제전시관</div><h4>히타 기온 야마보코 카이칸</h4><p>유네스코 무형유산 축제 수레 전시, 실내·좌석 관람 가능. 09:00~17:00. 수요일 휴관인데 <b>우리는 화요일에 가니까 열려 있어요</b> — 비 오는 날 대안으로 쓸 수 있습니다.</p><div class="meta"><span class="chip">09:00~17:00 · 수요일 휴관(우리 날짜엔 영향 없음)</span></div></div>
+      <div class="card"><div class="kind">자료관</div><h4>히로세 자료관</h4><p>에도시대 거상·유학자 히로세 탄소 생가 자료관. 09:00~17:00. 평소엔 월요일 휴관이지만 <b>10월·11월은 무휴</b>라, 우리가 가는 10/13(화)엔 확실히 열려 있어요.</p><div class="meta"><span class="chip">09:00~17:00 · 10월은 무휴</span><span class="chip caution">관내 계단 확인 필요</span></div></div>
       <div class="card"><div class="kind">전통가옥</div><h4>구사노혼케 <span class="jp">草野本家</span></h4><p>국가중요문화재 상가 건물. 연 4회만 열고, 올가을은 야간 특별배관 「あかり物語」(10/9·10·11·16·17·23·30·31)로 공개돼요. <b>그런데 히타에 머무는 10/12 저녁·10/13 오전 모두 공개일이 아니에요.</b> 게다가 야간 공개라, 10/12 저녁엔 아마가세(20km 밖)에, 10/13 저녁엔 이미 텐진에 있습니다.</p><div class="meta"><span class="chip closed">우리 일정과 공개일이 안 맞음</span><span class="chip">야간 18:30~20:00 · 2,500엔 · 약 45분</span><span class="chip caution">회당 10명 예약제 · 우천 취소 · 0973-22-2036</span></div></div>
     </div>
 
@@ -2052,7 +2076,7 @@
     </div>
     <div class="subcat">장어 · 향토식</div>
     <div class="card-grid">
-      <div class="card pick"><div class="kind">마부시덮밥</div><h4>히타마부시 센야</h4><p>"히타마부시"를 4가지 방식으로 즐기는 명물집.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">히타역 도보 약 15분</span><span class="chip rating hi">타베로그 3.54 (391)</span></div></div>
+      <div class="card pick"><div class="kind">마부시덮밥</div><h4>히타마부시 센야</h4><p>"히타마부시"를 4가지 방식으로 즐기는 명물집. 10:30~16:30(주문 마감 15:30)이라 <b>점심으로만 갈 수 있어요.</b> 정기휴무 없이 부정기로 쉬고, 쉬는 날은 인스타그램에만 올라옵니다.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">히타역 도보 약 15분</span><span class="chip rating hi">타베로그 3.54 (391)</span><span class="chip caution">부정기 휴무 · 점심만 — 역에서 15분 걸어가는 곳이니 당일 아침에 인스타그램 확인</span></div></div>
       <div class="card"><div class="kind">장어</div><h4>이타야혼케 <span class="jp">いた屋本家</span></h4><p>창업 160년 넘은 장어 노포, 비법 소스 사용.</p><div class="meta"><span class="chip">히타역 도보 약 14분</span><span class="chip rating hi">타베로그 3.38 (62)</span><span class="chip caution">마메다마치 인접 미나토마치 소재</span></div></div>
       <div class="card"><div class="kind">장어</div><h4>우나기 사기테이 로티르</h4><p>1943년 목조건물, 미쿠마강 뷰 좌석. 역 도보 11~12분.</p><div class="meta"><span class="chip rating">타베로그 3.23 (30)</span><span class="chip caution">곁들이 청주는 비음주 안내</span></div></div>
       <div class="card"><div class="kind">장어</div><h4>우나기노 구로다야 마메다점</h4><p>마메다마치 안 평지 위치, 10:30-19:00.</p><div class="meta"><span class="chip rating lo">타베로그 3.09 (43)</span></div></div>
@@ -2305,7 +2329,7 @@
     <h3 class="section-label">명소</h3>
     <div class="card-grid sights">
       <div class="card pick"><div class="kind">호수공원</div><h4>오호리공원 <span class="jp">大濠公園</span></h4><p>둘레 약 2km 완전 평지 호수공원, 유모차·휠체어 무료 대여.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">텐진역 도보 약 20분(지하철 4분+도보 대안 있음)</span><span class="chip rc">완전 평지</span></div></div>
-      <div class="card"><div class="kind">옥상정원</div><h4>아크로스 후쿠오카 스텝가든</h4><p>계단식 옥상정원(120종 5만 그루), 무료. 엘리베이터로 상층 이동 후 하강 관람 권장.</p><div class="meta"><span class="chip">텐진역 도보 약 10분(지하철 이용시 5분)</span><span class="chip caution">계단형, 엘리베이터 이용 권장</span></div></div>
+      <div class="card"><div class="kind">옥상정원</div><h4>아크로스 후쿠오카 스텝가든</h4><p>계단식 옥상정원(120종 5만 그루), 무료. 3~10월 09:00~18:00. 다만 <b>맨 위 옥상전망대는 토·일·공휴일 10:00~16:00에만 엽니다</b> — 우리가 텐진에 있는 10/13(화)·10/14(수)엔 닫혀 있어요. 아래쪽 계단정원은 평일에도 열려 있습니다.</p><div class="meta"><span class="chip">텐진역 도보 약 10분(지하철 이용시 5분)</span><span class="chip closed">옥상전망대는 우리 날짜에 닫힘</span><span class="chip caution">비 오거나 발밑이 미끄러우면 이용 불가</span><span class="chip caution">계단형, 엘리베이터 이용 권장</span></div></div>
       <div class="card"><div class="kind">성터공원</div><h4>후쿠오카성터·마이즈루공원</h4><p>오호리공원 바로 옆 옛 성터 석벽, 넓은 평지형 공원.</p><div class="meta"><span class="chip">텐진역 도보 약 20분(오호리공원과 동일권)</span></div></div>
       <div class="card"><div class="kind">신사</div><h4>케고신사 <span class="jp">警固神社</span></h4><p>니시테츠 텐진역 도보 1분, 도심 한복판 소규모 신사.</p><div class="meta"><span class="chip">텐진역 도보 약 1분</span></div></div>
       <div class="card"><div class="kind">지하상가</div><h4>텐진 지하상가 <span class="jp">天神地下街</span></h4><p>텐진역 직결 전 구간 실내 평지, 유모차 대여·수유실. 8번가 엘리베이터 이용 권장.</p><div class="meta"><span class="chip">텐진역 도보 0~1분(직결)</span></div></div>
@@ -2317,9 +2341,9 @@
     <h3 class="section-label">맛집</h3>
     <div class="subcat">든든한 한끼 (라멘 · 고기 · 초밥)</div>
     <div class="card-grid">
-      <div class="card pick"><div class="kind">라멘</div><h4>하카타라멘 신신 텐진본점</h4><p>극세면+담백한 돈코츠, 냄새 적어 접근성 좋음.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">텐진역 도보 약 4~5분</span><span class="chip rating hi">타베로그 3.58 (2,248)</span><span class="chip chain">지역 체인 7곳 · 여기가 본점</span></div></div>
+      <div class="card pick"><div class="kind">라멘</div><h4>하카타라멘 신신 텐진본점</h4><p>극세면+담백한 돈코츠, 냄새 적어 접근성 좋음. 11:00~새벽 03:00. <b>수요일과 매월 셋째 화요일이 휴무</b>인데, 10/13은 둘째 화요일이라 <b>우리 텐진 저녁엔 열려 있어요.</b> 대신 <b>마지막 날 10/14(수)엔 쉽니다.</b></p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">텐진역 도보 약 4~5분</span><span class="chip">10/13(화) 저녁 영업 · 10/14(수) 휴무</span><span class="chip rating hi">타베로그 3.58 (2,248)</span><span class="chip chain">지역 체인 7곳 · 여기가 본점</span></div></div>
       <div class="card"><div class="kind">미즈타키</div><h4>신미우라 텐진점 <span class="jp">新三浦</span></h4><p>1910년 창업 미즈타키 노포, 완전개실. 특별한 날 추천, 코스 4,700~8,800엔.</p><div class="meta"><span class="chip">텐진역 도보 약 1분</span><span class="chip rating hi">타베로그 3.58 (824)</span><span class="chip chain">2007년 분사 · 하카타 본점과는 별개 회사</span></div></div>
-      <div class="card"><div class="kind">스시</div><h4>효탄스시 <span class="jp">ひょうたん寿司</span></h4><p>텐진역 도보 3분, 합리적 가격에 계절 신선 해산물을 내는 회전초밥. 대기줄 발생 가능.</p><div class="meta"><span class="chip">텐진역 도보 약 3분</span><span class="chip rating hi">타베로그 3.54 (573)</span><span class="chip caution">날생선 다수, 가열메뉴 위주 선택 권장</span></div></div>
+      <div class="card"><div class="kind">스시</div><h4>효탄스시 <span class="jp">ひょうたん寿司</span></h4><p>텐진역 도보 3분, 합리적 가격에 계절 신선 해산물을 내는 회전초밥. 대기줄 발생 가능. 정기휴무가 없어서 <b>10/13(화) 저녁에 확실히 열려 있어요</b>(월~토 11:30~15:00 · 17:00~22:00).</p><div class="meta"><span class="chip">텐진역 도보 약 3분</span><span class="chip">연중무휴 · 10/13(화) 저녁 영업</span><span class="chip rating hi">타베로그 3.54 (573)</span><span class="chip caution">날생선 다수, 가열메뉴 위주 선택 권장</span></div></div>
       <div class="card"><div class="kind">야키니쿠</div><h4>야키니쿠 하치하치 텐진 솔라리아점</h4><p>솔라리아 플라자 내, 흑모와규 전문. 연기 배출 시설이 좋아 쾌적하다는 후기.</p><div class="meta"><span class="chip">텐진역 도보 약 1분</span><span class="chip rating">타베로그 3.36 (107)</span><span class="chip chain">지역 체인 3곳</span></div></div>
       <div class="card"><div class="kind">해산물정식</div><h4>우오키치 <span class="jp">博多海鮮食堂 魚吉</span></h4><p>텐진, 명란+밥 무한리필 정식. 반찬 조합 직접 구성.</p><div class="meta"><span class="chip">텐진역 도보 약 1분</span><span class="chip rating">타베로그 3.35 (113)</span><span class="chip caution">명란젓 비가열 가능성, 확인 필요</span><span class="chip chain">키스이테이 그룹 브랜드(단일 점포)</span></div></div>
       <div class="card"><div class="kind">스키야키</div><h4>타지마야 텐진 솔라리아점</h4><p>솔라리아 플라자, 90분 스키야키 무제한(약 3,900엔), 하겐다즈 아이스크림까지 무제한.</p><div class="meta"><span class="chip">텐진역 도보 약 1분</span><span class="chip rating">타베로그 3.34 (66)</span><span class="chip caution">날달걀 찍먹이 기본, 생략 권장</span><span class="chip chain">체인 3곳 · 샤브샤브 무한리필 브랜드</span></div></div>
@@ -3138,7 +3162,7 @@
       <div class="risk-row"><span class="risk-no" data-r="hita">히타 7</span><span>히로세 자료관 — 관내 계단 여부를 입구에서 확인하세요.</span></div>
       <div class="risk-row"><span class="risk-no" data-r="yufuin">유후인 19</span><span>우나기히메 신사 — 참배로 계단 유무가 확인되지 않았어요.</span></div>
       <div class="risk-row"><span class="risk-no" data-r="yufuin">유후인 1</span><span>긴린코 — 호숫가 산책로에 <b>비포장·자갈 구간</b>이 있어요. 운동화 필수.</span></div>
-      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 2</span><span>아크로스 스텝가든 — 계단식 정원이에요. <b>엘리베이터로 위층까지 올라가 내려오면서</b> 보세요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 2</span><span>아크로스 스텝가든 — 계단식 정원이에요. 맨 위 <b>옥상전망대는 토·일·공휴일만</b> 열어서 우리 날짜(화·수)엔 못 올라갑니다. 아래쪽 계단정원만 보게 되고, <b>비가 오면 아예 이용할 수 없어요.</b></span></div>
       <div class="risk-row"><span class="risk-no" data-r="hakata">하카타 1</span><span>구시다신사 — 경내는 평지지만 입구에 계단이 조금 있어요.</span></div>
       <div class="risk-row"><span class="risk-no" data-r="hita">히타 1</span><span>아마가세 공동노천탕 — <b>바위 지형이라 입욕은 비추천</b>, 강변 산책만 하세요.</span></div>
     </div>
@@ -3173,7 +3197,7 @@
       <b>하카타</b> — <a href="https://www.jrhakatacity.com/" target="_blank" rel="noopener">JR하카타시티</a> · <a href="https://www.ishimura.co.jp/honten/" target="_blank" rel="noopener">이시무라만세이도</a> · <a href="https://hountei.com/" target="_blank" rel="noopener">호운테이</a><br>
       <b>유후인</b> — <a href="https://yufuin.gr.jp/" target="_blank" rel="noopener">YUFUiNFO 관광안내</a> · <a href="https://floral-village.com/" target="_blank" rel="noopener">플로럴빌리지</a> · <a href="http://www.b-speak.net/" target="_blank" rel="noopener">B-speak</a> · <a href="https://www.yufuin-syowakan.jp/" target="_blank" rel="noopener">유후인 쇼와칸</a> · <a href="https://iwashitacollection.jp/" target="_blank" rel="noopener">이와시타 컬렉션</a><br>
       <b>히타</b> — <a href="https://oidehita.com/" target="_blank" rel="noopener">오이데히타(관광협회)</a> · <a href="https://www.nihongan.info/" target="_blank" rel="noopener">니혼마루칸</a> · <a href="https://kusanohonke.jp/" target="_blank" rel="noopener">구사노혼케</a><br>
-      <b>텐진·후쿠오카</b> — <a href="https://www.ohorikouen.jp/" target="_blank" rel="noopener">오호리공원</a> · <a href="https://www.tenchika.com/" target="_blank" rel="noopener">텐진지하상가</a> · <a href="https://acrosfukuoka.com/stepgarden/" target="_blank" rel="noopener">아크로스 스텝가든</a> · <a href="https://shinmiura-tenjin.com/" target="_blank" rel="noopener">신미우라</a><br>
+      <b>텐진·후쿠오카</b> — <a href="https://www.ohorikouen.jp/" target="_blank" rel="noopener">오호리공원</a> · <a href="https://www.tenchika.com/" target="_blank" rel="noopener">텐진지하상가</a> · <a href="https://acrosfukuoka.com/stepgarden/" target="_blank" rel="noopener">아크로스 스텝가든</a>(비 오면 이용 불가) · <a href="https://shinmiura-tenjin.com/" target="_blank" rel="noopener">신미우라</a><br>
       <b>임신 중 온천</b> — <a href="https://www.env.go.jp/nature/onsen/docs/index.html" target="_blank" rel="noopener">환경성 온천 게시기준(현행)</a> · <a href="https://journal.obstetrics.jp/2019/07/24/water-act-preg/" target="_blank" rel="noopener">산부인과 온라인 저널</a><br>
       <b>항공·응급·의료</b> — <a href="https://www.jejuair.net/ko/linkService/help/main.do?index=5" target="_blank" rel="noopener">제주항공 임신부 안내</a> · <a href="https://www.jnto.go.jp/emergency/kor/mi_guide.html" target="_blank" rel="noopener">JNTO 재팬 비지터 핫라인(한국어)</a> · <a href="https://www.pref.fukuoka.lg.jp/contents/fukuokaqq.html" target="_blank" rel="noopener">후쿠오카현 구급의료정보센터</a> · <a href="https://imsc.pref.fukuoka.lg.jp/hospital-list/" target="_blank" rel="noopener">후쿠오카 외국인 수용 의료기관</a> · <a href="https://www.pref.oita.jp/soshiki/12620/kyukyuanshin.html" target="_blank" rel="noopener">오이타현 #7119</a><br>
       <b>임신 중 음식</b> — <a href="https://www.mhlw.go.jp/topics/bukyoku/iyaku/syoku-anzen/suigin/index.html" target="_blank" rel="noopener">후생노동성 생선·수은 주의사항</a> · <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000055260.html" target="_blank" rel="noopener">후생노동성 리스테리아</a> · <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/kenkou_iryou/shokuhin/syokuchu/campylobacterqa.html" target="_blank" rel="noopener">캄필로박터 Q&amp;A</a> · <a href="https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000042953.html" target="_blank" rel="noopener">아니사키스</a> · <a href="https://www.maff.go.jp/j/syouan/seisaku/risk_analysis/priority/hazard_chem/caffeine.html" target="_blank" rel="noopener">농림수산성 카페인</a><br>
