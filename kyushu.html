@@ -303,9 +303,19 @@
           <g id="hk-torii" fill="none"><path d="M-8,-7 L8,-7 M-8,-4 L8,-4 M-5.5,-7 L-5.5,9 M5.5,-7 L5.5,9" stroke-linecap="round"/></g>
           <g id="hk-fork" fill="none"><path d="M-4,-7 L-4,-1 M-1,-7 L-1,-1 M2,-7 L2,-1 M-4,-1 Q-1,3 2,-1 M-1,3 L-1,9" stroke-linecap="round"/></g>
           <g id="hk-cup" fill="none"><path d="M-6,-4 L6,-4 L5,7 L-5,7 Z M6,-3 Q10,-3 10,0.5 Q10,4 6,3.5" stroke-linecap="round"/></g>
+          <g id="hk-shop"><path d="M-8,-6 L8,-6 L8,-2 Q4,1 0,-2 Q-4,1 -8,-2 Z"/><path d="M-6,-2 L-6,9 L6,9 L6,-2" fill="none" stroke-width="1.4"/><rect x="-2" y="1" width="4" height="8" fill="var(--surface)" stroke-width="1"/></g>
+          <g id="hk-museum" fill="none"><path d="M-8,-7 L0,-9.5 L8,-7 Z" fill="currentColor" stroke="none"/><line x1="-7" y1="-6" x2="-7" y2="7"/><line x1="-3.3" y1="-6" x2="-3.3" y2="7"/><line x1="3.3" y1="-6" x2="3.3" y2="7"/><line x1="7" y1="-6" x2="7" y2="7"/><line x1="-9" y1="9" x2="9" y2="9" stroke-width="2"/></g>
+          <g id="hk-tree"><circle cx="-4" cy="-4" r="5"/><circle cx="3" cy="-6" r="4.5"/><circle cx="5" cy="0" r="4"/><circle cx="-2" cy="1" r="4.5"/><rect x="-1.2" y="4" width="2.4" height="6" rx="1"/></g>
         </defs>
 
         <rect x="8" y="8" width="664" height="424" rx="16" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+        <rect x="13" y="13" width="654" height="414" rx="12" fill="none" stroke="var(--rc)" stroke-width="1" opacity="0.35"/>
+        <g stroke="var(--rc)" stroke-width="1.4" opacity="0.4" fill="none">
+          <path d="M17,38 Q17,17 38,17"/><path d="M17,50 Q17,17 50,17"/><path d="M17,62 Q17,17 62,17"/>
+          <path d="M663,38 Q663,17 642,17"/><path d="M663,50 Q663,17 630,17"/><path d="M663,62 Q663,17 618,17"/>
+          <path d="M17,394 Q17,423 38,423"/><path d="M17,382 Q17,423 50,423"/><path d="M17,370 Q17,423 62,423"/>
+          <path d="M663,394 Q663,423 642,423"/><path d="M663,382 Q663,423 630,423"/><path d="M663,370 Q663,423 618,423"/>
+        </g>
         <text x="340" y="42" text-anchor="middle" class="am-label" font-weight="700" font-size="19" fill="var(--rc)">하카타 약도</text>
 
         <g transform="translate(64,78)">
@@ -320,6 +330,30 @@
         <path d="M604,14 Q620,120 606,240 Q593,340 614,426" stroke="#4C86A8" stroke-width="26" fill="none" opacity="0.22" stroke-linecap="round"/>
         <path d="M604,14 Q620,120 606,240 Q593,340 614,426" stroke="#4C86A8" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="1 5"/>
         <text x="628" y="200" text-anchor="middle" class="am-sub" font-size="8" fill="var(--ink-faint)" transform="rotate(90 628 200)">나카가와 강</text>
+
+        <!-- 배경 건물 블록 그림자 — 살짝 입체감 -->
+        <g transform="translate(3,4)" fill="var(--ink)" opacity="0.15">
+          <rect x="58" y="108" width="26" height="34" rx="1.5" transform="rotate(-2 71 125)"/>
+          <rect x="90" y="65" width="34" height="22" rx="1.5"/>
+          <rect x="245" y="70" width="20" height="30" rx="1.5" transform="rotate(3 255 85)"/>
+          <rect x="280" y="60" width="30" height="18" rx="1.5"/>
+          <rect x="400" y="70" width="24" height="28" rx="1.5" transform="rotate(-2 412 84)"/>
+          <rect x="540" y="65" width="32" height="24" rx="1.5"/>
+          <rect x="60" y="180" width="22" height="18" rx="1.5"/>
+          <rect x="260" y="190" width="26" height="20" rx="1.5" transform="rotate(2 273 200)"/>
+          <rect x="405" y="190" width="20" height="24" rx="1.5"/>
+          <rect x="530" y="185" width="24" height="18" rx="1.5" transform="rotate(-3 542 194)"/>
+          <rect x="62" y="330" width="24" height="30" rx="1.5" transform="rotate(2 74 345)"/>
+          <rect x="150" y="300" width="30" height="20" rx="1.5"/>
+          <rect x="270" y="300" width="22" height="26" rx="1.5" transform="rotate(-2 281 313)"/>
+          <rect x="400" y="300" width="26" height="22" rx="1.5"/>
+          <rect x="520" y="300" width="20" height="30" rx="1.5" transform="rotate(3 530 315)"/>
+          <rect x="150" y="390" width="28" height="20" rx="1.5"/>
+          <rect x="270" y="395" width="22" height="16" rx="1.5" transform="rotate(-2 281 403)"/>
+          <rect x="400" y="392" width="26" height="20" rx="1.5"/>
+          <rect x="520" y="388" width="24" height="24" rx="1.5" transform="rotate(2 532 400)"/>
+          <rect x="600" y="330" width="22" height="26" rx="1.5"/>
+        </g>
 
         <!-- 배경 건물 블록 (도로가 형성하는 각 블록 안에 개별적으로 배치) -->
         <g fill="var(--surface-2)" stroke="var(--line-soft)" stroke-width="1">
@@ -345,6 +379,18 @@
           <rect x="600" y="330" width="22" height="26" rx="1.5"/>
         </g>
 
+        <!-- 지붕 하이라이트 — 위쪽 가장자리를 살짝 밝게 -->
+        <g stroke="var(--surface)" stroke-width="1.2" opacity="0.5" fill="none">
+          <line x1="59" y1="109" x2="83" y2="109" transform="rotate(-2 71 125)"/>
+          <line x1="91" y1="66" x2="123" y2="66"/>
+          <line x1="246" y1="71" x2="264" y2="71" transform="rotate(3 255 85)"/>
+          <line x1="281" y1="61" x2="309" y2="61"/>
+          <line x1="401" y1="71" x2="423" y2="71" transform="rotate(-2 412 84)"/>
+          <line x1="541" y1="66" x2="571" y2="66"/>
+          <line x1="151" y1="301" x2="179" y2="301"/>
+          <line x1="401" y1="301" x2="425" y2="301"/>
+        </g>
+
         <path d="M55,96 Q340,80 625,96" stroke="var(--ink-faint)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
         <path d="M55,388 Q340,404 625,388" stroke="var(--ink-faint)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
         <path d="M188,78 Q172,240 188,402" stroke="var(--ink-faint)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
@@ -359,6 +405,12 @@
         <line x1="460" y1="152" x2="460" y2="231" stroke="var(--ink-faint)" stroke-width="4" stroke-linecap="round"/>
         <line x1="460" y1="249" x2="460" y2="338" stroke="var(--ink-faint)" stroke-width="4" stroke-linecap="round"/>
 
+        <!-- 횡단보도 표시 -->
+        <g stroke="var(--surface)" stroke-width="1.6" opacity="0.7">
+          <line x1="213" y1="235" x2="213" y2="245"/><line x1="217" y1="234" x2="217" y2="246"/><line x1="223" y1="234" x2="223" y2="246"/><line x1="227" y1="235" x2="227" y2="245"/>
+          <line x1="453" y1="235" x2="453" y2="245"/><line x1="457" y1="234" x2="457" y2="246"/><line x1="463" y1="234" x2="463" y2="246"/><line x1="467" y1="235" x2="467" y2="245"/>
+        </g>
+
         <use href="#hk-house" transform="translate(100,240) scale(1.5)" fill="var(--rc)"/>
         <text x="100" y="200" text-anchor="middle" class="am-label" font-weight="700" font-size="13.5" fill="var(--ink)">하카타역</text>
         <text x="100" y="270" text-anchor="middle" class="am-sub" font-size="9.5" fill="var(--ink-faint)">숙소 · 비아인</text>
@@ -366,7 +418,7 @@
         <use href="#hk-fork" transform="translate(220,340)" stroke="var(--rc)" stroke-width="2"/>
         <text x="220" y="374" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">교자샤603</text>
 
-        <use href="#hk-star" transform="translate(340,130)" fill="var(--ink)"/>
+        <use href="#hk-shop" transform="translate(340,130)" fill="var(--ink)"/>
         <text x="340" y="104" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">캐널시티</text>
 
         <use href="#hk-fork" transform="translate(340,240)" stroke="var(--rc)" stroke-width="2"/>
@@ -381,8 +433,18 @@
         <use href="#hk-fork" transform="translate(460,340)" stroke="var(--rc)" stroke-width="2"/>
         <text x="460" y="374" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">나카스·호운테이</text>
 
-        <use href="#hk-star" transform="translate(580,240)" fill="var(--ink)"/>
+        <use href="#hk-shop" transform="translate(580,240)" fill="var(--ink)"/>
         <text x="580" y="206" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">가와바타상점가</text>
+
+        <!-- 픽 카드 핀 강조 링 -->
+        <g fill="none" stroke="#D4A72C" stroke-width="1.6">
+          <circle cx="352" cy="318" r="9.5"/>
+          <circle cx="460" cy="318" r="9.5"/>
+          <circle cx="460" cy="163" r="9.5"/>
+          <circle cx="300" cy="395" r="9.5"/>
+          <circle cx="76" cy="322" r="9.5"/>
+          <circle cx="172" cy="308" r="9.5"/>
+        </g>
 
         <g font-family="IBM Plex Mono" font-size="7" font-weight="700" text-anchor="middle" stroke="var(--surface)" stroke-width="1">
           <circle cx="76" cy="294" r="6" fill="var(--ink)" stroke="var(--surface)"/><text x="76" y="296.5" stroke="none" fill="var(--surface)">8</text>
@@ -423,13 +485,17 @@
           <circle cx="172" cy="308" r="6" fill="var(--rc)" stroke="var(--surface)"/><text x="172" y="310.5" stroke="none" fill="var(--surface)">29</text>
         </g>
 
+        <!-- 녹지 포인트 — 레이센공원 · 라쿠스이엔 -->
+        <use href="#hk-tree" transform="translate(370,335) scale(0.85)" fill="#3F7A4F" opacity="0.75"/>
+        <use href="#hk-tree" transform="translate(90,408) scale(0.85)" fill="#3F7A4F" opacity="0.75"/>
+
         <g transform="translate(630,55)">
           <line x1="0" y1="14" x2="0" y2="-10" stroke="var(--ink-faint)" stroke-width="2"/>
           <polygon points="0,-16 -5,-6 5,-6" fill="var(--ink-faint)"/>
           <text x="0" y="28" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">N</text>
         </g>
       </svg>
-      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 집=숙소, ★=명소, 도리이=신사, 포크=식사, 컵=디저트/카페. 작은 번호 점은 아래 카드 번호와 1:1로 대응해요(밝은 점=명소, 색깔 점=맛집). 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
+      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 집=숙소, ★=명소, 도리이=신사, 가방=상점가, 포크=식사, 컵=디저트/카페, 초록 점=공원·정원. 작은 번호 점은 아래 카드 번호와 1:1로 대응하고(밝은 점=명소, 색깔 점=맛집), 금색 테두리가 있으면 그 카테고리의 "이 카테고리 픽"이에요. 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
     <h3 class="section-label">명소</h3>
