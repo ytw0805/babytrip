@@ -270,6 +270,36 @@
     word-break:keep-all;}
   .toc a:hover{border-color:var(--rc);color:var(--rc-ink);}
   .section-label{scroll-margin-top:14px;}
+  /* ---------- 지도 핀 → 카드 ---------- */
+  .approx-map-fig svg circle[data-pin]{cursor:pointer;}
+  .approx-map-fig svg text[data-pin]{cursor:pointer;}
+  .card{scroll-margin-top:16px;}
+  .card.flash{animation:cardflash 1.6s ease-out;}
+  @keyframes cardflash{
+    0%,25%{box-shadow:0 0 0 4px var(--rc),3px 3px 0 var(--line-soft);}
+    100%{box-shadow:3px 3px 0 var(--line-soft);}
+  }
+  /* ---------- 가고 싶어요 ---------- */
+  .want{font-family:inherit;font-size:10px;font-weight:700;padding:2px 9px;border-radius:100px;
+    border:1.5px solid var(--line-soft);background:var(--surface);color:var(--ink-faint);
+    cursor:pointer;white-space:nowrap;}
+  .want:hover{border-color:var(--rc);color:var(--rc-ink);}
+  .want[aria-pressed="true"]{background:var(--rc);border-color:var(--rc);color:var(--surface);}
+  .card.picked{border-color:var(--rc);box-shadow:3px 3px 0 var(--rc-soft);}
+  /* ---------- 우리가 고른 곳 ---------- */
+  .chosen{border:3px solid var(--line);border-radius:14px;background:var(--surface);
+    box-shadow:var(--shadow);padding:13px 16px;margin:0 0 16px;}
+  .chosen h4{font-family:"Black Han Sans";font-weight:400;font-size:18px;margin:0 0 3px;color:var(--ink);}
+  .chosen .empty{font-size:12.5px;color:var(--ink-faint);word-break:keep-all;}
+  .chosen-group{margin-top:9px;}
+  .chosen-group b{font-size:11.5px;color:var(--rc-ink);}
+  .chosen-group ul{margin:4px 0 0;padding-left:17px;display:flex;flex-direction:column;gap:2px;}
+  .chosen-group li{font-size:12.5px;color:var(--ink-soft);word-break:keep-all;}
+  .chosen-group li b{color:var(--ink);font-size:12.5px;}
+  .goto{font-family:inherit;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:100px;
+    border:2px solid var(--line-soft);background:var(--surface);color:var(--ink-soft);
+    cursor:pointer;margin:8px 6px 0 0;word-break:keep-all;}
+  .goto:hover{border-color:var(--rc);color:var(--rc-ink);}
   /* ---------- 일본어 한마디 ---------- */
   .say{border:2px solid var(--line);border-radius:12px;background:var(--surface);
     box-shadow:3px 3px 0 var(--line-soft);padding:11px 14px;margin:0 0 9px;}
@@ -444,6 +474,8 @@
       <p class="region-tagline">못 바꾸는 일정(<b>고정</b>)을 먼저 깔고, 그 사이에 남는 시간이 얼마인지 보여줘요. 여기서 "이 시간에 뭘 넣을까"를 같이 정하면 됩니다.</p>
     </div>
 
+    <div class="chosen" id="chosen-box"></div>
+
     <h3 class="section-label" id="s-stay">오늘 밤 어디서 자나요</h3>
     <p class="section-sub">택시에서는 주소를 보여주는 게 제일 빨라요 — 아래 일본어 주소를 그대로 보여주세요</p>
     <div class="stays">
@@ -494,6 +526,7 @@
         <div class="tl fixed"><span class="tl-t">~20:15</span><span class="tl-c">하카타역 도착 · 숙소 체크인<span class="tl-note">비아인은 하카타구치에서 도보 약 5분</span></span></div>
         <div class="tl free"><span class="tl-t">20:30~</span><span class="tl-c"><b>저녁 한 끼가 전부예요</b><span class="tl-note">명소는 다 닫은 시간이라, 역 안이나 역에서 도보 2~5분 안쪽에서 먹는 게 현실적이에요. 하카타 탭에서 "역 구내·도보 2분" 표시가 붙은 곳들을 보세요. <b>다만 영업시간은 가게마다 달라서, 도착 전에 두세 곳을 미리 정해두면 헤매지 않아요.</b></span></span></div>
       </div>
+      <button class="goto" data-go="hakata">하카타 카드 보기 →</button>
       <div class="day-foot">첫날은 <b>일정을 넣지 않는 게 낫습니다.</b> 비행기+입국+이동만으로 이미 5시간이에요.</div>
     </div>
 
@@ -506,6 +539,7 @@
         <div class="tl fixed"><span class="tl-t">15:00~17:00</span><span class="tl-c">도쇼안 체크인 셔틀 시간대<span class="tl-note">역에서 택시로도 약 10분. 이 창을 놓치면 번거로워져요</span></span></div>
         <div class="tl free"><span class="tl-t">17:00~</span><span class="tl-c"><b>저녁은 료칸 안에서 보내게 돼요</b><span class="tl-note">도쇼안이 역에서 1.15km 떨어져 있어서, 체크인하고 나면 시내로 다시 나오려면 또 택시예요. 유후인 시내 저녁을 원하면 <b>체크인 전에</b> 들르는 게 나아요. 가이세키의 생식·술 페어링 제외는 예약 때 미리 말해두세요.</span></span></div>
       </div>
+      <button class="goto" data-go="hakata">하카타 카드 →</button><button class="goto" data-go="yufuin">유후인 카드 →</button>
       <div class="day-foot">버스 출발 시각이 이 날 전체를 결정해요. <b>예약할 때 오전을 얼마나 쓸지 먼저 정하세요.</b></div>
     </div>
 
@@ -516,6 +550,7 @@
         <div class="tl free"><span class="tl-t">낮</span><span class="tl-c"><b>유일하게 통으로 비는 하루</b><span class="tl-note">유노쓰보 카이도(역→긴린코 약 800m)를 따라 걷는 게 기본 축이에요. 카드 대부분이 이 길 위에 있습니다.</span></span></div>
         <div class="tl free"><span class="tl-t">—</span><span class="tl-c">긴린코까지 갈지 결정<span class="tl-note">역에서 편도 약 1.4km(도보 20분). 왕복이면 2.8km라 이것만으로 하루 걸음 수가 꽤 됩니다.</span></span></div><div class="tl fixed"><span class="tl-t">오후</span><span class="tl-c">나카야 체크인<span class="tl-note">역에서 동북동 940m(도보 17분). 유노쓰보 카이도 방향이라 걸어가며 구경해도 돼요.</span></span></div><div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">나카야 저녁<span class="tl-note">여기도 가이세키면 생식·술 제외를 미리 요청해두세요.</span></span></div>
       </div>
+      <button class="goto" data-go="yufuin">유후인 카드 보기 →</button>
       <div class="day-foot">6일 중 <b>이동이 없는 유일한 날</b>이라, 무리한 일정은 여기 말고 다른 날에서 덜어내세요. 다만 유후인은 <b>10월에 나흘 중 하루꼴로 비(약 26%)</b>가 오고 이 날 일정이 거의 야외예요 — 아침에 비면 미술관 쪽으로 갈아탈 준비를 해두세요.</div>
     </div>
 
@@ -528,6 +563,7 @@
         <div class="tl fixed"><span class="tl-t">도착 후</span><span class="tl-c">산소 텐스이 송영 픽업<span class="tl-note">아마가세역은 무인역에 계단이 있어요. 미리 예약해두면 제일 편합니다</span></span></div>
         <div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">온천 · 료칸 저녁<span class="tl-note">강변 공동노천탕은 바위 지형이라 입욕 말고 산책만</span></span></div>
       </div>
+      <button class="goto" data-go="yufuin">유후인 카드 →</button><button class="goto" data-go="hita">히타·아마가세 카드 →</button>
       <div class="day-foot">열차를 놓치면 <b>다음 차까지 몇 시간</b>입니다. 이 날만큼은 시각표를 미리 확정해두세요.</div>
     </div>
 
@@ -539,6 +575,7 @@
         <div class="tl fixed"><span class="tl-t">버스</span><span class="tl-c">히타 버스터미널(역 앞) 2번 승강장 → 히타고 1시간 32분<span class="tl-note">예약 불필요하지만 만석이면 다음 차. 현금·IC만 되고 고액권은 거스름이 안 돼요</span></span></div>
         <div class="tl fixed"><span class="tl-t">도착</span><span class="tl-c">텐진 고속버스터미널 3층 → 숙소 체크인(도보 6분)<span class="tl-note">15:00 버스를 타면 16:30쯤 도착이에요. 버스 시각에 따라 저녁 시간이 통째로 달라집니다.</span></span></div><div class="tl free"><span class="tl-t">저녁</span><span class="tl-c"><b>텐진에서 보내는 사실상 유일한 저녁이에요</b><span class="tl-note">텐진 탭에 32곳이 있지만 쓸 수 있는 저녁은 이 한 번뿐입니다. 숙소가 텐진역에서 도보 6분이라 <b>지하상가·백화점 데파치카·솔라리아 일대가 전부 도보권</b>이에요. 짐 들고 이동한 날이라 <b>멀리 나가지 않는 편</b>이 좋습니다.</span></span></div>
       </div>
+      <button class="goto" data-go="hita">히타 카드 →</button><button class="goto" data-go="tenjin">텐진 카드 →</button>
       <div class="day-foot">숙소를 세 번째로 옮기는 날이라 <b>짐을 든 채 이동하는 시간이 가장 깁니다.</b></div>
     </div>
 
@@ -550,6 +587,7 @@
         <div class="tl fixed"><span class="tl-t">11:40</span><span class="tl-c">국제선 터미널 도착 목표 (출발 2시간 전)</span></div>
         <div class="tl fixed"><span class="tl-t">13:40</span><span class="tl-c">후쿠오카 출발 (7C1472) → 15:25 인천</span></div>
       </div>
+      <button class="goto" data-go="tenjin">텐진 카드 보기 →</button>
       <div class="day-foot">마지막날 오전에 <b>멀리 나가는 일정은 넣지 마세요.</b> 오호리공원·후쿠오카타워는 왕복만으로 시간이 다 갑니다.</div>
     </div>
 
@@ -3194,6 +3232,122 @@
       card.addEventListener('keydown', function(e){
         if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); window.open(url, '_blank', 'noopener'); }
       });
+    });
+  });
+
+  // ---------- 지도 핀을 누르면 그 카드로 ----------
+  // 핀 번호는 카드 순서와 1:1이라, 번호만으로 카드를 찾을 수 있다.
+  var REGION_LABEL = {hakata:'하카타', yufuin:'유후인', hita:'히타', tenjin:'텐진'};
+  panels.forEach(function(panel){
+    var region = panel.getAttribute('data-region');
+    if(!REGION_LABEL[region]) return;
+    var cards = panel.querySelectorAll('.card');
+    var svg = panel.querySelector('.approx-map-fig svg');
+    if(!svg || !cards.length) return;
+
+    svg.querySelectorAll('text').forEach(function(t){
+      var n = parseInt(t.textContent, 10);
+      // 번호 점의 글자만 고른다 — 지명 라벨은 숫자가 아니다
+      if(!n || String(n) !== t.textContent.trim() || n > cards.length) return;
+      var card = cards[n-1];
+      if(!card) return;
+      var circle = t.previousElementSibling;
+      if(circle && circle.tagName !== 'circle') circle = null;
+      function jump(e){
+        e.stopPropagation();
+        card.scrollIntoView({behavior:'smooth', block:'center'});
+        card.classList.remove('flash');
+        void card.offsetWidth;          // 다시 눌러도 애니메이션이 돌게
+        card.classList.add('flash');
+      }
+      [t, circle].forEach(function(el){
+        if(!el) return;
+        el.setAttribute('data-pin', n);
+        el.addEventListener('click', jump);
+      });
+      // 툴팁은 원에만 — <text> 안에 넣으면 그 요소의 textContent가 오염된다
+      var h4 = card.querySelector('h4');
+      if(h4 && circle){
+        var tip = document.createElementNS('http://www.w3.org/2000/svg','title');
+        tip.textContent = n + '. ' + h4.textContent.replace(/\s+/g,' ').trim();
+        circle.appendChild(tip);
+      }
+    });
+  });
+
+  // ---------- "가고 싶어요" — 같이 보면서 정한 걸 남긴다 ----------
+  var want = {
+    get: function(){ try { return JSON.parse(localStorage.getItem('kyushu-want') || '{}'); }
+                     catch(e){ return {}; } },
+    set: function(v){ try { localStorage.setItem('kyushu-want', JSON.stringify(v)); } catch(e){} }
+  };
+
+  function renderChosen(){
+    var box = document.getElementById('chosen-box');
+    if(!box) return;
+    var saved = want.get();
+    var html = '', total = 0;
+    Object.keys(REGION_LABEL).forEach(function(region){
+      var panel = document.querySelector('.region-panel[data-region="'+region+'"]');
+      if(!panel) return;
+      var items = [];
+      panel.querySelectorAll('.card').forEach(function(card, i){
+        if(saved[region + '|' + (i+1)]){
+          var h4 = card.querySelector('h4');
+          var jp = h4 && h4.querySelector('.jp');
+          var name = h4 ? h4.textContent.replace(/\s+/g,' ').trim() : '';
+          if(jp) name = name.replace(jp.textContent.trim(), '').trim();
+          items.push('<li><b>' + (i+1) + '. ' + name + '</b></li>');
+        }
+      });
+      total += items.length;
+      if(items.length){
+        html += '<div class="chosen-group"><b>' + REGION_LABEL[region] +
+                ' · ' + items.length + '곳</b><ul>' + items.join('') + '</ul></div>';
+      }
+    });
+    box.innerHTML = total
+      ? '<h4>우리가 고른 곳 · ' + total + '곳</h4>' + html
+      : '<h4>우리가 고른 곳</h4><p class="empty">각 지역 탭에서 카드의 <b>“가고 싶어요”</b>를 누르면 여기 모여요. ' +
+        '이 기기에 저장되니 나눠서 정해도 괜찮아요.</p>';
+  }
+
+  panels.forEach(function(panel){
+    var region = panel.getAttribute('data-region');
+    if(!REGION_LABEL[region]) return;
+    var saved = want.get();
+    panel.querySelectorAll('.card').forEach(function(card, i){
+      var key = region + '|' + (i+1);
+      var meta = card.querySelector('.meta');
+      if(!meta){ meta = document.createElement('div'); meta.className = 'meta'; card.appendChild(meta); }
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'want';
+      btn.textContent = '♡ 가고 싶어요';
+      btn.setAttribute('aria-pressed', saved[key] ? 'true' : 'false');
+      if(saved[key]){ card.classList.add('picked'); btn.textContent = '♥ 가기로 함'; }
+      btn.addEventListener('click', function(e){
+        e.stopPropagation();
+        var cur = want.get();
+        var on = !cur[key];
+        if(on) cur[key] = 1; else delete cur[key];
+        want.set(cur);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.textContent = on ? '♥ 가기로 함' : '♡ 가고 싶어요';
+        card.classList.toggle('picked', on);
+        renderChosen();
+      });
+      meta.appendChild(btn);
+    });
+  });
+  renderChosen();
+
+  // ---------- 하루하루 탭에서 그 날 지역 탭으로 ----------
+  document.querySelectorAll('.goto').forEach(function(b){
+    b.addEventListener('click', function(){
+      var r = b.getAttribute('data-go');
+      var tab = document.querySelector('.tabbtn[data-r="'+r+'"]');
+      if(tab) tab.click();
     });
   });
 
