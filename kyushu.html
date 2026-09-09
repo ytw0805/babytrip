@@ -891,9 +891,18 @@
           <g id="ht-torii" fill="none"><path d="M-8,-7 L8,-7 M-8,-4 L8,-4 M-5.5,-7 L-5.5,9 M5.5,-7 L5.5,9" stroke-linecap="round"/></g>
           <g id="ht-fork" fill="none"><path d="M-4,-7 L-4,-1 M-1,-7 L-1,-1 M2,-7 L2,-1 M-4,-1 Q-1,3 2,-1 M-1,3 L-1,9" stroke-linecap="round"/></g>
           <g id="ht-cup" fill="none"><path d="M-6,-4 L6,-4 L5,7 L-5,7 Z M6,-3 Q10,-3 10,0.5 Q10,4 6,3.5" stroke-linecap="round"/></g>
+          <g id="ht-museum" fill="none"><path d="M-8,-7 L0,-9.5 L8,-7 Z" fill="currentColor" stroke="none"/><line x1="-7" y1="-6" x2="-7" y2="7"/><line x1="-3.3" y1="-6" x2="-3.3" y2="7"/><line x1="3.3" y1="-6" x2="3.3" y2="7"/><line x1="7" y1="-6" x2="7" y2="7"/><line x1="-9" y1="9" x2="9" y2="9" stroke-width="2"/></g>
+          <g id="ht-tree"><circle cx="-4" cy="-4" r="5"/><circle cx="3" cy="-6" r="4.5"/><circle cx="5" cy="0" r="4"/><circle cx="-2" cy="1" r="4.5"/><rect x="-1.2" y="4" width="2.4" height="6" rx="1"/></g>
         </defs>
 
         <rect x="8" y="8" width="744" height="364" rx="16" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+        <rect x="13" y="13" width="734" height="354" rx="12" fill="none" stroke="var(--rc)" stroke-width="1" opacity="0.35"/>
+        <g stroke="var(--rc)" stroke-width="1.4" opacity="0.4" fill="none">
+          <path d="M17,38 Q17,17 38,17"/><path d="M17,50 Q17,17 50,17"/><path d="M17,62 Q17,17 62,17"/>
+          <path d="M743,38 Q743,17 722,17"/><path d="M743,50 Q743,17 710,17"/><path d="M743,62 Q743,17 698,17"/>
+          <path d="M17,334 Q17,363 38,363"/><path d="M17,322 Q17,363 50,363"/><path d="M17,310 Q17,363 62,363"/>
+          <path d="M743,334 Q743,363 722,363"/><path d="M743,322 Q743,363 710,363"/><path d="M743,310 Q743,363 698,363"/>
+        </g>
         <text x="380" y="42" text-anchor="middle" class="am-label" font-weight="700" font-size="19" fill="var(--rc)">히타 약도</text>
 
         <g transform="translate(64,78)">
@@ -904,6 +913,17 @@
           <text x="40" y="16" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">≈ 도보 5분 거리감</text>
         </g>
 
+        <!-- 아마가세 클러스터 배경 건물 그림자 -->
+        <g transform="translate(3,4)" fill="var(--ink)" opacity="0.15">
+          <rect x="25" y="45" width="22" height="18" rx="1.5"/>
+          <rect x="90" y="50" width="20" height="16" rx="1.5" transform="rotate(2 100 58)"/>
+          <rect x="25" y="155" width="18" height="24" rx="1.5" transform="rotate(-2 34 167)"/>
+          <rect x="90" y="160" width="18" height="18" rx="1.5"/>
+          <rect x="25" y="195" width="20" height="16" rx="1.5"/>
+          <rect x="25" y="290" width="22" height="20" rx="1.5" transform="rotate(2 36 300)"/>
+          <rect x="90" y="300" width="18" height="22" rx="1.5"/>
+          <rect x="90" y="335" width="20" height="16" rx="1.5" transform="rotate(-3 100 343)"/>
+        </g>
         <!-- 아마가세 클러스터 배경 건물 (독립 소구역) -->
         <g fill="var(--surface-2)" stroke="var(--line-soft)" stroke-width="1">
           <rect x="25" y="45" width="22" height="18" rx="1.5"/>
@@ -918,6 +938,20 @@
         <path d="M42,58 Q28,200 42,338" stroke="var(--ink-faint)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
         <path d="M27,270 Q100,258 170,270" stroke="var(--ink-faint)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
 
+        <!-- 히타역·마메다마치 클러스터 배경 건물 그림자 -->
+        <g transform="translate(3,4)" fill="var(--ink)" opacity="0.15">
+          <rect x="435" y="50" width="18" height="16" rx="1.5"/>
+          <rect x="505" y="35" width="24" height="18" rx="1.5"/>
+          <rect x="540" y="60" width="20" height="16" rx="1.5" transform="rotate(2 550 68)"/>
+          <rect x="610" y="35" width="22" height="18" rx="1.5" transform="rotate(-2 621 44)"/>
+          <rect x="650" y="55" width="20" height="16" rx="1.5"/>
+          <rect x="712" y="40" width="22" height="20" rx="1.5" transform="rotate(2 723 50)"/>
+          <rect x="500" y="240" width="22" height="18" rx="1.5"/>
+          <rect x="540" y="260" width="20" height="20" rx="1.5" transform="rotate(-2 550 270)"/>
+          <rect x="610" y="245" width="22" height="16" rx="1.5"/>
+          <rect x="650" y="265" width="20" height="18" rx="1.5" transform="rotate(2 660 274)"/>
+          <rect x="712" y="245" width="20" height="22" rx="1.5" transform="rotate(-3 722 256)"/>
+        </g>
         <!-- 히타역·마메다마치 클러스터 배경 건물 (독립 소구역, 아마가세와 도로로 연결되지 않음) -->
         <g fill="var(--surface-2)" stroke="var(--line-soft)" stroke-width="1">
           <rect x="435" y="50" width="18" height="16" rx="1.5"/>
@@ -953,14 +987,19 @@
         <use href="#ht-house" transform="translate(140,220) scale(1.5)" fill="var(--rc)"/>
         <text x="140" y="180" text-anchor="middle" class="am-label" font-weight="700" font-size="13" fill="var(--ink)">아마가세역</text>
         <text x="140" y="250" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">산소텐스이(숙소)</text>
+        <g stroke="var(--ink-faint)" stroke-width="1.3" fill="none" opacity="0.45" stroke-linecap="round">
+          <path d="M158,222 Q162,214 158,207 Q154,200 158,193"/>
+          <path d="M167,225 Q171,217 167,210 Q163,203 167,196"/>
+        </g>
 
         <use href="#ht-star" transform="translate(140,130)" fill="var(--ink)"/>
         <text x="140" y="104" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">아마가세온천 강변</text>
+        <path d="M115,145 Q140,152 165,145" stroke="#4C86A8" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round"/>
 
         <use href="#ht-star" transform="translate(580,220) scale(1.4)" fill="var(--rc)"/>
         <text x="580" y="180" text-anchor="middle" class="am-label" font-weight="700" font-size="13" fill="var(--ink)">히타역·마메다마치</text>
 
-        <use href="#ht-star" transform="translate(460,130)" fill="var(--ink)"/>
+        <use href="#ht-museum" transform="translate(460,130)" fill="var(--ink)"/>
         <text x="460" y="104" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">간기엔</text>
 
         <use href="#ht-star" transform="translate(700,130)" fill="var(--ink)"/>
@@ -968,9 +1007,19 @@
 
         <use href="#ht-star" transform="translate(460,310)" fill="var(--ink)"/>
         <text x="460" y="332" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">미쿠마가와 강변</text>
+        <path d="M435,300 Q460,306 485,300" stroke="#4C86A8" stroke-width="3" fill="none" opacity="0.5" stroke-linecap="round"/>
 
         <use href="#ht-fork" transform="translate(700,310)" stroke="var(--rc)" stroke-width="2"/>
         <text x="700" y="332" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">소부렌(야키소바)</text>
+
+        <!-- 픽 카드 핀 강조 링 -->
+        <g fill="none" stroke="#D4A72C" stroke-width="1.6">
+          <circle cx="555" cy="160" r="9.5"/>
+          <circle cx="686" cy="298" r="9.5"/>
+          <circle cx="585" cy="250" r="9.5"/>
+          <circle cx="577" cy="263" r="9.5"/>
+          <circle cx="610" cy="334" r="9.5"/>
+        </g>
 
         <g font-family="IBM Plex Mono" font-size="7" font-weight="700" text-anchor="middle">
           <circle cx="158" cy="130" r="6" fill="var(--ink)" stroke="var(--surface)"/><text x="158" y="132.5" fill="var(--surface)">1</text>
@@ -1011,7 +1060,7 @@
           <text x="0" y="28" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">N</text>
         </g>
       </svg>
-      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 두 지역은 실제로 멀리 떨어져 있어 하루에 나눠 다녀요. 집=숙소, ★=명소, 포크=식사. 작은 번호 점은 아래 카드 번호와 1:1로 대응해요(밝은 점=명소, 색깔 점=맛집). 정확한 위치는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
+      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 두 지역은 실제로 멀리 떨어져 있어 하루에 나눠 다녀요. 집=숙소, ★=명소, 기둥=간기엔, 포크=식사, 물결선=강. 작은 번호 점은 아래 카드 번호와 1:1로 대응하고(밝은 점=명소, 색깔 점=맛집), 금색 테두리가 있으면 그 카테고리의 "이 카테고리 픽"이에요. 정확한 위치는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
     <h3 class="section-label">명소</h3>
