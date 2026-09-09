@@ -230,6 +230,34 @@
   .unclear{background:var(--caution-soft);}
   .unclear b{color:var(--caution);}
   .checklist ul,.unclear ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:5px;}
+  .chk-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:8px;margin:10px 0 0;}
+  .chk-item{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;line-height:1.5;
+    background:var(--surface);border:2px solid var(--line-soft);border-radius:10px;padding:8px 11px;
+    cursor:pointer;word-break:keep-all;}
+  .chk-item:hover{border-color:var(--ink-faint);}
+  .chk-item input{margin:2px 0 0;width:15px;height:15px;accent-color:var(--caution);flex:none;cursor:pointer;}
+  .chk-item.done{background:var(--surface-2);color:var(--ink-faint);}
+  .chk-item.done .chk-t{text-decoration:line-through;}
+  .chk-t b{color:var(--ink);}
+  .chk-item.done .chk-t b{color:inherit;}
+  .chk-note{display:block;font-size:11px;color:var(--ink-faint);margin-top:2px;font-weight:400;}
+  .risk-box{border:2px solid var(--line);border-radius:12px;padding:12px 16px 6px;margin:10px 0 0;
+    background:var(--surface);box-shadow:3px 3px 0 var(--line-soft);}
+  .risk-box>b{font-size:13.5px;}
+  .risk-row{display:flex;gap:9px;align-items:baseline;padding:7px 0;font-size:12.5px;
+    border-bottom:1px solid var(--line-soft);word-break:keep-all;}
+  .risk-row:last-child{border-bottom:none;}
+  .risk-no{font-family:"IBM Plex Mono",monospace;font-size:10px;font-weight:700;color:var(--surface);
+    border-radius:100px;padding:2px 7px;white-space:nowrap;flex:none;}
+  .risk-no[data-r="hakata"]{background:var(--hakata);}
+  .risk-no[data-r="yufuin"]{background:var(--yufuin);}
+  .risk-no[data-r="hita"]{background:var(--hita);}
+  .risk-no[data-r="tenjin"]{background:var(--tenjin);}
+  .emg{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:8px;margin:10px 0 0;}
+  .emg div{border:2px solid var(--caution);border-radius:10px;padding:9px 12px;background:var(--surface);}
+  .emg b{display:block;font-size:12px;color:var(--caution);}
+  .emg .num{font-family:"IBM Plex Mono",monospace;font-size:19px;font-weight:700;color:var(--ink);}
+  .emg span{display:block;font-size:11px;color:var(--ink-faint);margin-top:2px;word-break:keep-all;}
   .sources{font-size:11px;color:var(--ink-faint);line-height:1.9;}
   .sources b{color:var(--ink-soft);}
   .sources a{color:var(--ink-faint);text-decoration:underline;}
@@ -2374,6 +2402,48 @@
       </ul>
     </div>
 
+    <h3 class="section-label">이 일정에서 걸리는 곳만 모았어요</h3>
+    <p class="section-sub">카드에 붙어 있는 주의 표시를 한자리에 모은 것 — 번호는 각 탭의 카드 번호예요</p>
+
+    <div class="risk-box">
+      <b>🍣 생식·비가열 — 주문할 때 한마디 하면 되는 것들</b>
+      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 25</span><span>효탄스시 — 날생선이 많아요. <b>가열 메뉴 위주로 주문</b>하면 됩니다.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 29</span><span>스시 쇼군 — 날생선 위주에 서서 먹는 형태라, 이번 여행에선 넘겨도 좋아요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 28</span><span>타지마야 — <b>날달걀에 찍어 먹는 게 기본</b>이에요. 달걀은 빼달라고 하세요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 31</span><span>교토가츠규 — <b>기본이 레어</b>입니다. "웰던(ウェルダン)"으로 요청하세요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="hita">히타 27</span><span>BOWL — 해산물덮밥에 날생선이 들어갈 수 있어요. 로스트비프덮밥 쪽이 안전합니다.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="hakata">하카타 18·19·27·28</span><span>멘타이코(명란) 가게들 — <b>명란젓은 기본이 비가열</b>이에요. 가열한 멘타이 요리인지 확인하세요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 27</span><span>우오키치 — 명란 비가열 가능성이 있어 확인이 필요합니다.</span></div>
+    </div>
+
+    <div class="risk-box">
+      <b>🍶 알코올이 들어가는 메뉴</b>
+      <div class="risk-row"><span class="risk-no" data-r="hita">히타 19</span><span>핫코샤 코구라 — 주조가 운영하는 카페라 <b>일부 메뉴에 알코올 성분</b>이 있어요(술지게미 디저트 등).</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="hita">히타 14</span><span>우나기 사기테이 로티르 — 곁들이로 나오는 청주는 사양하세요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="yufuin">유후인 30</span><span>니콜즈 — 칵테일·와인을 다루는 라운지예요. 무알콜 메뉴로.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="yufuin">유후인 46</span><span>유후인 와이너리 — <b>시음은 동행자만</b>, 임신 중에는 견학·구매만.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="yufuin">유후인 23·28</span><span>요모야마·텐조사지키 — 저녁엔 이자카야·바로 바뀌어요. <b>낮 시간 방문</b>을 권합니다.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="yufuin">유후인 전체</span><span>료칸 가이세키에 술 페어링이 딸려 오는 경우가 많아요. <b>예약할 때 미리 빼달라고</b> 말해두면 편합니다.</span></div>
+    </div>
+
+    <div class="risk-box">
+      <b>🪜 계단·바닥이 부담되는 곳</b>
+      <div class="risk-row"><span class="risk-no" data-r="hita">히타 3</span><span>니혼마루칸 — 전망누각은 계단이 많아요. <b>저층 위주로</b> 관람하세요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="hita">히타 7</span><span>히로세 자료관 — 관내 계단 여부를 입구에서 확인하세요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="yufuin">유후인 18</span><span>우나기히메 신사 — 참배로 계단 유무가 확인되지 않았어요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="yufuin">유후인 1</span><span>긴린코 — 호숫가 산책로에 <b>비포장·자갈 구간</b>이 있어요. 운동화 필수.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 2</span><span>아크로스 스텝가든 — 계단식 정원이에요. <b>엘리베이터로 위층까지 올라가 내려오면서</b> 보세요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="hakata">하카타 1</span><span>구시다신사 — 경내는 평지지만 입구에 계단이 조금 있어요.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="hita">히타 1</span><span>아마가세 공동노천탕 — <b>바위 지형이라 입욕은 비추천</b>, 강변 산책만 하세요.</span></div>
+    </div>
+
+    <div class="risk-box">
+      <b>🚭 그 밖에 몸에 부담되는 환경</b>
+      <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 7</span><span>나카스 야타이 거리 — <b>간접흡연·좁은 좌석·화장실 없음</b>. 임신 중엔 구경만 하고 식사는 실내에서 하는 편이 낫습니다.</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="hita">히타 · 유후인</span><span>고속버스·JR 장거리 구간은 1시간 이상 앉아 있게 돼요. <b>30분마다 발목을 돌리고</b>, 물을 자주 마시세요(혈전 예방).</span></div>
+      <div class="risk-row"><span class="risk-no" data-r="hita">히타 → 텐진</span><span>히타고 버스는 <b>화장실 없는 차량도</b> 있어요. 타기 전에 터미널 화장실을 꼭 들르세요.</span></div>
+    </div>
+
     <h2 style="font-size:22px;margin:26px 0 12px;color:var(--ink);">확인이 필요한 항목 모음</h2>
     <div class="unclear">
       <b>예약·체크인 전 다시 확인하세요</b>
@@ -2449,6 +2519,25 @@
       card.addEventListener('keydown', function(e){
         if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); window.open(url, '_blank', 'noopener'); }
       });
+    });
+  });
+
+  // ---------- 체크리스트 — 짐 쌀 때 여러 번 나눠 보게 되니 체크 상태를 남긴다 ----------
+  var store = {
+    get: function(){ try { return JSON.parse(localStorage.getItem('kyushu-chk') || '{}'); }
+                     catch(e){ return {}; } },
+    set: function(v){ try { localStorage.setItem('kyushu-chk', JSON.stringify(v)); } catch(e){} }
+  };
+  var saved = store.get();
+  document.querySelectorAll('.chk-item input[type=checkbox]').forEach(function(box){
+    var key = box.getAttribute('data-k');
+    if(saved[key]) box.checked = true;
+    box.closest('.chk-item').classList.toggle('done', box.checked);
+    box.addEventListener('change', function(){
+      box.closest('.chk-item').classList.toggle('done', box.checked);
+      var cur = store.get();
+      if(box.checked) cur[key] = 1; else delete cur[key];
+      store.set(cur);
     });
   });
 })();
