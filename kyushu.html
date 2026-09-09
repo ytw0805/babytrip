@@ -331,10 +331,10 @@
           <text x="40" y="16" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">≈ 도보 5분 거리감</text>
         </g>
 
-        <!-- 나카가와 강 — 나카스가 실제로 강 사이 모래섬이라는 걸 살짝 보여주는 지형 요소 -->
-        <path d="M604,14 Q620,120 606,240 Q593,340 614,426" stroke="#4C86A8" stroke-width="26" fill="none" opacity="0.22" stroke-linecap="round"/>
-        <path d="M604,14 Q620,120 606,240 Q593,340 614,426" stroke="#4C86A8" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="1 5"/>
-        <text x="628" y="200" text-anchor="middle" class="am-sub" font-size="8" fill="var(--ink-faint)" transform="rotate(90 628 200)">나카가와 강</text>
+        <!-- 미카사가와(御笠川) — 하카타역 치쿠시구치(동쪽) 너머로 흐르는 실제 강 (나카강과는 다른 강, 텐진 나카스 쪽 강이 아님) -->
+        <path d="M558,14 Q574,120 560,240 Q547,340 568,426" stroke="#4C86A8" stroke-width="20" fill="none" opacity="0.22" stroke-linecap="round"/>
+        <path d="M558,14 Q574,120 560,240 Q547,340 568,426" stroke="#4C86A8" stroke-width="1.5" fill="none" opacity="0.5" stroke-dasharray="1 5"/>
+        <text x="582" y="200" text-anchor="middle" class="am-sub" font-size="8" fill="var(--ink-faint)" transform="rotate(90 582 200)">미카사가와(御笠川)</text>
 
         <!-- 배경 건물 블록 그림자 — 살짝 입체감 -->
         <g transform="translate(3,4)" fill="var(--ink)" opacity="0.15">
@@ -434,10 +434,10 @@
         <path d="M410,152 Q402,192 410,231" stroke="var(--ink-faint)" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.85"/>
         <path d="M410,249 Q418,290 410,338" stroke="var(--ink-faint)" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.85"/>
 
-        <!-- 실제 하카타처럼 격자를 가로지르는 굵은 대각선 간선도로 하나 (기온마치도리 참고) -->
-        <path d="M50,362 Q220,290 340,200 Q470,105 618,72" stroke="var(--ink-faint)" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/>
-        <path d="M62,357 Q225,286 342,197 Q468,104 615,80" stroke="var(--surface)" stroke-width="1.2" fill="none" stroke-dasharray="6 6" opacity="0.75"/>
-        <text x="150" y="333" text-anchor="middle" class="am-sub" font-size="7.5" fill="var(--ink-faint)" transform="rotate(-25 150 333)">대로</text>
+        <!-- 다이하쿠도리(大博通り) — 구시다신사(기온) 쪽에서 스미요시 방면으로 이어지는 실제 대로. 하카타역 서쪽(하카타구치)에만 있고 동쪽(치쿠시구치)으로는 건너가지 않음 -->
+        <path d="M105,55 Q150,150 175,230 Q195,300 205,375" stroke="var(--ink-faint)" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/>
+        <path d="M112,60 Q155,150 180,228 Q198,298 210,370" stroke="var(--surface)" stroke-width="1.2" fill="none" stroke-dasharray="6 6" opacity="0.75"/>
+        <text x="95" y="220" text-anchor="middle" class="am-sub" font-size="7.5" fill="var(--ink-faint)" transform="rotate(-72 95 220)">다이하쿠도리</text>
 
         <!-- 횡단보도 표시 -->
         <g stroke="var(--surface)" stroke-width="1.6" opacity="0.7">
@@ -677,9 +677,10 @@
           <line x1="386" y1="296" x2="408" y2="296"/>
         </g>
 
-        <!-- 오이타강(大分川) — 실제 유후인은 격자 도로가 아니라 이 강을 따라 마을이 형성돼 있음 -->
-        <path d="M690,10 Q650,90 660,150 Q672,210 610,250 Q580,270 585,320 Q590,380 630,470" stroke="#4C86A8" stroke-width="14" fill="none" opacity="0.22" stroke-linecap="round"/>
-        <path d="M690,10 Q650,90 660,150 Q672,210 610,250 Q580,270 585,320 Q590,380 630,470" stroke="#4C86A8" stroke-width="1.3" fill="none" opacity="0.5" stroke-dasharray="1 5"/>
+        <!-- 오이타강(大分川) — 유노쓰보 카이도가 역~긴린코 사이 약 60% 지점(유노쓰보바시)에서 강을 건넘 -->
+        <path d="M420,10 Q400,90 405,150 Q410,210 400,250 Q390,290 395,350 Q398,410 385,470" stroke="#4C86A8" stroke-width="14" fill="none" opacity="0.22" stroke-linecap="round"/>
+        <path d="M420,10 Q400,90 405,150 Q410,210 400,250 Q390,290 395,350 Q398,410 385,470" stroke="#4C86A8" stroke-width="1.3" fill="none" opacity="0.5" stroke-dasharray="1 5"/>
+        <text x="400" y="264" text-anchor="middle" class="am-sub" font-size="7" fill="var(--ink-faint)">유노쓰보바시</text>
 
         <!-- 유노쓰보 카이도 (실제로도 완만하게 휘는 하나의 상점가 길) -->
         <path d="M70,250 Q340,232 610,250" stroke="var(--ink-faint)" stroke-width="7" fill="none" stroke-linecap="round"/>
@@ -1006,10 +1007,7 @@
         </g>
         <path d="M445,90 Q580,76 715,90" stroke="var(--ink-faint)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
         <path d="M445,345 Q580,359 715,345" stroke="var(--ink-faint)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <!-- 실제 히타 시가지처럼 격자를 가로지르는 굵은 대각선 간선도로 하나 (국도210호선 참고) -->
-        <path d="M440,48 Q560,140 630,200 Q680,242 725,285" stroke="var(--ink-faint)" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.9"/>
-        <path d="M448,55 Q562,142 628,197 Q675,238 718,278" stroke="var(--surface)" stroke-width="1.1" fill="none" stroke-dasharray="6 6" opacity="0.7"/>
-        <!-- 마메다마치 상가 밀집지역 골목 -->
+        <!-- 마메다마치 상가 밀집지역 골목 (실제로는 이 근처에 격자를 가로지르는 큰 대각선 간선도로는 없음) -->
         <path d="M505,132 Q555,140 625,132" stroke="var(--ink-faint)" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5"/>
 
         <line x1="140" y1="142" x2="140" y2="211" stroke="var(--ink-faint)" stroke-width="4" stroke-linecap="round"/>
@@ -1260,13 +1258,13 @@
           <line x1="520" y1="172" x2="520" y2="254"/>
         </g>
 
-        <!-- 실제 텐진처럼 격자를 가로지르는 굵은 대각선 간선도로 하나 (쇼와도리 참고) -->
-        <path d="M35,130 Q220,215 360,280 Q520,352 675,415" stroke="var(--ink-faint)" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.9"/>
-        <path d="M44,136 Q220,219 358,283 Q515,353 668,412" stroke="var(--surface)" stroke-width="1.1" fill="none" stroke-dasharray="6 6" opacity="0.7"/>
-        <line x1="555" y1="298" x2="615" y2="378" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
+        <!-- 쇼와도리(昭和通り) — 실제로 텐진역 북쪽을 지나 나카강·나카스 방면으로 이어지는 실제 간선도로 (역을 관통하지 않음) -->
+        <path d="M35,40 Q220,125 360,190 Q520,262 675,325" stroke="var(--ink-faint)" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.9"/>
+        <path d="M44,46 Q220,129 358,193 Q515,263 668,322" stroke="var(--surface)" stroke-width="1.1" fill="none" stroke-dasharray="6 6" opacity="0.7"/>
+        <line x1="555" y1="208" x2="615" y2="288" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
         <g stroke="var(--ink-faint)" stroke-width="3">
-          <line x1="577" y1="322" x2="565" y2="340"/>
-          <line x1="597" y1="330" x2="585" y2="348"/>
+          <line x1="577" y1="232" x2="565" y2="250"/>
+          <line x1="597" y1="240" x2="585" y2="258"/>
         </g>
 
         <!-- 실제로는 오호리공원·성터·타워가 텐진역 서쪽, 나카스가 동쪽(나카강 건너)에 있어 허브를 중앙으로 옮기고 재배치 -->
