@@ -2587,8 +2587,9 @@
     <div class="unclear">
       <b>☔ "강수확률 몇 %"는 못 알려드려요 — 대신 이게 정직한 답입니다</b>
       <ul>
-        <li>일본 기상청의 <b>강수확률은 예보에만 있는 값</b>이라, 1년 뒤 날짜의 강수확률이라는 건 존재하지 않아요. 평년값에는 아예 그 항목이 없습니다.</li>
-        <li>대신 쓸 수 있는 게 <b>"10월에 비 온 날이 며칠이었나"</b>예요. 30년 평균이라 <b>그날의 확률이 아니라 장기 빈도</b>입니다.</li>
+        <li>일본 기상청의 <b>강수확률(%)은 예보 상품</b>이라, 아직 예보 기간에 들어오지 않은 날짜에는 값이 없어요. 평년값에도 그 항목 자체가 없습니다.</li>
+        <li>그래서 지금 시점에 쓸 수 있는 건 <b>"10월에 비 온 날이 며칠이었나"</b>예요. 30년 평균이라 <b>그날의 확률이 아니라 장기 빈도</b>입니다.</li>
+        <li><b>출발이 가까워지면 진짜 강수확률이 나와요</b> — 아래 "언제 뭘 확인하면 되는지"를 보세요.</li>
       </ul>
     </div>
 
@@ -2603,6 +2604,36 @@
       </table>
     </div>
     <p style="font-size:11px;color:var(--ink-faint);margin:6px 0 0;">위 날짜별 강수량은 <b>평활 처리된 값</b>이라 "그날 이만큼 온다"가 아니라 달 안에서의 추세만 보여줘요(9~14일은 10월 중 비가 적은 편에 속합니다). 아마가세에는 관측소가 없어 <b>같은 강 유역·비슷한 고도의 히타 값</b>으로 대신했습니다. 기준: 일본 기상청 평년값 1991~2020.</p>
+
+    <h3 class="section-label">언제 뭘 확인하면 되는지</h3>
+    <p class="section-sub">날짜별 강수확률(%)은 <b>7일 전부터</b> 나와요 — 그 전까지는 아래 순서대로 좁혀집니다</p>
+
+    <div class="checklist">
+      <b>지금(9월 초) 나와 있는 정보 — 3개월 예보 기준</b>
+      <ul>
+        <li>8월 25일 발표 3개월 예보의 <b>10월 규슈북부</b>: 강수량은 <b>적음 30% / 평년 40% / 많음 30%</b>으로 <b>평년 수준</b>, 기온은 <b>높음 50%</b>로 예년보다 따뜻할 가능성이 커요.</li>
+        <li>같은 예보에 "10월은 며칠 주기로 날씨가 바뀌고, <b>평년처럼 맑은 날이 많겠다</b>"고 돼 있습니다.</li>
+        <li>9월 3일 발표 1개월 예보는 <b>10월 4일까지</b>만 봐서 여행 기간은 아직 안 들어와요.</li>
+      </ul>
+    </div>
+
+    <div class="table-wrap">
+      <table class="transit-table">
+        <thead><tr><th>이 날짜에</th><th>나오는 것</th><th>쓸모</th></tr></thead>
+        <tbody>
+          <tr><td data-label="이 날짜에">9/10 (목)</td><td data-label="나오는 것">1개월 예보 갱신 (9/12~10/11)</td><td data-label="쓸모">여행 <b>앞부분이 처음 들어와요</b>. 지역 단위 "평년보다 많음/적음" 확률</td></tr>
+          <tr><td data-label="이 날짜에">9/17 (목)</td><td data-label="나오는 것">1개월 예보 갱신 (9/19~10/18)</td><td data-label="쓸모"><b>여행 전체가 예보 안에</b> 들어옵니다</td></tr>
+          <tr><td data-label="이 날짜에">9/18 (금)</td><td data-label="나오는 것">3개월 예보 갱신</td><td data-label="쓸모">10월 전체 경향 재확인</td></tr>
+          <tr><td data-label="이 날짜에">9/25 (금)쯤</td><td data-label="나오는 것">2주 기온예보가 10/9에 도달</td><td data-label="쓸모">옷차림 정할 때 — <b>기온만</b>, 비는 안 나와요</td></tr>
+          <tr><td data-label="이 날짜에"><b>10/2 (금)</b></td><td data-label="나오는 것"><b>주간예보에 10/9 등장</b></td><td data-label="쓸모"><b>날짜별 강수확률(%)이 처음 나오는 날</b> (신뢰도는 낮음 C)</td></tr>
+          <tr><td data-label="이 날짜에"><b>10/7 (수)</b></td><td data-label="나오는 것"><b>주간예보가 10/8~14 전체 커버</b></td><td data-label="쓸모"><b>실질적인 계획 확정일</b> — 여행 전 일정의 강수확률을 한눈에</td></tr>
+          <tr><td data-label="이 날짜에">10/8 (목)</td><td data-label="나오는 것">6시간 단위 강수확률 + 3시간 시계열</td><td data-label="쓸모">출발 전날, 첫날 우산 여부 결정</td></tr>
+          <tr><td data-label="이 날짜에">여행 중</td><td data-label="나오는 것">비구름 이동(나우캐스트)</td><td data-label="쓸모">1시간 뒤까지 — 지금 나갈지 말지</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="leg-pick">✓ 정리: <b>10월 2일 전까지는 어떤 사이트에서도 "10월 11일 강수확률 몇 %"를 알 수 없어요.</b> 그전에 나오는 건 전부 "이번 달이 평년보다 비가 많을까 적을까" 수준입니다. <b>10월 7일</b>에 한 번 보고 유후인 날(10/11)에 비가 오겠다 싶으면 미술관 코스로 바꾸면 됩니다.</p>
+    <p style="font-size:11px;color:var(--ink-faint);margin:8px 0 0;">즐겨찾기 — <a href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=400000" target="_blank" rel="noopener">후쿠오카현 예보</a> · <a href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&amp;area_code=440000" target="_blank" rel="noopener">오이타현 예보(유후인·히타)</a> · <a href="https://www.jma.go.jp/bosai/season/#area_type=offices&amp;area_code=400000&amp;term=1month" target="_blank" rel="noopener">규슈북부 1개월 예보</a> · <a href="https://www.data.jma.go.jp/cpd/twoweek/" target="_blank" rel="noopener">2주 기온예보</a></p>
     <p class="leg-pick">✓ 정리: <b>낮은 반팔에 얇은 겉옷</b>이면 충분하지만, <b>유후인 아침·저녁(10~11℃)</b>에는 경량 패딩이나 두꺼운 가디건이 있어야 해요. 히타는 <b>일교차가 가장 커서</b>(낮 25℃ / 아침 13℃) 겹쳐 입고 벗기 좋은 옷이 좋습니다. 비는 10월 한 달 기준 후쿠오카 94.5mm, 유후인 117.3mm로 <b>유후인이 더 자주 와요</b> — 접이식 우산 필수.</p>
     <p style="font-size:11px;color:var(--ink-faint);margin:6px 0 0;">일본 기상청 평년값(1991~2020) 기준이에요. 그해 실제 날씨는 다를 수 있으니 출발 전 예보를 확인하세요.</p>
 
