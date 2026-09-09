@@ -92,7 +92,7 @@
   }
 
   /* ---------- Region tabs ---------- */
-  .tabbar{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:22px;position:sticky;top:10px;z-index:30;}
+  .tabbar{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-bottom:22px;position:sticky;top:10px;z-index:30;}
   .tabbtn{
     font-family:"Black Han Sans";font-size:15px;letter-spacing:0.01em;cursor:pointer;
     border:3px solid var(--line);border-radius:11px;padding:10px 4px 8px;text-align:center;
@@ -104,8 +104,26 @@
   .tabbtn[data-r="yufuin"]{--btnc:var(--yufuin);}
   .tabbtn[data-r="hita"]{--btnc:var(--hita);}
   .tabbtn[data-r="tenjin"]{--btnc:var(--tenjin);}
+  .tabbtn[data-r="transit"]{--btnc:#4A6785;}
+  .tabbtn[data-r="checklist"]{--btnc:var(--caution);}
   .tabbtn.active{background:var(--btnc);color:var(--surface);box-shadow:var(--shadow);transform:translate(-2px,-2px);}
   .tabbtn:not(.active):hover{color:var(--btnc);border-color:var(--btnc);}
+
+  /* ---------- Utility tabs (교통/체크리스트) ---------- */
+  .info-hero{border:3px solid var(--line);border-radius:16px;background:var(--surface);padding:20px 22px 18px;margin-bottom:18px;box-shadow:var(--shadow);}
+  .info-hero .region-eyebrow{color:var(--ink-faint);}
+  .info-hero h2{font-size:32px;margin:4px 0 6px;color:var(--ink);}
+  .info-hero .region-tagline{color:var(--ink-soft);opacity:1;}
+  .transit-leg{margin-bottom:26px;}
+  .transit-leg h3{font-size:18px;margin:0 0 4px;color:var(--ink);display:flex;align-items:center;gap:8px;}
+  .transit-leg .leg-sub{font-size:11.5px;color:var(--ink-faint);margin:0 0 10px;}
+  .compare-table td{vertical-align:top;}
+  .compare-table .fine{display:block;font-size:10px;color:var(--ink-faint);margin-top:1px;}
+  .leg-pick{font-size:12.5px;color:var(--yufuin-ink);background:var(--yufuin-soft);border:2px solid var(--line-soft);border-radius:10px;padding:8px 12px;margin:8px 0 0;}
+  .sunq-box{border:2px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--surface-2);box-shadow:3px 3px 0 var(--line-soft);margin:10px 0 26px;}
+  .sunq-box h4{font-family:"Black Han Sans";font-size:19px;margin:0 0 10px;color:var(--ink);font-weight:400;}
+  .sunq-box .verdict{font-size:13.5px;font-weight:700;color:var(--caution);background:var(--caution-soft);display:inline-block;padding:4px 12px;border-radius:100px;margin-top:10px;}
+  .lodge-link{color:var(--rc-ink);text-decoration:underline;font-weight:700;}
 
   /* ---------- Region panel ---------- */
   .region-panel[hidden]{display:none;}
@@ -113,6 +131,7 @@
   .region-panel[data-region="yufuin"]{--rc:var(--yufuin);--rc-soft:var(--yufuin-soft);--rc-ink:var(--yufuin-ink);}
   .region-panel[data-region="hita"]{--rc:var(--hita);--rc-soft:var(--hita-soft);--rc-ink:var(--hita-ink);}
   .region-panel[data-region="tenjin"]{--rc:var(--tenjin);--rc-soft:var(--tenjin-soft);--rc-ink:var(--tenjin-ink);}
+  .region-panel[data-region="transit"],.region-panel[data-region="checklist"]{--rc:var(--ink-soft);--rc-soft:var(--surface-2);--rc-ink:var(--ink);}
   .region-hero{
     position:relative;overflow:hidden;border:3px solid var(--line);border-radius:16px;
     background:var(--rc);color:var(--surface);padding:22px 22px 20px;margin-bottom:16px;box-shadow:var(--shadow);
@@ -202,7 +221,8 @@
     .sched-bar{font-size:10.5px;padding:6px 1px;}
     .sched-stay{font-size:9px;}
     .sched-foot{font-size:10.5px;}
-    .tabbar{grid-template-columns:repeat(2,1fr);position:static;}
+    .tabbar{grid-template-columns:repeat(3,1fr);position:static;}
+    .tabbtn{font-size:13px;padding:8px 2px 6px;}
     .card-grid{grid-template-columns:1fr;}
   }
   @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
@@ -250,6 +270,8 @@
     <button class="tabbtn" data-r="yufuin">유후인<span class="d">DAY 2–3</span></button>
     <button class="tabbtn" data-r="hita">히타<span class="d">DAY 4</span></button>
     <button class="tabbtn" data-r="tenjin">텐진<span class="d">DAY 5–6</span></button>
+    <button class="tabbtn" data-r="transit">교통<span class="d">구간별 비교</span></button>
+    <button class="tabbtn" data-r="checklist">체크리스트<span class="d">임신 21주차</span></button>
   </nav>
 
   <!-- ================= 하카타 ================= -->
@@ -261,7 +283,7 @@
       <p class="region-tagline">입국 첫날 밤 — 돈코츠 라멘과 멘타이코의 도시</p>
     </div>
     <div class="info-strip">
-      <span><b>숙소</b> 비아 인 하카타구치 에키마에</span>
+      <span><b>숙소</b> <a class="lodge-link" href="https://www.google.com/maps/search/?api=1&query=Via+Inn+Hakata+guchi+Ekimae" target="_blank" rel="noopener">비아 인 하카타구치 에키마에 ↗</a></span>
       <span><b>도착</b> 17:20 ICN → 18:50 FUK (7C1407)</span>
       <span><b>공항→하카타역</b> 지하철 공항선 약 5분</span>
     </div>
@@ -466,8 +488,8 @@
       <p class="region-tagline">미술관과 카페가 유난히 많은 온천 마을</p>
     </div>
     <div class="info-strip">
-      <span><b>10/10 숙소</b> 온센 토쇼안(東匠庵 추정)</span>
-      <span><b>10/11 숙소</b> 온야도 나카야(御宿なか屋)</span>
+      <span><b>10/10 숙소</b> <a class="lodge-link" href="https://tosyoan.com/" target="_blank" rel="noopener">온센 토쇼안(東匠庵 추정) ↗</a></span>
+      <span><b>10/11 숙소</b> <a class="lodge-link" href="http://nakaya-yufuin.jp/" target="_blank" rel="noopener">온야도 나카야(御宿なか屋) ↗</a></span>
       <span><b>이동</b> 하카타→유후인 고속버스 유후린호, 약 2~2.5h(하카타 버스터미널 3F 34번, 예약 권장)</span>
     </div>
 
@@ -726,7 +748,7 @@
       <p class="region-tagline">조용한 온천가와 에도시대 상가거리, 두 얼굴의 도시</p>
     </div>
     <div class="info-strip">
-      <span><b>숙소</b> 산소 텐스이(山荘天水), 무료 셔틀로 아마가세역과 연결</span>
+      <span><b>숙소</b> <a class="lodge-link" href="https://www.tensui.net/" target="_blank" rel="noopener">산소 텐스이(山荘天水) ↗</a>, 무료 셔틀로 아마가세역과 연결</span>
       <span><b>주의</b> 마메다마치와 아마가세온천은 약 20km 떨어진 다른 지역</span>
       <span><b>동선</b> 유후인→아마가세(체크인) → 다음날 히타역·마메다마치 → 텐진행 버스</span>
     </div>
@@ -923,7 +945,7 @@
       <p class="region-tagline">여행의 마지막 밤과 아침 — 백화점·지하상가·공원이 모인 도심</p>
     </div>
     <div class="info-strip">
-      <span><b>숙소</b> 호텔 마이스테이 후쿠오카 텐진</span>
+      <span><b>숙소</b> <a class="lodge-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+MyStays+Fukuoka+Tenjin" target="_blank" rel="noopener">호텔 마이스테이 후쿠오카 텐진 ↗</a></span>
       <span><b>이동</b> 히타 버스센터→니시테츠 텐진 고속버스터미널, 히타고 약 1.5h(30분 간격, 예약 불필요)</span>
       <span><b>귀국</b> 13:40 FUK → 15:25 ICN (7C1472), 늦어도 오전 11시엔 출발</span>
     </div>
@@ -1129,27 +1151,91 @@
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
-  <section class="foot-section">
-    <h2>구간별 이동수단 요약</h2>
+  <!-- ================= 교통 탭 ================= -->
+  <section class="region-panel" id="panel-transit" data-region="transit" hidden>
+    <div class="info-hero">
+      <div class="region-eyebrow">TRANSIT NOTEBOOK</div>
+      <h2>구간별 교통 비교</h2>
+      <p class="region-tagline">구간마다 버스 vs 열차를 직접 비교하고, 산큐패스가 이득인지 계산해봤어요.</p>
+    </div>
+
     <div class="table-wrap">
       <table class="transit-table">
         <thead><tr><th>구간</th><th>수단</th><th>소요</th><th>비고</th></tr></thead>
         <tbody>
           <tr><td>인천 → 후쿠오카공항</td><td class="mono">항공</td><td class="mono">1h30m</td><td>제주항공 7C1407, 10/9(금) 17:20</td></tr>
           <tr><td>후쿠오카공항 → 하카타역</td><td class="mono">지하철</td><td class="mono">약 5분</td><td>국제선→국내선 셔틀 후 공항선</td></tr>
-          <tr><td>하카타 → 유후인</td><td class="mono">고속버스</td><td class="mono">약 2~2.5h</td><td>유후린호, 3F 34번 승강장, 예약 권장</td></tr>
-          <tr><td>유후인 → 아마가세(히타)</td><td class="mono">JR 큐다이선</td><td class="mono">약 40분</td><td>정확한 시각표 확인 필요</td></tr>
-          <tr><td>아마가세 → 히타역</td><td class="mono">JR 큐다이선</td><td class="mono">단거리</td><td>-</td></tr>
-          <tr><td>히타 → 텐진</td><td class="mono">고속버스</td><td class="mono">약 1.5h</td><td>히타고, 30분 간격, 예약 불필요</td></tr>
+          <tr><td>하카타 → 유후인</td><td class="mono">고속버스</td><td class="mono">약 2h25m</td><td>유후인고, 예약 필수 — 아래 상세 비교</td></tr>
+          <tr><td>유후인 → 아마가세(히타)</td><td class="mono">JR 큐다이선</td><td class="mono">약 40분</td><td>배차 뜸함 — 아래 상세 비교</td></tr>
+          <tr><td>히타 → 텐진</td><td class="mono">고속버스</td><td class="mono">약 1h35m</td><td>히타고, 예약 불필요 — 아래 상세 비교</td></tr>
           <tr><td>후쿠오카공항 → 인천</td><td class="mono">항공</td><td class="mono">1h45m</td><td>제주항공 7C1472, 10/14(수) 13:40</td></tr>
         </tbody>
       </table>
     </div>
+
+    <h3 class="section-label">구간 ① 하카타 → 유후인</h3>
+    <div class="table-wrap">
+      <table class="transit-table compare-table">
+        <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>예약</th></tr></thead>
+        <tbody>
+          <tr><td>고속버스 유후인고</td><td class="mono">3,250엔<span class="fine">웹조기할인 2,880엔</span></td><td class="mono">약 2h25m</td><td class="mono">1일 14왕복</td><td>필수(전월 1일 08:00~)</td></tr>
+          <tr><td>JR 특급 유후인노모리 / 유후</td><td class="mono">확인 필요<span class="fine">JR규슈 예약사이트 실시간 확인</span></td><td class="mono">약 2h14m</td><td class="mono">1일 3왕복</td><td>지정석 권장</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="leg-pick">✓ 추천: <b>고속버스 유후인고</b> — 요금이 명확하고(3,250엔) 하카타 버스터미널·텐진·공항 어디서든 승차 가능. 단 좌석지정제라 예약을 미리 해둬야 해요. 열차는 하루 3왕복뿐이라 시간이 안 맞을 수 있고 정확한 요금도 예약 시점에 확인해야 합니다.</p>
+
+    <h3 class="section-label">구간 ② 유후인 → 아마가세(히타)</h3>
+    <div class="table-wrap">
+      <table class="transit-table compare-table">
+        <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>비고</th></tr></thead>
+        <tbody>
+          <tr><td>JR 큐다이혼센(보통/특급)</td><td class="mono">확인 필요</td><td class="mono">약 40분</td><td class="mono">시간대에 따라 편차 큼</td><td>구간에 따라 4~5시간 무열차 시간대 존재</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="leg-pick" style="background:var(--caution-soft);color:var(--caution);">⚠ 이 구간은 버스 대안이 확인되지 않았고, JR 큐다이혼센이 사실상 유일한 대중교통 수단이에요. 배차 간격이 매우 뜸한 시간대가 있으니(위키피디아 확인) <b>료칸에서 반드시 정확한 시각표를 미리 받아두세요.</b> 렌터카가 아니라면 열차 시간에 일정을 맞추는 게 안전합니다.</p>
+
+    <h3 class="section-label">구간 ③ 히타 → 텐진</h3>
+    <div class="table-wrap">
+      <table class="transit-table compare-table">
+        <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>예약</th></tr></thead>
+        <tbody>
+          <tr><td>고속버스 히타고</td><td class="mono">3,580엔</td><td class="mono">약 1h35m</td><td class="mono">약 30분 간격</td><td>불필요(좌석정원제, 만석시 승차 불가)</td></tr>
+          <tr><td>JR (환승)</td><td class="mono">확인 필요</td><td class="mono">확인 필요</td><td class="mono">-</td><td>구루메·오이타 경유로 버스보다 오래 걸릴 가능성 높아 상세 비교 생략</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="leg-pick">✓ 추천: <b>고속버스 히타고</b> — 30분 간격, 예약 불필요라 유연함. 요금도 3,580엔으로 명확합니다.</p>
+
+    <div class="sunq-box">
+      <h4>산큐패스(SUNQ PASS), 이번 일정엔 쓸까?</h4>
+      <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 8px;">공식 사이트 기준 산큐패스는 유후인고·히타고 노선을 포함한 큐슈 전역 고속·노선버스 약 2,400개 노선을 커버합니다(福岡~由布院 2h25m, 福岡~日田 1h33m 명시). 북부큐슈판 가격은 2일권 8,000엔(디지털 전용), 3일권 10,000엔(디지털)/12,000엔(종이)입니다.</p>
+      <div class="table-wrap">
+        <table class="transit-table compare-table">
+          <thead><tr><th>방식</th><th>1인 비용</th><th>비고</th></tr></thead>
+          <tbody>
+            <tr><td>개별 승차권 구매</td><td class="mono">6,830엔<span class="fine">유후인고 3,250 + 히타고 3,580</span></td><td>이번 일정에서 타는 고속버스는 편도 2회뿐(하카타→유후인, 히타→텐진)</td></tr>
+            <tr><td>산큐패스 북부큐슈 2일권</td><td class="mono">8,000엔</td><td>개별 구매보다 1,170엔 더 비쌈</td></tr>
+            <tr><td>산큐패스 북부큐슈 3일권</td><td class="mono">10,000엔</td><td>개별 구매보다 3,170엔 더 비쌈</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:var(--ink-faint);margin:8px 0 0;">유후인↔아마가세 구간은 버스가 아니라 JR 열차라 패스로 커버되지 않고, 하카타·텐진 시내는 도보·지하철로 다니는 일정이라 버스 탑승 횟수가 늘지 않아요.</p>
+      <span class="verdict">이번 일정엔 비추천 — 편도 2회뿐이라 개별 승차권이 더 저렴</span>
+    </div>
+
+    <p style="font-size:11px;color:var(--ink-faint);">요금·시각표 출처: <a href="https://www.sunqpass.jp/kr/" target="_blank" rel="noopener">SUNQ PASS 공식</a> · <a href="https://www.nishitetsu.jp/bus/highwaybus/rosen/yufuin/" target="_blank" rel="noopener">니시테츠 유후인고</a> · <a href="https://www.nishitetsu.jp/bus/highwaybus/rosen/hita/" target="_blank" rel="noopener">니시테츠 히타고</a> · <a href="https://www.jrkyushu.co.jp/korean/train/yufuin_no_mori.html" target="_blank" rel="noopener">JR큐슈 유후인노모리</a> · <a href="https://ja.wikipedia.org/wiki/久大本線" target="_blank" rel="noopener">큐다이혼센(위키피디아)</a> — 2026년 9월 조회 기준, 요금은 개정될 수 있어 탑승 전 재확인하세요.</p>
   </section>
 
-  <section class="foot-section">
-    <h2>임신 21주차 체크리스트</h2>
+  <!-- ================= 체크리스트 탭 ================= -->
+  <section class="region-panel" id="panel-checklist" data-region="checklist" hidden>
+    <div class="info-hero">
+      <div class="region-eyebrow">PREGNANCY NOTEBOOK</div>
+      <h2>임신 21주차 체크리스트</h2>
+      <p class="region-tagline">여행 내내 챙길 것과, 출발 전 다시 확인해야 할 것들.</p>
+    </div>
+
     <div class="checklist">
       <b>여행 중 계속 챙길 것</b>
       <ul>
@@ -1160,10 +1246,8 @@
         <li>고속버스·JR 장거리 구간마다 화장실·스트레칭 여유 시간 확보.</li>
       </ul>
     </div>
-  </section>
 
-  <section class="foot-section">
-    <h2>확인이 필요한 항목 모음</h2>
+    <h2 style="font-size:22px;margin:26px 0 12px;color:var(--ink);">확인이 필요한 항목 모음</h2>
     <div class="unclear">
       <b>예약·체크인 전 다시 확인하세요</b>
       <ul>
@@ -1175,10 +1259,8 @@
         <li>각 식당의 정확한 영업시간·가격 — 방문 전 재확인 필요.</li>
       </ul>
     </div>
-  </section>
 
-  <section class="foot-section">
-    <h2>출처</h2>
+    <h2 style="font-size:22px;margin:26px 0 12px;color:var(--ink);">출처</h2>
     <div class="sources">
       <b>숙소·이동</b> — <a href="https://tosyoan.com/" target="_blank" rel="noopener">東匠庵(추정) 공식</a> · <a href="http://nakaya-yufuin.jp/" target="_blank" rel="noopener">御宿なか屋 공식</a> · <a href="https://www.tensui.net/" target="_blank" rel="noopener">山荘天水 공식</a> · <a href="https://www.nishitetsu.jp/bus/highwaybus/rosen/hita/" target="_blank" rel="noopener">니시테츠 히타고</a><br>
       <b>하카타</b> — <a href="https://www.jrhakatacity.com/" target="_blank" rel="noopener">JR하카타시티</a> · <a href="https://www.ishimura.co.jp/honten/" target="_blank" rel="noopener">이시무라만세이도</a> · <a href="https://hountei.com/" target="_blank" rel="noopener">호운테이</a><br>
