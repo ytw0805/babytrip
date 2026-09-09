@@ -331,6 +331,31 @@
     .tabbar{grid-template-columns:repeat(3,1fr);position:static;}
     .tabbtn{font-size:13px;padding:8px 2px 6px;}
     .card-grid{grid-template-columns:1fr;}
+
+    /* 표를 옆으로 미는 대신 한 행씩 카드로 쌓는다 — 좁은 화면에선 가로 스크롤 중에
+       어느 항목인지 알 수 없어서 표가 오히려 안 읽힌다 */
+    .table-wrap{overflow-x:visible;}
+    .transit-table{font-size:12.5px;margin-bottom:10px;}
+    .transit-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+    .transit-table,.transit-table tbody,.transit-table tr,.transit-table td{display:block;width:100%;}
+    .transit-table tr{border:2px solid var(--line-soft);border-radius:11px;background:var(--surface);
+      padding:9px 12px;margin-bottom:9px;box-shadow:2px 2px 0 var(--line-soft);}
+    .transit-table td{border:none;padding:3px 0;display:flex;gap:9px;align-items:baseline;}
+    .transit-table td::before{content:attr(data-label);flex:none;width:74px;font-size:10px;
+      font-weight:700;color:var(--ink-faint);letter-spacing:0.02em;word-break:keep-all;}
+    .transit-table td:first-child{padding:0 0 5px;margin-bottom:4px;font-weight:700;font-size:14px;
+      color:var(--ink);border-bottom:1px dashed var(--line-soft);display:block;}
+    .transit-table td:first-child::before{display:block;width:auto;margin-bottom:2px;}
+    .transit-table td.mono{white-space:normal;}
+    .transit-table td .fine{display:inline;margin-left:4px;}
+
+    /* 체크리스트 위험 항목도 라벨과 본문을 위아래로 */
+    .risk-row{flex-direction:column;gap:4px;}
+    .risk-no{align-self:flex-start;}
+    .step-list li{padding-left:30px;margin-left:11px;}
+    .step-list li::before{width:24px;height:24px;line-height:24px;left:-12px;font-size:12px;}
+    .say-jp{font-size:15.5px;}
+    .emg .num{font-size:17px;}
   }
   @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 </style>
@@ -2284,14 +2309,14 @@
       <table class="transit-table">
         <thead><tr><th>구간</th><th>수단</th><th>소요</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td>인천 → 후쿠오카공항</td><td class="mono">항공</td><td class="mono">1h30m</td><td>제주항공 7C1407, 10/9(금) 17:20</td></tr>
-          <tr><td>후쿠오카공항 → 하카타역</td><td class="mono">지하철</td><td class="mono">약 5분</td><td>국제선→국내선 셔틀 후 공항선</td></tr>
-          <tr><td>하카타 → 유후인</td><td class="mono">고속버스</td><td class="mono">약 2h25m</td><td>유후인고, 예약 필수 — 아래 상세 비교</td></tr>
-          <tr><td>유후인 → 아마가세</td><td class="mono">JR 큐다이선</td><td class="mono">보통 45~51분</td><td>배차 뜸함 — 아래 상세 비교</td></tr>
-          <tr><td>아마가세 → 히타</td><td class="mono">JR 큐다이선</td><td class="mono">약 15분</td><td>340엔, IC카드 불가</td></tr>
-          <tr><td>히타 → 텐진</td><td class="mono">고속버스</td><td class="mono">약 1h32m</td><td>히타고, 예약 불필요 — 아래 상세 비교</td></tr>
-          <tr><td>텐진 → 후쿠오카공항</td><td class="mono">공항 직행버스</td><td class="mono">약 30~40분</td><td>500엔, 국제선 터미널 직행 — 아래 상세</td></tr>
-          <tr><td>후쿠오카공항 → 인천</td><td class="mono">항공</td><td class="mono">1h45m</td><td>제주항공 7C1472, 10/14(수) 13:40</td></tr>
+          <tr><td data-label="구간">인천 → 후쿠오카공항</td><td class="mono" data-label="수단">항공</td><td class="mono" data-label="소요">1h30m</td><td data-label="비고">제주항공 7C1407, 10/9(금) 17:20</td></tr>
+          <tr><td data-label="구간">후쿠오카공항 → 하카타역</td><td class="mono" data-label="수단">지하철</td><td class="mono" data-label="소요">약 5분</td><td data-label="비고">국제선→국내선 셔틀 후 공항선</td></tr>
+          <tr><td data-label="구간">하카타 → 유후인</td><td class="mono" data-label="수단">고속버스</td><td class="mono" data-label="소요">약 2h10m</td><td data-label="비고">유후인고, 예약 필수 — 아래 상세 비교</td></tr>
+          <tr><td data-label="구간">유후인 → 아마가세</td><td class="mono" data-label="수단">JR 큐다이선</td><td class="mono" data-label="소요">보통 45~51분</td><td data-label="비고">배차 뜸함 — 아래 상세 비교</td></tr>
+          <tr><td data-label="구간">아마가세 → 히타</td><td class="mono" data-label="수단">JR 큐다이선</td><td class="mono" data-label="소요">약 15분</td><td data-label="비고">340엔, IC카드 불가</td></tr>
+          <tr><td data-label="구간">히타 → 텐진</td><td class="mono" data-label="수단">고속버스</td><td class="mono" data-label="소요">약 1h32m</td><td data-label="비고">히타고, 예약 불필요 — 아래 상세 비교</td></tr>
+          <tr><td data-label="구간">텐진 → 후쿠오카공항</td><td class="mono" data-label="수단">공항 직행버스</td><td class="mono" data-label="소요">약 30~40분</td><td data-label="비고">500엔, 국제선 터미널 직행 — 아래 상세</td></tr>
+          <tr><td data-label="구간">후쿠오카공항 → 인천</td><td class="mono" data-label="수단">항공</td><td class="mono" data-label="소요">1h45m</td><td data-label="비고">제주항공 7C1472, 10/14(수) 13:40</td></tr>
         </tbody>
       </table>
     </div>
@@ -2332,8 +2357,8 @@
       <table class="transit-table compare-table">
         <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>예약</th></tr></thead>
         <tbody>
-          <tr><td>고속버스 유후인고</td><td class="mono">3,250엔<span class="fine">웹조기할인 2,880엔</span></td><td class="mono">약 2h25m</td><td class="mono">1일 14왕복</td><td>필수(전월 1일 08:00~)</td></tr>
-          <tr><td>JR 특급 유후인노모리 / 유후</td><td class="mono">확인 필요<span class="fine">JR규슈 예약사이트 실시간 확인</span></td><td class="mono">약 2h14m</td><td class="mono">1일 3왕복</td><td>지정석 권장</td></tr>
+          <tr><td data-label="수단">고속버스 유후인고</td><td class="mono" data-label="요금(편도·1인)">3,250엔<span class="fine">웹조기할인 2,880엔</span></td><td class="mono" data-label="소요시간">약 2h10m<span class="fine">텐진 출발이면 2h25~35m</span></td><td class="mono" data-label="배차">1일 14왕복</td><td data-label="예약">필수(전월 1일 08:00~)</td></tr>
+          <tr><td data-label="수단">JR 특급 유후인노모리 / 유후</td><td class="mono" data-label="요금(편도·1인)">확인 필요<span class="fine">JR규슈 예약사이트 실시간 확인</span></td><td class="mono" data-label="소요시간">약 2h14m</td><td class="mono" data-label="배차">1일 3왕복</td><td data-label="예약">지정석 권장</td></tr>
         </tbody>
       </table>
     </div>
@@ -2375,7 +2400,7 @@
       <table class="transit-table compare-table">
         <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td>JR 큐다이혼센(보통/특급)</td><td class="mono">확인 필요</td><td class="mono">약 40분</td><td class="mono">시간대에 따라 편차 큼</td><td>구간에 따라 4~5시간 무열차 시간대 존재</td></tr>
+          <tr><td data-label="수단">JR 큐다이혼센(보통/특급)</td><td class="mono" data-label="요금(편도·1인)">확인 필요</td><td class="mono" data-label="소요시간">약 40분</td><td class="mono" data-label="배차">시간대에 따라 편차 큼</td><td data-label="비고">구간에 따라 4~5시간 무열차 시간대 존재</td></tr>
         </tbody>
       </table>
     </div>
@@ -2417,8 +2442,8 @@
       <table class="transit-table compare-table">
         <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>예약</th></tr></thead>
         <tbody>
-          <tr><td>고속버스 히타고</td><td class="mono">약 1,980엔<span class="fine">왕복 3,580엔 · 자료마다 1,790엔 표기도 있어 창구 확인</span></td><td class="mono">약 1h32m</td><td class="mono">평일 32편(약 30분 간격)</td><td>불필요(좌석정원제, 만석시 승차 불가)</td></tr>
-          <tr><td>JR (환승)</td><td class="mono">확인 필요</td><td class="mono">확인 필요</td><td class="mono">-</td><td>구루메·오이타 경유로 버스보다 오래 걸릴 가능성 높아 상세 비교 생략</td></tr>
+          <tr><td data-label="수단">고속버스 히타고</td><td class="mono" data-label="요금(편도·1인)">약 1,980엔<span class="fine">왕복 3,580엔 · 자료마다 1,790엔 표기도 있어 창구 확인</span></td><td class="mono" data-label="소요시간">약 1h32m</td><td class="mono" data-label="배차">평일 32편(약 30분 간격)</td><td data-label="예약">불필요(좌석정원제, 만석시 승차 불가)</td></tr>
+          <tr><td data-label="수단">JR (환승)</td><td class="mono" data-label="요금(편도·1인)">확인 필요</td><td class="mono" data-label="소요시간">확인 필요</td><td class="mono" data-label="배차">-</td><td data-label="예약">구루메·오이타 경유로 버스보다 오래 걸릴 가능성 높아 상세 비교 생략</td></tr>
         </tbody>
       </table>
     </div>
@@ -2430,8 +2455,8 @@
       <table class="transit-table compare-table">
         <thead><tr><th>방법</th><th>요금(1인)</th><th>소요시간</th><th>환승</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td>공항 직행버스(에어포트 익스프레스)</td><td class="mono">500엔<span class="fine">IC 480엔</span></td><td class="mono">약 30~40분</td><td class="mono">없음</td><td>국제선 터미널 바로 앞까지 논스톱</td></tr>
-          <tr><td>지하철 + 무료 셔틀</td><td class="mono">260엔</td><td class="mono">약 40~50분</td><td class="mono">2회</td><td>지하철 11분 + 국내선→국제선 셔틀 10분</td></tr>
+          <tr><td data-label="방법">공항 직행버스(에어포트 익스프레스)</td><td class="mono" data-label="요금(1인)">500엔<span class="fine">IC 480엔</span></td><td class="mono" data-label="소요시간">약 30~40분</td><td class="mono" data-label="환승">없음</td><td data-label="비고">국제선 터미널 바로 앞까지 논스톱</td></tr>
+          <tr><td data-label="방법">지하철 + 무료 셔틀</td><td class="mono" data-label="요금(1인)">260엔</td><td class="mono" data-label="소요시간">약 40~50분</td><td class="mono" data-label="환승">2회</td><td data-label="비고">지하철 11분 + 국내선→국제선 셔틀 10분</td></tr>
         </tbody>
       </table>
     </div>
@@ -2467,9 +2492,9 @@
         <table class="transit-table compare-table">
           <thead><tr><th>방식</th><th>1인 비용</th><th>비고</th></tr></thead>
           <tbody>
-            <tr><td>개별 승차권 구매</td><td class="mono">약 5,730엔<span class="fine">유후인고 3,250 + 히타고 약 1,980 + 공항버스 500</span></td><td>이번 일정에서 타는 버스는 편도 3회뿐(하카타→유후인, 히타→텐진, 텐진→공항)</td></tr>
-            <tr><td>산큐패스 북부큐슈 2일권</td><td class="mono">8,000엔</td><td>개별 구매보다 약 2,270엔 더 비쌈</td></tr>
-            <tr><td>산큐패스 북부큐슈 3일권</td><td class="mono">10,000엔</td><td>개별 구매보다 약 4,270엔 더 비쌈</td></tr>
+            <tr><td data-label="방식">개별 승차권 구매</td><td class="mono" data-label="1인 비용">약 5,730엔<span class="fine">유후인고 3,250 + 히타고 약 1,980 + 공항버스 500</span></td><td data-label="비고">이번 일정에서 타는 버스는 편도 3회뿐(하카타→유후인, 히타→텐진, 텐진→공항)</td></tr>
+            <tr><td data-label="방식">산큐패스 북부큐슈 2일권</td><td class="mono" data-label="1인 비용">8,000엔</td><td data-label="비고">개별 구매보다 약 2,270엔 더 비쌈</td></tr>
+            <tr><td data-label="방식">산큐패스 북부큐슈 3일권</td><td class="mono" data-label="1인 비용">10,000엔</td><td data-label="비고">개별 구매보다 약 4,270엔 더 비쌈</td></tr>
           </tbody>
         </table>
       </div>
@@ -2549,12 +2574,12 @@
       <table class="transit-table">
         <thead><tr><th>날짜</th><th>후쿠오카</th><th>유후인 (해발 435m)</th><th>히타</th></tr></thead>
         <tbody>
-          <tr><td>10/9 (금)</td><td class="mono">25.0 / 17.5℃</td><td class="mono">22.2 / 11.5℃</td><td class="mono">25.5 / 14.2℃</td></tr>
-          <tr><td>10/10 (토)</td><td class="mono">24.9 / 17.3℃</td><td class="mono">22.1 / 11.3℃</td><td class="mono">25.3 / 14.0℃</td></tr>
-          <tr><td>10/11 (일)</td><td class="mono">24.7 / 17.0℃</td><td class="mono">21.9 / 11.0℃</td><td class="mono">25.2 / 13.7℃</td></tr>
-          <tr><td>10/12 (월)</td><td class="mono">24.5 / 16.8℃</td><td class="mono">21.8 / 10.8℃</td><td class="mono">25.0 / 13.4℃</td></tr>
-          <tr><td>10/13 (화)</td><td class="mono">24.4 / 16.6℃</td><td class="mono">21.6 / 10.5℃</td><td class="mono">24.9 / 13.2℃</td></tr>
-          <tr><td>10/14 (수)</td><td class="mono">24.2 / 16.4℃</td><td class="mono">21.4 / 10.2℃</td><td class="mono">24.7 / 12.9℃</td></tr>
+          <tr><td data-label="날짜">10/9 (금)</td><td class="mono" data-label="후쿠오카">25.0 / 17.5℃</td><td class="mono" data-label="유후인 (해발 435m)">22.2 / 11.5℃</td><td class="mono" data-label="히타">25.5 / 14.2℃</td></tr>
+          <tr><td data-label="날짜">10/10 (토)</td><td class="mono" data-label="후쿠오카">24.9 / 17.3℃</td><td class="mono" data-label="유후인 (해발 435m)">22.1 / 11.3℃</td><td class="mono" data-label="히타">25.3 / 14.0℃</td></tr>
+          <tr><td data-label="날짜">10/11 (일)</td><td class="mono" data-label="후쿠오카">24.7 / 17.0℃</td><td class="mono" data-label="유후인 (해발 435m)">21.9 / 11.0℃</td><td class="mono" data-label="히타">25.2 / 13.7℃</td></tr>
+          <tr><td data-label="날짜">10/12 (월)</td><td class="mono" data-label="후쿠오카">24.5 / 16.8℃</td><td class="mono" data-label="유후인 (해발 435m)">21.8 / 10.8℃</td><td class="mono" data-label="히타">25.0 / 13.4℃</td></tr>
+          <tr><td data-label="날짜">10/13 (화)</td><td class="mono" data-label="후쿠오카">24.4 / 16.6℃</td><td class="mono" data-label="유후인 (해발 435m)">21.6 / 10.5℃</td><td class="mono" data-label="히타">24.9 / 13.2℃</td></tr>
+          <tr><td data-label="날짜">10/14 (수)</td><td class="mono" data-label="후쿠오카">24.2 / 16.4℃</td><td class="mono" data-label="유후인 (해발 435m)">21.4 / 10.2℃</td><td class="mono" data-label="히타">24.7 / 12.9℃</td></tr>
         </tbody>
       </table>
     </div>
@@ -2701,11 +2726,11 @@
       <table class="transit-table">
         <thead><tr><th>어디</th><th>코인로커</th><th>요금(1일)</th><th>비고</th></tr></thead>
         <tbody>
-          <tr><td>JR 하카타역</td><td class="mono">역 구내 총 649개</td><td class="mono">400~1,200엔</td><td><b>대(1,000엔)·특대(1,200엔)</b>가 캐리어 크기. 데이토스 아넥스 1층은 <b>24시간</b></td></tr>
-          <tr><td>유후인역</td><td class="mono">중28 · 대24 · 특대28</td><td class="mono">800~1,200엔</td><td>소형은 없고 <b>큰 칸 위주</b>라 캐리어에 유리</td></tr>
-          <tr><td>JR 히타역</td><td class="mono">소5 · 중4 · 대11 (20개)</td><td class="mono">500~800엔</td><td>개수가 적어요. 역 내 정확한 위치는 확인 필요</td></tr>
-          <tr><td>니시테츠 텐진역</td><td class="mono">1층 3곳 · 2층 6곳 · 3층</td><td class="mono">확인 필요</td><td>크기·요금이 공식 페이지에 없어요</td></tr>
-          <tr><td>캐널시티</td><td class="mono">4곳 (07:00~24:30)</td><td class="mono">400~1,300엔</td><td><b>최대 3일</b> 보관. 센터워크 B1F가 가장 높음(116cm)</td></tr>
+          <tr><td data-label="어디">JR 하카타역</td><td class="mono" data-label="코인로커">역 구내 총 649개</td><td class="mono" data-label="요금(1일)">400~1,200엔</td><td data-label="비고"><b>대(1,000엔)·특대(1,200엔)</b>가 캐리어 크기. 데이토스 아넥스 1층은 <b>24시간</b></td></tr>
+          <tr><td data-label="어디">유후인역</td><td class="mono" data-label="코인로커">중28 · 대24 · 특대28</td><td class="mono" data-label="요금(1일)">800~1,200엔</td><td data-label="비고">소형은 없고 <b>큰 칸 위주</b>라 캐리어에 유리</td></tr>
+          <tr><td data-label="어디">JR 히타역</td><td class="mono" data-label="코인로커">소5 · 중4 · 대11 (20개)</td><td class="mono" data-label="요금(1일)">500~800엔</td><td data-label="비고">개수가 적어요. 역 내 정확한 위치는 확인 필요</td></tr>
+          <tr><td data-label="어디">니시테츠 텐진역</td><td class="mono" data-label="코인로커">1층 3곳 · 2층 6곳 · 3층</td><td class="mono" data-label="요금(1일)">확인 필요</td><td data-label="비고">크기·요금이 공식 페이지에 없어요</td></tr>
+          <tr><td data-label="어디">캐널시티</td><td class="mono" data-label="코인로커">4곳 (07:00~24:30)</td><td class="mono" data-label="요금(1일)">400~1,300엔</td><td data-label="비고"><b>최대 3일</b> 보관. 센터워크 B1F가 가장 높음(116cm)</td></tr>
         </tbody>
       </table>
     </div>
