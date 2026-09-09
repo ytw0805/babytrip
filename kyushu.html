@@ -3265,7 +3265,7 @@
         el.setAttribute('data-pin', n);
         el.addEventListener('click', jump);
       });
-      // 툴팁은 원에만 — <text> 안에 넣으면 그 요소의 textContent가 오염된다
+      // 툴팁은 원에만 붙인다 — 글자 요소 안에 넣으면 그 요소의 textContent가 오염된다
       var h4 = card.querySelector('h4');
       if(h4 && circle){
         var tip = document.createElementNS('http://www.w3.org/2000/svg','title');
