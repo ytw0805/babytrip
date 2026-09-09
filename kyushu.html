@@ -399,25 +399,16 @@
         <line x1="460" y1="152" x2="460" y2="231" stroke="var(--ink-faint)" stroke-width="4" stroke-linecap="round"/>
         <line x1="460" y1="249" x2="460" y2="338" stroke="var(--ink-faint)" stroke-width="4" stroke-linecap="round"/>
 
-        <!-- 추가 골목·샛길 — 격자를 더 촘촘하고 방향을 다양하게 -->
+        <!-- 격자를 더 촘촘하게: 세로 간선 2개 추가 -->
         <path d="M282,152 Q290,192 282,231" stroke="var(--ink-faint)" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.85"/>
         <path d="M282,249 Q274,290 282,338" stroke="var(--ink-faint)" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.85"/>
         <path d="M410,152 Q402,192 410,231" stroke="var(--ink-faint)" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.85"/>
         <path d="M410,249 Q418,290 410,338" stroke="var(--ink-faint)" stroke-width="3.2" fill="none" stroke-linecap="round" opacity="0.85"/>
 
-        <path d="M100,152 Q120,130 155,120" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M220,152 L188,116" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M460,152 L498,116" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M580,175 Q555,150 555,110" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M220,338 L188,362" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M460,338 L498,362" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M282,207 L245,180" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M410,207 L448,190" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M282,283 L245,300" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M410,283 L440,306" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <line x1="100" y1="200" x2="100" y2="178" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
-        <line x1="580" y1="185" x2="600" y2="200" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
-        <line x1="150" y1="313" x2="130" y2="330" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
+        <!-- 실제 하카타처럼 격자를 가로지르는 굵은 대각선 간선도로 하나 (기온마치도리 참고) -->
+        <path d="M50,362 Q220,290 340,200 Q470,105 618,72" stroke="var(--ink-faint)" stroke-width="6" fill="none" stroke-linecap="round" opacity="0.9"/>
+        <path d="M62,357 Q225,286 342,197 Q468,104 615,80" stroke="var(--surface)" stroke-width="1.2" fill="none" stroke-dasharray="6 6" opacity="0.75"/>
+        <text x="150" y="333" text-anchor="middle" class="am-sub" font-size="7.5" fill="var(--ink-faint)" transform="rotate(-25 150 333)">대로</text>
 
         <!-- 횡단보도 표시 -->
         <g stroke="var(--surface)" stroke-width="1.6" opacity="0.7">
@@ -655,39 +646,26 @@
           <line x1="386" y1="296" x2="408" y2="296"/>
         </g>
 
-        <path d="M55,88 Q340,72 625,88" stroke="var(--ink-faint)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
-        <path d="M55,414 Q340,430 625,414" stroke="var(--ink-faint)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
-        <path d="M270,70 Q255,250 270,432" stroke="var(--ink-faint)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
-        <path d="M513,70 Q528,250 513,432" stroke="var(--ink-faint)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
+        <!-- 오이타강(大分川) — 실제 유후인은 격자 도로가 아니라 이 강을 따라 마을이 형성돼 있음 -->
+        <path d="M690,10 Q650,90 660,150 Q672,210 610,250 Q580,270 585,320 Q590,380 630,470" stroke="#4C86A8" stroke-width="14" fill="none" opacity="0.22" stroke-linecap="round"/>
+        <path d="M690,10 Q650,90 660,150 Q672,210 610,250 Q580,270 585,320 Q590,380 630,470" stroke="#4C86A8" stroke-width="1.3" fill="none" opacity="0.5" stroke-dasharray="1 5"/>
 
+        <!-- 유노쓰보 카이도 (실제로도 완만하게 휘는 하나의 상점가 길) -->
         <path d="M70,250 Q340,232 610,250" stroke="var(--ink-faint)" stroke-width="7" fill="none" stroke-linecap="round"/>
         <path d="M85,250 Q340,232.5 595,250" stroke="var(--surface)" stroke-width="1.3" fill="none" stroke-dasharray="7 7" opacity="0.8"/>
         <text x="340" y="270" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">유노쓰보 카이도</text>
 
-        <g stroke="var(--ink-faint)" stroke-width="4" stroke-linecap="round">
-          <line x1="210" y1="162" x2="210" y2="241"/>
-          <line x1="210" y1="259" x2="210" y2="338"/>
-          <line x1="330" y1="162" x2="330" y2="241"/>
-          <line x1="330" y1="259" x2="330" y2="338"/>
-          <line x1="450" y1="162" x2="450" y2="241"/>
-          <line x1="450" y1="259" x2="450" y2="338"/>
-          <line x1="580" y1="162" x2="580" y2="241"/>
-          <line x1="580" y1="259" x2="580" y2="338"/>
-        </g>
-
-        <!-- 추가 골목·샛길 — 격자를 더 촘촘하고 방향을 다양하게 -->
-        <path d="M270,162 Q290,140 330,128" stroke="var(--ink-faint)" stroke-width="2.8" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <path d="M513,162 Q495,140 450,128" stroke="var(--ink-faint)" stroke-width="2.8" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <path d="M270,338 Q290,362 330,376" stroke="var(--ink-faint)" stroke-width="2.8" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <path d="M513,338 Q495,362 450,376" stroke="var(--ink-faint)" stroke-width="2.8" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <path d="M90,120 Q150,100 210,110" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M90,370 Q150,392 210,384" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M580,180 L642,166" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M580,320 L642,336" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <line x1="150" y1="230" x2="180" y2="215" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
-        <line x1="150" y1="270" x2="130" y2="290" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
-        <line x1="330" y1="200" x2="360" y2="215" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
-        <line x1="450" y1="300" x2="420" y2="315" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
+        <!-- 유후인은 격자가 아니라, 큰길에서 갈라져 나온 좁고 구불구불한 샛길들로 이뤄져 있음 -->
+        <path d="M150,241 Q180,190 210,165 Q235,135 280,115" stroke="var(--ink-faint)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+        <path d="M280,115 Q305,108 330,105" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <path d="M470,238 Q495,190 520,165 Q545,135 580,115" stroke="var(--ink-faint)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+        <path d="M580,115 Q605,110 630,108" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.65"/>
+        <path d="M150,259 Q175,310 205,340 Q230,368 275,385" stroke="var(--ink-faint)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+        <path d="M275,385 Q300,393 330,398" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.65"/>
+        <path d="M470,262 Q495,310 520,340 Q545,368 580,385" stroke="var(--ink-faint)" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.8"/>
+        <path d="M580,385 Q600,392 618,395" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.65"/>
+        <path d="M95,245 Q75,210 85,175 Q92,150 75,120" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.6"/>
+        <path d="M95,255 Q78,290 88,325 Q94,350 78,378" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.6"/>
 
         <use href="#yf-house" transform="translate(100,250) scale(1.5)" fill="var(--rc)"/>
         <text x="100" y="210" text-anchor="middle" class="am-label" font-weight="700" font-size="13.5" fill="var(--ink)">유후인역</text>
@@ -953,10 +931,8 @@
         </g>
         <path d="M42,58 Q28,200 42,338" stroke="var(--ink-faint)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
         <path d="M27,270 Q100,258 170,270" stroke="var(--ink-faint)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <path d="M47,54 Q70,66 90,58" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M42,175 L90,169" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M45,203 Q70,215 100,214" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M42,300 L90,311" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.75"/>
+        <path d="M42,175 Q65,172 90,169" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
+        <path d="M42,300 Q65,306 90,311" stroke="var(--ink-faint)" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.7"/>
 
         <!-- 히타역·마메다마치 클러스터 배경 건물 그림자 -->
         <g transform="translate(3,4)" fill="var(--ink)" opacity="0.15">
@@ -988,12 +964,9 @@
         </g>
         <path d="M445,90 Q580,76 715,90" stroke="var(--ink-faint)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
         <path d="M445,345 Q580,359 715,345" stroke="var(--ink-faint)" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
-        <path d="M460,142 Q500,120 529,53" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M580,208 Q630,180 650,71" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M700,142 Q680,120 632,44" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M460,298 Q500,270 522,258" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M700,298 Q670,275 660,283" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <line x1="580" y1="232" x2="610" y2="253" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.7"/>
+        <!-- 실제 히타 시가지처럼 격자를 가로지르는 굵은 대각선 간선도로 하나 (국도210호선 참고) -->
+        <path d="M440,48 Q560,140 630,200 Q680,242 725,285" stroke="var(--ink-faint)" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.9"/>
+        <path d="M448,55 Q562,142 628,197 Q675,238 718,278" stroke="var(--surface)" stroke-width="1.1" fill="none" stroke-dasharray="6 6" opacity="0.7"/>
 
         <line x1="140" y1="142" x2="140" y2="211" stroke="var(--ink-faint)" stroke-width="4" stroke-linecap="round"/>
         <path d="M460,220 Q580,208 700,220" stroke="var(--ink-faint)" stroke-width="7" fill="none" stroke-linecap="round"/>
@@ -1237,15 +1210,9 @@
           <line x1="520" y1="172" x2="520" y2="254"/>
         </g>
 
-        <!-- 추가 골목·샛길 — 격자를 더 촘촘하고 방향을 다양하게 -->
-        <path d="M100,172 Q180,150 260,172" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M260,172 Q320,152 380,172" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M260,388 Q320,405 380,388" stroke="var(--ink-faint)" stroke-width="2.6" fill="none" stroke-linecap="round" opacity="0.75"/>
-        <path d="M100,271 Q140,300 170,330" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M380,271 Q420,290 440,320" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <path d="M520,172 Q560,150 610,155" stroke="var(--ink-faint)" stroke-width="2.4" fill="none" stroke-linecap="round" opacity="0.7"/>
-        <line x1="100" y1="200" x2="60" y2="215" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
-        <line x1="380" y1="330" x2="420" y2="345" stroke="var(--ink-faint)" stroke-width="2.2" stroke-linecap="round" opacity="0.65"/>
+        <!-- 실제 텐진처럼 격자를 가로지르는 굵은 대각선 간선도로 하나 (쇼와도리 참고) -->
+        <path d="M35,130 Q220,215 360,280 Q520,352 675,415" stroke="var(--ink-faint)" stroke-width="5.5" fill="none" stroke-linecap="round" opacity="0.9"/>
+        <path d="M44,136 Q220,219 358,283 Q515,353 668,412" stroke="var(--surface)" stroke-width="1.1" fill="none" stroke-dasharray="6 6" opacity="0.7"/>
         <line x1="555" y1="298" x2="615" y2="378" stroke="var(--ink-faint)" stroke-width="3" stroke-dasharray="1 7" stroke-linecap="round"/>
         <g stroke="var(--ink-faint)" stroke-width="3">
           <line x1="577" y1="322" x2="565" y2="340"/>
