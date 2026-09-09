@@ -571,9 +571,19 @@
           <g id="yf-torii" fill="none"><path d="M-8,-7 L8,-7 M-8,-4 L8,-4 M-5.5,-7 L-5.5,9 M5.5,-7 L5.5,9" stroke-linecap="round"/></g>
           <g id="yf-fork" fill="none"><path d="M-4,-7 L-4,-1 M-1,-7 L-1,-1 M2,-7 L2,-1 M-4,-1 Q-1,3 2,-1 M-1,3 L-1,9" stroke-linecap="round"/></g>
           <g id="yf-cup" fill="none"><path d="M-6,-4 L6,-4 L5,7 L-5,7 Z M6,-3 Q10,-3 10,0.5 Q10,4 6,3.5" stroke-linecap="round"/></g>
+          <g id="yf-museum" fill="none"><path d="M-8,-7 L0,-9.5 L8,-7 Z" fill="currentColor" stroke="none"/><line x1="-7" y1="-6" x2="-7" y2="7"/><line x1="-3.3" y1="-6" x2="-3.3" y2="7"/><line x1="3.3" y1="-6" x2="3.3" y2="7"/><line x1="7" y1="-6" x2="7" y2="7"/><line x1="-9" y1="9" x2="9" y2="9" stroke-width="2"/></g>
+          <g id="yf-tree"><circle cx="-4" cy="-4" r="5"/><circle cx="3" cy="-6" r="4.5"/><circle cx="5" cy="0" r="4"/><circle cx="-2" cy="1" r="4.5"/><rect x="-1.2" y="4" width="2.4" height="6" rx="1"/></g>
+          <g id="yf-flower"><circle r="2" fill="#E8B4C8"/><g fill="#E8B4C8"><ellipse cx="0" cy="-5" rx="2.4" ry="3.2"/><ellipse cx="4.5" cy="-1.5" rx="2.4" ry="3.2" transform="rotate(72 4.5 -1.5)"/><ellipse cx="2.8" cy="4.2" rx="2.4" ry="3.2" transform="rotate(144 2.8 4.2)"/><ellipse cx="-2.8" cy="4.2" rx="2.4" ry="3.2" transform="rotate(216 -2.8 4.2)"/><ellipse cx="-4.5" cy="-1.5" rx="2.4" ry="3.2" transform="rotate(288 -4.5 -1.5)"/></g></g>
         </defs>
 
         <rect x="8" y="8" width="664" height="464" rx="16" fill="var(--surface)" stroke="var(--line)" stroke-width="3"/>
+        <rect x="13" y="13" width="654" height="454" rx="12" fill="none" stroke="var(--rc)" stroke-width="1" opacity="0.35"/>
+        <g stroke="var(--rc)" stroke-width="1.4" opacity="0.4" fill="none">
+          <path d="M17,38 Q17,17 38,17"/><path d="M17,50 Q17,17 50,17"/><path d="M17,62 Q17,17 62,17"/>
+          <path d="M663,38 Q663,17 642,17"/><path d="M663,50 Q663,17 630,17"/><path d="M663,62 Q663,17 618,17"/>
+          <path d="M17,434 Q17,463 38,463"/><path d="M17,422 Q17,463 50,463"/><path d="M17,410 Q17,463 62,463"/>
+          <path d="M663,434 Q663,463 642,463"/><path d="M663,422 Q663,463 630,463"/><path d="M663,410 Q663,463 618,463"/>
+        </g>
         <text x="340" y="42" text-anchor="middle" class="am-label" font-weight="700" font-size="19" fill="var(--rc)">유후인 약도</text>
 
         <g transform="translate(64,78)">
@@ -587,6 +597,27 @@
         <!-- 유후다케 산 능선 — 마을을 둘러싼 실제 지형을 살짝 표현 -->
         <path d="M8,26 L45,10 L70,20 L100,4 L135,18 L165,12 L165,26 L8,26 Z" fill="var(--surface-2)" opacity="0.6"/>
         <text x="86" y="35" text-anchor="middle" class="am-sub" font-size="7" fill="var(--ink-faint)">유후다케</text>
+
+        <!-- 배경 건물 블록 그림자 -->
+        <g transform="translate(3,4)" fill="var(--ink)" opacity="0.15">
+          <rect x="60" y="95" width="28" height="34" rx="1.5" transform="rotate(-2 74 112)"/>
+          <rect x="130" y="70" width="24" height="20" rx="1.5"/>
+          <rect x="260" y="70" width="30" height="20" rx="1.5" transform="rotate(2 275 80)"/>
+          <rect x="385" y="65" width="26" height="24" rx="1.5"/>
+          <rect x="505" y="70" width="24" height="30" rx="1.5" transform="rotate(-3 517 85)"/>
+          <rect x="60" y="215" width="20" height="18" rx="1.5"/>
+          <rect x="255" y="215" width="24" height="16" rx="1.5" transform="rotate(2 267 223)"/>
+          <rect x="375" y="212" width="22" height="20" rx="1.5"/>
+          <rect x="150" y="290" width="28" height="22" rx="1.5" transform="rotate(-2 164 301)"/>
+          <rect x="385" y="295" width="24" height="24" rx="1.5"/>
+          <rect x="60" y="360" width="24" height="30" rx="1.5" transform="rotate(2 72 375)"/>
+          <rect x="260" y="405" width="30" height="18" rx="1.5"/>
+          <rect x="385" y="410" width="22" height="20" rx="1.5" transform="rotate(-2 396 420)"/>
+          <rect x="505" y="405" width="26" height="24" rx="1.5"/>
+          <rect x="130" y="410" width="20" height="16" rx="1.5"/>
+          <rect x="620" y="150" width="22" height="26" rx="1.5" transform="rotate(3 631 163)"/>
+          <rect x="620" y="330" width="20" height="24" rx="1.5"/>
+        </g>
 
         <!-- 배경 건물 블록 -->
         <g fill="var(--surface-2)" stroke="var(--line-soft)" stroke-width="1">
@@ -607,6 +638,13 @@
           <rect x="130" y="410" width="20" height="16" rx="1.5"/>
           <rect x="620" y="150" width="22" height="26" rx="1.5" transform="rotate(3 631 163)"/>
           <rect x="620" y="330" width="20" height="24" rx="1.5"/>
+        </g>
+        <g stroke="var(--surface)" stroke-width="1.2" opacity="0.5" fill="none">
+          <line x1="61" y1="96" x2="87" y2="96" transform="rotate(-2 74 112)"/>
+          <line x1="131" y1="71" x2="153" y2="71"/>
+          <line x1="386" y1="66" x2="410" y2="66"/>
+          <line x1="151" y1="291" x2="177" y2="291" transform="rotate(-2 164 301)"/>
+          <line x1="386" y1="296" x2="408" y2="296"/>
         </g>
 
         <path d="M55,88 Q340,72 625,88" stroke="var(--ink-faint)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85"/>
@@ -632,12 +670,16 @@
         <use href="#yf-house" transform="translate(100,250) scale(1.5)" fill="var(--rc)"/>
         <text x="100" y="210" text-anchor="middle" class="am-label" font-weight="700" font-size="13.5" fill="var(--ink)">유후인역</text>
         <text x="100" y="280" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">료칸 체크인·아트홀</text>
+        <g stroke="var(--ink-faint)" stroke-width="1.3" fill="none" opacity="0.45" stroke-linecap="round">
+          <path d="M118,222 Q122,214 118,207 Q114,200 118,193"/>
+          <path d="M127,225 Q131,217 127,210 Q123,203 127,196"/>
+        </g>
 
-        <use href="#yf-star" transform="translate(210,150)" fill="var(--ink)"/>
+        <use href="#yf-museum" transform="translate(210,150)" fill="var(--ink)"/>
         <text x="210" y="122" text-anchor="middle" class="am-label" font-weight="700" font-size="10.5" fill="var(--ink)">미술관·사기리다이</text>
         <text x="210" y="136" text-anchor="middle" class="am-sub" font-size="8.5" fill="var(--ink-faint)">차량·택시 필요</text>
 
-        <use href="#yf-star" transform="translate(210,350)" fill="var(--ink)"/>
+        <use href="#yf-flower" transform="translate(210,350)"/>
         <text x="210" y="380" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">플로럴빌리지</text>
 
         <use href="#yf-cup" transform="translate(330,150)" stroke="var(--rc)" stroke-width="2"/>
@@ -660,6 +702,20 @@
 
         <use href="#yf-torii" transform="translate(580,350)" stroke="var(--ink)" stroke-width="2"/>
         <text x="580" y="380" text-anchor="middle" class="am-label" font-weight="700" font-size="11" fill="var(--ink)">붓산지</text>
+        <use href="#yf-tree" transform="translate(605,340) scale(0.8)" fill="#3F7A4F" opacity="0.75"/>
+        <use href="#yf-tree" transform="translate(555,338) scale(0.7)" fill="#3F7A4F" opacity="0.7"/>
+
+        <!-- 픽 카드 핀 강조 링 -->
+        <g fill="none" stroke="#D4A72C" stroke-width="1.6">
+          <circle cx="560" cy="290" r="9.5"/>
+          <circle cx="185" cy="172" r="9.5"/>
+          <circle cx="443" cy="325" r="9.5"/>
+          <circle cx="600" cy="290" r="9.5"/>
+          <circle cx="580" cy="322" r="9.5"/>
+          <circle cx="311" cy="185" r="9.5"/>
+          <circle cx="76" cy="326" r="9.5"/>
+          <circle cx="420" cy="283" r="9.5"/>
+        </g>
 
         <g font-family="IBM Plex Mono" font-size="7" font-weight="700" text-anchor="middle">
           <circle cx="76" cy="300" r="6" fill="var(--ink)" stroke="var(--surface)"/><text x="76" y="302.5" fill="var(--surface)">4</text>
@@ -730,7 +786,7 @@
           <text x="0" y="28" text-anchor="middle" class="am-sub" font-size="9" fill="var(--ink-faint)">N</text>
         </g>
       </svg>
-      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 집=숙소, ★=명소, 도리이=신사, 포크=식사, 컵=디저트/카페. 작은 번호 점은 아래 카드 번호와 1:1로 대응해요(밝은 점=명소, 색깔 점=맛집). 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
+      <figcaption>손으로 그린 약도예요(실제 축척 아님) — 집=숙소, ★(꽃)=명소, 도리이=신사, 기둥=미술관, 포크=식사, 컵=디저트/카페, 초록 점=자연·숲. 작은 번호 점은 아래 카드 번호와 1:1로 대응하고(밝은 점=명소, 색깔 점=맛집), 금색 테두리가 있으면 그 카테고리의 "이 카테고리 픽"이에요. 정확한 위치·경로는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
     <h3 class="section-label">명소</h3>
