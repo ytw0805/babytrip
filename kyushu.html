@@ -268,6 +268,13 @@
   .day-foot{font-size:11.5px;color:var(--ink-faint);padding:9px 16px;background:var(--surface-2);
     border-top:1px dashed var(--line-soft);word-break:keep-all;}
   .day-foot b{color:var(--caution);}
+  /* ---------- 지역 탭 안 점프 칩 ---------- */
+  /* 고정된 탭바가 제목을 가리지 않도록 */
+  .section-label,.subcat{scroll-margin-top:78px;}
+  .jump{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0;}
+  .jump a{font-size:11.5px;font-weight:700;color:var(--rc-ink);background:var(--rc-soft);
+    border:2px solid var(--rc);border-radius:100px;padding:5px 12px;text-decoration:none;}
+  .jump a:hover{background:var(--rc);color:var(--surface);}
   /* ---------- 숙소 카드 (택시에서 보여주는 용도) ---------- */
   .stays{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:10px;margin:10px 0 0;}
   .stay{border:2px solid var(--line);border-radius:12px;background:var(--surface);
@@ -407,8 +414,13 @@
     .sched-bar{font-size:10.5px;padding:6px 1px;}
     .sched-stay{font-size:9px;}
     .sched-foot{font-size:10.5px;}
-    .tabbar{grid-template-columns:repeat(3,1fr);position:static;}
-    .tabbtn{font-size:13px;padding:8px 2px 6px;}
+    /* 한 줄 가로 스크롤로 바꿔야 고정해도 화면을 안 잡아먹는다 —
+       3열로 고정하면 탭만 세 줄이라 static 이 될 수밖에 없었다 */
+    .tabbar{display:flex;grid-template-columns:none;overflow-x:auto;gap:6px;
+      position:sticky;top:0;padding:7px 2px;margin:0 -2px 16px;
+      background:var(--paper);scrollbar-width:none;-webkit-overflow-scrolling:touch;}
+    .tabbar::-webkit-scrollbar{display:none;}
+    .tabbtn{flex:0 0 auto;font-size:13px;padding:8px 13px 6px;box-shadow:2px 2px 0 var(--ink);}
     .card-grid{grid-template-columns:1fr;}
 
     /* 표를 옆으로 미는 대신 한 행씩 카드로 쌓는다 — 좁은 화면에선 가로 스크롤 중에
@@ -654,6 +666,8 @@
         <li>구시다신사·캐널시티·가와바타 상점가는 <b>연휴 첫날 오전이라 평소 토요일보다 붐빌 수 있어요.</b> 버스 시간에서 거꾸로 계산해 여유를 두세요.</li>
       </ul>
     </div>
+
+    <nav class="jump"><a href="#hakata-sights">명소</a><a href="#hakata-food">맛집</a><a href="#tabbar">↑ 탭으로</a></nav>
 
     <figure class="approx-map-fig">
       <svg viewBox="0 0 700 622" role="img" aria-label="JR 하카타역 주변 지도 — OpenStreetMap 좌표로 그렸습니다">
@@ -1172,7 +1186,7 @@
       <figcaption>실제 좌표로 그린 <b>도보권 지도</b>예요 — 도로·강·철길은 OpenStreetMap 데이터를 그대로 옮겼고, 아래 축척 막대(400m ≈ 도보 5분)가 실제 거리 기준이에요. 숙소와 역이 가운데 오도록 도보권만 그렸고, 그 범위를 벗어나는 곳은 <b>가장자리 화살표에 방향·거리(걸어갈 수 있으면 도보 시간까지)</b>로 표시했어요. <b>큰 집 아이콘=숙소, 기차 아이콘=역</b>, 파란 선=강, 굵은 선=간선도로입니다. 작은 번호 점은 아래 카드 번호와 1:1로 대응하고(어두운 점=명소, 색깔 점=맛집·카페), 금색 테두리는 그 카테고리의 "이 카테고리 픽"이에요. <b>테두리가 점선인 점</b>은 OpenStreetMap에 등록이 없어 그 동네 안 대략 위치로만 찍은 곳이니, 정확한 위치는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
-    <h3 class="section-label">명소</h3>
+    <h3 class="section-label" id="hakata-sights">명소</h3>
     <div class="card-grid sights">
       <div class="card pick"><div class="kind">신사</div><h4>구시다신사 <span class="jp">櫛田神社</span></h4><p>하카타 기온 야마카사 축제의 본거지. 경내는 평지, 입구에 약간의 계단.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">숙소 도보 약 15분</span><span class="chip">나카스카와바타역 도보 5~7분</span></div></div>
       <div class="card"><div class="kind">쇼핑몰</div><h4>캐널시티 하카타 <span class="jp">キャナルシティ博多</span></h4><p>실내몰+분수쇼, 에스컬레이터·엘리베이터 완비. 하카타역 도보 10~15분.</p><div class="meta"><span class="chip">숙소 도보 약 10~15분</span></div></div>
@@ -1187,7 +1201,7 @@
       <div class="card"><div class="kind">일본정원</div><h4>라쿠스이엔 <span class="jp">楽水園</span></h4><p>1906년 하카타 상인 별장을 복원한 지천회유식 정원, 다다미 찻집에서 다도 체험 가능(사전예약). 하카타역 도보 약 12분.</p><div class="meta"><span class="chip">숙소 도보 약 12분</span><span class="chip">입장료 100엔</span></div></div>
     </div>
 
-    <h3 class="section-label">맛집</h3>
+    <h3 class="section-label" id="hakata-food">맛집</h3>
     <div class="subcat">한 그릇 든든하게</div>
     <div class="card-grid">
       <div class="card pick"><div class="kind">교자</div><h4>호운테이 나카스본점 <span class="jp">宝雲亭</span></h4><p>1949년 창업, 한입교자 원조 격, 마늘 미사용. 정기휴무 없이 <b>저녁 장사만</b> 해요 — 금·토는 18:00~24:00, 그 외 요일은 18:00~23:00. 우리가 하카타에서 저녁을 보내는 <b>10/9(금)에 맞습니다.</b></p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">숙소 도보 약 17분</span><span class="chip">연중무휴 · 저녁(18:00~)만</span><span class="chip rating hi">타베로그 3.58 (754) · 백명점 2024</span><span class="chip chain">지역 체인 · 여기가 본점</span></div></div>
@@ -1242,6 +1256,8 @@
         <li><b>10/12(월) 아마가세행 열차는 공휴일 시간표일 수 있어요.</b> 출발 전 그 날짜로 다시 검색해보세요.</li>
       </ul>
     </div>
+
+    <nav class="jump"><a href="#yufuin-sights">명소</a><a href="#yufuin-food">맛집</a><a href="#tabbar">↑ 탭으로</a></nav>
 
     <figure class="approx-map-fig">
       <svg viewBox="0 0 700 497" role="img" aria-label="유후인역에서 긴린코까지 이어지는 지도 — OpenStreetMap 좌표로 그렸습니다">
@@ -1500,7 +1516,7 @@
       <figcaption>실제 좌표로 그린 <b>도보권 지도</b>예요 — 도로·강·철길은 OpenStreetMap 데이터를 그대로 옮겼고, 아래 축척 막대(400m ≈ 도보 5분)가 실제 거리 기준이에요. 숙소와 역이 가운데 오도록 도보권만 그렸고, 그 범위를 벗어나는 곳은 <b>가장자리 화살표에 방향·거리(걸어갈 수 있으면 도보 시간까지)</b>로 표시했어요. <b>큰 집 아이콘=숙소, 기차 아이콘=역</b>, 파란 선=강, 굵은 선=간선도로입니다. 작은 번호 점은 아래 카드 번호와 1:1로 대응하고(어두운 점=명소, 색깔 점=맛집·카페), 금색 테두리는 그 카테고리의 "이 카테고리 픽"이에요. <b>테두리가 점선인 점</b>은 OpenStreetMap에 등록이 없어 그 동네 안 대략 위치로만 찍은 곳이니, 정확한 위치는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
-    <h3 class="section-label">명소</h3>
+    <h3 class="section-label" id="yufuin-sights">명소</h3>
     <div class="subcat">호수 · 거리</div>
     <div class="card-grid sights">
       <div class="card pick"><div class="kind">호수</div><h4>긴린코 <span class="jp">金鱗湖</span></h4><p>둘레 약 400m 호숫가 평지길, 벤치 많음. 일부 비포장·자갈 구간.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">유후인역 도보 약 20분</span><span class="chip rc">평지</span></div></div>
@@ -1530,7 +1546,7 @@
       <div class="card"><div class="kind">신사</div><h4>우나기히메 신사 <span class="jp">宇奈岐日女神社</span></h4><p>역에서 도보 약 20분, 큰 도리이부터 참배로.</p><div class="meta"><span class="chip caution">계단 유무 확인 필요</span></div></div>
     </div>
 
-    <h3 class="section-label">맛집</h3>
+    <h3 class="section-label" id="yufuin-food">맛집</h3>
     <div class="subcat">식사</div>
     <div class="card-grid">
       <div class="card pick"><div class="kind">마부시덮밥</div><h4>유부 마부시 신 <span class="jp">由布まぶし心</span></h4><p>분고규·장어·지역닭 중 택1 "마부시" 덮밥, 긴린코 본점. 3,200엔.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip rating">타베로그 3.47 (253)</span><span class="chip chain">2곳(둘 다 유후인) · 긴린코 본점</span></div></div>
@@ -1583,6 +1599,8 @@
       <span><b>주의</b> 마메다마치와 아마가세온천은 약 20km 떨어진 다른 지역</span>
       <span><b>동선</b> 유후인→아마가세(체크인) → 다음날 히타역·마메다마치 → 텐진행 버스</span>
     </div>
+
+    <nav class="jump"><a href="#hita-sights">명소</a><a href="#hita-food">맛집</a><a href="#tabbar">↑ 탭으로</a></nav>
 
     <figure class="approx-map-fig">
       <svg viewBox="0 0 480 640" role="img" aria-label="히타역과 마메다마치 주변 지도 — OpenStreetMap 좌표로 그렸습니다">
@@ -2083,7 +2101,7 @@
       <figcaption>실제 좌표로 그린 <b>도보권 지도</b>예요 — 도로·강·철길은 OpenStreetMap 데이터를 그대로 옮겼고, 아래 축척 막대(400m ≈ 도보 5분)가 실제 거리 기준이에요. 숙소와 역이 가운데 오도록 도보권만 그렸고, 그 범위를 벗어나는 곳은 <b>가장자리 화살표에 방향·거리(걸어갈 수 있으면 도보 시간까지)</b>로 표시했어요. <b>큰 집 아이콘=숙소, 기차 아이콘=역</b>, 파란 선=강, 굵은 선=간선도로입니다. 작은 번호 점은 아래 카드 번호와 1:1로 대응하고(어두운 점=명소, 색깔 점=맛집·카페), 금색 테두리는 그 카테고리의 "이 카테고리 픽"이에요. <b>테두리가 점선인 점</b>은 OpenStreetMap에 등록이 없어 그 동네 안 대략 위치로만 찍은 곳이니, 정확한 위치는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
-    <h3 class="section-label">명소</h3>
+    <h3 class="section-label" id="hita-sights">명소</h3>
     <div class="subcat">아마가세 온천</div>
     <div class="card-grid sights">
       <div class="card"><div class="kind">산책로</div><h4>아마가세온천 강변 산책로</h4><p>료칸 앞 대체로 평탄한 강변길. 공동노천탕은 바위지형이라 산책만 추천.</p><div class="meta"><span class="chip">숙소(산소 텐스이) 도보 약 0~2분</span><span class="chip caution">공동노천탕 입욕 비추천</span></div></div>
@@ -2099,7 +2117,7 @@
       <div class="card"><div class="kind">전통가옥</div><h4>구사노혼케 <span class="jp">草野本家</span></h4><p>국가중요문화재 상가 건물. 연 4회만 열고, 올가을은 야간 특별배관 「あかり物語」(10/9·10·11·16·17·23·30·31)로 공개돼요. <b>그런데 히타에 머무는 10/12 저녁·10/13 오전 모두 공개일이 아니에요.</b> 게다가 야간 공개라, 10/12 저녁엔 아마가세(20km 밖)에, 10/13 저녁엔 이미 텐진에 있습니다.</p><div class="meta"><span class="chip closed">우리 일정과 공개일이 안 맞음</span><span class="chip">야간 18:30~20:00 · 2,500엔 · 약 45분</span><span class="chip caution">회당 10명 예약제 · 우천 취소 · 0973-22-2036</span></div></div>
     </div>
 
-    <h3 class="section-label">맛집</h3>
+    <h3 class="section-label" id="hita-food">맛집</h3>
     <div class="subcat">히타 야키소바 (현지 명물)</div>
     <div class="card-grid">
       <div class="card pick"><div class="kind">야키소바</div><h4>소부렌 본점 <span class="jp">想夫恋 総本店</span></h4><p>철판에 바삭하게 굽는 히타 야키소바 원조집. 역 도보 12분.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">히타역 도보 약 11분</span><span class="chip rating hi">타베로그 3.70 (606)</span><span class="chip chain">체인 46곳 · 여기가 총본점</span></div></div>
@@ -2144,6 +2162,8 @@
       <span><b>귀국</b> 13:40 FUK → 15:25 ICN (7C1472), 늦어도 오전 11시엔 출발</span>
       <span><b>참고</b> 아래 카드의 도보시간은 니시테츠 텐진역 기준 — 숙소는 그 역에서 도보 약 6분 더 떨어져 있음</span>
     </div>
+
+    <nav class="jump"><a href="#tenjin-sights">명소</a><a href="#tenjin-food">맛집</a><a href="#tabbar">↑ 탭으로</a></nav>
 
     <figure class="approx-map-fig">
       <svg viewBox="0 0 700 502" role="img" aria-label="니시테츠 텐진역 주변 지도 — OpenStreetMap 좌표로 그렸습니다">
@@ -2359,7 +2379,7 @@
       <figcaption>실제 좌표로 그린 <b>도보권 지도</b>예요 — 도로·강·철길은 OpenStreetMap 데이터를 그대로 옮겼고, 아래 축척 막대(400m ≈ 도보 5분)가 실제 거리 기준이에요. 숙소와 역이 가운데 오도록 도보권만 그렸고, 그 범위를 벗어나는 곳은 <b>가장자리 화살표에 방향·거리(걸어갈 수 있으면 도보 시간까지)</b>로 표시했어요. <b>큰 집 아이콘=숙소, 기차 아이콘=역</b>, 파란 선=강, 굵은 선=간선도로입니다. 작은 번호 점은 아래 카드 번호와 1:1로 대응하고(어두운 점=명소, 색깔 점=맛집·카페), 금색 테두리는 그 카테고리의 "이 카테고리 픽"이에요. <b>테두리가 점선인 점</b>은 OpenStreetMap에 등록이 없어 그 동네 안 대략 위치로만 찍은 곳이니, 정확한 위치는 카드를 눌러 구글맵으로 확인하세요.</figcaption>
     </figure>
 
-    <h3 class="section-label">명소</h3>
+    <h3 class="section-label" id="tenjin-sights">명소</h3>
     <div class="card-grid sights">
       <div class="card pick"><div class="kind">호수공원</div><h4>오호리공원 <span class="jp">大濠公園</span></h4><p>둘레 약 2km 완전 평지 호수공원, 유모차·휠체어 무료 대여.</p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">텐진역 도보 약 20분(지하철 4분+도보 대안 있음)</span><span class="chip rc">완전 평지</span></div></div>
       <div class="card"><div class="kind">옥상정원</div><h4>아크로스 후쿠오카 스텝가든</h4><p>계단식 옥상정원(120종 5만 그루), 무료. 3~10월 09:00~18:00. 다만 <b>맨 위 옥상전망대는 토·일·공휴일 10:00~16:00에만 엽니다</b> — 우리가 텐진에 있는 10/13(화)·10/14(수)엔 닫혀 있어요. 아래쪽 계단정원은 평일에도 열려 있습니다.</p><div class="meta"><span class="chip">텐진역 도보 약 10분(지하철 이용시 5분)</span><span class="chip closed">옥상전망대는 우리 날짜에 닫힘</span><span class="chip caution">비 오거나 발밑이 미끄러우면 이용 불가</span><span class="chip caution">계단형, 엘리베이터 이용 권장</span></div></div>
@@ -2371,7 +2391,7 @@
       <div class="card"><div class="kind">전망타워</div><h4>후쿠오카타워</h4><p>해변타워, 234m, 배리어프리 완비.</p><div class="meta"><span class="chip caution">모모치 지역, 도보 비현실적 — 버스·택시 이동 필요</span></div></div>
     </div>
 
-    <h3 class="section-label">맛집</h3>
+    <h3 class="section-label" id="tenjin-food">맛집</h3>
     <div class="subcat">든든한 한끼 (라멘 · 고기 · 초밥)</div>
     <div class="card-grid">
       <div class="card pick"><div class="kind">라멘</div><h4>하카타라멘 신신 텐진본점</h4><p>극세면+담백한 돈코츠, 냄새 적어 접근성 좋음. 11:00~새벽 03:00. <b>수요일과 매월 셋째 화요일이 휴무</b>인데, 10/13은 둘째 화요일이라 <b>우리 텐진 저녁엔 열려 있어요.</b> 대신 <b>마지막 날 10/14(수)엔 쉽니다.</b></p><div class="meta"><span class="chip pick">이 카테고리 픽</span><span class="chip">텐진역 도보 약 4~5분</span><span class="chip">10/13(화) 저녁 영업 · 10/14(수) 휴무</span><span class="chip rating hi">타베로그 3.58 (2,248)</span><span class="chip chain">지역 체인 7곳 · 여기가 본점</span></div></div>
@@ -3328,8 +3348,11 @@
     btn.addEventListener('click', function(){
       var r = btn.getAttribute('data-r');
       btns.forEach(function(b){ b.classList.toggle('active', b===btn); });
+      // 모바일에선 탭바가 가로 스크롤이라 고른 탭이 화면 밖일 수 있다
+      if(btn.scrollIntoView) btn.scrollIntoView({block:'nearest', inline:'center'});
       panels.forEach(function(p){ p.hidden = (p.getAttribute('data-region') !== r); });
-      window.scrollTo({top:0, behavior:'smooth'});
+      // goto 버튼이 부를 때는 이어서 섹션으로 스크롤하므로, 여기서 위로 올리면 두 스크롤이 겹친다
+      if(!window.__gotoJump) window.scrollTo({top:0, behavior:'smooth'});
     });
   });
 
@@ -3476,7 +3499,14 @@
     b.addEventListener('click', function(){
       var r = b.getAttribute('data-go');
       var tab = document.querySelector('.tabbtn[data-r="'+r+'"]');
-      if(tab) tab.click();
+      if(!tab) return;
+      var sec = document.getElementById(r + '-sights');
+      window.__gotoJump = !!sec;
+      tab.click();
+      window.__gotoJump = false;
+      // 탭 맨 위로 보내면 히어로 · 연휴 안내 · 지도 · 명소를 다 지나야 카드가 나온다.
+      // 버튼 이름이 "카드 보기"이니 카드에서 시작하는 게 맞다.
+      if(sec) sec.scrollIntoView({behavior:'smooth', block:'start'});
     });
   });
 
