@@ -232,6 +232,11 @@
     color:var(--surface);background:var(--ink);border-radius:100px;padding:2px 9px;}
   .day-head h3{font-family:"Black Han Sans";font-weight:400;font-size:19px;margin:0;color:var(--ink);}
   .day-head .d-where{font-size:12px;font-weight:700;color:var(--ink-faint);word-break:keep-all;}
+  .day-why{font-size:12.5px;line-height:1.6;color:var(--ink);word-break:keep-all;
+    padding:11px 16px 0;margin:0;}
+  .day-why b{color:var(--rc);}
+  .day-why .wl{display:block;font-family:"IBM Plex Mono",monospace;font-size:9.5px;
+    font-weight:700;letter-spacing:.12em;color:var(--ink-faint);margin-bottom:4px;}
   .day-head .d-hol{font-size:10px;font-weight:700;color:var(--surface);background:var(--caution);
     border-radius:100px;padding:2px 8px;letter-spacing:.02em;}
   /* ---------- 3연휴 경고 (스포츠의 날) ---------- */
@@ -486,7 +491,7 @@
     <div class="info-hero">
       <div class="region-eyebrow">DAY BY DAY</div>
       <h2>6일, 하루씩 뜯어보기</h2>
-      <p class="region-tagline">못 바꾸는 일정(<b>고정</b>)을 먼저 깔고, 그 사이에 남는 시간이 얼마인지 보여줘요. 여기서 "이 시간에 뭘 넣을까"를 같이 정하면 됩니다.</p>
+      <p class="region-tagline">해탈이와 함께 가는 첫 여행이에요. 도시에서 시작해 산 안쪽까지 들어갔다가 다시 도시로 나오는 6일이고, <b>날마다 성격이 꽤 다릅니다.</b> 못 바꾸는 일정(<b>고정</b>)을 먼저 깔아뒀으니, 그 사이 빈 시간에 "뭘 넣을까"를 같이 정하면 돼요. <b>다 채우지 않아도 괜찮은 일정</b>으로 짰습니다.</p>
     </div>
 
     <div class="holiday">
@@ -546,7 +551,8 @@
 
     <div class="day">
       <div class="day-head"><span class="d-n">DAY 1</span><h3>10/9 (금)</h3><span class="d-where">인천 → 하카타</span></div>
-      <div class="day-body">
+      <p class="day-why"><span class="wl">이 날은</span><b>도착하는 것 자체가 일정</b>이에요 — 인천에서 저녁 비행기를 타고, 하카타 숙소에 짐을 풀면 밤 8시가 넘어요. 명소는 다 닫은 시간이라 저녁 한 끼가 전부입니다. <b>첫날은 원래 이런 날이니까</b> 뭘 못 했다고 아쉬워하지 않아도 돼요.</p>
+            <div class="day-body">
         <div class="tl fixed"><span class="tl-t">17:20</span><span class="tl-c">인천 출발 (7C1407)</span></div>
         <div class="tl fixed"><span class="tl-t">18:50</span><span class="tl-c">후쿠오카 도착<span class="tl-note">입국심사·수하물·세관에 30~45분</span></span></div>
         <div class="tl fixed"><span class="tl-t">~19:40</span><span class="tl-c">국제선 → 국내선 셔틀(10~15분) → 지하철(5분)</span></div>
@@ -559,7 +565,8 @@
 
     <div class="day">
       <div class="day-head"><span class="d-n">DAY 2</span><h3>10/10 (토)</h3><span class="d-where">하카타 → 유후인</span><span class="d-hol">연휴 1일차</span></div>
-      <div class="day-body">
+      <p class="day-why"><span class="wl">이 날은</span>규슈를 <b>가로질러 산으로 들어가는 날</b>이에요 — 아침엔 아직 도시에 있다가, 버스로 2시간 10분을 달리면 창밖이 온천 마을로 바뀝니다. 오후엔 첫 료칸에 짐을 풀고 <b>여행 와서 처음으로 아무 데도 안 가는 저녁</b>을 보내요.</p>
+            <div class="day-body">
         <div class="tl free"><span class="tl-t">오전</span><span class="tl-c"><b>하카타에서 2~3시간</b><span class="tl-note">버스 시간에서 거꾸로 계산한 값이에요. 구시다신사·캐널시티·가와바타 상점가가 서로 붙어 있어 이 셋이 한 덩어리로 좋아요.</span></span></div>
         <div class="tl fixed"><span class="tl-t">~12:00</span><span class="tl-c">하카타 버스터미널 3층 34번 승강장 → 유후인고<span class="tl-note">예약한 시간에 맞춰서. 소요 2시간 10분</span></span></div>
         <div class="tl fixed"><span class="tl-t">~14:30</span><span class="tl-c">유후인역앞 버스센터 도착</span></div>
@@ -572,7 +579,8 @@
 
     <div class="day">
       <div class="day-head"><span class="d-n">DAY 3</span><h3>10/11 (일)</h3><span class="d-where">유후인 종일 · 숙소 이동</span><span class="d-hol">연휴 2일차</span></div>
-      <div class="day-body">
+      <p class="day-why"><span class="wl">이 날은</span>여섯 날 중 <b>유일하게 아무 데도 안 가는 날</b>이에요 — 짐을 옮기긴 하지만 유후인 안에서예요. 아침 일찍 유노쓰보 카이도를 걸으면 <b>가게가 열기 전의 빈 거리</b>를 보게 되는데, 연휴 낮의 그 길과는 전혀 다른 곳입니다. 이 여행에서 제일 여유로운 하루예요.</p>
+            <div class="day-body">
         <div class="tl fixed"><span class="tl-t">오전</span><span class="tl-c">도쇼안 체크아웃<span class="tl-note">체크아웃은 보통 오전, 나카야 체크인은 보통 오후예요(정확한 시간은 예약 확인서 확인). <b>그 사이 몇 시간은 짐을 든 채로 다녀야 하는 시간</b>입니다.</span></span></div><div class="tl fixed"><span class="tl-t">→ 먼저</span><span class="tl-c"><b>짐부터 해결하고 시작하세요</b><span class="tl-note">관광안내소의 <b>유후인 치키</b>가 숙소→숙소 배송을 해줘요(접수 09:00~15:00, 크기별 300~1,200엔). 아침에 맡기면 <b>몸만 유노쓰보 카이도를 걸을 수 있어요.</b> 유후인 안에서만 되는 서비스라 이 날이 딱 쓸 타이밍입니다.</span></span></div>
         <div class="tl free"><span class="tl-t">낮</span><span class="tl-c"><b>유일하게 통으로 비는 하루</b><span class="tl-note">유노쓰보 카이도(역→긴린코 약 800m)를 따라 걷는 게 기본 축이에요. 카드 대부분이 이 길 위에 있습니다.</span></span></div>
         <div class="tl free"><span class="tl-t">—</span><span class="tl-c">긴린코까지 갈지 결정<span class="tl-note">역에서 편도 약 1.4km(도보 20분). 왕복이면 2.8km라 이것만으로 하루 걸음 수가 꽤 됩니다.</span></span></div><div class="tl fixed"><span class="tl-t">오후</span><span class="tl-c">나카야 체크인<span class="tl-note">역에서 동북동 940m(도보 17분). 유노쓰보 카이도 방향이라 걸어가며 구경해도 돼요.</span></span></div><div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">나카야 저녁<span class="tl-note">여기도 가이세키면 생식·술 제외를 미리 요청해두세요.</span></span></div>
@@ -583,7 +591,8 @@
 
     <div class="day">
       <div class="day-head"><span class="d-n">DAY 4</span><h3>10/12 (월)</h3><span class="d-where">유후인 → 아마가세온천</span><span class="d-hol">스포츠의 날 · 공휴일</span></div>
-      <div class="day-body">
+      <p class="day-why"><span class="wl">이 날은</span><b>가장 깊은 곳으로 들어가는 날</b>이에요 — 유후인보다 더 안쪽, 강을 따라 있는 작은 온천 마을로 갑니다. 무인역에 내려서 료칸 차를 타고 들어가요. 도착하면 <b>저녁까지 특별히 할 일이 없는데, 그게 이 날의 목적</b>입니다.</p>
+            <div class="day-body">
         <div class="tl fixed"><span class="tl-t">열차</span><span class="tl-c"><b>이 날 시간표가 가장 빡빡해요</b><span class="tl-note">보통열차는 07:32 다음이 16:23. 낮에 움직이려면 특급(09:08 · 12:01 · 14:15 · 17:17)을 타야 하고, <b>13:42 열차는 아마가세에 안 갑니다.</b></span></span></div>
         <div class="tl free"><span class="tl-t">오전</span><span class="tl-c">탈 열차를 먼저 고르고, 남는 시간만큼 유후인<span class="tl-note">12:01 특급이면 오전이 통째로 남고, 09:08이면 아침만 있어요</span></span></div>
         <div class="tl fixed"><span class="tl-t">45~51분</span><span class="tl-c">유후인 → 아마가세 (IC카드 안 됨 · 종이표)</span></div>
@@ -596,7 +605,8 @@
 
     <div class="day">
       <div class="day-head"><span class="d-n">DAY 5</span><h3>10/13 (화)</h3><span class="d-where">아마가세 → 히타 → 텐진</span></div>
-      <div class="day-body">
+      <p class="day-why"><span class="wl">이 날은</span><b>가장 많이 움직이는 날</b>이에요 — 산에서 나와 에도시대 거리를 걷고, 버스로 한 시간 반을 달려 다시 도시로 들어갑니다. 숙소를 세 번째로 옮기는 날이라 <b>짐을 든 시간이 제일 길어요.</b> 대신 저녁엔 텐진 한복판이에요.</p>
+            <div class="day-body">
         <div class="tl fixed"><span class="tl-t">오전</span><span class="tl-c">아마가세 → 히타 (JR 15분, 340엔)</span></div>
         <div class="tl free"><span class="tl-t">오전~낮</span><span class="tl-c"><b>마메다마치 한 바퀴</b><span class="tl-note">히타역에서 북쪽 1.5km(도보 20분). 전 구간 평지예요. 돌아올 시간까지 계산해서 버스 시각을 잡으세요.</span></span></div>
         <div class="tl fixed"><span class="tl-t">버스</span><span class="tl-c">히타 버스터미널(역 앞) 2번 승강장 → 히타고 1시간 32분<span class="tl-note">예약 불필요하지만 만석이면 다음 차. 현금·IC만 되고 고액권은 거스름이 안 돼요</span></span></div>
@@ -608,7 +618,8 @@
 
     <div class="day">
       <div class="day-head"><span class="d-n">DAY 6</span><h3>10/14 (수)</h3><span class="d-where">텐진 → 인천</span></div>
-      <div class="day-body">
+      <p class="day-why"><span class="wl">이 날은</span><b>마지막 아침</b>이에요 — 오전 두세 시간이 전부고, 그마저 짐을 맡긴 뒤예요. 멀리 나가는 대신 <b>지하상가와 백화점 지하에서 먹을 것을 고르는 시간</b>으로 쓰면 공항까지 들고 가기도 편합니다.</p>
+            <div class="day-body">
         <div class="tl fixed"><span class="tl-t">아침</span><span class="tl-c">체크아웃 · 짐 맡기기<span class="tl-note">호텔 프런트에 맡기는 게 가장 간단해요. 안 되면 니시테츠 텐진역 코인로커(1·2·3층)를 쓰면 됩니다.</span></span></div><div class="tl free"><span class="tl-t">~10:45</span><span class="tl-c"><b>쓸 수 있는 시간은 2~3시간</b><span class="tl-note">짐을 맡긴 뒤 <b>텐진 지하상가·백화점 데파치카</b>처럼 역에서 몇 분 안쪽이 현실적이에요. 기념품·먹거리를 여기서 사면 공항까지 들고 가기도 편합니다.</span></span></div>
         <div class="tl fixed"><span class="tl-t">10:45~11:00</span><span class="tl-c">텐진 출발 (공항 직행버스 3층 6번 승강장)<span class="tl-note">500엔 · 국제선 터미널 논스톱 30~40분</span></span></div>
         <div class="tl fixed"><span class="tl-t">11:40</span><span class="tl-c">국제선 터미널 도착 목표 (출발 2시간 전)</span></div>
@@ -2668,7 +2679,7 @@
       <p class="region-tagline">여행 내내 챙길 것과, 출발 전 다시 확인해야 할 것들.</p>
     </div>
 
-    <nav class="toc"><a href="#c0">지금부터 출발까지, 순서대로</a><a href="#c00">현금은 얼마나 챙길까</a><a href="#c1">무슨 일이 생기면</a><a href="#c2">비행기 타기 전</a><a href="#c3">가방에 넣을 것</a><a href="#c4">10월 날씨 · 옷차림</a><a href="#c5">언제 뭘 확인하면 되는지</a><a href="#c6">먹는 것 — 일본 공식 기준으로</a><a href="#c65">🍺 무알콜 맥주 — 0.00%인 것만 골라요</a><a href="#c7">온천 — 일본의 현재 공식 입장</a><a href="#c8">약 챙기기 · 일본에서 약 사기</a><a href="#c9">화장실 · 앉아서 쉴 곳</a><a href="#c10">짐 — 6일에 숙소를 5번 옮겨요</a><a href="#c11">식당에서 이 말만 하면 돼요</a><a href="#c12">비 오는 날 대안</a><a href="#c13">이 일정에서 걸리는 곳만 모았어요</a></nav>
+    <nav class="toc"><a href="#c0">지금부터 출발까지, 순서대로</a><a href="#c00">현금은 얼마나 챙길까</a><a href="#c1">무슨 일이 생기면</a><a href="#c2">비행기 타기 전</a><a href="#c3">가방에 넣을 것</a><a href="#c4">10월 날씨 · 옷차림</a><a href="#c5">언제 뭘 확인하면 되는지</a><a href="#c6">먹는 것 — 일본 공식 기준으로</a><a href="#c65">🍺 무알콜 맥주 — 0.00%인 것만 골라요</a><a href="#c6b">료칸 3박, 이렇게 흘러가요</a><a href="#c7">온천 — 일본의 현재 공식 입장</a><a href="#c8">약 챙기기 · 일본에서 약 사기</a><a href="#c9">화장실 · 앉아서 쉴 곳</a><a href="#c10">짐 — 6일에 숙소를 5번 옮겨요</a><a href="#c11">식당에서 이 말만 하면 돼요</a><a href="#c12">비 오는 날 대안</a><a href="#c13">이 일정에서 걸리는 곳만 모았어요</a></nav>
 
     <div class="holiday">
       <h4>⚠ 먼저 알아둘 것 — 10/10~10/12는 일본 3연휴예요</h4>
@@ -2945,6 +2956,39 @@
       </ul>
     </div>
 
+    <h3 class="section-label" id="c6b">료칸 3박, 이렇게 흘러가요</h3>
+    <p class="section-sub">5박 중 3박이 료칸이에요 — 저녁도 아침도 온천도 다 그 안에서 일어납니다</p>
+
+    <div class="chk-note">
+      <b>료칸이 처음이라면 — 저녁이 이렇게 흘러가요</b>
+      <p style="margin:6px 0 0;">호텔과 리듬이 완전히 달라요. <b>저녁 식사 시간을 체크인할 때 정하고, 그 시간에 맞춰 하루가 돌아갑니다.</b>
+      대체로 이런 순서예요(료칸마다 조금씩 다릅니다).</p>
+      <ul>
+        <li><b>체크인</b> — 보통 오후예요. 방으로 안내받으면서 <b>저녁 시간을 몇 시로 할지</b> 묻습니다. 미리 둘이 얘기해두면 편해요.</li>
+        <li><b>유카타로 갈아입어요.</b> 방에 준비돼 있고, 료칸 안에서는 이걸 입고 다니는 게 기본이에요. <b>온천에 갈 때도 이대로 갑니다.</b></li>
+        <li><b>저녁 전에 온천에 한 번.</b> 단 <b>식사 직전은 피하라</b>고 돼 있으니, 저녁 시간에서 넉넉히 앞으로 잡으세요.</li>
+        <li><b>저녁은 정해진 시간에.</b> 방에서 먹기도 하고 식사처로 가기도 해요. <b>가이세키면 코스로 계속 나옵니다</b> — 한 번에 다 나오지 않아요.</li>
+        <li><b>대욕장은 남녀가 교대되는 곳이 많아요.</b> 아침과 저녁에 남탕·여탕이 바뀌는 식이라, <b>들어가기 전에 입구 표시를 꼭 확인</b>하세요.</li>
+        <li><b>아침 식사도 시간이 정해져 있어요.</b> 체크아웃이 오전이라 아침은 대체로 이른 편입니다.</li>
+      </ul>
+    </div>
+
+    <div class="unclear" style="margin-top:10px;">
+      <b>예약 확인서에서 이것만 확인하세요 — 아직 우리가 모르는 것들이에요</b>
+      <p style="margin:6px 0 0;">료칸 3곳(<b>도쇼안 · 온야도 나카야 · 산소 텐스이</b>)에 대해
+      아래는 <b>공식 페이지로 확인하지 못했습니다.</b> 예약 확인서에 대부분 적혀 있으니 한 번에 확인해두면
+      저녁·온천 계획이 그때 확정돼요.</p>
+      <ul>
+        <li><b>1박2식(저녁·아침 포함)인지</b> — 이게 안 되어 있으면 저녁을 밖에서 해결해야 하는데, <b>도쇼안은 역에서 1.15km라 다시 나오려면 택시</b>예요. 제일 먼저 확인할 항목입니다.</li>
+        <li><b>저녁 시작 시간 선택지</b> — 몇 시부터 몇 시까지 고를 수 있는지. 온천을 언제 갈지가 여기서 정해집니다.</li>
+        <li><b>가시키리부로(貸切風呂, 가족탕)나 객실 전용탕이 있는지</b>, 있다면 <b>예약제인지 선착순인지.</b> 있으면 온천을 훨씬 편하게 쓸 수 있어요 — 온도와 시간을 스스로 조절할 수 있고, 옆에서 잡아줄 사람이 있으니까요.</li>
+        <li><b>대욕장 남녀 교대 시간</b> — 교대제라면 몇 시에 바뀌는지.</li>
+        <li><b>객실에 화장실이 있는지</b> — 밤에 복도로 나가야 하는 구조면 미리 알아두는 게 좋아요.</li>
+        <li><b>도쇼안·나카야의 무료 셔틀 정확한 시각</b> — 도쇼안은 15:00~17:00으로만 확인됐고, 나카야는 확인하지 못했어요.</li>
+        <li><b>생식 제외 요청이 반영됐는지</b> — 9월 중에 요청하기로 한 항목이에요. 확인서에 반영 여부가 안 적혀 있으면 전화로 한 번 확인하세요.</li>
+      </ul>
+    </div>
+
     <h3 class="section-label" id="c7">온천 — 일본의 현재 공식 입장</h3>
     <p class="section-sub">"임신 중 금지"는 2014년에 공식 기준에서 빠졌어요</p>
     <div class="checklist">
@@ -2955,6 +2999,32 @@
         <li>즉 <b>권장도 금지도 아닌 상태</b>예요. 삭제 근거로 인용되는 연구(기후현 게로온천병원의 약 1,000건 분만 비교에서 입욕군의 유산·조산률 차이가 없었다는 결과)는 <b>학회지 논문이지 정부 문서 본문은 아닙니다.</b></li>
       </ul>
     </div>
+    <div class="chk-note" style="margin-top:10px;">
+      <b>환경성 공식 안내서는 임산부 질문에 직접 답해뒀어요</b>
+      <p style="margin:6px 0 0;">환경성이 <b>일본온천기후물리의학회 감수</b>로 펴낸 <i>「안심·안전한 온천 이용의 이로하」</i>에는
+      Q&amp;A가 실려 있는데, 그중 하나가 이거예요.</p>
+      <blockquote style="margin:8px 0;padding:9px 12px;border-left:3px solid var(--rc);background:var(--surface-2);border-radius:0 8px 8px 0;">
+        <b>「妊婦さんも、温泉に入れるの？」</b><br>
+        「はい。入れます。ただし、<b>長時間浴や高温浴を避ける</b>ことと、<b>滑りやすいので注意</b>しましょう。」<br>
+        <span style="color:var(--ink-faint);">— 임산부도 온천에 들어갈 수 있나요? / 네, 들어갈 수 있습니다. 다만 장시간욕과 고온욕을 피하고, 미끄러우니 주의하세요.</span>
+      </blockquote>
+      <p style="margin:6px 0 0;">위의 2014년 통지가 <b>"금지 목록에서 뺐다"</b>는 소극적 근거라면, 이건 <b>"들어가도 된다"고 직접 말한</b> 문서예요.
+      조건도 딱 두 가지 — <b>오래 담그지 말 것, 뜨겁게 하지 말 것.</b> 나머지는 미끄러짐 주의고요.</p>
+    </div>
+
+    <div class="chk-note" style="margin-top:10px;">
+      <b>그래서 몇 도, 몇 분이냐면</b>
+      <ul>
+        <li><b>15~20분을 넘기지 마세요.</b> 환경성 입욕 기준은 1회당 <b>처음엔 3~10분, 익숙해지면 15~20분까지</b>로 정해뒀어요. 임산부는 "장시간욕 회피" 대상이니 <b>짧은 쪽</b>에 맞추면 됩니다.</li>
+        <li><b>42℃가 기준선이에요.</b> 같은 문서가 <b>42℃ 이상을 "고온욕"</b>으로 보고 피하라고 합니다. 다만 42℃라는 숫자가 붙은 대상은 <b>고령자·고혈압·심장병·뇌졸중 경험자</b>고, 임산부에겐 숫자 없이 "고온욕을 피하라"고만 돼 있어요 — <b>같은 문서의 고온욕 기준이 42℃</b>라서 이 숫자를 쓰는 겁니다.</li>
+        <li><b>어지러우면 이렇게 하세요.</b> 기준 원문이 구체적이에요 — <b>주변에 도움을 청하면서, 머리를 낮은 위치로 유지한 채 천천히 나와 누워서 회복을 기다릴 것.</b> 벌떡 일어나지 않는 게 핵심입니다.</li>
+        <li><b>나올 때는 무조건 천천히.</b> "기립성 어지럼이 오지 않도록 천천히 나올 것"이 기준에 따로 적혀 있어요.</li>
+        <li><b>식사 직전·직후와 과로했을 때는 들어가지 마세요.</b> 료칸은 저녁 시간이 정해져 있으니, <b>온천은 저녁 먹기 한참 전이나 먹고 한참 뒤</b>로 잡으면 됩니다.</li>
+        <li><b>들어가기 전과 나온 뒤에 물을 마시세요.</b> 기준에 "입욕 전·후 수분 보충"이 명시돼 있어요.</li>
+        <li><b>혼자 들어가지 마세요.</b> 가시키리부로를 쓰면 제일 확실하고, 대욕장이라면 <b>남편이 탈의실 근처에서 기다리기로</b> 미리 정해두세요.</li>
+      </ul>
+    </div>
+
     <div class="unclear" style="margin-top:10px;">
       <b>그래도 실무적으로 지킬 것</b>
       <ul>
@@ -3215,7 +3285,7 @@
       <ul>
         <li><b>니혼마루칸 공사 재개 여부</b> — 가을 시즌(9/1~11/30)에 해당하지만 현재 공사로 견학이 막혀 있고 재개일이 공지되지 않았어요. <b>0973-23-6101</b>로 방문 전 확인.</li>
         <li>도쇼안·온야도 나카야의 무료 셔틀 정확한 시간, 유후인역 ↔ 아마가세역 JR 정확한 시각표.</li>
-        <li>료칸 3곳의 1박2식 포함 여부 및 붕고규 코스의 생식 메뉴 포함 여부.</li>
+        <li>료칸 3곳의 1박2식 포함 여부 및 붕고규 코스의 생식 메뉴 포함 여부 — 가시키리부로 유무, 저녁 시작 시간, 대욕장 교대 시간까지 묶어서 <a href="#c6b">「료칸 3박, 이렇게 흘러가요」</a>에 확인 목록으로 정리해뒀어요.</li>
         <li>유후인 스테인드글라스 미술관 체험 재개 시점, 노먼 록웰 미술관·이와시타 컬렉션 운영 여부.</li>
         <li>각 식당의 정확한 영업시간·가격 — 방문 전 재확인 필요. 특히 <b>타베로그 점수는 조회 시점 기준</b>이라 계속 바뀝니다.</li>
         <li>체인점 표시의 점포 수는 각 브랜드 공식 매장 목록 기준이라, 개점·폐점으로 조금씩 달라질 수 있어요.</li>
