@@ -105,7 +105,6 @@
   .tabbtn[data-r="hita"]{--btnc:var(--hita);}
   .tabbtn[data-r="tenjin"]{--btnc:var(--tenjin);}
   .tabbtn[data-r="days"]{--btnc:#6B5B95;}
-  .tabbtn[data-r="transit"]{--btnc:#4A6785;}
   .tabbtn[data-r="checklist"]{--btnc:var(--caution);}
   .tabbtn.active{background:var(--btnc);color:var(--surface);box-shadow:var(--shadow);transform:translate(-2px,-2px);}
   .tabbtn:not(.active):hover{color:var(--btnc);border-color:var(--btnc);}
@@ -133,7 +132,7 @@
   .region-panel[data-region="hita"]{--rc:var(--hita);--rc-soft:var(--hita-soft);--rc-ink:var(--hita-ink);}
   .region-panel[data-region="tenjin"]{--rc:var(--tenjin);--rc-soft:var(--tenjin-soft);--rc-ink:var(--tenjin-ink);}
   .region-panel[data-region="days"]{--rc:#6B5B95;--rc-soft:#E4DFEE;--rc-ink:#3D3457;}
-  .region-panel[data-region="transit"],.region-panel[data-region="checklist"]{--rc:var(--ink-soft);--rc-soft:var(--surface-2);--rc-ink:var(--ink);}
+  .region-panel[data-region="checklist"]{--rc:var(--ink-soft);--rc-soft:var(--surface-2);--rc-ink:var(--ink);}
   .region-hero{
     position:relative;overflow:hidden;border:3px solid var(--line);border-radius:16px;
     background:var(--rc);color:var(--surface);padding:22px 22px 20px;margin-bottom:16px;box-shadow:var(--shadow);
@@ -553,8 +552,7 @@
     <button class="tabbtn" data-r="yufuin">유후인<span class="d">DAY 2–3</span></button>
     <button class="tabbtn" data-r="hita">히타<span class="d">DAY 4</span></button>
     <button class="tabbtn" data-r="tenjin">텐진<span class="d">DAY 5–6</span></button>
-    <button class="tabbtn" data-r="transit">교통<span class="d">구간별 비교</span></button>
-    <button class="tabbtn" data-r="days">자세히<span class="d">6일 흐름</span></button>
+    <button class="tabbtn" data-r="days">자유시간<span class="d">주소 · 날짜별</span></button>
     <button class="tabbtn" data-r="checklist">체크리스트<span class="d">임신 21주차</span></button>
   </nav>
 
@@ -757,29 +755,9 @@
     </div>
   </section>
 
-  <!-- ================= 하루하루 ================= -->
+  <!-- ================= 자유시간 ================= -->
   <section class="region-panel" id="panel-days" data-region="days" hidden>
-    <div class="info-hero">
-      <div class="region-eyebrow">DAY BY DAY</div>
-      <h2>6일, 하루씩 뜯어보기</h2>
-      <p class="region-tagline">해탈이와 함께 가는 첫 여행이에요. 도시에서 시작해 산 안쪽까지 들어갔다가 다시 도시로 나오는 6일이고, <b>날마다 성격이 꽤 다릅니다.</b> 못 바꾸는 일정(<b>고정</b>)을 먼저 깔아뒀으니, 그 사이 빈 시간에 "뭘 넣을까"를 같이 정하면 돼요. <b>다 채우지 않아도 괜찮은 일정</b>으로 짰습니다.</p>
-    </div>
-
-    <div class="holiday">
-      <h4>⚠ 10/10~10/12는 일본 3연휴예요 — 그게 전부 유후인 일정입니다</h4>
-      <p>10월 12일(월)이 <b>스포츠의 날(スポーツの日)</b>, 일본 공휴일이에요. 일본 국민의 축일에 관한 법률상 <b>10월 둘째 주 월요일</b>이고, 2026년 10월의 둘째 주 월요일이 12일입니다. 그래서 <b>토·일·월이 통째로 연휴</b>가 돼요.</p>
-      <p>하필 그 사흘이 <b>DAY 2~4, 우리 유후인 일정과 정확히 겹칩니다.</b> 유후인은 평소 주말에도 붐비는 곳이라 3연휴엔 체감이 또 달라요. 준비할 게 세 가지예요.</p>
-      <ul>
-        <li><b>유후인고 버스는 빨리 예약하세요.</b> 10/10(토)은 연휴 첫날이라 후쿠오카→유후인 방향이 제일 몰리는 날이에요. 이 버스는 좌석이 지정돼서 <b>예약이 곧 자리</b>입니다.</li>
-        <li><b>유노쓰보 카이도는 아침에 걸으세요.</b> 역~긴린코 800m 구간에 사람이 가장 많이 몰리는 곳이라, 연휴 낮엔 인파 속에서 밀리며 걷게 됩니다. <b>임신 21주차엔 이게 거리보다 더 힘들어요.</b> 아침 일찍이면 같은 길이 전혀 다릅니다.</li>
-        <li><b>10/12(월) 열차는 그 날짜로 확인했어요.</b> 공휴일도 평일과 같은 시간표였고, <b>14:15 특급 유후 4호 → 14:57 아마가세</b>로 정했어요. 표는 10/10 오전 하카타역에서 미리 삽니다.</li>
-      </ul>
-      <p>반대로 좋은 점도 있어요 — 우리가 히타·텐진에 있는 <b>10/13(화)·10/14(수)는 연휴가 끝난 뒤</b>라 오히려 한산한 편입니다.</p>
-    </div>
-
-    <div class="chosen" id="chosen-box"></div>
-
-    <h3 class="section-label" id="s-stay">오늘 밤 어디서 자나요</h3>
+    <h3 class="section-label" id="s-stay">택시에서 보여줄 주소</h3>
     <p class="section-sub">택시에서는 주소를 보여주는 게 제일 빨라요 — 아래 일본어 주소를 그대로 보여주세요</p>
     <div class="stays">
       <div class="stay">
@@ -820,14 +798,12 @@
     </div>
     <p style="font-size:11px;color:var(--ink-faint);margin:8px 0 16px;">주소는 각 숙소가 공개한 것을 기준으로 했어요. <b>번지 단위까지는 예약 확인서와 한 번 대조해보세요.</b> 마이스테이 전화번호는 호텔 공식 페이지 표기라, 이것만 예약 확인서와 한 번 맞춰보시면 됩니다.</p>
 
+    <h3 class="section-label">날짜별 자유 시간</h3>
+    <p class="section-sub">이동·체크인은 개요·교통편 탭에 있어요 — 여기는 그 사이 빈 시간에 뭘 할지만</p>
+
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 1</span><h3>10/9 (금)</h3><span class="d-where">인천 → 하카타</span></div>
-      <p class="day-why"><span class="wl">이 날은</span><b>도착하는 것 자체가 일정</b>이에요 — 인천에서 저녁 비행기를 타고, 하카타 숙소에 짐을 풀면 밤 8시가 넘어요. 명소는 다 닫은 시간이라 저녁 한 끼가 전부입니다. <b>첫날은 원래 이런 날이니까</b> 뭘 못 했다고 아쉬워하지 않아도 돼요.</p>
-            <div class="day-body">
-        <div class="tl fixed"><span class="tl-t">17:20</span><span class="tl-c">인천 출발 (7C1407)</span></div>
-        <div class="tl fixed"><span class="tl-t">18:50</span><span class="tl-c">후쿠오카 도착<span class="tl-note">입국심사·수하물·세관에 30~45분</span></span></div>
-        <div class="tl fixed"><span class="tl-t">~19:40</span><span class="tl-c">국제선 → 국내선 셔틀(10~15분) → 지하철(5분)</span></div>
-        <div class="tl fixed"><span class="tl-t">~20:15</span><span class="tl-c">하카타역 도착 · 숙소 체크인<span class="tl-note">비아인은 하카타구치에서 도보 약 5분</span></span></div>
+      <div class="day-head"><span class="d-n">DAY 1</span><h3>10/9 (금)</h3><span class="d-where">하카타 · 밤만</span></div>
+      <div class="day-body">
         <div class="tl free"><span class="tl-t">20:30~</span><span class="tl-c"><b>저녁 한 끼가 전부예요</b><span class="tl-note">명소는 다 닫은 시간이라, 역 안이나 역에서 도보 몇 분 안쪽에서 먹는 게 현실적이에요. <b>그 시간에 확실히 열려 있는 곳만 골라뒀습니다</b> — 앞의 둘은 역 건물 안이라 밖으로 나가지 않아도 돼요. <b>① 간소 하카타 다루마</b>(데이토스 2층, 주문 마감 22:30) · <b>② 마키노우동</b>(버스터미널 지하1층, 23:00까지 — 비행기에서 내린 날 속이 제일 편해요) · <b>③ 하카타 잇코샤 총본점</b>(도보 3~6분, 주문 마감 23:00으로 여유가 가장 큼). <b>반대로 하카타 한큐 지하식품관은 20:00에 닫아</b> 이 날 밤엔 이미 늦고, <b>간소 하카타 멘타이쥬 하카타역점은 도시락 전용</b>이라 앉아서 못 먹어요.</span></span></div>
       </div>
       <button class="goto" data-go="hakata">하카타 카드 보기 →</button>
@@ -835,72 +811,56 @@
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 2</span><h3>10/10 (토)</h3><span class="d-where">하카타 → 유후인</span><span class="d-hol">연휴 1일차</span></div>
-      <p class="day-why"><span class="wl">이 날은</span>규슈를 <b>가로질러 산으로 들어가는 날</b>이에요 — 아침엔 아직 도시에 있다가, 버스로 2시간 10분을 달리면 창밖이 온천 마을로 바뀝니다. 오후엔 첫 료칸에 짐을 풀고 <b>여행 와서 처음으로 아무 데도 안 가는 저녁</b>을 보내요.</p>
-            <div class="day-body">
-        <div class="tl free"><span class="tl-t">오전</span><span class="tl-c"><b>하카타에서 2~3시간</b><span class="tl-note">버스 시간에서 거꾸로 계산한 값이에요. 구시다신사·캐널시티·가와바타 상점가가 서로 붙어 있어 이 셋이 한 덩어리로 좋아요.</span></span></div>
-        <div class="tl fixed"><span class="tl-t">버스 전</span><span class="tl-c"><b>하카타역 JR 창구에서 10/12 열차표 사기</b><span class="tl-note">미도리노마도구치 · 유후인 → 아마가세 특급 유후 4호(14:15) 2장. 이 구간은 교통카드가 안 돼서 어차피 종이표가 필요해요.</span></span></div>
-<div class="tl fixed"><span class="tl-t">12:48</span><span class="tl-c">하카타 버스터미널 3층 34번 승강장 → 유후인고<span class="tl-note">예약 완료 · 48218편 1호차 · 좌석 02C·02D</span></span></div>
-        <div class="tl fixed"><span class="tl-t">14:59</span><span class="tl-c">유후인역앞 버스센터 도착</span></div>
-        <div class="tl fixed"><span class="tl-t">~15:10</span><span class="tl-c">역 앞 미나토 택시 → 도쇼안 체크인<span class="tl-note">숙소로 바로 가면 프런트에서 택시 티켓을 줘요 · 약 10분</span></span></div>
-        <div class="tl free"><span class="tl-t">17:00~</span><span class="tl-c"><b>저녁은 료칸 안에서 보내게 돼요</b><span class="tl-note">도쇼안이 역에서 1.15km 떨어져 있어서, 체크인하고 나면 시내로 다시 나오려면 또 택시예요. 유후인 시내 저녁을 원하면 <b>체크인 전에</b> 들르는 게 나아요. 가이세키의 생식·술 페어링 제외는 예약 때 미리 말해두세요.</span></span></div>
+      <div class="day-head"><span class="d-n">DAY 2</span><h3>10/10 (토)</h3><span class="d-where">하카타 오전 · 유후인 저녁</span><span class="d-hol">연휴 1일차</span></div>
+      <div class="day-body">
+        <div class="tl free"><span class="tl-t">오전</span><span class="tl-c"><b>하카타에서 2~3시간</b><span class="tl-note">12:48 버스에서 거꾸로 계산한 값이에요. 구시다신사·캐널시티·가와바타 상점가가 서로 붙어 있어 이 셋이 한 덩어리로 좋아요. 하카타역 JR 창구(10/12 열차표)에 들를 시간은 빼두세요.</span></span></div>
+        <div class="tl free"><span class="tl-t">15:10~</span><span class="tl-c"><b>저녁은 료칸 안에서 보내게 돼요</b><span class="tl-note">도쇼안이 역에서 1.15km 떨어져 있어서, 체크인하고 나면 시내로 다시 나오려면 또 택시예요. <b>여행 와서 처음으로 아무 데도 안 가는 저녁</b>이라고 생각하면 편해요. 가이세키의 생식·술 페어링 제외는 미리 말해두세요.</span></span></div>
       </div>
       <button class="goto" data-go="hakata">하카타 카드 →</button><button class="goto" data-go="yufuin">유후인 카드 →</button>
-      <div class="day-foot">버스는 <b>12:48 출발로 예약</b>해서 오전은 하카타에서 2~3시간이에요. 그 사이에 <b>하카타역 JR 창구에서 10/12 열차표</b>를 꼭 사두세요.</div>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 3</span><h3>10/11 (일)</h3><span class="d-where">유후인 종일 · 숙소 이동</span><span class="d-hol">연휴 2일차</span></div>
-      <p class="day-why"><span class="wl">이 날은</span>여섯 날 중 <b>유일하게 아무 데도 안 가는 날</b>이에요 — 짐을 옮기긴 하지만 유후인 안에서예요. 아침 일찍 유노쓰보 카이도를 걸으면 <b>가게가 열기 전의 빈 거리</b>를 보게 되는데, 연휴 낮의 그 길과는 전혀 다른 곳입니다. 이 여행에서 제일 여유로운 하루예요.</p>
-            <div class="day-body">
-        <div class="tl fixed"><span class="tl-t">11:00 전</span><span class="tl-c">도쇼안 체크아웃 → <b>택시로 나카야</b><span class="tl-note">프런트에 택시를 불러달라고 하세요. 두 숙소가 역을 사이에 두고 반대편이라 짐 들고 걷기엔 멀어요.</span></span></div><div class="tl fixed"><span class="tl-t">→ 먼저</span><span class="tl-c"><b>나카야에 짐부터 맡기기</b><span class="tl-note">체크인 전 짐 보관이 되는지 미리 확인하세요(0977-84-3835). 맡기고 나면 <b>몸만 유노쓰보 카이도를 걸을 수 있어요.</b> 나카야가 그쪽 방향이라 바로 걸어 나가면 돼요.</span></span></div>
-        <div class="tl free"><span class="tl-t">낮</span><span class="tl-c"><b>유일하게 통으로 비는 하루</b><span class="tl-note">유노쓰보 카이도(역→긴린코 약 800m)를 따라 걷는 게 기본 축이에요. 카드 대부분이 이 길 위에 있습니다.</span></span></div>
-        <div class="tl free"><span class="tl-t">—</span><span class="tl-c">긴린코까지 갈지 결정<span class="tl-note">역에서 편도 약 1.4km(도보 20분). 왕복이면 2.8km라 이것만으로 하루 걸음 수가 꽤 됩니다.</span></span></div><div class="tl fixed"><span class="tl-t">오후</span><span class="tl-c">나카야 체크인<span class="tl-note">역에서 동북동 940m(도보 17분). 유노쓰보 카이도 방향이라 걸어가며 구경해도 돼요.</span></span></div><div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">나카야 저녁<span class="tl-note">여기도 가이세키면 생식·술 제외를 미리 요청해두세요.</span></span></div>
+      <div class="day-head"><span class="d-n">DAY 3</span><h3>10/11 (일)</h3><span class="d-where">유후인 종일</span><span class="d-hol">연휴 2일차</span></div>
+      <div class="day-body">
+        <div class="tl free"><span class="tl-t">오전~</span><span class="tl-c"><b>유일하게 통으로 비는 하루</b><span class="tl-note">나카야에 짐을 맡기고 나면 몸만이에요. 유노쓰보 카이도(역→긴린코 약 800m)를 따라 걷는 게 기본 축이고, 카드 대부분이 이 길 위에 있습니다. 나카야가 그쪽 방향이라 바로 걸어 나가면 돼요.</span></span></div>
+        <div class="tl free"><span class="tl-t">—</span><span class="tl-c">긴린코까지 갈지 결정<span class="tl-note">역에서 편도 약 1.4km(도보 20분). 왕복이면 2.8km라 이것만으로 하루 걸음 수가 꽤 됩니다.</span></span></div>
+        <div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">나카야 저녁<span class="tl-note">여기도 가이세키면 생식·술 제외를 미리 요청해두세요.</span></span></div>
       </div>
       <button class="goto" data-go="yufuin">유후인 카드 보기 →</button>
-      <div class="day-foot">6일 중 <b>이동이 없는 유일한 날</b>이라, 무리한 일정은 여기 말고 다른 날에서 덜어내세요. 다만 유후인은 <b>10월에 나흘 중 하루꼴로 비(약 26%)</b>가 오고 이 날 일정이 거의 야외예요 — 아침에 비면 미술관 쪽으로 갈아탈 준비를 해두세요. 또 <b>연휴 한가운데(일요일)</b>라 유노쓰보 카이도가 가장 붐비는 날이에요 — <b>걷는 건 오전에 몰아두세요.</b></div>
+      <div class="day-foot">이동이 택시 한 번뿐인 날이라, 가고 싶은 곳은 여기에 몰아도 돼요. 다만 <b>연휴 한가운데(일요일)</b>라 유노쓰보 카이도가 가장 붐비니 <b>걷는 건 오전에 몰아두세요.</b> 유후인은 <b>10월에 나흘 중 하루꼴로 비(약 26%)</b>가 오고 이 날이 거의 야외라, 아침에 비면 미술관 쪽으로 갈아타세요(체크리스트 탭 「비 오는 날 대안」).</div>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 4</span><h3>10/12 (월)</h3><span class="d-where">유후인 → 아마가세온천</span><span class="d-hol">스포츠의 날 · 공휴일</span></div>
-      <p class="day-why"><span class="wl">이 날은</span><b>가장 깊은 곳으로 들어가는 날</b>이에요 — 유후인보다 더 안쪽, 강을 따라 있는 작은 온천 마을로 갑니다. 무인역에 내려서 료칸 차를 타고 들어가요. 도착하면 <b>저녁까지 특별히 할 일이 없는데, 그게 이 날의 목적</b>입니다.</p>
-            <div class="day-body">
-        <div class="tl free"><span class="tl-t">오전</span><span class="tl-c">나카야 체크아웃 후, 열차 전까지 유후인<span class="tl-note">나카야 → 유후인역 도보 17분</span></span></div>
-        <div class="tl fixed"><span class="tl-t">14:15</span><span class="tl-c">특급 유후 4호 유후인 → 아마가세 (14:57 도착)<span class="tl-note">10/10에 산 종이표 · 히타·구루메·하카타 방면 승강장. 놓치면 15:56 유후인노모리 4호(전석 지정)나 16:23 보통. <b>13:42 보통은 아마가세에 안 가요.</b></span></span></div>
-        <div class="tl fixed"><span class="tl-t">14:57</span><span class="tl-c">산소 텐스이 송영 픽업<span class="tl-note">아마가세역은 무인역에 계단이 있어요. 14:57 도착으로 미리 예약해두세요(0973-57-2424)</span></span></div>
-        <div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">온천 · 료칸 저녁<span class="tl-note">강변 공동노천탕은 바위 지형이라 입욕 말고 산책만</span></span></div>
+      <div class="day-head"><span class="d-n">DAY 4</span><h3>10/12 (월)</h3><span class="d-where">유후인 오전 · 아마가세 저녁</span><span class="d-hol">공휴일</span></div>
+      <div class="day-body">
+        <div class="tl free"><span class="tl-t">~14:15</span><span class="tl-c"><b>체크아웃 후 열차 전까지 유후인</b><span class="tl-note">전날 못 본 곳을 채우는 시간이에요. 짐은 나카야가 맡아주는지 물어보거나, 유후인역 코인로커(중·대·특대 800~1,200엔)를 쓰세요 — 임시역사 기간에도 로커가 운영되는지는 확인하지 못했어요. 역은 대합실을 못 쓰니, 열차 기다릴 땐 역 앞 관광안내소에서 쉬세요.</span></span></div>
+        <div class="tl free"><span class="tl-t">15:00~</span><span class="tl-c"><b>저녁까지 특별히 할 일이 없는데, 그게 이 날의 목적이에요</b><span class="tl-note">온천 · 료칸 저녁. 강변 공동노천탕은 바위 지형이라 입욕 말고 산책만.</span></span></div>
       </div>
       <button class="goto" data-go="yufuin">유후인 카드 →</button><button class="goto" data-go="hita">히타·아마가세 카드 →</button>
-      <div class="day-foot">10/12 날짜로 확인한 시간표라 공휴일이어도 그대로예요. 14:15를 놓쳐도 15:56·16:23이 있으니, 그때는 <b>텐스이에 도착 시각만 다시 알려주세요.</b></div>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 5</span><h3>10/13 (화)</h3><span class="d-where">아마가세 → 히타 → 텐진</span></div>
-      <p class="day-why"><span class="wl">이 날은</span><b>가장 많이 움직이는 날</b>이에요 — 산에서 나와 에도시대 거리를 걷고, 버스로 한 시간 반을 달려 다시 도시로 들어갑니다. 숙소를 세 번째로 옮기는 날이라 <b>짐을 든 시간이 제일 길어요.</b> 대신 저녁엔 텐진 한복판이에요.</p>
-            <div class="day-body">
-        <div class="tl fixed"><span class="tl-t">오전</span><span class="tl-c">아마가세 → 히타 (JR 15분, 340엔)</span></div>
-        <div class="tl free"><span class="tl-t">오전~낮</span><span class="tl-c"><b>마메다마치 한 바퀴</b><span class="tl-note">히타역에서 북쪽 1.5km(도보 20분). 전 구간 평지예요. 돌아올 시간까지 계산해서 버스 시각을 잡으세요.</span></span></div>
-        <div class="tl fixed"><span class="tl-t">버스</span><span class="tl-c">히타 버스터미널(역 앞) 2번 승강장 → 히타고 1시간 32분<span class="tl-note">예약 불필요하지만 만석이면 다음 차. 현금·IC만 되고 고액권은 거스름이 안 돼요</span></span></div>
-        <div class="tl fixed"><span class="tl-t">도착</span><span class="tl-c">텐진 고속버스터미널 3층 → 숙소 체크인(도보 6분)<span class="tl-note">15:00 버스를 타면 16:30쯤 도착이에요. 버스 시각에 따라 저녁 시간이 통째로 달라집니다.</span></span></div><div class="tl free"><span class="tl-t">저녁</span><span class="tl-c"><b>텐진에서 보내는 사실상 유일한 저녁이에요</b><span class="tl-note">텐진 탭에 32곳이 있지만 쓸 수 있는 저녁은 이 한 번뿐입니다. 숙소가 텐진역에서 도보 6분이라 <b>지하상가·백화점 데파치카·솔라리아 일대가 전부 도보권</b>이에요. 짐 들고 이동한 날이라 <b>멀리 나가지 않는 편</b>이 좋습니다.</span></span></div>
+      <div class="day-head"><span class="d-n">DAY 5</span><h3>10/13 (화)</h3><span class="d-where">히타 낮 · 텐진 저녁</span></div>
+      <div class="day-body">
+        <div class="tl free"><span class="tl-t">오전~낮</span><span class="tl-c"><b>마메다마치 한 바퀴</b><span class="tl-note">히타역에서 북쪽 1.5km(도보 20분), 전 구간 평지예요. 짐은 <b>히타역 코인로커</b>(20칸뿐)에 맡기고 다녀오세요. 히타고는 약 30분 간격이라 돌아올 시간에 맞춰 타면 돼요.</span></span></div>
+        <div class="tl free"><span class="tl-t">저녁</span><span class="tl-c"><b>텐진에서 보내는 사실상 유일한 저녁이에요</b><span class="tl-note">텐진 탭에 32곳이 있지만 쓸 수 있는 저녁은 이 한 번뿐입니다. 숙소가 텐진역에서 도보 6분이라 <b>지하상가·백화점 데파치카·솔라리아 일대가 전부 도보권</b>이에요. 짐 들고 이동한 날이라 <b>멀리 나가지 않는 편</b>이 좋습니다.</span></span></div>
       </div>
       <button class="goto" data-go="hita">히타 카드 →</button><button class="goto" data-go="tenjin">텐진 카드 →</button>
-      <div class="day-foot">숙소를 세 번째로 옮기는 날이라 <b>짐을 든 채 이동하는 시간이 가장 깁니다.</b></div>
+      <div class="day-foot">짐을 든 채 이동하는 시간이 가장 긴 날이에요. 히타고를 늦게 탈수록 텐진 저녁이 짧아집니다.</div>
     </div>
 
     <div class="day">
-      <div class="day-head"><span class="d-n">DAY 6</span><h3>10/14 (수)</h3><span class="d-where">텐진 → 인천</span></div>
-      <p class="day-why"><span class="wl">이 날은</span><b>마지막 아침</b>이에요 — 오전 두세 시간이 전부고, 그마저 짐을 맡긴 뒤예요. 멀리 나가는 대신 <b>지하상가와 백화점 지하에서 먹을 것을 고르는 시간</b>으로 쓰면 공항까지 들고 가기도 편합니다.</p>
-            <div class="day-body">
-        <div class="tl fixed"><span class="tl-t">아침</span><span class="tl-c">체크아웃 · 짐 맡기기<span class="tl-note">호텔 프런트에 맡기는 게 가장 간단해요. 안 되면 니시테츠 텐진역 코인로커(1·2·3층)를 쓰면 됩니다.</span></span></div><div class="tl free"><span class="tl-t">~10:45</span><span class="tl-c"><b>쓸 수 있는 시간은 2~3시간</b><span class="tl-note">짐을 맡긴 뒤 <b>텐진 지하상가·백화점 데파치카</b>처럼 역에서 몇 분 안쪽이 현실적이에요. 기념품·먹거리를 여기서 사면 공항까지 들고 가기도 편합니다.</span></span></div>
-        <div class="tl fixed"><span class="tl-t">10:45~11:00</span><span class="tl-c">텐진 출발 (공항 직행버스 3층 6번 승강장)<span class="tl-note">500엔 · 국제선 터미널 논스톱 30~40분</span></span></div>
-        <div class="tl fixed"><span class="tl-t">11:40</span><span class="tl-c">국제선 터미널 도착 목표 (출발 2시간 전)</span></div>
-        <div class="tl fixed"><span class="tl-t">13:40</span><span class="tl-c">후쿠오카 출발 (7C1472) → 15:25 인천</span></div>
+      <div class="day-head"><span class="d-n">DAY 6</span><h3>10/14 (수)</h3><span class="d-where">텐진 오전</span></div>
+      <div class="day-body">
+        <div class="tl free"><span class="tl-t">~10:45</span><span class="tl-c"><b>쓸 수 있는 시간은 2~3시간</b><span class="tl-note">짐을 호텔 프런트에 맡긴 뒤 <b>텐진 지하상가·백화점 데파치카</b>처럼 역에서 몇 분 안쪽이 현실적이에요. 기념품·먹거리를 여기서 사면 공항까지 들고 가기도 편합니다.</span></span></div>
       </div>
       <button class="goto" data-go="tenjin">텐진 카드 보기 →</button>
       <div class="day-foot">마지막날 오전에 <b>멀리 나가는 일정은 넣지 마세요.</b> 오호리공원·후쿠오카타워는 왕복만으로 시간이 다 갑니다.</div>
     </div>
 
     <p class="leg-pick">✓ 정리하면 — 통으로 비는 날은 <b>10/11 유후인 하루뿐</b>이고, 나머지는 모두 이동이 낀 날이에요. 가고 싶은 곳이 많으면 <b>10/11에 몰고</b>, 이동일에는 한두 곳만 얹는 게 몸이 편합니다.</p>
+
+    <div class="chosen" id="chosen-box"></div>
   </section>
 
   <!-- ================= 하카타 ================= -->
@@ -2687,269 +2647,6 @@
 
   </section>
 
-  <!-- ================= 교통 탭 ================= -->
-  <section class="region-panel" id="panel-transit" data-region="transit" hidden>
-    <div class="info-hero">
-      <div class="region-eyebrow">TRANSIT NOTEBOOK</div>
-      <h2>구간별 교통 비교</h2>
-      <p class="region-tagline">구간마다 버스 vs 열차를 직접 비교하고, 산큐패스가 이득인지 계산해봤어요.</p>
-    </div>
-
-    <h3 class="section-label">공항 도착 A to Z</h3>
-    <p class="section-sub">후쿠오카가 처음이라면</p>
-    <p style="font-size:12.5px;color:var(--ink-soft);margin:-4px 0 14px;">제주항공 7C1407, 10/9(금) <b>17:20 인천 출발 → 18:50 후쿠오카 도착</b> 기준. 후쿠오카공항은 <b>국제선·국내선 터미널이 분리되어 있어</b> 셔틀버스로 한 번 갈아타야 지하철을 탈 수 있어요. 아래 순서 그대로 따라가면 됩니다.</p>
-
-    <ol class="step-list">
-      <li>
-        <div class="step-loc">국제선터미널 2층</div>
-        <h4>비행기에서 내려서 → 입국심사장으로</h4>
-        <p>도착 게이트에서 안내를 따라가면 2층 입국심사장이에요. 검역(발열·설사 등 이상 있을 때만 해당하는 "건강상담실")을 지나 <b>외국인(Foreign Nationals)</b> 줄에 서면 됩니다. 출국 전에 <b>Visit Japan Web(VJW)</b>에 미리 등록해서 입국심사·세관 QR코드를 받아두면 종이 서류 작성 없이 훨씬 빨라져요.</p>
-        <div class="meta"><span class="chip">여권+VJW QR 준비</span><span class="chip">비행 후 도보 로비까지 30~45분 정도 예상</span></div>
-      </li>
-      <li>
-        <div class="step-loc">국제선터미널 1층</div>
-        <h4>수하물 수취 → 세관 신고</h4>
-        <p>1층으로 내려가 전광판에서 <b>편명(7C1407)</b>을 확인하고 해당 수취대에서 짐을 찾아요. 그다음 세관에서 VJW QR(또는 종이 신고서)을 제시하면 끝. 육류·과일 등 반입 물품이 있으면 별도 검역대를 거쳐야 해요.</p>
-      </li>
-      <li>
-        <div class="step-loc">국제선터미널 1층 도착로비</div>
-        <h4>여기서 필요한 건 미리 처리하고 나가기</h4>
-        <p>로비에 <b>환전소(Travelex)</b>, 와이파이 라우터 대여 카운터, 짐을 호텔로 바로 보내는 <b>수하물 배송(CARGO PASS) 카운터</b>가 있어요. 유모차·휠체어 대여도 이 층 안내데스크에서 가능하고, 층별로 <b>수유실</b>도 있으니 필요하면 이용하세요.</p>
-        <div class="meta"><span class="chip caution">ATM 정확한 위치·브랜드는 현장 확인 필요</span></div>
-      </li>
-      <li>
-        <div class="step-loc">국제선터미널 → 국내선터미널</div>
-        <h4>무료 셔틀버스로 이동 (약 10~15분)</h4>
-        <p>두 터미널은 활주로를 사이에 두고 떨어져 있어서 아직 도보 연결 통로가 없어요(2027년 3월 완전 통합 예정, 지금은 셔틀버스). 1층 도착로비를 나가면 바로 <b>"1"번 빨간색 정류장</b>이 국내선행 셔틀버스 승강장입니다. <b>5~6분 간격</b>으로 오고 무료예요. 국내선터미널에서는 "A" 정류장(남쪽)에 내립니다.</p>
-        <div class="meta"><span class="chip rc">무료·매표 불필요</span><span class="chip">운행 약 06:00~23:00</span></div>
-      </li>
-      <li>
-        <div class="step-loc">국내선터미널 → 지하철역 (B2F)</div>
-        <h4>지하철역은 터미널 지하에 바로 있어요</h4>
-        <p>내린 정류장에서 터미널 안으로 들어가면 지하철 개찰구까지 약 2분. 개찰구 바로 옆에 <b>에스컬레이터 3개 + 엘리베이터 1개</b>가 있어서(B2F~4F 운행) 유모차나 무거운 캐리어여도 편하게 내려갈 수 있어요. 개찰구까지 도보 약 1분.</p>
-      </li>
-      <li>
-        <div class="step-loc">후쿠오카공항역(福岡空港駅)</div>
-        <h4>승차권 사기 — 편도 260엔</h4>
-        <p>자동발매기에서 언어 선택(일본어·영어는 확실, 한국어 표기도 있을 가능성이 높지만 현장에서 확인하세요) 후 <b>편도 승차권을 사거나</b>, IC카드(하야카켄·스이카·이코카 등 전국 호환) 발급·충전 창구를 이용해도 됩니다. 신용카드로 결제하고 싶으면 발매기보다 <b>유인 창구</b>가 더 확실해요. 개찰구를 지나 <b>"메이노하마(姪浜)행"</b> 열차가 오는 승강장에서 타면 돼요.</p>
-        <div class="meta"><span class="chip pick">공항선 → 메이노하마행 승차</span><span class="chip rc">편도 260엔</span></div>
-      </li>
-      <li>
-        <div class="step-loc">지하철 공항선</div>
-        <h4>2정거장, 약 5분 — 하카타역 도착</h4>
-        <p>후쿠오카공항역에서 2번째 정거장이 하카타역이에요. 하차 후 표지판에서 <b>"공항선 하카타口 개찰(博多口)"</b> 방향을 따라가면 숙소가 있는 하카타구치 쪽 출구로 나갑니다.</p>
-        <div class="meta"><span class="chip caution">정확한 출구 번호는 미확인 — "博多口" 표지판을 따라가세요</span></div>
-      </li>
-      <li>
-        <div class="step-loc">하카타구치 개찰구 밖</div>
-        <h4>숙소 "비아 인 하카타구치 에키마에"까지 도보</h4>
-        <p>호텔 이름 자체가 "하카타구치 역 앞(駅前)"이라는 뜻이라 개찰구를 나오면 도보 몇 분 안쪽일 가능성이 높아요. 정확한 도보 동선은 체크인 전 호텔 구글맵 링크로 한 번 더 확인하세요.</p>
-      </li>
-    </ol>
-    <p class="leg-pick">✓ 임신 중이라면: 국제선·국내선 터미널 모두 안내데스크에서 <b>유모차·휠체어 무료 대여</b>가 가능하고, 여러 층에 <b>수유실</b>이 있어요. 짐이 많으면 CARGO PASS로 숙소까지 당일·익일 배송을 맡기고 몸만 가볍게 이동하는 것도 방법입니다.</p>
-
-    <h3 class="section-label" id="t-all">전체 구간 한눈에</h3>
-    <div class="table-wrap">
-      <table class="transit-table">
-        <thead><tr><th>구간</th><th>수단</th><th>소요</th><th>비고</th></tr></thead>
-        <tbody>
-          <tr><td data-label="구간">인천 → 후쿠오카공항</td><td class="mono" data-label="수단">항공</td><td class="mono" data-label="소요">1h30m</td><td data-label="비고">제주항공 7C1407, 10/9(금) 17:20</td></tr>
-          <tr><td data-label="구간">후쿠오카공항 → 하카타역</td><td class="mono" data-label="수단">지하철</td><td class="mono" data-label="소요">약 5분</td><td data-label="비고">국제선→국내선 셔틀 후 공항선</td></tr>
-          <tr><td data-label="구간">하카타 → 유후인</td><td class="mono" data-label="수단">고속버스</td><td class="mono" data-label="소요">약 2h10m</td><td data-label="비고">유후인고, 예약 필수 — 아래 상세 비교</td></tr>
-          <tr><td data-label="구간">유후인 → 아마가세</td><td class="mono" data-label="수단">JR 큐다이선</td><td class="mono" data-label="소요">보통 45~51분</td><td data-label="비고">배차 뜸함 — 아래 상세 비교</td></tr>
-          <tr><td data-label="구간">아마가세 → 히타</td><td class="mono" data-label="수단">JR 큐다이선</td><td class="mono" data-label="소요">약 15분</td><td data-label="비고">340엔, IC카드 불가</td></tr>
-          <tr><td data-label="구간">히타 → 텐진</td><td class="mono" data-label="수단">고속버스</td><td class="mono" data-label="소요">약 1h32m</td><td data-label="비고">히타고, 예약 불필요 — 아래 상세 비교</td></tr>
-          <tr><td data-label="구간">텐진 → 후쿠오카공항</td><td class="mono" data-label="수단">공항 직행버스</td><td class="mono" data-label="소요">약 30~40분</td><td data-label="비고">500엔, 국제선 터미널 직행 — 아래 상세</td></tr>
-          <tr><td data-label="구간">후쿠오카공항 → 인천</td><td class="mono" data-label="수단">항공</td><td class="mono" data-label="소요">1h45m</td><td data-label="비고">제주항공 7C1472, 10/14(수) 13:40</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <h3 class="section-label">구간 ① 하카타 → 유후인</h3>
-    <p class="section-sub">고속버스 유후인고 · 약 2시간 10분 · 예약 필수</p>
-    <ol class="step-list">
-      <li>
-        <div class="step-loc">출발 전 (한국에서 미리)</div>
-        <h4>좌석을 먼저 예약하세요 — 이 버스는 예약제예요</h4>
-        <p>유후인고는 <b>좌석지정제라 예약이 필수</b>입니다. 예약은 <b>전월 같은 날 08:00</b>부터 열려요(예: 10/10 탑승이면 9/10 08:00~). <a href="https://www.highwaybus.com/gp/reservation/rsvPlanList?lineId=482" target="_blank" rel="noopener">하이웨이버스 예약사이트 ↗</a>에서 예약하고, 표는 하카타 버스터미널 3층 창구나 <b>로손·패밀리마트·미니스톱</b>에서 받으면 됩니다.</p>
-        <div class="meta"><span class="chip rc">웹 조기할인 시 2,880엔</span><span class="chip caution">예약 없이 가면 빈자리 있을 때만 탑승</span></div>
-      </li>
-      <li>
-        <div class="step-loc">JR 하카타역 하카타구치</div>
-        <h4>길 안 건너고 버스터미널로</h4>
-        <p>하카타 버스터미널은 하카타역 <b>하카타구치 바로 맞은편</b>이에요. 1층·2층에 <b>"JR方面直通"(JR방면 직통)</b> 연결통로가 있어서 밖으로 안 나가고 건너갈 수 있습니다. 건물에 들어가면 엘리베이터나 에스컬레이터로 <b>3층</b>으로 올라가세요.</p>
-        <div class="meta"><span class="chip">2층=내리는 곳, 3층=타는 곳</span></div>
-      </li>
-      <li>
-        <div class="step-loc">하카타 버스터미널 3층</div>
-        <h4>34번 승강장에서 타기</h4>
-        <p>유후인고는 <b>3층 34번 승강장(のりば34)</b>입니다. 다만 <b>같은 승강장을 히타행 버스도 함께 써요</b> — 전광판의 행선지(由布院)를 꼭 확인하고 타세요. 표를 아직 못 받았다면 3층 중앙 창구(07:00~21:00)에서 받으면 됩니다.</p>
-      </li>
-      <li>
-        <div class="step-loc">차 안에서</div>
-        <h4>약 2시간 10분 — 화장실은 차내 기준으로</h4>
-        <p>하카타에서 약 2시간 10분(텐진 출발은 2시간 25~35분). 유후인고 차량은 <b>화장실이 달린 차</b>로 안내되어 있으니, 예약할 때 화장실 아이콘이 있는 편인지 확인하세요.</p>
-        <div class="meta"><span class="chip caution">중간 휴게소 정차 여부는 확인 안 됨 — 차내 화장실 기준으로 준비</span></div>
-      </li>
-      <li>
-        <div class="step-loc">유후인 도착</div>
-        <h4>유후인역앞 버스센터 하차 → 역까지 도보 2분</h4>
-        <p>종점은 <b>유후인역앞 버스센터</b>예요. JR 유후인역까지 <b>도보 2분 이내</b>이고, 대합실과 기념품점도 있습니다. 숙소가 도쇼안(10/10)이라면 여기서 택시로 약 10분이니, 체크인 셔틀(15:00~17:00) 시간을 미리 맞춰두세요.</p>
-      </li>
-    </ol>
-    <div class="table-wrap">
-      <table class="transit-table compare-table">
-        <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>예약</th></tr></thead>
-        <tbody>
-          <tr><td data-label="수단">고속버스 유후인고</td><td class="mono" data-label="요금(편도·1인)">3,250엔<span class="fine">웹조기할인 2,880엔</span></td><td class="mono" data-label="소요시간">약 2h10m<span class="fine">텐진 출발이면 2h25~35m</span></td><td class="mono" data-label="배차">1일 14왕복</td><td data-label="예약">필수(전월 1일 08:00~)</td></tr>
-          <tr><td data-label="수단">JR 특급 유후인노모리 / 유후</td><td class="mono" data-label="요금(편도·1인)">확인 필요<span class="fine">JR규슈 예약사이트 실시간 확인</span></td><td class="mono" data-label="소요시간">약 2h14m</td><td class="mono" data-label="배차">1일 3왕복</td><td data-label="예약">지정석 권장</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="leg-pick">✓ 추천: <b>고속버스 유후인고</b> — 요금이 명확하고(3,250엔) 하카타 버스터미널·텐진·공항 어디서든 승차 가능. 단 좌석지정제라 예약을 미리 해둬야 해요. 열차는 하루 3왕복뿐이라 시간이 안 맞을 수 있고 정확한 요금도 예약 시점에 확인해야 합니다.</p>
-
-    <h3 class="section-label">구간 ② 유후인 → 아마가세(히타)</h3>
-    <p class="section-sub">JR 큐다이혼센 · 45~51분 · 이 일정에서 가장 조심할 구간</p>
-    <ol class="step-list">
-      <li>
-        <div class="step-loc">가장 먼저 확인할 것</div>
-        <h4>낮에는 보통열차가 거의 없어요</h4>
-        <p>평일 유후인역에서 히타 방면 <b>보통열차는 07:32 다음이 16:23</b>이에요. 그 사이 약 9시간이 비어서, <b>낮에 움직이려면 특급을 타야 합니다.</b> 그리고 13:42 열차는 <b>붕고모리까지만 가고 아마가세에는 안 가요</b> — 이거 하나만 주의하면 됩니다.</p>
-        <p class="holiday compact" style="display:block;"><b>⚠ 그런데 우리가 이 구간을 타는 10/12(월)은 평일이 아니라 스포츠의 날 공휴일이에요.</b> 위 시각은 평일 시간표라, <b>그대로 믿으면 안 됩니다.</b> 공휴일엔 보통열차 편수가 평일과 다른 경우가 많아서, 9시간 공백의 위치 자체가 달라질 수 있어요. <b>출발 2주 전에 반드시 “2026/10/12” 날짜를 넣어 다시 검색하고, 그 결과로 이 날 일정을 확정하세요.</b></p>
-        <div class="meta"><span class="chip caution">13:42 열차 = 아마가세 안 감</span><span class="chip">특급: 09:08 · 12:01 · 14:15 · 17:17 등</span></div>
-      </li>
-      <li>
-        <div class="step-loc">유후인역</div>
-        <h4>표는 반드시 종이표로 — 교통카드가 안 되는 구간</h4>
-        <p>이 구간은 <b>SUGOCA·스이카 등 IC카드 사용 지역이 아니에요.</b> 유후인·아마가세·히타 모두 IC 대상 밖이라, <b>유후인역 창구(미도리노마도구치, 07:00~18:00)</b>나 발매기에서 <b>종이 승차권</b>을 사야 합니다. 특급을 탈 거면 특급권도 같이 사세요.</p>
-        <div class="meta"><span class="chip rc">보통 990엔</span><span class="chip caution">IC카드 개찰 불가</span></div>
-      </li>
-      <li>
-        <div class="step-loc">승강장</div>
-        <h4>"히타·구루메·하카타 방면"으로</h4>
-        <p>오이타·벳푸 방면이 아니라 <b>반대 방향</b>이에요. 특급은 보통 1번 승강장을 쓰고, 보통열차 승강장은 당일 안내를 확인하세요. 유후인역은 <b>2026년 겨울 무렵까지 임시 역사</b>로 운영 중이라 사진과 배치가 다를 수 있습니다.</p>
-      </li>
-      <li>
-        <div class="step-loc">아마가세역 도착</div>
-        <h4>무인역이에요 — 계단/경사로 주의</h4>
-        <p>아마가세역은 <b>무인역</b>(2022년부터)이라 역무원이 없어요. 승강장과 역사 사이 <b>높이 차가 커서 계단, 또는 꽤 긴 경사로</b>를 이용해야 합니다. 짐이 있으면 시간을 넉넉히 잡으세요.</p>
-        <div class="meta"><span class="chip caution">계단 있음 · 경사로 우회 가능하나 길다</span></div>
-      </li>
-      <li>
-        <div class="step-loc">숙소까지</div>
-        <h4>산소 텐스이 무료 송영을 미리 예약해두세요</h4>
-        <p>온천가는 역 바로 앞에서 시작되지만, 산소 텐스이는 역에서 <b>남남서 약 350m</b>이고 다리를 돌아가는 길이라 도보 시간 안내가 제각각이에요. <b>료칸 무료 송영(送迎)을 미리 예약</b>하는 게 가장 확실합니다. 노선버스는 <b>하루 1왕복뿐</b>이라 기대하면 안 돼요.</p>
-      </li>
-    </ol>
-    <div class="table-wrap">
-      <table class="transit-table compare-table">
-        <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>비고</th></tr></thead>
-        <tbody>
-          <tr><td data-label="수단">JR 큐다이혼센(보통/특급)</td><td class="mono" data-label="요금(편도·1인)">확인 필요</td><td class="mono" data-label="소요시간">약 40분</td><td class="mono" data-label="배차">시간대에 따라 편차 큼</td><td data-label="비고">구간에 따라 4~5시간 무열차 시간대 존재</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="leg-pick" style="background:var(--caution-soft);color:var(--caution);">⚠ 이 구간은 버스 대안이 확인되지 않았고, JR 큐다이혼센이 사실상 유일한 대중교통 수단이에요. 배차 간격이 매우 뜸한 시간대가 있으니(위키피디아 확인) <b>료칸에서 반드시 정확한 시각표를 미리 받아두세요.</b> 렌터카가 아니라면 열차 시간에 일정을 맞추는 게 안전합니다.</p>
-
-    <h3 class="section-label">구간 ③ 아마가세·히타 → 텐진</h3>
-    <p class="section-sub">JR 15분 + 고속버스 히타고 약 1시간 32분 · 예약 불필요</p>
-    <ol class="step-list">
-      <li>
-        <div class="step-loc">아마가세역 → 히타역</div>
-        <h4>먼저 JR로 15분</h4>
-        <p>아마가세에서 히타까지는 <b>JR 큐다이혼센으로 약 15분, 340엔</b>이에요. 여기도 IC카드가 안 되니 종이표로 사면 됩니다. 아마가세역은 무인역이라 <b>차내에서 정산</b>하거나 간이 단말을 이용하게 되니, 잔돈을 조금 준비해두세요.</p>
-      </li>
-      <li>
-        <div class="step-loc">히타역 앞</div>
-        <h4>버스터미널은 역 바로 맞은편, 도보 1분</h4>
-        <p>히타 버스터미널은 <b>JR 히타역 바로 앞</b>이라 헤맬 일이 없어요. 후쿠오카행은 <b>2번 승강장(のりば2)</b>입니다. (참고: 마메다마치는 역에서 북쪽으로 약 1.5km, 도보 20분 정도예요. 관광 후 버스를 타려면 돌아오는 시간을 계산해두세요.)</p>
-      </li>
-      <li>
-        <div class="step-loc">승차권</div>
-        <h4>예약은 필요 없지만, 잔돈은 꼭 준비하세요</h4>
-        <p>히타고는 <b>좌석정원제라 예약이 필요 없습니다.</b> 대신 <b>만석이면 못 타고 다음 차를 기다려야</b> 해요. 터미널 창구에서 사거나 차내에서 내면 되는데, <b>현금과 교통 IC카드는 되고 신용카드는 안 됩니다.</b> 그리고 차내 요금함은 <b>2천·5천·1만엔권을 거슬러주지 못해요.</b></p>
-        <div class="meta"><span class="chip caution">신용카드 불가 · 고액권 거스름 불가</span><span class="chip">평일 32편, 약 30분 간격(05:00~19:10)</span></div>
-      </li>
-      <li>
-        <div class="step-loc">차 안에서</div>
-        <h4>약 1시간 32분 — 화장실 없는 차량도 있어요</h4>
-        <p>히타고는 <b>일부 차량에만 화장실이 있어요.</b> 1시간 반 넘게 화장실이 없을 수도 있으니, 타기 전에 터미널 화장실을 다녀오는 걸 권합니다.</p>
-        <div class="meta"><span class="chip caution">요금 표기가 자료마다 달라요(편도 1,980엔 / 1,790엔) — 창구에서 확인</span></div>
-      </li>
-      <li>
-        <div class="step-loc">텐진 도착</div>
-        <h4>솔라리아터미널빌딩 3층 하차 → 그대로 실내로 연결</h4>
-        <p>도착지는 <b>니시테츠 텐진 고속버스터미널(솔라리아터미널빌딩) 3층 하차장</b>이에요. <b>같은 건물 2층이 니시테츠 후쿠오카(텐진)역</b>이고, 후쿠오카미쓰코시·솔라리아스테이지와 실내로 이어지며, <b>텐진 지하상가를 통해 지하철 텐진역까지 밖에 안 나가고</b> 갈 수 있습니다. 숙소(마이스테이)까지는 여기서 도보 약 6분이에요.</p>
-        <div class="meta"><span class="chip rc">3층에 화장실·다목적화장실·대합실·코인로커</span></div>
-      </li>
-    </ol>
-    <div class="table-wrap">
-      <table class="transit-table compare-table">
-        <thead><tr><th>수단</th><th>요금(편도·1인)</th><th>소요시간</th><th>배차</th><th>예약</th></tr></thead>
-        <tbody>
-          <tr><td data-label="수단">고속버스 히타고</td><td class="mono" data-label="요금(편도·1인)">약 1,980엔<span class="fine">왕복 3,580엔 · 자료마다 1,790엔 표기도 있어 창구 확인</span></td><td class="mono" data-label="소요시간">약 1h32m</td><td class="mono" data-label="배차">평일 32편(약 30분 간격)</td><td data-label="예약">불필요(좌석정원제, 만석시 승차 불가)</td></tr>
-          <tr><td data-label="수단">JR (환승)</td><td class="mono" data-label="요금(편도·1인)">확인 필요</td><td class="mono" data-label="소요시간">확인 필요</td><td class="mono" data-label="배차">-</td><td data-label="예약">구루메·오이타 경유로 버스보다 오래 걸릴 가능성 높아 상세 비교 생략</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="leg-pick">✓ 추천: <b>고속버스 히타고</b> — 30분 간격, 예약 불필요라 유연함. 다만 <b>요금은 명확하지 않아요</b> — 3,580엔은 왕복 요금이고, 편도는 자료마다 1,980엔/1,790엔으로 갈려서 창구에서 확인이 필요합니다.</p>
-
-    <h3 class="section-label">구간 ④ 텐진 → 후쿠오카공항 (귀국)</h3>
-    <p class="section-sub">10/14(수) 13:40 FUK → 15:25 ICN</p>
-    <div class="table-wrap">
-      <table class="transit-table compare-table">
-        <thead><tr><th>방법</th><th>요금(1인)</th><th>소요시간</th><th>환승</th><th>비고</th></tr></thead>
-        <tbody>
-          <tr><td data-label="방법">공항 직행버스(에어포트 익스프레스)</td><td class="mono" data-label="요금(1인)">500엔<span class="fine">IC 480엔</span></td><td class="mono" data-label="소요시간">약 30~40분</td><td class="mono" data-label="환승">없음</td><td data-label="비고">국제선 터미널 바로 앞까지 논스톱</td></tr>
-          <tr><td data-label="방법">지하철 + 무료 셔틀</td><td class="mono" data-label="요금(1인)">260엔</td><td class="mono" data-label="소요시간">약 40~50분</td><td class="mono" data-label="환승">2회</td><td data-label="비고">지하철 11분 + 국내선→국제선 셔틀 10분</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="leg-pick">✓ 추천: <b>공항 직행버스</b> — 임신 중에 캐리어까지 있으면 지하철 루트는 깊은 지하 승강장 오르내림 + 국내선 터미널 도보 + 셔틀 대기까지 겹쳐요. 240엔 아끼자고 감수할 차이가 아닙니다.</p>
-    <ol class="step-list">
-      <li>
-        <div class="step-loc">출발 시각 계산</div>
-        <h4>13:40 비행기면 텐진에서 10:45~11:00 출발</h4>
-        <p>국제선은 <b>출발 2시간 전인 11:40까지</b> 터미널에 도착하는 걸로 잡으면 됩니다. 버스가 30~40분 걸리니 <b>텐진에서 10:45~11:00에 출발</b>하면 한 대를 놓쳐도 여유가 있어요. (지하철 루트로 간다면 10:30 출발)</p>
-      </li>
-      <li>
-        <div class="step-loc">숙소 → 텐진 버스터미널</div>
-        <h4>솔라리아터미널빌딩 3층으로</h4>
-        <p>숙소(마이스테이)에서 니시테츠 텐진 고속버스터미널까지 도보 약 6분이에요. 건물에 들어가면 <b>후쿠오카미쓰코시 1층 라이온광장</b>에서 에스컬레이터·엘리베이터로 <b>3층</b>까지 바로 올라갑니다.</p>
-      </li>
-      <li>
-        <div class="step-loc">3층 6번 승강장</div>
-        <h4>국제선 터미널행 버스 타기</h4>
-        <p><b>6번 승강장(のりば6)</b>에서 공항 국제선 터미널행을 타면 됩니다. <b>앞문으로 타면서 요금을 내고</b>(현금·교통IC 가능, <b>신용카드 불가</b>), 캐리어는 기사님이 <b>차 아래 짐칸</b>에 실어줘요.</p>
-        <div class="meta"><span class="chip rc">500엔 (IC 480엔)</span><span class="chip caution">배차 간격은 전날 3층 창구에서 확인 권장</span></div>
-      </li>
-      <li>
-        <div class="step-loc">공항 도착</div>
-        <h4>국제선 터미널 앞에 바로 내려요</h4>
-        <p>논스톱으로 <b>국제선 터미널</b>에 바로 도착합니다. 올 때와 달리 <b>셔틀버스로 갈아탈 필요가 없어요.</b> 내려서 그대로 체크인 카운터로 가면 됩니다.</p>
-      </li>
-    </ol>
-
-    <div class="sunq-box">
-      <h4>산큐패스(SUNQ PASS), 이번 일정엔 쓸까?</h4>
-      <p style="font-size:12.5px;color:var(--ink-soft);margin:0 0 8px;">공식 사이트 기준 산큐패스는 유후인고·히타고 노선을 포함한 큐슈 전역 고속·노선버스 약 2,400개 노선을 커버합니다(福岡~由布院 2h25m, 福岡~日田 1h33m 명시). 북부큐슈판 가격은 2일권 8,000엔(디지털 전용), 3일권 10,000엔(디지털)/12,000엔(종이)입니다.</p>
-      <div class="table-wrap">
-        <table class="transit-table compare-table">
-          <thead><tr><th>방식</th><th>1인 비용</th><th>비고</th></tr></thead>
-          <tbody>
-            <tr><td data-label="방식">개별 승차권 구매</td><td class="mono" data-label="1인 비용">약 5,730엔<span class="fine">유후인고 3,250 + 히타고 약 1,980 + 공항버스 500</span></td><td data-label="비고">이번 일정에서 타는 버스는 편도 3회뿐(하카타→유후인, 히타→텐진, 텐진→공항)</td></tr>
-            <tr><td data-label="방식">산큐패스 북부큐슈 2일권</td><td class="mono" data-label="1인 비용">8,000엔</td><td data-label="비고">개별 구매보다 약 2,270엔 더 비쌈</td></tr>
-            <tr><td data-label="방식">산큐패스 북부큐슈 3일권</td><td class="mono" data-label="1인 비용">10,000엔</td><td data-label="비고">개별 구매보다 약 4,270엔 더 비쌈</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p style="font-size:12px;color:var(--ink-faint);margin:8px 0 0;">유후인↔아마가세·아마가세↔히타 구간은 버스가 아니라 JR 열차라 패스로 커버되지 않고, 하카타·텐진 시내는 도보로 다니는 일정이라 버스 탑승 횟수가 늘지 않아요. 히타고 편도 요금은 2026년 4월 개정으로 자료마다 다르게 표기돼 있어(1,980엔/1,790엔) 실제 결제 금액은 창구에서 확인이 필요합니다.</p>
-      <span class="verdict">이번 일정엔 비추천 — 버스가 편도 3회뿐이라 개별 승차권이 더 저렴</span>
-    </div>
-
-    <p style="font-size:11px;color:var(--ink-faint);">요금·시각표 출처: <a href="https://www.sunqpass.jp/kr/" target="_blank" rel="noopener">SUNQ PASS 공식</a> · <a href="https://www.nishitetsu.jp/bus/highwaybus/rosen/yufuin/" target="_blank" rel="noopener">니시테츠 유후인고</a> · <a href="https://www.nishitetsu.jp/bus/highwaybus/rosen/hita/" target="_blank" rel="noopener">니시테츠 히타고</a> · <a href="https://www.jrkyushu.co.jp/korean/train/yufuin_no_mori.html" target="_blank" rel="noopener">JR큐슈 유후인노모리</a> · <a href="https://ja.wikipedia.org/wiki/久大本線" target="_blank" rel="noopener">큐다이혼센(위키피디아)</a> · <a href="https://www.h-bt.jp/bus/bus-stop-guide.html" target="_blank" rel="noopener">하카타 버스터미널 승강장</a> · <a href="https://hitabus.com/guide" target="_blank" rel="noopener">히타버스</a> · <a href="https://www.nishitetsu.jp/bus/rosen/airportexpress/" target="_blank" rel="noopener">공항 직행버스</a> · <a href="https://www.jrkyushu.co.jp/sugoca/area/index.html" target="_blank" rel="noopener">SUGOCA 이용가능 구간</a> — 2026년 9월 조회 기준, 요금·시각표는 개정될 수 있어 탑승 전 재확인하세요. 특히 <b>히타고 편도 요금</b>과 <b>공항 직행버스 배차 간격</b>은 자료가 엇갈려 현장 확인이 필요합니다.</p>
-  </section>
-
   <!-- ================= 체크리스트 탭 ================= -->
   <section class="region-panel" id="panel-checklist" data-region="checklist" hidden>
     <div class="info-hero">
@@ -2963,12 +2660,7 @@
     <div class="holiday">
       <h4>⚠ 먼저 알아둘 것 — 10/10~10/12는 일본 3연휴예요</h4>
       <p>10월 12일(월)이 <b>스포츠의 날(スポーツの日)</b> 공휴일입니다. 일본 국민의 축일에 관한 법률상 <b>10월 둘째 주 월요일</b>이고, 2026년 10월의 둘째 주 월요일이 12일이에요. 그래서 토·일·월이 통째로 연휴가 됩니다.</p>
-      <p>하필 그 사흘이 <b>우리 유후인 일정과 정확히 겹쳐요.</b> 아래 준비 목록에서 이것 때문에 달라지는 게 세 가지입니다.</p>
-      <ul>
-        <li><b>유후인고 버스는 예약했어요</b> — 10/10 12:48 하카타 출발, 좌석 02C·02D.</li>
-        <li><b>10/12 열차는 공휴일 날짜로 확인했어요</b> — 평일과 같은 시간표, 14:15 특급 유후 4호로 정했어요.</li>
-        <li><b>유후인에서 걷는 일정은 오전으로.</b> 21주차엔 거리보다 인파가 더 부담이에요.</li>
-      </ul>
+      <p>하필 그 사흘이 <b>우리 유후인 일정과 정확히 겹쳐요.</b> 그래서 <b>유후인에서 걷는 일정은 오전으로</b> 잡으세요 — 21주차엔 거리보다 인파가 더 부담이에요.</p>
       <p>대신 <b>10/13(화)·10/14(수) 히타·텐진은 연휴가 끝난 뒤</b>라 오히려 한산한 편입니다.</p>
     </div>
 
@@ -2978,15 +2670,9 @@
       <table class="transit-table">
         <thead><tr><th>언제까지</th><th>할 일</th><th>왜 그때까지</th></tr></thead>
         <tbody>
-          <tr><td data-label="언제까지"><b>✓ 완료</b></td><td data-label="할 일"><b>유후인고 버스 예약</b> (10/10 하카타 → 유후인)</td><td data-label="왜 그때까지">12:48 → 14:59 · 48218편 1호차 · 좌석 02C·02D</td></tr>
-          <tr><td data-label="언제까지"><b>지금 바로</b></td><td data-label="할 일"><b>도쇼안에 도착 알리기</b> <span class="mono">050-3528-3816</span></td><td data-label="왜 그때까지">10/10 14:59 유후인역 도착, 미나토 택시로 가면 택시 티켓이 되는지</td></tr>
-          <tr><td data-label="언제까지"><b>지금 바로</b></td><td data-label="할 일"><b>나카야에 짐 보관 확인</b> <span class="mono">0977-84-3835</span></td><td data-label="왜 그때까지">10/11 오전 체크인 전에 짐을 맡기고 몸만 다니려고요</td></tr>
-          <tr><td data-label="언제까지"><b>지금 바로</b></td><td data-label="할 일"><b>산소 텐스이 송영 예약</b> (10/12 <b>14:57</b> 아마가세역)</td><td data-label="왜 그때까지">무인역 + 계단이라 픽업이 가장 확실해요. 10/13 아침에 역까지 데려다주는지도 같이 물어보세요</td></tr>
           <tr><td data-label="언제까지">9월 중</td><td data-label="할 일"><b>료칸 3곳에 저녁 메뉴 요청</b> — 생식·술 페어링 제외</td><td data-label="왜 그때까지">가이세키는 미리 재료를 준비해서, 당일에 말하면 바꾸기 어려워요</td></tr>
           <tr><td data-label="언제까지">9월 중</td><td data-label="할 일">주치의와 <b>상비약·소견서</b> 상의</td><td data-label="왜 그때까지">소견서가 필요한 경우 <b>탑승 7일 이내 발급</b>이라 미리 상의만 해두면 됩니다</td></tr>
           <tr><td data-label="언제까지">9월 중</td><td data-label="할 일"><b>여행자보험</b> 가입 (임신 관련 보장 확인)</td><td data-label="왜 그때까지">일본 의료비는 수백만 엔 단위예요</td></tr>
-          <tr><td data-label="언제까지"><b>✓ 완료</b></td><td data-label="할 일"><b>유후인 → 아마가세 열차 결정</b></td><td data-label="왜 그때까지">10/12 날짜로 확인 — 공휴일도 같은 시간표. <b>14:15 특급 유후 4호 → 14:57</b></td></tr>
-          <tr><td data-label="언제까지"><b>10/10 오전</b></td><td data-label="할 일"><b>하카타역 JR 창구에서 10/12 열차표 사기</b></td><td data-label="왜 그때까지">이 구간은 교통카드가 안 돼서 종이표가 필요해요. 12:48 버스 타기 전에</td></tr>
           <tr><td data-label="언제까지">출발 1주 전</td><td data-label="할 일"><b>Visit Japan Web</b> 등록 (입국+세관 QR)</td><td data-label="왜 그때까지">공항에서 종이 서류를 쓰지 않아도 돼요</td></tr>
           <tr><td data-label="언제까지"><b>10/7 (수)</b></td><td data-label="할 일"><b>날씨 확인하고 유후인 날 결정</b></td><td data-label="왜 그때까지">이 날 처음으로 여행 전 일정의 강수확률이 다 나와요</td></tr>
           <tr><td data-label="언제까지">전날</td><td data-label="할 일">니혼마루칸 공사 재개 여부 확인 <span class="mono">0973-23-6101</span></td><td data-label="왜 그때까지">가서 헛걸음하지 않으려고요</td></tr>
@@ -2999,8 +2685,6 @@
     <div class="unclear">
       <b>💴 카드가 안 되는 곳</b>
       <ul>
-        <li><b>히타고 고속버스</b>(10/13, 1인 약 1,980엔) — <b>신용카드 불가</b>, 현금으로 내요. 차내 요금함은 <b>2천·5천·1만엔권을 거슬러주지 못해서</b> 히타 버스터미널 창구에서 표를 사는 게 편해요.</li>
-        <li><b>JR 아마가세 → 히타</b>(10/13, 1인 340엔) — 무인역이라 타서 차내 정산해요. <b>현금, 잔돈으로.</b> 10/10 하카타역 창구에서 사는 10/12 열차표(2인 3,480엔~)는 카드를 받는지 확인하지 못했어요.</li>
         <li><b>코인로커</b> — 동전만 받는 곳이 있어요. <b>100엔 동전</b>을 좀 갖고 다니세요.</li>
         <li><b>작은 가게·노포</b> — 마메다마치나 유노쓰보 카이도의 오래된 가게는 현금만인 경우가 많아요.</li>
       </ul>
@@ -3008,7 +2692,7 @@
     <div class="checklist" style="margin-top:10px;">
       <b>대략 이 정도면 됩니다 (2인 기준)</b>
       <ul>
-        <li><b>교통비 중 현금</b>: JR 아마가세→히타 680 + 히타고 약 3,960 = <b>4,640엔</b> + 10/11 택시비 (지하철·공항버스는 신용카드 터치, 유후인고는 결제 끝) — 자세한 건 교통편 탭 맨 위</li>
+        <li><b>교통비</b>: 교통편 탭 맨 위 「현금 미리 준비할 것」을 보세요.</li>
         <li><b>코인로커·족욕·입장료 등 잔돈</b>: <b>5,000엔</b> 정도</li>
         <li>식사·쇼핑은 카드가 되는 곳이 많지만, <b>현금만 받는 집을 만나도 되게</b> 여유를 두세요.</li>
         <li>ATM은 <b>세븐일레븐·우체국</b>이 해외카드가 가장 잘 돼요. 공항 도착로비에도 있습니다.</li>
@@ -3061,10 +2745,7 @@
     </div>
 
     <div class="chk-grid" style="margin-top:14px;">
-      <label class="chk-item"><input type="checkbox" data-k="r1"><span class="chk-t"><b>유후인고 버스 예약</b><span class="chk-note">완료 — 10/10 12:48, 좌석 02C·02D</span></span></label>
       <label class="chk-item"><input type="checkbox" data-k="r2"><span class="chk-t"><b>료칸 3곳 저녁 메뉴 확인</b><span class="chk-note">생식·술 페어링 빼달라고 예약 시 요청</span></span></label>
-      <label class="chk-item"><input type="checkbox" data-k="r3"><span class="chk-t"><b>산소 텐스이 송영 예약</b><span class="chk-note">10/12 14:57 아마가세역 · 0973-57-2424</span></span></label>
-      <label class="chk-item"><input type="checkbox" data-k="r4"><span class="chk-t"><b>10/12 열차표 사기 (10/10 오전 하카타역)</b><span class="chk-note">특급 유후 4호 14:15 유후인 → 아마가세 · 2장</span></span></label>
       <label class="chk-item"><input type="checkbox" data-k="r5"><span class="chk-t"><b>항공사 임신부 규정 확인</b><span class="chk-note">주수별 필요 서류를 예약한 항공사에 직접 문의</span></span></label>
       <label class="chk-item"><input type="checkbox" data-k="r6"><span class="chk-t"><b>객실 전용탕/가족탕 여부 확인</b><span class="chk-note">대욕장보다 전용탕이 편해요</span></span></label>
     </div>
@@ -3265,7 +2946,6 @@
         <li><b>가시키리부로(貸切風呂, 가족탕)나 객실 전용탕이 있는지</b>, 있다면 <b>예약제인지 선착순인지.</b> 있으면 온천을 훨씬 편하게 쓸 수 있어요 — 온도와 시간을 스스로 조절할 수 있고, 옆에서 잡아줄 사람이 있으니까요.</li>
         <li><b>대욕장 남녀 교대 시간</b> — 교대제라면 몇 시에 바뀌는지.</li>
         <li><b>객실에 화장실이 있는지</b> — 밤에 복도로 나가야 하는 구조면 미리 알아두는 게 좋아요.</li>
-        <li><b>도쇼안 택시 티켓이 14:59 도착에도 되는지</b>, <b>나카야가 체크인 전 짐을 맡아주는지</b> — 둘 다 10/10·10/11 이동이 걸린 일이에요.</li>
         <li><b>생식 제외 요청이 반영됐는지</b> — 9월 중에 요청하기로 한 항목이에요. 확인서에 반영 여부가 안 적혀 있으면 전화로 한 번 확인하세요.</li>
       </ul>
     </div>
@@ -3401,7 +3081,6 @@
       <ul>
         <li>관광안내소 안에 있는 짐 배송·보관 서비스예요. ☎ 0977-28-4550, <b>09:00~17:00 연중무휴</b>.</li>
         <li><b>숙소로 배송 접수 09:00~15:00</b>, 숙소→치키 회수는 09:00~11:30. 요금은 크기별 <b>300~1,200엔</b>.</li>
-        <li>→ 10/11은 <b>택시로 나카야에 바로 가서 짐을 맡기기로</b> 했어요. 나카야가 체크인 전 짐을 못 맡아준다면 그때 치키를 쓰세요.</li>
         <li>단 <b>유후인 관광협회 가맹 숙소끼리만</b> 되고, 히타·아마가세로는 못 보내요. 보관만 해도 L 800엔·M 600엔입니다.</li>
       </ul>
     </div>
@@ -3557,7 +3236,6 @@
       <b>🚭 그 밖에 몸에 부담되는 환경</b>
       <div class="risk-row"><span class="risk-no" data-r="tenjin">텐진 7</span><span>나카스 야타이 거리 — <b>간접흡연·좁은 좌석·화장실 없음</b>. 임신 중엔 구경만 하고 식사는 실내에서 하는 편이 낫습니다.</span></div>
       <div class="risk-row"><span class="risk-no" data-r="hita">히타 · 유후인</span><span>고속버스·JR 장거리 구간은 1시간 이상 앉아 있게 돼요. <b>30분마다 발목을 돌리고</b>, 물을 자주 마시세요(혈전 예방).</span></div>
-      <div class="risk-row"><span class="risk-no" data-r="hita">히타 → 텐진</span><span>히타고 버스는 <b>화장실 없는 차량도</b> 있어요. 타기 전에 터미널 화장실을 꼭 들르세요.</span></div>
     </div>
 
     <h2 style="font-size:22px;margin:26px 0 12px;color:var(--ink);">확인이 필요한 항목 모음</h2>
@@ -3565,7 +3243,6 @@
       <b>예약·체크인 전 다시 확인하세요</b>
       <ul>
         <li><b>니혼마루칸 공사 재개 여부</b> — 가을 시즌(9/1~11/30)에 해당하지만 현재 공사로 견학이 막혀 있고 재개일이 공지되지 않았어요. <b>0973-23-6101</b>로 방문 전 확인.</li>
-        <li>도쇼안 택시 티켓 조건(도착 시각), 온야도 나카야의 체크인 전 짐 보관 여부.</li>
         <li>료칸 3곳의 1박2식 포함 여부 및 붕고규 코스의 생식 메뉴 포함 여부 — 가시키리부로 유무, 저녁 시작 시간, 대욕장 교대 시간까지 묶어서 <a href="#c6b">「료칸 3박, 이렇게 흘러가요」</a>에 확인 목록으로 정리해뒀어요.</li>
         <li>유후인 스테인드글라스 미술관 체험 재개 시점, 노먼 록웰 미술관·이와시타 컬렉션 운영 여부.</li>
         <li>각 식당의 정확한 영업시간·가격 — 방문 전 재확인 필요. 특히 <b>타베로그 점수는 조회 시점 기준</b>이라 계속 바뀝니다.</li>
