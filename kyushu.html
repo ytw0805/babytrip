@@ -485,7 +485,10 @@
   .adr td.addr-jp{font-size:15px;font-weight:700;line-height:1.5;}
   .adr td.addr-jp .zip{display:block;font-size:12px;font-weight:500;color:var(--ink-soft);}
   .adr td.t{font-size:13.5px;}
-  .fr col.c1{width:18%;} .fr col.c2{width:30%;} .fr col.c3{width:52%;}
+  .tt mark.meal,.mv-legend mark.meal{background:#FFB36B;color:#241C12;border-radius:4px;padding:1px 4px;font-weight:700;font-family:"Noto Sans KR",sans-serif;font-size:11.5px;line-height:1.5;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+  .fr tr.meal-row td{background:color-mix(in srgb, #FFB36B 14%, var(--surface));}
+  .fr tr.tt-day th small{font-size:11px;font-weight:500;color:var(--ink-soft);}
+  .fr col.c1{width:24%;} .fr col.c2{width:27%;} .fr col.c3{width:49%;}
   .fr tr.fr-foot td{background:color-mix(in srgb, var(--cs) 30%, var(--surface));padding:6px 8px;}
   .fr tr.fr-foot .tip{display:block;font-size:11.5px;color:var(--ink-soft);margin-bottom:5px;}
   .fr tr.fr-foot .goto{margin:0 6px 0 0;}
@@ -628,43 +631,55 @@
 
     <h3 class="section-label">날짜별 자유 시간</h3>
     <p class="section-sub">위 일정 사이 빈 시간에 뭘 할지 — 통으로 비는 날은 10/11 유후인 하루뿐이에요</p>
+    <p class="mv-legend"><mark class="meal">주황</mark> 우리가 따로 챙겨 먹어야 하는 끼니 · 료칸 식사(도쇼안·텐스이 1박2식)는 표시하지 않았어요</p>
     <div class="tt-wrap">
   <table class="tt fr">
     <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
     <tbody data-r="hakata">
       <tr class="tt-day"><th colspan="3">10/9 금 · 하카타 밤</th></tr>
-      <tr><td class="t">20:30~</td><td><b>저녁 한 끼</b> — 역 안이나 바로 앞에서</td><td class="m">① 간소 하카타 다루마 (데이토스 2층, 주문 마감 22:30)<br>② 마키노우동 (버스터미널 지하1층, 23:00까지 — 속 편한 우동)<br>③ 하카타 잇코샤 총본점 (도보 3~6분, 주문 마감 23:00)<span class="w">한큐 지하식품관은 20:00 마감 · 멘타이쥬 하카타역점은 도시락만</span></td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">늦은 점심 (인천공항 14:03~16:30)</mark></td><td>출국 전에 든든히</td><td class="m">제주항공은 무료 기내식이 없고, 일본 저녁은 20:30 이후라 여기서 먹어두기</td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">저녁 (20:30~)</mark></td><td><b>① 신신라멘</b><br>하카타 데이토스점</td><td class="m">博多らーめんShinShin · 하카타역 데이토스 2층 「博多めん街道」 · 숙소에서 가장 가까워요 · 23:00까지 (자료에 따라 24:00) · <a href="https://maps.app.goo.gl/1HUuW4xtAhh9yX347" target="_blank" rel="noopener">지도 ↗</a></td></tr>
+      <tr class="meal-row"><td class="t">또는</td><td><b>② 이치란</b><br>캐널시티 하카타점</td><td class="m">一蘭 · 캐널시티 노스빌 지하1층 · 와후 돈코츠(和風とんこつ) · 09:30~23:00 · 하카타역에서 도보 약 15분 · <a href="https://maps.app.goo.gl/wGX2DM9dTVzjYXV96" target="_blank" rel="noopener">지도 ↗</a><span class="w">주문 마감 22:00 — 갈 거면 숙소에 짐만 두고 바로</span></td></tr>
+      <tr class="meal-row"><td class="t">다른 후보</td><td>역 안에서</td><td class="m">간소 하카타 다루마 (데이토스 2층, 주문 마감 22:30) · 마키노우동 (버스터미널 지하1층, 23:00까지)</td></tr>
       <tr class="fr-foot"><td colspan="3"><span class="tip">첫날은 일정을 넣지 않는 게 나아요 — 이동만으로 5시간이에요.</span><button class="goto" data-go="hakata">하카타 카드 →</button></td></tr>
     </tbody>
     <tbody data-r="yufuin">
-      <tr class="tt-day"><th colspan="3">10/10 토 · 하카타 오전 · 유후인 저녁</th></tr>
+      <tr class="tt-day"><th colspan="3">10/10 토 · 하카타 오전 · 유후인 저녁<small>도쇼안 석식 포함</small></th></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">아침 (~09:30)</mark></td><td>하카타역 근처</td><td class="m">비아 인 조식 없음 · 역 안이나 근처에서</td></tr>
       <tr><td class="t">오전</td><td><b>하카타 2~3시간</b></td><td class="m">구시다신사 · 캐널시티 · 가와바타 상점가가 붙어 있어 한 덩어리로 · JR 창구(10/12 열차표) 들를 시간은 빼두기</td></tr>
-      <tr><td class="t">15:10~</td><td><b>료칸에서 쉬기</b></td><td class="m">도쇼안은 역에서 1.15km라 다시 나오려면 택시 · 처음으로 아무 데도 안 가는 저녁</td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">점심 (~12:30, 버스 전)</mark></td><td>버스 타기 전에</td><td class="m">버스로 2시간 넘게 가서 14:59 도착이에요 · 하카타역·버스터미널 안에서</td></tr>
+      <tr><td class="t">15:10~</td><td><b>료칸에서 쉬기</b></td><td class="m">저녁은 도쇼안에서 · 역에서 1.15km라 다시 나오려면 택시</td></tr>
       <tr class="fr-foot"><td colspan="3"><button class="goto" data-go="hakata">하카타 카드 →</button><button class="goto" data-go="yufuin">유후인 카드 →</button></td></tr>
     </tbody>
     <tbody data-r="yufuin">
-      <tr class="tt-day"><th colspan="3">10/11 일 · 유후인 종일</th></tr>
+      <tr class="tt-day"><th colspan="3">10/11 일 · 유후인 종일<small>도쇼안 조식 포함 · 나카야 식사 없음</small></th></tr>
       <tr><td class="t">오전~</td><td><b>유노쓰보 카이도</b> 걷기</td><td class="m">역 → 긴린코 약 800m, 가게 대부분이 이 길 위 · 연휴 일요일이라 <b>붐비기 전 오전에</b></td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">점심 (11:30~)</mark></td><td>유노쓰보 카이도에서</td><td class="m">유후인 카드의 맛집 참고</td></tr>
       <tr><td class="t">—</td><td>긴린코까지 갈지</td><td class="m">역에서 편도 1.4km · 왕복 2.8km라 이것만으로 꽤 걸어요</td></tr>
       <tr><td class="t">비 오면</td><td>미술관 쪽으로</td><td class="m">체크리스트 탭 「비 오는 날 대안」</td></tr>
-      <tr><td class="t">저녁</td><td>나카야 저녁</td><td class="m"></td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">저녁 (17:30~)</mark></td><td><b>유후인 시내에서</b></td><td class="m">나카야는 식사가 없어요 · 시골 온천마을이라 일찍 닫는 곳이 있으니 갈 곳 영업시간을 미리 확인</td></tr>
       <tr class="fr-foot"><td colspan="3"><span class="tip">통으로 비는 유일한 날 — 가고 싶은 곳은 여기에 몰아요.</span><button class="goto" data-go="yufuin">유후인 카드 →</button></td></tr>
     </tbody>
     <tbody data-r="hita">
-      <tr class="tt-day"><th colspan="3">10/12 월 · 유후인 오전 · 아마가세 저녁</th></tr>
+      <tr class="tt-day"><th colspan="3">10/12 월 · 유후인 오전 · 아마가세 저녁<small>텐스이 석식 포함</small></th></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">아침 (체크아웃 전후)</mark></td><td>유후인에서</td><td class="m">나카야 조식 없음 · 유후인 카드의 카페·빵집</td></tr>
       <tr><td class="t">~14:15</td><td><b>유후인에서 못 본 곳</b></td><td class="m">짐은 나카야에 맡기거나 유후인역 코인로커(임시역사 기간 운영 여부 미확인) · 역 대합실을 못 쓰니 기다릴 땐 관광안내소</td></tr>
-      <tr><td class="t">15:00~</td><td><b>온천 · 료칸</b></td><td class="m">저녁까지 할 일이 없는 게 이 날의 목적 · 강변 공동노천탕은 바위 지형이라 산책만</td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">점심 (~13:45, 열차 전)</mark></td><td>유후인역 근처에서</td><td class="m">아마가세는 작은 온천마을이라 열차 타기 전에 먹고 가기</td></tr>
+      <tr><td class="t">15:00~</td><td><b>온천 · 료칸</b></td><td class="m">저녁은 텐스이에서 · 강변 공동노천탕은 바위 지형이라 산책만</td></tr>
       <tr class="fr-foot"><td colspan="3"><button class="goto" data-go="yufuin">유후인 카드 →</button><button class="goto" data-go="hita">히타·아마가세 카드 →</button></td></tr>
     </tbody>
     <tbody data-r="tenjin">
-      <tr class="tt-day"><th colspan="3">10/13 화 · 히타 낮 · 텐진 저녁</th></tr>
+      <tr class="tt-day"><th colspan="3">10/13 화 · 히타 낮 · 텐진 저녁<small>텐스이 조식 포함</small></th></tr>
       <tr><td class="t">오전~낮</td><td><b>마메다마치</b> 한 바퀴</td><td class="m">히타역 북쪽 1.5km, 평지 · 짐은 히타역 코인로커(20칸뿐) · 히타고는 약 30분 간격</td></tr>
-      <tr><td class="t">저녁</td><td><b>텐진의 유일한 저녁</b></td><td class="m">지하상가 · 백화점 데파치카 · 솔라리아가 숙소에서 전부 도보권 · 멀리 나가지 않기</td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">점심 (11:30~)</mark></td><td>마메다마치에서</td><td class="m">히타 카드의 맛집 참고</td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">저녁 (16:30~)</mark></td><td><b>텐진의 유일한 저녁</b></td><td class="m">지하상가 · 백화점 데파치카 · 솔라리아가 숙소에서 전부 도보권 · 멀리 나가지 않기</td></tr>
       <tr class="fr-foot"><td colspan="3"><button class="goto" data-go="hita">히타·아마가세 카드 →</button><button class="goto" data-go="tenjin">텐진 카드 →</button></td></tr>
     </tbody>
     <tbody data-r="tenjin">
       <tr class="tt-day"><th colspan="3">10/14 수 · 텐진 오전</th></tr>
-      <tr><td class="t">~10:45</td><td><b>2~3시간</b>, 짐 맡기고</td><td class="m">텐진 지하상가 · 데파치카에서 기념품 · 오호리공원·후쿠오카타워는 왕복만으로 시간이 다 가요</td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">아침 (~10:00)</mark></td><td>텐진에서</td><td class="m">마이스테이 조식 없음 · 지하상가 · 데파치카</td></tr>
+      <tr><td class="t">~10:45</td><td><b>2~3시간</b>, 짐 맡기고</td><td class="m">기념품 · 오호리공원·후쿠오카타워는 왕복만으로 시간이 다 가요</td></tr>
+      <tr class="meal-row"><td class="t"><mark class="meal">점심 (11:40~13:00, 공항)</mark></td><td>후쿠오카공항 국제선에서</td><td class="m">기내식 없음 · 인천 도착은 15:25</td></tr>
       <tr class="fr-foot"><td colspan="3"><button class="goto" data-go="tenjin">텐진 카드 →</button></td></tr>
     </tbody>
   </table>
