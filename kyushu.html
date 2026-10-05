@@ -470,6 +470,18 @@
   .tt td.m{font-size:11.5px;color:var(--ink-soft);}
   .tt .w{display:block;color:var(--caution);font-weight:700;}
   .tt-foot{margin:10px 2px 0;font-size:10.5px;color:var(--ink-faint);line-height:1.6;}
+  /* 교통편 탭 */
+  .tabbtn[data-r="move"]{--btnc:#4A6785;}
+  .region-panel[data-region="move"]{--rc:var(--ink-soft);--rc-soft:var(--surface-2);--rc-ink:var(--ink);}
+  .tt-wrap + .section-label{margin-top:22px;}
+  .mv-sum col.s1{width:19%;} .mv-sum col.s2{width:41%;} .mv-sum col.s3{width:20%;} .mv-sum col.s4{width:20%;}
+  .mv-sum td small{display:block;font-size:11px;color:var(--ink-faint);}
+  .mv-sum tbody td:first-child{border-left:3px solid var(--c);}
+  .mv col.k{width:24%;} .mv col.v{width:76%;}
+  .mv td.k{font-size:11px;font-weight:700;color:var(--ink-soft);background:color-mix(in srgb, var(--cs) 25%, var(--surface));}
+  .tt .st,.tt-foot .st{display:inline-block;font-size:10.5px;font-weight:700;border-radius:99px;padding:0 7px;border:1px solid currentColor;white-space:nowrap;}
+  .mv .tt-day .st{margin-left:6px;}
+  .st.ok{color:var(--yufuin);} .st.need{color:var(--caution);} .st.call{color:var(--hita-ink);} .st.onday{color:var(--ink-faint);}
   @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 </style>
 </head>
@@ -512,6 +524,7 @@
 
   <nav class="tabbar" id="tabbar">
     <button class="tabbtn active" data-r="overview">개요<span class="d">시각표</span></button>
+    <button class="tabbtn" data-r="move">교통편<span class="d">구간별 표</span></button>
     <button class="tabbtn" data-r="hakata">하카타<span class="d">DAY 1</span></button>
     <button class="tabbtn" data-r="yufuin">유후인<span class="d">DAY 2–3</span></button>
     <button class="tabbtn" data-r="hita">히타<span class="d">DAY 4</span></button>
@@ -582,6 +595,166 @@
     </tbody>
   </table>
   <p class="tt-foot">체크아웃·체크인 정확한 시각은 예약 확인서 기준 · 일본 요금·시각표는 2026년 9월 조회 기준이라 탑승 전 재확인<br>10/10~10/12는 일본 3연휴</p>
+    </div>
+  </section>
+
+  <!-- ================= 교통편 ================= -->
+  <section class="region-panel" id="panel-move" data-region="move" hidden>
+    <div class="info-hero">
+      <div class="region-eyebrow">GETTING AROUND</div>
+      <h2>탈 것 전부</h2>
+      <p class="region-tagline">집에서 나와서 인천에 돌아올 때까지 타는 걸 순서대로 모았어요. 위 표로 전체를 보고, 아래에서 구간별로 타는 곳·요금·결제를 확인하세요.</p>
+    </div>
+
+    <h3 class="section-label">한눈에</h3>
+    <div class="tt-wrap">
+  <table class="tt mv-sum">
+    <colgroup><col class="s1"><col class="s2"><col class="s3"><col class="s4"></colgroup>
+    <thead><tr><th>날짜</th><th>구간 · 수단</th><th>시각</th><th>예약</th></tr></thead>
+    <tbody data-r="hakata">
+      <tr><td class="t">10/9 금</td><td>집 → 인천공항 T1<small>공항버스</small></td><td class="t">12:30</td><td><span class="st ok">완료</span></td></tr>
+      <tr><td class="t">10/9 금</td><td>인천 → 후쿠오카<small>✈ 7C1407</small></td><td class="t">17:20</td><td><span class="st ok">완료</span></td></tr>
+      <tr><td class="t">10/9 금</td><td>국제선 → 국내선 → 하카타역<small>무료 셔틀 + 지하철</small></td><td class="t">~19:40</td><td><span class="st onday">당일</span></td></tr>
+    </tbody>
+    <tbody data-r="yufuin">
+      <tr><td class="t">10/10 토</td><td>하카타 → 유후인<small>🚌 유후인고</small></td><td class="t">12:48</td><td><span class="st ok">완료</span></td></tr>
+      <tr><td class="t">10/10 토</td><td>유후인역 → 도쇼안<small>미나토 택시</small></td><td class="t">~15:00</td><td><span class="st call">확인</span></td></tr>
+      <tr><td class="t">10/11 일</td><td>도쇼안 → 나카야<small>짐 배송 + 택시·도보</small></td><td class="t">오전</td><td><span class="st onday">당일</span></td></tr>
+    </tbody>
+    <tbody data-r="hita">
+      <tr><td class="t">10/12 월</td><td>유후인 → 아마가세<small>🚆 JR 특급</small></td><td class="t">미정</td><td><span class="st need">필요</span></td></tr>
+      <tr><td class="t">10/12 월</td><td>아마가세역 → 텐스이<small>료칸 송영</small></td><td class="t">도착 후</td><td><span class="st need">필요</span></td></tr>
+    </tbody>
+    <tbody data-r="tenjin">
+      <tr><td class="t">10/13 화</td><td>아마가세 → 히타<small>🚆 JR 보통</small></td><td class="t">오전</td><td><span class="st onday">당일</span></td></tr>
+      <tr><td class="t">10/13 화</td><td>히타 → 텐진<small>🚌 히타고</small></td><td class="t">예: 15:00</td><td><span class="st onday">당일</span></td></tr>
+      <tr><td class="t">10/14 수</td><td>텐진 → 후쿠오카공항<small>🚌 공항 직행버스</small></td><td class="t">10:45~<wbr>11:00</td><td><span class="st onday">당일</span></td></tr>
+      <tr><td class="t">10/14 수</td><td>후쿠오카 → 인천<small>✈ 7C1472</small></td><td class="t">13:40</td><td><span class="st ok">완료</span></td></tr>
+      <tr><td class="t">10/14 수</td><td>인천공항 → 집</td><td class="t">15:25~</td><td><span class="st call">미정</span></td></tr>
+    </tbody>
+  </table>
+  <p class="tt-foot"><span class="st ok">완료</span> 예약 끝 · <span class="st need">필요</span> 미리 예약 · <span class="st call">확인</span> 연락해서 확인 · <span class="st onday">당일</span> 그날 표 사서 탐</p>
+    </div>
+
+    <h3 class="section-label">구간별</h3>
+    <div class="tt-wrap">
+  <table class="tt mv">
+    <colgroup><col class="k"><col class="v"></colgroup>
+
+    <tbody data-r="hakata">
+      <tr class="tt-day"><th colspan="2">10/9 금 · 집 → 인천공항 T1<small>공항버스</small><span class="st ok">예약 완료</span></th></tr>
+      <tr><td class="k">시각</td><td><b>12:30</b> 집 앞 출발 → <b>~14:03</b> 인천공항 T1 (약 1시간 33분)</td></tr>
+      <tr><td class="k">좌석</td><td><b>07 · 08</b></td></tr>
+    </tbody>
+
+    <tbody data-r="hakata">
+      <tr class="tt-day"><th colspan="2">10/9 금 · 인천 → 후쿠오카<small>✈ 제주항공 7C1407</small><span class="st ok">예약 완료</span></th></tr>
+      <tr><td class="k">시각</td><td><b>17:20</b> 인천 T1 → <b>18:50</b> 후쿠오카 국제선 (1시간 30분)</td></tr>
+      <tr><td class="k">준비</td><td>Visit Japan Web QR (입국심사·세관)</td></tr>
+      <tr><td class="k">도착 후</td><td>2층 입국심사 → 1층 수하물·세관 · 로비까지 30~45분</td></tr>
+    </tbody>
+
+    <tbody data-r="hakata">
+      <tr class="tt-day"><th colspan="2">10/9 금 · 국제선 → 국내선 터미널<small>무료 셔틀버스</small></th></tr>
+      <tr><td class="k">타는 곳</td><td>1층 도착로비 나가서 <b>"1"번 빨간 정류장</b></td></tr>
+      <tr><td class="k">내리는 곳</td><td>국내선 터미널 <b>"A" 정류장</b>(남쪽)</td></tr>
+      <tr><td class="k">소요 · 간격</td><td>10~15분 · 5~6분 간격 · 약 06:00~23:00</td></tr>
+      <tr><td class="k">요금</td><td>무료, 표 없음</td></tr>
+    </tbody>
+
+    <tbody data-r="hakata">
+      <tr class="tt-day"><th colspan="2">10/9 금 · 후쿠오카공항역 → 하카타역<small>🚇 지하철 공항선</small></th></tr>
+      <tr><td class="k">타는 곳</td><td>국내선 터미널 지하 <b>후쿠오카공항역</b> · 개찰구 옆 엘리베이터 있음</td></tr>
+      <tr><td class="k">방향</td><td><b>메이노하마(姪浜)행</b> · 2정거장, 약 5분</td></tr>
+      <tr><td class="k">요금 · 결제</td><td>260엔 · 발매기 또는 IC카드 · 신용카드는 유인 창구</td></tr>
+      <tr><td class="k">내린 후</td><td><b>博多口</b> 개찰 → 비아 인까지 도보 약 5분 (약 385m)</td></tr>
+    </tbody>
+
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="2">10/10 토 · 하카타 → 유후인<small>🚌 고속버스 유후인고</small><span class="st ok">예약 완료</span></th></tr>
+      <tr><td class="k">시각</td><td><b>12:48</b> 하카타 버스터미널 → <b>14:59</b> 유후인역앞 버스센터</td></tr>
+      <tr><td class="k">예약</td><td>48218편 · 1호차 · 좌석 <b>02C · 02D</b> · 폰의 QR 승차권</td></tr>
+      <tr><td class="k">가는 길</td><td>하카타역 하카타구치 맞은편 · 1·2층 "JR方面直通" 통로로 건너가서 <b>3층</b>으로</td></tr>
+      <tr><td class="k">타는 곳</td><td><b>3층 34번 승강장</b><span class="w">히타행도 같은 승강장 · 행선지 由布院 확인</span></td></tr>
+      <tr><td class="k">요금</td><td>3,250엔</td></tr>
+      <tr><td class="k">차내</td><td>화장실 있는 차량으로 안내됨 (차량마다 다를 수 있음)</td></tr>
+      <tr><td class="k">내린 후</td><td>JR 유후인역까지 도보 2분</td></tr>
+    </tbody>
+
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="2">10/10 토 · 유후인역 → 도쇼안<small>미나토 택시 (숙소가 택시비 부담)</small><span class="st call">숙소 확인</span></th></tr>
+      <tr><td class="k">방법</td><td>역 앞에서 <b>미나토 택시(みなとタクシー)</b>를 타고 숙소로 <b>바로</b> → 프런트에서 택시 티켓을 받아 냄</td></tr>
+      <tr><td class="k">소요</td><td>약 10분 (역에서 약 1.15km)</td></tr>
+      <tr><td class="k">기사에게</td><td>東匠庵 · 大分県由布市湯布院町川南1044-1</td></tr>
+      <tr><td class="k">택시 전화</td><td>유후인 영업소 0977-84-2141 · 배차 0977-23-5111</td></tr>
+      <tr><td class="k">숙소 전화</td><td>050-3528-3816 (공식 사이트)<span class="w">15~17시 도착만 해당되는지 숙소에 확인</span></td></tr>
+    </tbody>
+
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="2">10/11 일 · 도쇼안 → 나카야<small>유후인 안에서 숙소 이동</small></th></tr>
+      <tr><td class="k">짐</td><td><b>유후인 치키</b> 숙소→숙소 배송 · 관광안내소 접수 09:00~15:00 · 300~1,200엔(크기별)</td></tr>
+      <tr><td class="k">사람</td><td>도쇼안 체크아웃 11:00 · 시내까지는 택시 (역까지 약 10분)</td></tr>
+      <tr><td class="k">나카야</td><td>유후인역에서 도보 17분 (약 940m) · 유노쓰보 카이도 방향</td></tr>
+    </tbody>
+
+    <tbody data-r="hita">
+      <tr class="tt-day"><th colspan="2">10/12 월 · 유후인 → 아마가세<small>🚆 JR 큐다이본선 특급</small><span class="st need">예약 필요</span></th></tr>
+      <tr><td class="k">특급</td><td><b>09:08 · 12:01 · 14:15 · 17:17</b> (평일 시각표)<span class="w">10/12는 공휴일 — 이 날짜로 다시 검색</span></td></tr>
+      <tr><td class="k">보통</td><td>07:32 다음이 16:23<span class="w">13:42 열차는 아마가세 안 감</span></td></tr>
+      <tr><td class="k">소요</td><td>45~51분</td></tr>
+      <tr><td class="k">표</td><td><b>종이표만</b> (IC카드 안 됨) · 유후인역 미도리노마도구치 07:00~18:00 또는 발매기 · 특급권 같이</td></tr>
+      <tr><td class="k">요금</td><td>보통 990엔 + 특급권 (금액 미확인)</td></tr>
+      <tr><td class="k">승강장</td><td><b>히타·구루메·하카타 방면</b> · 특급은 보통 1번 · 역이 임시 역사</td></tr>
+      <tr><td class="k">가는 길</td><td>나카야 → 유후인역 도보 17분</td></tr>
+      <tr><td class="k">대안</td><td>유후인고 상행이 <b>高速天瀬高塚</b>에 정차 · 유후인역앞 08:00 · 10:00 · 12:00 · 14:00 · 16:00 · 17:00 출발, 42분<span class="w">2025년 4월 시각표 · 정류장 → 텐스이 거리 미확인</span></td></tr>
+    </tbody>
+
+    <tbody data-r="hita">
+      <tr class="tt-day"><th colspan="2">10/12 월 · 아마가세역 → 산소 텐스이<small>료칸 무료 송영</small><span class="st need">예약 필요</span></th></tr>
+      <tr><td class="k">예약</td><td>탈 열차가 정해지면 도착 시각을 알려두기 · <b>0973-57-2424</b></td></tr>
+      <tr><td class="k">역</td><td><b>무인역</b> · 승강장~역사 계단, 또는 긴 경사로</td></tr>
+      <tr><td class="k">거리</td><td>남남서 약 350m지만 다리를 돌아가야 함 · 노선버스는 하루 1왕복</td></tr>
+    </tbody>
+
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="2">10/13 화 · 아마가세 → 히타<small>🚆 JR 큐다이본선</small></th></tr>
+      <tr><td class="k">텐스이 → 역</td><td>송영 되는지 료칸에 확인</td></tr>
+      <tr><td class="k">소요 · 요금</td><td>약 15분 · 340엔</td></tr>
+      <tr><td class="k">표</td><td>종이표 (IC 안 됨) · 무인역이라 차내 정산 · <b>잔돈 준비</b></td></tr>
+      <tr><td class="k">시각</td><td>미확인 — 텐스이에서 받아두기</td></tr>
+      <tr><td class="k">히타역 →</td><td>마메다마치까지 북쪽 1.5km, 도보 20분 (평지)</td></tr>
+    </tbody>
+
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="2">10/13 화 · 히타 → 텐진<small>🚌 고속버스 히타고</small><span class="st onday">예약 없음</span></th></tr>
+      <tr><td class="k">타는 곳</td><td>히타 버스터미널 (히타역 바로 앞, 도보 1분) <b>2번 승강장</b></td></tr>
+      <tr><td class="k">시각</td><td>평일 32편, 약 30분 간격 (05:00~19:10) · 예: 15:00 → 16:30쯤</td></tr>
+      <tr><td class="k">소요</td><td>약 1시간 32분</td></tr>
+      <tr><td class="k">좌석</td><td>예약 없음 (정원제) · 만석이면 다음 차</td></tr>
+      <tr><td class="k">요금</td><td>약 1,980엔 (1,790엔 표기도 있어 창구 확인)</td></tr>
+      <tr><td class="k">결제</td><td>창구 또는 차내 · 현금·IC<span class="w">신용카드 안 됨 · 2천·5천·1만엔권 거스름 안 됨</span></td></tr>
+      <tr><td class="k">차내</td><td>일부 차량만 화장실 → <b>타기 전 터미널 화장실</b></td></tr>
+      <tr><td class="k">내린 후</td><td>니시테츠 텐진 고속버스터미널 3층 (솔라리아터미널빌딩) → 마이스테이 도보 약 6분</td></tr>
+    </tbody>
+
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="2">10/14 수 · 텐진 → 후쿠오카공항 국제선<small>🚌 공항 직행버스</small><span class="st onday">예약 없음</span></th></tr>
+      <tr><td class="k">가는 길</td><td>마이스테이 → 도보 약 6분 → 미쓰코시 1층 라이온광장에서 3층으로</td></tr>
+      <tr><td class="k">타는 곳</td><td>니시테츠 텐진 고속버스터미널 <b>3층 6번 승강장</b> · 국제선 터미널행</td></tr>
+      <tr><td class="k">시각</td><td><b>10:45~11:00</b> 출발 → 11:40까지 국제선 도착 · 배차 간격은 전날 3층 창구에서 확인</td></tr>
+      <tr><td class="k">소요</td><td>30~40분, 논스톱</td></tr>
+      <tr><td class="k">요금 · 결제</td><td>500엔 (IC 480엔) · 앞문으로 타며 냄 · 현금·IC<span class="w">신용카드 안 됨</span></td></tr>
+      <tr><td class="k">짐</td><td>캐리어는 기사님이 차 아래 짐칸에</td></tr>
+      <tr><td class="k">대안</td><td>지하철 + 무료 셔틀 260엔 · 40~50분 · 갈아타기 2번 (10:30 출발)</td></tr>
+    </tbody>
+
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="2">10/14 수 · 후쿠오카 → 인천<small>✈ 제주항공 7C1472</small><span class="st ok">예약 완료</span></th></tr>
+      <tr><td class="k">시각</td><td><b>13:40</b> 후쿠오카 국제선 → <b>15:25</b> 인천 (1시간 45분)</td></tr>
+      <tr><td class="k">인천 → 집</td><td>아직 정하지 않음</td></tr>
+    </tbody>
+  </table>
+  <p class="tt-foot">일본 쪽 요금·시각표는 2026년 9월 조회 기준(유후인고 시각표는 2025년 4월 개정판) · 탑승 전 재확인</p>
     </div>
   </section>
 
