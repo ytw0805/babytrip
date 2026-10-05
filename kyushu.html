@@ -104,7 +104,6 @@
   .tabbtn[data-r="yufuin"]{--btnc:var(--yufuin);}
   .tabbtn[data-r="hita"]{--btnc:var(--hita);}
   .tabbtn[data-r="tenjin"]{--btnc:var(--tenjin);}
-  .tabbtn[data-r="days"]{--btnc:#6B5B95;}
   .tabbtn[data-r="checklist"]{--btnc:var(--caution);}
   .tabbtn.active{background:var(--btnc);color:var(--surface);box-shadow:var(--shadow);transform:translate(-2px,-2px);}
   .tabbtn:not(.active):hover{color:var(--btnc);border-color:var(--btnc);}
@@ -131,7 +130,6 @@
   .region-panel[data-region="yufuin"]{--rc:var(--yufuin);--rc-soft:var(--yufuin-soft);--rc-ink:var(--yufuin-ink);}
   .region-panel[data-region="hita"]{--rc:var(--hita);--rc-soft:var(--hita-soft);--rc-ink:var(--hita-ink);}
   .region-panel[data-region="tenjin"]{--rc:var(--tenjin);--rc-soft:var(--tenjin-soft);--rc-ink:var(--tenjin-ink);}
-  .region-panel[data-region="days"]{--rc:#6B5B95;--rc-soft:#E4DFEE;--rc-ink:#3D3457;}
   .region-panel[data-region="checklist"]{--rc:var(--ink-soft);--rc-soft:var(--surface-2);--rc-ink:var(--ink);}
   .region-hero{
     position:relative;overflow:hidden;border:3px solid var(--line);border-radius:16px;
@@ -484,6 +482,14 @@
   .cash-box tr.sum td{border-bottom:none;font-weight:900;}
   .cash-box tr.sum td.n{background:#8EF59B;color:#241C12;border-radius:4px;padding:2px 6px;}
   .cash-box p{margin:6px 0 0;font-size:11.5px;color:var(--ink-soft);line-height:1.6;word-break:keep-all;}
+  .adr td.addr-jp{font-size:15px;font-weight:700;line-height:1.5;}
+  .adr td.addr-jp .zip{display:block;font-size:12px;font-weight:500;color:var(--ink-soft);}
+  .adr td.t{font-size:13.5px;}
+  .fr col.c1{width:18%;} .fr col.c2{width:30%;} .fr col.c3{width:52%;}
+  .fr tr.fr-foot td{background:color-mix(in srgb, var(--cs) 30%, var(--surface));padding:6px 8px;}
+  .fr tr.fr-foot .tip{display:block;font-size:11.5px;color:var(--ink-soft);margin-bottom:5px;}
+  .fr tr.fr-foot .goto{margin:0 6px 0 0;}
+  #panel-overview .chosen{margin-top:18px;}
   .mv col.n{width:17%;} .mv col.k{width:20%;} .mv col.v{width:63%;}
   .tt td.stay{background:var(--cs);border-right:2px solid var(--c);padding:8px 5px;}
   .tt td.stay div{position:sticky;top:78px;}
@@ -552,7 +558,6 @@
     <button class="tabbtn" data-r="yufuin">유후인<span class="d">DAY 2–3</span></button>
     <button class="tabbtn" data-r="hita">히타<span class="d">DAY 4</span></button>
     <button class="tabbtn" data-r="tenjin">텐진<span class="d">DAY 5–6</span></button>
-    <button class="tabbtn" data-r="days">자유시간<span class="d">주소 · 날짜별</span></button>
     <button class="tabbtn" data-r="checklist">체크리스트<span class="d">임신 21주차</span></button>
   </nav>
 
@@ -620,6 +625,52 @@
   </table>
   <p class="tt-foot">체크아웃·체크인 정확한 시각은 예약 확인서 기준 · 일본 요금·시각표는 2026년 9월 조회 기준이라 탑승 전 재확인<br>10/10~10/12는 일본 3연휴</p>
     </div>
+
+    <h3 class="section-label">날짜별 자유 시간</h3>
+    <p class="section-sub">위 일정 사이 빈 시간에 뭘 할지 — 통으로 비는 날은 10/11 유후인 하루뿐이에요</p>
+    <div class="tt-wrap">
+  <table class="tt fr">
+    <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+    <tbody data-r="hakata">
+      <tr class="tt-day"><th colspan="3">10/9 금 · 하카타 밤</th></tr>
+      <tr><td class="t">20:30~</td><td><b>저녁 한 끼</b> — 역 안이나 바로 앞에서</td><td class="m">① 간소 하카타 다루마 (데이토스 2층, 주문 마감 22:30)<br>② 마키노우동 (버스터미널 지하1층, 23:00까지 — 속 편한 우동)<br>③ 하카타 잇코샤 총본점 (도보 3~6분, 주문 마감 23:00)<span class="w">한큐 지하식품관은 20:00 마감 · 멘타이쥬 하카타역점은 도시락만</span></td></tr>
+      <tr class="fr-foot"><td colspan="3"><span class="tip">첫날은 일정을 넣지 않는 게 나아요 — 이동만으로 5시간이에요.</span><button class="goto" data-go="hakata">하카타 카드 →</button></td></tr>
+    </tbody>
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="3">10/10 토 · 하카타 오전 · 유후인 저녁</th></tr>
+      <tr><td class="t">오전</td><td><b>하카타 2~3시간</b></td><td class="m">구시다신사 · 캐널시티 · 가와바타 상점가가 붙어 있어 한 덩어리로 · JR 창구(10/12 열차표) 들를 시간은 빼두기</td></tr>
+      <tr><td class="t">15:10~</td><td><b>료칸에서 쉬기</b></td><td class="m">도쇼안은 역에서 1.15km라 다시 나오려면 택시 · 처음으로 아무 데도 안 가는 저녁</td></tr>
+      <tr class="fr-foot"><td colspan="3"><button class="goto" data-go="hakata">하카타 카드 →</button><button class="goto" data-go="yufuin">유후인 카드 →</button></td></tr>
+    </tbody>
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="3">10/11 일 · 유후인 종일</th></tr>
+      <tr><td class="t">오전~</td><td><b>유노쓰보 카이도</b> 걷기</td><td class="m">역 → 긴린코 약 800m, 가게 대부분이 이 길 위 · 연휴 일요일이라 <b>붐비기 전 오전에</b></td></tr>
+      <tr><td class="t">—</td><td>긴린코까지 갈지</td><td class="m">역에서 편도 1.4km · 왕복 2.8km라 이것만으로 꽤 걸어요</td></tr>
+      <tr><td class="t">비 오면</td><td>미술관 쪽으로</td><td class="m">체크리스트 탭 「비 오는 날 대안」</td></tr>
+      <tr><td class="t">저녁</td><td>나카야 저녁</td><td class="m"></td></tr>
+      <tr class="fr-foot"><td colspan="3"><span class="tip">통으로 비는 유일한 날 — 가고 싶은 곳은 여기에 몰아요.</span><button class="goto" data-go="yufuin">유후인 카드 →</button></td></tr>
+    </tbody>
+    <tbody data-r="hita">
+      <tr class="tt-day"><th colspan="3">10/12 월 · 유후인 오전 · 아마가세 저녁</th></tr>
+      <tr><td class="t">~14:15</td><td><b>유후인에서 못 본 곳</b></td><td class="m">짐은 나카야에 맡기거나 유후인역 코인로커(임시역사 기간 운영 여부 미확인) · 역 대합실을 못 쓰니 기다릴 땐 관광안내소</td></tr>
+      <tr><td class="t">15:00~</td><td><b>온천 · 료칸</b></td><td class="m">저녁까지 할 일이 없는 게 이 날의 목적 · 강변 공동노천탕은 바위 지형이라 산책만</td></tr>
+      <tr class="fr-foot"><td colspan="3"><button class="goto" data-go="yufuin">유후인 카드 →</button><button class="goto" data-go="hita">히타·아마가세 카드 →</button></td></tr>
+    </tbody>
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="3">10/13 화 · 히타 낮 · 텐진 저녁</th></tr>
+      <tr><td class="t">오전~낮</td><td><b>마메다마치</b> 한 바퀴</td><td class="m">히타역 북쪽 1.5km, 평지 · 짐은 히타역 코인로커(20칸뿐) · 히타고는 약 30분 간격</td></tr>
+      <tr><td class="t">저녁</td><td><b>텐진의 유일한 저녁</b></td><td class="m">지하상가 · 백화점 데파치카 · 솔라리아가 숙소에서 전부 도보권 · 멀리 나가지 않기</td></tr>
+      <tr class="fr-foot"><td colspan="3"><button class="goto" data-go="hita">히타·아마가세 카드 →</button><button class="goto" data-go="tenjin">텐진 카드 →</button></td></tr>
+    </tbody>
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="3">10/14 수 · 텐진 오전</th></tr>
+      <tr><td class="t">~10:45</td><td><b>2~3시간</b>, 짐 맡기고</td><td class="m">텐진 지하상가 · 데파치카에서 기념품 · 오호리공원·후쿠오카타워는 왕복만으로 시간이 다 가요</td></tr>
+      <tr class="fr-foot"><td colspan="3"><button class="goto" data-go="tenjin">텐진 카드 →</button></td></tr>
+    </tbody>
+  </table>
+    </div>
+
+    <div class="chosen" id="chosen-box"></div>
   </section>
 
   <!-- ================= 교통편 ================= -->
@@ -753,115 +804,47 @@
   </table>
   <p class="tt-foot">일본 쪽 요금·시각표는 2026년 9월 조회 기준(유후인고 시각표는 2025년 4월 개정판) · 탑승 전 재확인</p>
     </div>
-  </section>
 
-  <!-- ================= 자유시간 ================= -->
-  <section class="region-panel" id="panel-days" data-region="days" hidden>
     <h3 class="section-label" id="s-stay">택시에서 보여줄 주소</h3>
-    <p class="section-sub">택시에서는 주소를 보여주는 게 제일 빨라요 — 아래 일본어 주소를 그대로 보여주세요</p>
-    <div class="stays">
-      <div class="stay">
-        <span class="n">10/9 (금)</span>
-        <h4>비아 인 하카타구치 에키마에</h4><div class="jp">ヴィアイン博多口駅前</div>
-        <div class="addr">〒812-0011<br>福岡市博多区博多駅前2丁目17番11号</div>
-        <span class="tel">092-452-5489</span>
-        <div class="how">하카타역 하카타구치에서 <b>서북서 약 385m</b>. 걸어서 갑니다.</div>
-      </div>
-      <div class="stay">
-        <span class="n">10/10 (토)</span>
-        <h4>도쇼안</h4><div class="jp">東匠庵</div>
-        <div class="addr">〒879-5103<br>大分県由布市湯布院町川南1044-1</div>
-        <span class="tel">050-3528-3816</span>
-        <div class="how">유후인역 <b>남남서 약 1.15km</b>, 택시 약 10분. 셔틀 대신 <b>역 앞 미나토 택시(みなとタクシー)</b>로 숙소에 바로 가면 <b>프런트에서 택시 티켓</b>을 줘요(숙소 공식 FAQ). 기사에게 이 주소를 보여주세요.</div>
-      </div>
-      <div class="stay">
-        <span class="n">10/11 (일)</span>
-        <h4>온야도 나카야</h4><div class="jp">御宿なか屋</div>
-        <div class="addr">〒879-5102<br>大分県由布市湯布院町川上1530-2</div>
-        <span class="tel">0977-84-3835</span>
-        <div class="how">유후인역 <b>동북동 약 940m</b>, 도보 17분. 유노쓰보 카이도 방향이라 걸어가며 구경해도 돼요.</div>
-      </div>
-      <div class="stay">
-        <span class="n">10/12 (월)</span>
-        <h4>산소 텐스이</h4><div class="jp">山荘天水</div>
-        <div class="addr">〒879-4201<br>大分県日田市天瀬町桜竹601</div>
-        <span class="tel">0973-57-2424</span>
-        <div class="how"><b>아마가세역은 무인역</b>이에요. 직선으로는 남남서 350m지만 다리를 돌아가야 해서, <b>송영을 미리 예약</b>하고 못 만나면 이 번호로 전화하세요.</div>
-      </div>
-      <div class="stay">
-        <span class="n">10/13 (화)</span>
-        <h4>호텔 마이스테이 후쿠오카 텐진</h4><div class="jp">ホテルマイステイズ福岡天神</div>
-        <div class="addr">〒810-0001<br>福岡県福岡市中央区天神3-5-7</div>
-        <span class="tel">092-687-1100</span>
-        <div class="how">니시테츠 텐진역 <b>북서 약 480m</b>, 도보 6분. 버스터미널에서도 같은 거리예요.</div>
-      </div>
+    <p class="section-sub">기사님께 주소를 보여주면서 「この住所までお願いします」(이 주소로 가주세요)</p>
+    <div class="tt-wrap">
+  <table class="tt mv adr">
+    <colgroup><col class="k"><col class="v"></colgroup>
+    <tbody data-r="hakata">
+      <tr class="tt-day"><th colspan="2">10/9 금 · 비아 인 하카타구치<small>ヴィアイン博多口駅前</small></th></tr>
+      <tr><td class="k">주소</td><td class="addr-jp"><span class="zip">〒812-0011</span>福岡市博多区博多駅前2丁目17番11号</td></tr>
+      <tr><td class="k">전화</td><td class="t">092-452-5489</td></tr>
+      <tr><td class="k">가는 법</td><td>하카타역 하카타구치에서 도보 약 5분 (385m)</td></tr>
+    </tbody>
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="2">10/10 토 · 도쇼안<small>東匠庵</small></th></tr>
+      <tr><td class="k">주소</td><td class="addr-jp"><span class="zip">〒879-5103</span>大分県由布市湯布院町川南1044-1</td></tr>
+      <tr><td class="k">전화</td><td class="t">050-3528-3816</td></tr>
+      <tr><td class="k">가는 법</td><td>유후인역에서 미나토 택시 약 10분 · 프런트에서 택시 티켓</td></tr>
+    </tbody>
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="2">10/11 일 · 온야도 나카야<small>御宿なか屋</small></th></tr>
+      <tr><td class="k">주소</td><td class="addr-jp"><span class="zip">〒879-5102</span>大分県由布市湯布院町川上1530-2</td></tr>
+      <tr><td class="k">전화</td><td class="t">0977-84-3835</td></tr>
+      <tr><td class="k">가는 법</td><td>유후인역에서 도보 17분 (940m)</td></tr>
+    </tbody>
+    <tbody data-r="hita">
+      <tr class="tt-day"><th colspan="2">10/12 월 · 산소 텐스이<small>山荘天水</small></th></tr>
+      <tr><td class="k">주소</td><td class="addr-jp"><span class="zip">〒879-4201</span>大分県日田市天瀬町桜竹601</td></tr>
+      <tr><td class="k">전화</td><td class="t">0973-57-2424</td></tr>
+      <tr><td class="k">가는 법</td><td>아마가세역(무인역)에서 송영 · 못 만나면 이 번호로</td></tr>
+    </tbody>
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="2">10/13 화 · 호텔 마이스테이 후쿠오카 텐진<small>ホテルマイステイズ福岡天神</small></th></tr>
+      <tr><td class="k">주소</td><td class="addr-jp"><span class="zip">〒810-0001</span>福岡県福岡市中央区天神3-5-7</td></tr>
+      <tr><td class="k">전화</td><td class="t">092-687-1100</td></tr>
+      <tr><td class="k">가는 법</td><td>텐진 고속버스터미널에서 도보 약 6분 (480m)</td></tr>
+    </tbody>
+  </table>
+  <p class="tt-foot">숙소가 공개한 주소 기준 · 번지까지는 예약 확인서와 한 번 대조해보세요</p>
     </div>
-    <p style="font-size:11px;color:var(--ink-faint);margin:8px 0 16px;">주소는 각 숙소가 공개한 것을 기준으로 했어요. <b>번지 단위까지는 예약 확인서와 한 번 대조해보세요.</b> 마이스테이 전화번호는 호텔 공식 페이지 표기라, 이것만 예약 확인서와 한 번 맞춰보시면 됩니다.</p>
-
-    <h3 class="section-label">날짜별 자유 시간</h3>
-    <p class="section-sub">이동·체크인은 개요·교통편 탭에 있어요 — 여기는 그 사이 빈 시간에 뭘 할지만</p>
-
-    <div class="day">
-      <div class="day-head"><span class="d-n">DAY 1</span><h3>10/9 (금)</h3><span class="d-where">하카타 · 밤만</span></div>
-      <div class="day-body">
-        <div class="tl free"><span class="tl-t">20:30~</span><span class="tl-c"><b>저녁 한 끼가 전부예요</b><span class="tl-note">명소는 다 닫은 시간이라, 역 안이나 역에서 도보 몇 분 안쪽에서 먹는 게 현실적이에요. <b>그 시간에 확실히 열려 있는 곳만 골라뒀습니다</b> — 앞의 둘은 역 건물 안이라 밖으로 나가지 않아도 돼요. <b>① 간소 하카타 다루마</b>(데이토스 2층, 주문 마감 22:30) · <b>② 마키노우동</b>(버스터미널 지하1층, 23:00까지 — 비행기에서 내린 날 속이 제일 편해요) · <b>③ 하카타 잇코샤 총본점</b>(도보 3~6분, 주문 마감 23:00으로 여유가 가장 큼). <b>반대로 하카타 한큐 지하식품관은 20:00에 닫아</b> 이 날 밤엔 이미 늦고, <b>간소 하카타 멘타이쥬 하카타역점은 도시락 전용</b>이라 앉아서 못 먹어요.</span></span></div>
-      </div>
-      <button class="goto" data-go="hakata">하카타 카드 보기 →</button>
-      <div class="day-foot">첫날은 <b>일정을 넣지 않는 게 낫습니다.</b> 비행기+입국+이동만으로 이미 5시간이에요.</div>
-    </div>
-
-    <div class="day">
-      <div class="day-head"><span class="d-n">DAY 2</span><h3>10/10 (토)</h3><span class="d-where">하카타 오전 · 유후인 저녁</span><span class="d-hol">연휴 1일차</span></div>
-      <div class="day-body">
-        <div class="tl free"><span class="tl-t">오전</span><span class="tl-c"><b>하카타에서 2~3시간</b><span class="tl-note">12:48 버스에서 거꾸로 계산한 값이에요. 구시다신사·캐널시티·가와바타 상점가가 서로 붙어 있어 이 셋이 한 덩어리로 좋아요. 하카타역 JR 창구(10/12 열차표)에 들를 시간은 빼두세요.</span></span></div>
-        <div class="tl free"><span class="tl-t">15:10~</span><span class="tl-c"><b>저녁은 료칸 안에서 보내게 돼요</b><span class="tl-note">도쇼안이 역에서 1.15km 떨어져 있어서, 체크인하고 나면 시내로 다시 나오려면 또 택시예요. <b>여행 와서 처음으로 아무 데도 안 가는 저녁</b>이라고 생각하면 편해요. 가이세키의 생식·술 페어링 제외는 미리 말해두세요.</span></span></div>
-      </div>
-      <button class="goto" data-go="hakata">하카타 카드 →</button><button class="goto" data-go="yufuin">유후인 카드 →</button>
-    </div>
-
-    <div class="day">
-      <div class="day-head"><span class="d-n">DAY 3</span><h3>10/11 (일)</h3><span class="d-where">유후인 종일</span><span class="d-hol">연휴 2일차</span></div>
-      <div class="day-body">
-        <div class="tl free"><span class="tl-t">오전~</span><span class="tl-c"><b>유일하게 통으로 비는 하루</b><span class="tl-note">나카야에 짐을 맡기고 나면 몸만이에요. 유노쓰보 카이도(역→긴린코 약 800m)를 따라 걷는 게 기본 축이고, 카드 대부분이 이 길 위에 있습니다. 나카야가 그쪽 방향이라 바로 걸어 나가면 돼요.</span></span></div>
-        <div class="tl free"><span class="tl-t">—</span><span class="tl-c">긴린코까지 갈지 결정<span class="tl-note">역에서 편도 약 1.4km(도보 20분). 왕복이면 2.8km라 이것만으로 하루 걸음 수가 꽤 됩니다.</span></span></div>
-        <div class="tl free"><span class="tl-t">저녁</span><span class="tl-c">나카야 저녁<span class="tl-note">여기도 가이세키면 생식·술 제외를 미리 요청해두세요.</span></span></div>
-      </div>
-      <button class="goto" data-go="yufuin">유후인 카드 보기 →</button>
-      <div class="day-foot">이동이 택시 한 번뿐인 날이라, 가고 싶은 곳은 여기에 몰아도 돼요. 다만 <b>연휴 한가운데(일요일)</b>라 유노쓰보 카이도가 가장 붐비니 <b>걷는 건 오전에 몰아두세요.</b> 유후인은 <b>10월에 나흘 중 하루꼴로 비(약 26%)</b>가 오고 이 날이 거의 야외라, 아침에 비면 미술관 쪽으로 갈아타세요(체크리스트 탭 「비 오는 날 대안」).</div>
-    </div>
-
-    <div class="day">
-      <div class="day-head"><span class="d-n">DAY 4</span><h3>10/12 (월)</h3><span class="d-where">유후인 오전 · 아마가세 저녁</span><span class="d-hol">공휴일</span></div>
-      <div class="day-body">
-        <div class="tl free"><span class="tl-t">~14:15</span><span class="tl-c"><b>체크아웃 후 열차 전까지 유후인</b><span class="tl-note">전날 못 본 곳을 채우는 시간이에요. 짐은 나카야가 맡아주는지 물어보거나, 유후인역 코인로커(중·대·특대 800~1,200엔)를 쓰세요 — 임시역사 기간에도 로커가 운영되는지는 확인하지 못했어요. 역은 대합실을 못 쓰니, 열차 기다릴 땐 역 앞 관광안내소에서 쉬세요.</span></span></div>
-        <div class="tl free"><span class="tl-t">15:00~</span><span class="tl-c"><b>저녁까지 특별히 할 일이 없는데, 그게 이 날의 목적이에요</b><span class="tl-note">온천 · 료칸 저녁. 강변 공동노천탕은 바위 지형이라 입욕 말고 산책만.</span></span></div>
-      </div>
-      <button class="goto" data-go="yufuin">유후인 카드 →</button><button class="goto" data-go="hita">히타·아마가세 카드 →</button>
-    </div>
-
-    <div class="day">
-      <div class="day-head"><span class="d-n">DAY 5</span><h3>10/13 (화)</h3><span class="d-where">히타 낮 · 텐진 저녁</span></div>
-      <div class="day-body">
-        <div class="tl free"><span class="tl-t">오전~낮</span><span class="tl-c"><b>마메다마치 한 바퀴</b><span class="tl-note">히타역에서 북쪽 1.5km(도보 20분), 전 구간 평지예요. 짐은 <b>히타역 코인로커</b>(20칸뿐)에 맡기고 다녀오세요. 히타고는 약 30분 간격이라 돌아올 시간에 맞춰 타면 돼요.</span></span></div>
-        <div class="tl free"><span class="tl-t">저녁</span><span class="tl-c"><b>텐진에서 보내는 사실상 유일한 저녁이에요</b><span class="tl-note">텐진 탭에 32곳이 있지만 쓸 수 있는 저녁은 이 한 번뿐입니다. 숙소가 텐진역에서 도보 6분이라 <b>지하상가·백화점 데파치카·솔라리아 일대가 전부 도보권</b>이에요. 짐 들고 이동한 날이라 <b>멀리 나가지 않는 편</b>이 좋습니다.</span></span></div>
-      </div>
-      <button class="goto" data-go="hita">히타 카드 →</button><button class="goto" data-go="tenjin">텐진 카드 →</button>
-      <div class="day-foot">짐을 든 채 이동하는 시간이 가장 긴 날이에요. 히타고를 늦게 탈수록 텐진 저녁이 짧아집니다.</div>
-    </div>
-
-    <div class="day">
-      <div class="day-head"><span class="d-n">DAY 6</span><h3>10/14 (수)</h3><span class="d-where">텐진 오전</span></div>
-      <div class="day-body">
-        <div class="tl free"><span class="tl-t">~10:45</span><span class="tl-c"><b>쓸 수 있는 시간은 2~3시간</b><span class="tl-note">짐을 호텔 프런트에 맡긴 뒤 <b>텐진 지하상가·백화점 데파치카</b>처럼 역에서 몇 분 안쪽이 현실적이에요. 기념품·먹거리를 여기서 사면 공항까지 들고 가기도 편합니다.</span></span></div>
-      </div>
-      <button class="goto" data-go="tenjin">텐진 카드 보기 →</button>
-      <div class="day-foot">마지막날 오전에 <b>멀리 나가는 일정은 넣지 마세요.</b> 오호리공원·후쿠오카타워는 왕복만으로 시간이 다 갑니다.</div>
-    </div>
-
-    <p class="leg-pick">✓ 정리하면 — 통으로 비는 날은 <b>10/11 유후인 하루뿐</b>이고, 나머지는 모두 이동이 낀 날이에요. 가고 싶은 곳이 많으면 <b>10/11에 몰고</b>, 이동일에는 한두 곳만 얹는 게 몸이 편합니다.</p>
-
-    <div class="chosen" id="chosen-box"></div>
   </section>
+
 
   <!-- ================= 하카타 ================= -->
   <section class="region-panel" id="panel-hakata" data-region="hakata" hidden>
