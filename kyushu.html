@@ -473,7 +473,22 @@
   /* 교통편 탭 */
   .tabbtn[data-r="move"]{--btnc:#4A6785;}
   .region-panel[data-region="move"]{--rc:var(--ink-soft);--rc-soft:var(--surface-2);--rc-ink:var(--ink);}
-  .mv col.k{width:24%;} .mv col.v{width:76%;}
+  .mv col.n{width:17%;} .mv col.k{width:20%;} .mv col.v{width:63%;}
+  .mv td.stay{background:var(--cs);border-right:2px solid var(--c);padding:8px 5px;}
+  .mv td.stay div{position:sticky;top:78px;}
+  .mv td.stay{word-break:keep-all;}
+  .mv td.stay .si{display:block;font-size:15px;margin-top:4px;}
+  .mv td.stay .sd{display:block;font:700 11px "IBM Plex Mono",monospace;color:var(--ci);}
+  .mv td.stay b{display:block;font-size:13px;line-height:1.3;color:var(--ci);margin-top:1px;}
+  .mv td.stay .sj{display:block;font-size:10px;color:var(--ink-soft);margin-top:3px;}
+  .mv tr.tt-day:not(:first-child) th{border-top:2px solid var(--c);}
+  .tt mark.hl{color:#241C12;border-radius:4px;padding:0 3px;font-weight:700;-webkit-box-decoration-break:clone;box-decoration-break:clone;}
+  .tt mark.buy{background:#FFF04A;}
+  .tt mark.cash{background:#8EF59B;}
+  .tt th mark.hl{display:inline-block;font-size:10.5px;margin-left:5px;white-space:nowrap;}
+  .mv-legend{font-size:12px;margin:0 0 10px;line-height:2;}
+  .mv-legend mark.hl{color:#241C12;border-radius:4px;padding:1px 5px;font-weight:700;}
+  .mv-legend mark.buy{background:#FFF04A;} .mv-legend mark.cash{background:#8EF59B;}
   .mv .s2{display:block;font-size:11px;color:var(--ink-faint);}
   .mv td.k{font-size:11px;font-weight:700;color:var(--ink-soft);background:color-mix(in srgb, var(--cs) 25%, var(--surface));}
   .tt .st{display:inline-block;font-size:10.5px;font-weight:700;border-radius:99px;padding:0 7px;border:1px solid currentColor;white-space:nowrap;}
@@ -598,50 +613,40 @@
   <!-- ================= 교통편 ================= -->
   <section class="region-panel" id="panel-move" data-region="move" hidden>
     <h3 class="section-label">구간별</h3>
+    <p class="mv-legend"><mark class="hl buy">노랑</mark> 현장에서 사거나 내야 하는 것 · <mark class="hl cash">💴 초록</mark> 현금이 필요한 것</p>
     <div class="tt-wrap">
   <table class="tt mv">
-    <colgroup><col class="k"><col class="v"></colgroup>
+    <colgroup><col class="n"><col class="k"><col class="v"></colgroup>
+    <thead><tr><th>오늘 밤</th><th colspan="2">이동</th></tr></thead>
 
     <tbody data-r="hakata">
-      <tr class="tt-day"><th colspan="2">10/9 금 · 집 → 인천공항 T1<small>공항버스</small><span class="st ok">예약 완료</span></th></tr>
+      <tr class="tt-day"><td class="stay" rowspan="17"><div><span class="sd">10/9 금</span><span class="si">🛏</span><b>비아 인</b><span class="sj">ヴィアイン博多口駅前</span></div></td><th colspan="2">집 → 인천공항 T1<small>공항버스</small><span class="st ok">예약 완료</span></th></tr>
       <tr><td class="k">시각</td><td><b>12:30</b> 집 앞 출발 → <b>~14:03</b> 인천공항 T1 (약 1시간 33분)</td></tr>
       <tr><td class="k">좌석</td><td><b>07 · 08</b></td></tr>
-    </tbody>
-
-    <tbody data-r="hakata">
-      <tr class="tt-day"><th colspan="2">10/9 금 · 인천 → 후쿠오카<small>✈ 제주항공 7C1407</small><span class="st ok">예약 완료</span></th></tr>
+      <tr class="tt-day"><th colspan="2">인천 → 후쿠오카<small>✈ 제주항공 7C1407</small><span class="st ok">예약 완료</span></th></tr>
       <tr><td class="k">시각</td><td><b>17:20</b> 인천 T1 → <b>18:50</b> 후쿠오카 국제선 (1시간 30분)</td></tr>
       <tr><td class="k">준비</td><td>Visit Japan Web QR (입국심사·세관)</td></tr>
       <tr><td class="k">도착 후</td><td>2층 입국심사 → 1층 수하물·세관 · 로비까지 30~45분</td></tr>
-    </tbody>
-
-    <tbody data-r="hakata">
-      <tr class="tt-day"><th colspan="2">10/9 금 · 국제선 → 국내선 터미널<small>무료 셔틀버스</small></th></tr>
+      <tr class="tt-day"><th colspan="2">국제선 → 국내선 터미널<small>무료 셔틀버스</small></th></tr>
       <tr><td class="k">타는 곳</td><td>1층 도착로비 나가서 <b>"1"번 빨간 정류장</b></td></tr>
       <tr><td class="k">내리는 곳</td><td>국내선 터미널 <b>"A" 정류장</b>(남쪽)</td></tr>
       <tr><td class="k">소요 · 간격</td><td>10~15분 · 5~6분 간격 · 약 06:00~23:00</td></tr>
       <tr><td class="k">요금</td><td>무료, 표 없음</td></tr>
-    </tbody>
-
-    <tbody data-r="hakata">
-      <tr class="tt-day"><th colspan="2">10/9 금 · 후쿠오카공항역 → 하카타역<small>🚇 지하철 공항선</small></th></tr>
+      <tr class="tt-day"><th colspan="2">후쿠오카공항역 → 하카타역<small>🚇 지하철 공항선</small><mark class="hl buy">현장 구매</mark><mark class="hl cash">💴 현금</mark></th></tr>
       <tr><td class="k">타는 곳</td><td>국내선 터미널 지하 <b>후쿠오카공항역</b> · 개찰구 옆 엘리베이터 있음</td></tr>
       <tr><td class="k">방향</td><td><b>메이노하마(姪浜)행</b> · 2정거장, 약 5분</td></tr>
-      <tr><td class="k">요금 · 결제</td><td>260엔 · 발매기 또는 IC카드 · 신용카드는 유인 창구</td></tr>
+      <tr><td class="k">요금 · 결제</td><td><mark class="hl buy">발매기에서 1인 260엔</mark> · <mark class="hl cash">💴 현금 준비</mark> (IC카드도 됨) · 신용카드는 유인 창구</td></tr>
       <tr><td class="k">내린 후</td><td><b>博多口</b> 개찰 → 비아 인까지 도보 약 5분 (약 385m)</td></tr>
     </tbody>
 
     <tbody data-r="yufuin">
-      <tr class="tt-day"><th colspan="2">10/10 토 · 하카타역 JR 창구<small>10/12 열차표 미리 사기</small><span class="st need">버스 타기 전</span></th></tr>
-      <tr><td class="k">언제</td><td>10/10 오전, 12:48 버스 타기 전</td></tr>
+      <tr class="tt-day"><td class="stay" rowspan="20"><div><span class="sd">10/10 토</span><span class="si">🛏</span><b>도쇼안</b><span class="sj">東匠庵</span></div></td><th colspan="2">하카타역 JR 창구<small>10/12 열차표 미리 사기</small><mark class="hl buy">현장 구매</mark></th></tr>
+      <tr><td class="k">언제</td><td><mark class="hl buy">10/10 오전, 12:48 버스 타기 전</mark></td></tr>
       <tr><td class="k">어디서</td><td>JR 하카타역 <b>미도리노마도구치</b>(みどりの窓口) · 버스터미널 바로 맞은편</td></tr>
       <tr><td class="k">살 표</td><td>10/12 <b>유후인 → 아마가세</b> · <b>특급 유후 4호</b> (14:15) · 2명<br>승차권 + 특급권</td></tr>
       <tr><td class="k">창구에서</td><td>「10月12日、由布院から天ヶ瀬まで、特急ゆふ4号、2枚お願いします」</td></tr>
       <tr><td class="k">왜 미리</td><td>이 구간은 IC카드가 안 돼서 어차피 종이표가 필요하고, 연휴 마지막 날이라 당일엔 붐빌 수 있음</td></tr>
-    </tbody>
-
-    <tbody data-r="yufuin">
-      <tr class="tt-day"><th colspan="2">10/10 토 · 하카타 → 유후인<small>🚌 고속버스 유후인고</small><span class="st ok">예약 완료</span></th></tr>
+      <tr class="tt-day"><th colspan="2">하카타 → 유후인<small>🚌 고속버스 유후인고</small><span class="st ok">예약 완료</span></th></tr>
       <tr><td class="k">시각</td><td><b>12:48</b> 하카타 버스터미널 → <b>14:59</b> 유후인역앞 버스센터</td></tr>
       <tr><td class="k">예약</td><td>48218편 · 1호차 · 좌석 <b>02C · 02D</b> · 폰의 QR 승차권</td></tr>
       <tr><td class="k">가는 길</td><td>하카타역 하카타구치 맞은편 · 1·2층 "JR方面直通" 통로로 건너가서 <b>3층</b>으로</td></tr>
@@ -649,10 +654,7 @@
       <tr><td class="k">요금</td><td>3,250엔</td></tr>
       <tr><td class="k">차내</td><td>화장실 있는 차량으로 안내됨 (차량마다 다를 수 있음)</td></tr>
       <tr><td class="k">내린 후</td><td>JR 유후인역까지 도보 2분</td></tr>
-    </tbody>
-
-    <tbody data-r="yufuin">
-      <tr class="tt-day"><th colspan="2">10/10 토 · 유후인역 → 도쇼안<small>미나토 택시 (숙소가 택시비 부담)</small><span class="st call">숙소 확인</span></th></tr>
+      <tr class="tt-day"><th colspan="2">유후인역 → 도쇼안<small>미나토 택시 (숙소가 택시비 부담)</small><span class="st call">숙소 확인</span></th></tr>
       <tr><td class="k">방법</td><td>역 앞에서 <b>미나토 택시(みなとタクシー)</b>를 타고 숙소로 <b>바로</b> → 프런트에서 택시 티켓을 받아 냄</td></tr>
       <tr><td class="k">소요</td><td>약 10분 (역에서 약 1.15km)</td></tr>
       <tr><td class="k">기사에게</td><td>東匠庵 · 大分県由布市湯布院町川南1044-1</td></tr>
@@ -661,9 +663,10 @@
     </tbody>
 
     <tbody data-r="yufuin">
-      <tr class="tt-day"><th colspan="2">10/11 일 · 도쇼안 → 나카야<small>🚕 택시로 바로 · 짐 맡기고 몸만</small></th></tr>
+      <tr class="tt-day"><td class="stay" rowspan="8"><div><span class="sd">10/11 일</span><span class="si">🛏</span><b>나카야</b><span class="sj">御宿なか屋</span></div></td><th colspan="2">도쇼안 → 나카야<small>🚕 택시로 바로 · 짐 맡기고 몸만</small><mark class="hl buy">현장 결제</mark></th></tr>
       <tr><td class="k">언제</td><td>도쇼안 체크아웃 <b>11:00</b> 전</td></tr>
       <tr><td class="k">방법</td><td>도쇼안 프런트에 택시 불러달라고 하기 → <b>나카야로 바로</b></td></tr>
+      <tr><td class="k">요금</td><td><mark class="hl buy">택시비 내리면서 결제</mark> · <mark class="hl cash">💴 카드 되는지 몰라서 현금 준비</mark></td></tr>
       <tr><td class="k">기사에게</td><td>御宿なか屋 · 大分県由布市湯布院町川上1530-2</td></tr>
       <tr><td class="k">거리</td><td>두 숙소가 유후인역을 사이에 두고 반대편 (도쇼안은 역 남쪽 1.15km, 나카야는 역 동쪽 940m) · 짐 들고 걷기엔 멂</td></tr>
       <tr><td class="k">짐</td><td>나카야에 <b>체크인 전 짐 맡기기</b><span class="w">맡아주는지 미리 확인 · 0977-84-3835</span></td></tr>
@@ -671,7 +674,7 @@
     </tbody>
 
     <tbody data-r="hita">
-      <tr class="tt-day"><th colspan="2">10/12 월 · 유후인 → 아마가세<small>🚆 특급 유후 4호</small><span class="st ok">10/10 구매</span></th></tr>
+      <tr class="tt-day"><td class="stay" rowspan="14"><div><span class="sd">10/12 월</span><span class="si">🛏</span><b>텐스이</b><span class="sj">山荘天水</span></div></td><th colspan="2">유후인 → 아마가세<small>🚆 특급 유후 4호</small><span class="st ok">10/10 구매</span></th></tr>
       <tr><td class="k">시각</td><td><b>14:15</b> 유후인 → <b>14:57</b> 아마가세 (42분)</td></tr>
       <tr><td class="k">표</td><td>10/10 하카타역에서 산 <b>종이표</b> (승차권 + 특급권) · IC카드 안 됨</td></tr>
       <tr><td class="k">요금</td><td>1인 1,740엔 (운임 990 + 특급 750, Yahoo 경로검색 기준) · 지정석이면 조금 더</td></tr>
@@ -679,10 +682,7 @@
       <tr><td class="k">승강장</td><td><b>히타·구루메·하카타 방면</b> · 특급은 보통 1번 · 역이 임시 역사라 대합실 못 씀</td></tr>
       <tr><td class="k">놓치면</td><td>15:56 유후인노모리 4호 → 16:37 (전석 지정) · 16:23 보통 → 17:14 (990엔)<span class="w">13:42 보통은 아마가세 안 감</span></td></tr>
       <tr><td class="k">이 날 전체</td><td>09:08 유후 2호 · 09:24 보통 · 12:01 유후인노모리 2호 · 14:15 유후 4호 · 15:56 유후인노모리 4호 · 16:23 보통 · 17:17 유후인노모리 6호<span class="s2">2026/10/12 날짜로 검색해서 확인 (공휴일도 같은 시간표)</span></td></tr>
-    </tbody>
-
-    <tbody data-r="hita">
-      <tr class="tt-day"><th colspan="2">10/12 월 · 아마가세역 → 산소 텐스이<small>료칸 무료 송영</small><span class="st need">예약 필요</span></th></tr>
+      <tr class="tt-day"><th colspan="2">아마가세역 → 산소 텐스이<small>료칸 무료 송영</small><span class="st need">예약 필요</span></th></tr>
       <tr><td class="k">예약</td><td>텐스이에 전화해서 <b>14:57 아마가세역 도착</b> 송영 요청 · <b>0973-57-2424</b></td></tr>
       <tr><td class="k">전화로</td><td>「10月12日、14時57分に天ヶ瀬駅に着きます。送迎をお願いできますか？」</td></tr>
       <tr><td class="k">같이 물을 것</td><td>10/13 아침 체크아웃 후 아마가세역까지 송영 되는지</td></tr>
@@ -691,42 +691,37 @@
     </tbody>
 
     <tbody data-r="tenjin">
-      <tr class="tt-day"><th colspan="2">10/13 화 · 아마가세 → 히타<small>🚆 JR 큐다이본선</small></th></tr>
+      <tr class="tt-day"><td class="stay" rowspan="15"><div><span class="sd">10/13 화</span><span class="si">🛏</span><b>마이스테이</b><span class="sj">ホテルマイステイズ福岡天神</span></div></td><th colspan="2">아마가세 → 히타<small>🚆 JR 큐다이본선</small><mark class="hl buy">현장 구매</mark><mark class="hl cash">💴 현금</mark></th></tr>
       <tr><td class="k">텐스이 → 역</td><td>송영 되는지 료칸에 확인</td></tr>
       <tr><td class="k">소요 · 요금</td><td>약 15분 · 340엔</td></tr>
-      <tr><td class="k">표</td><td>종이표 (IC 안 됨) · 무인역이라 차내 정산 · <b>잔돈 준비</b></td></tr>
+      <tr><td class="k">표</td><td><mark class="hl buy">무인역이라 타서 차내 정산</mark> · IC 안 됨 · <mark class="hl cash">💴 현금 340엔, 잔돈으로</mark></td></tr>
       <tr><td class="k">시각</td><td>미확인 — 텐스이에서 받아두기</td></tr>
       <tr><td class="k">히타역 →</td><td>마메다마치까지 북쪽 1.5km, 도보 20분 (평지)</td></tr>
-    </tbody>
-
-    <tbody data-r="tenjin">
-      <tr class="tt-day"><th colspan="2">10/13 화 · 히타 → 텐진<small>🚌 고속버스 히타고</small><span class="st onday">예약 없음</span></th></tr>
+      <tr class="tt-day"><th colspan="2">히타 → 텐진<small>🚌 고속버스 히타고</small><mark class="hl buy">현장 구매</mark><mark class="hl cash">💴 현금</mark></th></tr>
       <tr><td class="k">타는 곳</td><td>히타 버스터미널 (히타역 바로 앞, 도보 1분) <b>2번 승강장</b></td></tr>
       <tr><td class="k">시각</td><td>평일 32편, 약 30분 간격 (05:00~19:10) · 예: 15:00 → 16:30쯤</td></tr>
       <tr><td class="k">소요</td><td>약 1시간 32분</td></tr>
       <tr><td class="k">좌석</td><td>예약 없음 (정원제) · 만석이면 다음 차</td></tr>
       <tr><td class="k">요금</td><td>약 1,980엔 (1,790엔 표기도 있어 창구 확인)</td></tr>
-      <tr><td class="k">결제</td><td>창구 또는 차내 · 현금·IC<span class="w">신용카드 안 됨 · 2천·5천·1만엔권 거스름 안 됨</span></td></tr>
+      <tr><td class="k">결제</td><td><mark class="hl buy">터미널 창구 또는 차내</mark> · <mark class="hl cash">💴 현금 또는 IC · 신용카드 안 됨</mark><span class="w">차내에선 2천·5천·1만엔권 거스름 안 됨 → 천엔권·동전 준비</span></td></tr>
       <tr><td class="k">차내</td><td>일부 차량만 화장실 → <b>타기 전 터미널 화장실</b></td></tr>
       <tr><td class="k">내린 후</td><td>니시테츠 텐진 고속버스터미널 3층 (솔라리아터미널빌딩) → 마이스테이 도보 약 6분</td></tr>
     </tbody>
 
     <tbody data-r="tenjin">
-      <tr class="tt-day"><th colspan="2">10/14 수 · 텐진 → 후쿠오카공항 국제선<small>🚌 공항 직행버스</small><span class="st onday">예약 없음</span></th></tr>
+      <tr class="tt-day"><td class="stay" rowspan="11"><div><span class="sd">10/14 수</span><span class="si">🏠</span><b>귀국</b></div></td><th colspan="2">텐진 → 후쿠오카공항 국제선<small>🚌 공항 직행버스</small><mark class="hl buy">현장 구매</mark><mark class="hl cash">💴 현금</mark></th></tr>
       <tr><td class="k">가는 길</td><td>마이스테이 → 도보 약 6분 → 미쓰코시 1층 라이온광장에서 3층으로</td></tr>
       <tr><td class="k">타는 곳</td><td>니시테츠 텐진 고속버스터미널 <b>3층 6번 승강장</b> · 국제선 터미널행</td></tr>
       <tr><td class="k">시각</td><td><b>10:45~11:00</b> 출발 → 11:40까지 국제선 도착 · 배차 간격은 전날 3층 창구에서 확인</td></tr>
       <tr><td class="k">소요</td><td>30~40분, 논스톱</td></tr>
-      <tr><td class="k">요금 · 결제</td><td>500엔 (IC 480엔) · 앞문으로 타며 냄 · 현금·IC<span class="w">신용카드 안 됨</span></td></tr>
+      <tr><td class="k">요금 · 결제</td><td><mark class="hl buy">앞문으로 타면서 냄</mark> · <mark class="hl cash">💴 현금 500엔 또는 IC 480엔 · 신용카드 안 됨</mark></td></tr>
       <tr><td class="k">짐</td><td>캐리어는 기사님이 차 아래 짐칸에</td></tr>
       <tr><td class="k">대안</td><td>지하철 + 무료 셔틀 260엔 · 40~50분 · 갈아타기 2번 (10:30 출발)</td></tr>
-    </tbody>
-
-    <tbody data-r="tenjin">
-      <tr class="tt-day"><th colspan="2">10/14 수 · 후쿠오카 → 인천<small>✈ 제주항공 7C1472</small><span class="st ok">예약 완료</span></th></tr>
+      <tr class="tt-day"><th colspan="2">후쿠오카 → 인천<small>✈ 제주항공 7C1472</small><span class="st ok">예약 완료</span></th></tr>
       <tr><td class="k">시각</td><td><b>13:40</b> 후쿠오카 국제선 → <b>15:25</b> 인천 (1시간 45분)</td></tr>
       <tr><td class="k">인천 → 집</td><td>아직 정하지 않음</td></tr>
     </tbody>
+
   </table>
   <p class="tt-foot">일본 쪽 요금·시각표는 2026년 9월 조회 기준(유후인고 시각표는 2025년 4월 개정판) · 탑승 전 재확인</p>
     </div>
