@@ -448,6 +448,28 @@
     .say-jp{font-size:15.5px;}
     .emg .num{font-size:17px;}
   }
+  /* 개요 탭 — 날짜별 이동 시각표 */
+  .tabbtn[data-r="overview"]{--btnc:var(--ink);}
+  .region-panel[data-region="overview"]{--rc:var(--ink-soft);--rc-soft:var(--surface-2);--rc-ink:var(--ink);}
+  .tt{width:100%;border-collapse:collapse;background:var(--surface);table-layout:fixed;font-size:12.5px;line-height:1.45;}
+  .tt th,.tt td{border:1px solid var(--line-soft);padding:6px;vertical-align:top;word-break:keep-all;overflow-wrap:anywhere;}
+  .tt thead th{background:var(--surface-2);font-size:11.5px;font-weight:700;color:var(--ink-soft);text-align:left;}
+  .tt col.c1{width:21%;} .tt col.c2{width:37%;} .tt col.c3{width:42%;}
+  .tt tr.tt-day th{text-align:left;font-size:13.5px;font-weight:900;color:var(--ci);background:var(--cs);padding-top:10px;}
+  .tt tr.tt-day th small{font-weight:500;color:var(--ink-soft);font-size:11.5px;margin-left:6px;}
+  .tt tr.tt-day th .hol{font-size:10.5px;font-weight:700;color:var(--caution);margin-left:6px;}
+  .tt tbody{border:3px solid var(--c);}
+  .tt tr.out td,.tt tr.in td{background:color-mix(in srgb, var(--cs) 40%, var(--surface));}
+  .tt tbody[data-r="hakata"]{--c:var(--hakata);--cs:var(--hakata-soft);--ci:var(--hakata-ink);}
+  .tt tbody[data-r="yufuin"]{--c:var(--yufuin);--cs:var(--yufuin-soft);--ci:var(--yufuin-ink);}
+  .tt tbody[data-r="hita"]{--c:var(--hita);--cs:var(--hita-soft);--ci:var(--hita-ink);}
+  .tt tbody[data-r="tenjin"]{--c:var(--tenjin);--cs:var(--tenjin-soft);--ci:var(--tenjin-ink);}
+  .tt td.t{font:700 12.5px "IBM Plex Mono",monospace;overflow-wrap:normal;}
+  .tt td.t small{display:block;font:500 10.5px "Noto Sans KR",sans-serif;color:var(--ink-faint);}
+  .tt tr.out td:nth-child(2),.tt tr.in td:nth-child(2){font-weight:700;}
+  .tt td.m{font-size:11.5px;color:var(--ink-soft);}
+  .tt .w{display:block;color:var(--caution);font-weight:700;}
+  .tt-foot{margin:10px 2px 0;font-size:10.5px;color:var(--ink-faint);line-height:1.6;}
   @media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
 </style>
 </head>
@@ -489,17 +511,82 @@
   </div>
 
   <nav class="tabbar" id="tabbar">
-    <button class="tabbtn active" data-r="days">하루하루<span class="d">6일 흐름</span></button>
+    <button class="tabbtn active" data-r="overview">개요<span class="d">시각표</span></button>
     <button class="tabbtn" data-r="hakata">하카타<span class="d">DAY 1</span></button>
     <button class="tabbtn" data-r="yufuin">유후인<span class="d">DAY 2–3</span></button>
     <button class="tabbtn" data-r="hita">히타<span class="d">DAY 4</span></button>
     <button class="tabbtn" data-r="tenjin">텐진<span class="d">DAY 5–6</span></button>
     <button class="tabbtn" data-r="transit">교통<span class="d">구간별 비교</span></button>
+    <button class="tabbtn" data-r="days">자세히<span class="d">6일 흐름</span></button>
     <button class="tabbtn" data-r="checklist">체크리스트<span class="d">임신 21주차</span></button>
   </nav>
 
+  <!-- ================= 개요 ================= -->
+  <section class="region-panel" id="panel-overview" data-region="overview">
+    <div class="info-hero">
+      <div class="region-eyebrow">OVERVIEW</div>
+      <h2>움직이는 시각표</h2>
+      <p class="region-tagline">🚪 숙소에서 나오기 · 🚌🚆✈ 타는 것 · 🛏 숙소 들어가기</p>
+    </div>
+    <div class="tt-wrap">
+  <table class="tt">
+    <colgroup><col class="c1"><col class="c2"><col class="c3"></colgroup>
+    <thead><tr><th>시각</th><th>할 일</th><th>메모</th></tr></thead>
+
+    <tbody data-r="hakata">
+      <tr class="tt-day"><th colspan="3">10/9 금<small>집 → 인천 → 하카타</small></th></tr>
+      <tr class="out"><td class="t">12:30</td><td>🚌 집 앞 → 인천공항 T1</td><td class="m">좌석 <b>07 · 08</b> · 약 1시간 33분</td></tr>
+      <tr><td class="t">~14:03</td><td>인천공항 T1 도착</td><td class="m">비행기까지 약 3시간</td></tr>
+      <tr><td class="t">17:20<small>→ 18:50</small></td><td>✈ 인천 → 후쿠오카</td><td class="m">7C1407 · Visit Japan Web QR 준비 · 입국까지 30~45분</td></tr>
+      <tr><td class="t">~19:40</td><td>🚌 국제선 → 국내선 셔틀<br>🚇 지하철 공항선 → 하카타역</td><td class="m">셔틀: 1층 나가서 "1"번 빨간 정류장, 무료<br>지하철: 메이노하마행 2정거장 · 260엔</td></tr>
+      <tr class="in"><td class="t">~20:15</td><td>🛏 비아 인 하카타구치 체크인</td><td class="m">博多口 개찰 → 도보 약 5분</td></tr>
+    </tbody>
+
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="3">10/10 토<small>하카타 → 유후인</small><span class="hol">연휴 1일차</span></th></tr>
+      <tr class="out"><td class="t">오전</td><td>🚪 비아 인 체크아웃</td><td class="m">버스 전까지 하카타 2~3시간</td></tr>
+      <tr><td class="t">~12:00<small>예약한 시각</small></td><td>🚌 유후인고 하카타 → 유후인</td><td class="m">하카타 버스터미널 <b>3층 34번</b> · 2시간 10분 · 3,250엔(웹 2,880)<span class="w">좌석 예약 필수 · 행선지 由布院 확인</span></td></tr>
+      <tr><td class="t">~14:30</td><td>유후인역앞 버스센터 도착</td><td class="m">JR 유후인역까지 도보 2분</td></tr>
+      <tr class="in"><td class="t">15:00~<wbr>17:00</td><td>🛏 도쇼안 셔틀 → 체크인</td><td class="m">셔틀 시간대 놓치면 택시 약 10분</td></tr>
+    </tbody>
+
+    <tbody data-r="yufuin">
+      <tr class="tt-day"><th colspan="3">10/11 일<small>유후인 안에서 숙소 이동</small><span class="hol">연휴 2일차</span></th></tr>
+      <tr class="out"><td class="t">오전</td><td>🚪 도쇼안 체크아웃</td><td class="m">유후인 치키에 짐 맡기면 나카야로 배송 · 접수 09:00~15:00 · 300~1,200엔</td></tr>
+      <tr><td class="t">낮</td><td>🚶 유노쓰보 카이도</td><td class="m">붐비기 전 오전에 걷기</td></tr>
+      <tr class="in"><td class="t">오후</td><td>🛏 온야도 나카야 체크인</td><td class="m">유후인역에서 도보 17분</td></tr>
+    </tbody>
+
+    <tbody data-r="hita">
+      <tr class="tt-day"><th colspan="3">10/12 월<small>유후인 → 아마가세온천</small><span class="hol">공휴일</span></th></tr>
+      <tr class="out"><td class="t">열차 전</td><td>🚪 나카야 체크아웃</td><td class="m">유후인역까지 도보 17분</td></tr>
+      <tr><td class="t">09:08<br>12:01<br>14:15<br>17:17<small>특급 중 택1</small></td><td>🚆 유후인 → 아마가세</td><td class="m">45~51분 · <b>종이표</b>(창구 07:00~18:00), 특급권 같이 · 히타·하카타 방면 승강장<span class="w">13:42 열차는 아마가세 안 감<br>평일 시각표라 10/12 날짜로 재확인</span></td></tr>
+      <tr class="in"><td class="t">도착 후</td><td>🛏 산소 텐스이 송영 → 체크인</td><td class="m">무인역 · 계단 있음 · 송영 미리 예약 · 0973-57-2424</td></tr>
+    </tbody>
+
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="3">10/13 화<small>아마가세 → 히타 → 텐진</small></th></tr>
+      <tr class="out"><td class="t">오전</td><td>🚪 텐스이 체크아웃</td><td class="m">아마가세역으로 (송영 여부는 료칸에 확인)</td></tr>
+      <tr><td class="t">오전</td><td>🚆 아마가세 → 히타</td><td class="m">JR 15분 · 340엔 · 종이표·차내 정산이라 잔돈 준비</td></tr>
+      <tr><td class="t">낮</td><td>🚶 마메다마치</td><td class="m">히타역에서 북쪽 1.5km(도보 20분) · 돌아올 시간 계산</td></tr>
+      <tr><td class="t">예: 15:00<small>약 30분 간격</small></td><td>🚌 히타고 히타 → 텐진</td><td class="m">히타역 앞 <b>2번</b> · 1시간 32분 · 약 1,980엔 · 예약 없음(만석이면 다음 차)<span class="w">현금·IC만 · 고액권 거스름 안 됨 · 타기 전 화장실</span></td></tr>
+      <tr class="in"><td class="t">~16:30</td><td>🛏 마이스테이 텐진 체크인</td><td class="m">텐진 고속버스터미널 3층 하차 → 도보 6분</td></tr>
+    </tbody>
+
+    <tbody data-r="tenjin">
+      <tr class="tt-day"><th colspan="3">10/14 수<small>텐진 → 인천</small></th></tr>
+      <tr class="out"><td class="t">아침</td><td>🚪 마이스테이 체크아웃</td><td class="m">짐은 프런트에 (안 되면 텐진역 코인로커)</td></tr>
+      <tr><td class="t">10:45~<wbr>11:00</td><td>🚌 공항 직행버스 → 국제선</td><td class="m">텐진 고속버스터미널 <b>3층 6번</b> · 30~40분 · 500엔(IC 480) · 신용카드 안 됨</td></tr>
+      <tr><td class="t">11:40</td><td>국제선 터미널 도착</td><td class="m">출발 2시간 전</td></tr>
+      <tr><td class="t">13:40<small>→ 15:25</small></td><td>✈ 후쿠오카 → 인천</td><td class="m">7C1472</td></tr>
+    </tbody>
+  </table>
+  <p class="tt-foot">체크아웃·체크인 정확한 시각은 예약 확인서 기준 · 일본 요금·시각표는 2026년 9월 조회 기준이라 탑승 전 재확인<br>10/10~10/12는 일본 3연휴</p>
+    </div>
+  </section>
+
   <!-- ================= 하루하루 ================= -->
-  <section class="region-panel" id="panel-days" data-region="days">
+  <section class="region-panel" id="panel-days" data-region="days" hidden>
     <div class="info-hero">
       <div class="region-eyebrow">DAY BY DAY</div>
       <h2>6일, 하루씩 뜯어보기</h2>
